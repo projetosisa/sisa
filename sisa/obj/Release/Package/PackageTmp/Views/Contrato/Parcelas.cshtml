@@ -1,0 +1,32 @@
+﻿@model IEnumerable<sisa.Models.TB_TITULO>
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <p>
+        <h3>Lista Parcelas</h3>
+    </p>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Parcelas</h4><label>Cod.Cliente: @ViewBag.CodCliente</label>
+        </div>
+        <div class="panel-body">
+            <div id="_lstparcelas"></div>
+            @{
+                if (Model != null)
+                {
+                    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 10);
+                    grid.Pager(WebGridPagerModes.NextPrevious);
+                    @grid.GetHtml(tableStyle: "table table-hover",
+            headerStyle: "header",
+            footerStyle: "paginacao",
+            alternatingRowStyle: "alt",
+            columns: grid.Columns(
+                grid.Column("NR_PARCELA", "Nro.Parcela", canSort: true),
+                grid.Column("NM_BANCO", "Banco", canSort: true),
+                grid.Column("VL_TITULO", "Valor Título", canSort: true)
+                        ));
+                }
+            }
+        </div>
+    </div>

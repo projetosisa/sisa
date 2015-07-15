@@ -1,0 +1,74 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Parcelas";
+    int codcli = ViewBag.CodCliente != null ? ViewBag.CodCliente : 0;
+    var ExibirCliente = new sisa.DAO.Pessoa().Lista(codcli);
+    var dados = new sisa.DAO.Pessoa().Dados(codcli);
+}
+
+@if (ExibirCliente.Count() > 0)
+{
+    <div class="row">
+        <div class="col-lg-11">
+            <h2>Parcelas</h2>
+        </div>
+    </div>
+
+    @Html.Partial("~/Views/Pessoa/_Cliente.cshtml", ExibirCliente)
+    <div class="row">
+        <div class="col-lg-1 text-center">
+            <p>
+                <a href="@Url.Action("Index", "Pessoa", new {codcli=codcli,banco=ViewBag.Banco })" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-repeat"></i>&nbsp;Voltar</a>
+            </p>
+        </div>
+    </div>
+
+}
+
+@if (Model != null)
+{
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Parcelas</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Parcelas</th>
+                    <th>Dias Atraso</th>
+                    <th>Dt.Vencimento</th>
+                    <th>Valor Titulo</th>
+                    <th>Boleto</th>
+                    <th>Dt.Recebimento</th>
+                    <th>Banco</th>
+                    <th>Dt.Pagamento</th>
+                    <th>Honorários</th>
+                    <th>Juros</th>
+                    <th>Valor Total</th>
+                </tr>
+                @foreach (System.Data.DataRow itm in Model.Rows)
+                {
+                    <tr>
+                        <td>@itm["NR_PARCELA"]</td>
+                        <td>@itm["NR_DIAS_ATRASO"]</td>
+                        <td>@itm["DT_VCTO"]</td>
+                        <td>@itm["VL_TITULO"]</td>
+                        <td>@itm["CD_BOLETO"]</td>
+                        <td>@itm["DT_RECEBIMENTO"]</td>
+                        <td>@itm["NM_BANCO"]</td>
+                        <td>@itm["DT_PAGTO"]</td>
+                        <td>@itm["VL_HONORARIOS"]</td>
+                        <td>@itm["VL_JUROS"]</td>
+                        <td>@itm["VL_TOTAL"]</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryui")
+

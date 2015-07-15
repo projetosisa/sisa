@@ -1,0 +1,186 @@
+﻿@model sisa.Models.TB_PESSOA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_PESSOA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NM_PESSOA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NM_PESSOA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IN_F_J)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IN_F_J)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_CNPJ_CPF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_CNPJ_CPF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_OCUPACAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_OCUPACAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_CARGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_CARGO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_RG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_RG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DT_EMISSAO_RG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DT_EMISSAO_RG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_ORGAO_EMISSAO_RG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_ORGAO_EMISSAO_RG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CD_UF_RG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CD_UF_RG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_SEXO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_SEXO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DT_NASCIMENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DT_NASCIMENTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_NATURALIDADE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_NATURALIDADE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_NACIONALIDADE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_NACIONALIDADE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_ESTADO_CIVIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_ESTADO_CIVIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_NOME_CONJUGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_NOME_CONJUGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_NOME_PAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_NOME_PAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AN_NOME_MAE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AN_NOME_MAE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DT_ALTERACAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DT_ALTERACAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DT_INCLUSAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DT_INCLUSAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CD_USUARIO_INC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CD_USUARIO_INC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CD_USUARIO_ALT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CD_USUARIO_ALT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

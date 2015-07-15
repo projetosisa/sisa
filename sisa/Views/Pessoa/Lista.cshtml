@@ -1,0 +1,27 @@
+﻿@model IEnumerable<sisa.Models.TB_CONTRATO>
+@{
+    Layout = null;
+    var i = 0;
+}
+
+    @if (Model != null)
+    {
+      <table class="table table-bordered table-hover">
+            <tr>
+                <th style="text-align:left;">Seq.</th>
+                <th style="text-align:left;">Contrato</th>
+                <th style="text-align:left;">Banco</th>
+            </tr>
+            @foreach (var itm in Model)
+            {
+            i++;
+            <tr>
+                <td>@i</td>
+                <td><a href="/Pessoa/Parcelas?codcontrato=@itm.CD_CONTRATO&idcli=@itm.CD_CLIENTE" id="parcelas_@i" onclick="Contrato(this);">@itm.CD_CONTRATO</a></td>
+                <td>@itm.NM_BANCO</td>
+            </tr>
+            }
+      </table>
+    }
+        
+

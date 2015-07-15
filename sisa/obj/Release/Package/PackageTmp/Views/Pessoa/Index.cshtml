@@ -1,0 +1,180 @@
+﻿@{
+    ViewBag.Title = "Cliente";
+    int codcli = ViewBag.CodCliente != null ? ViewBag.CodCliente : 0;
+    //var listaContratos = ViewBag.Contratos != null ? ViewBag.Contratos : null;
+    var pes = new sisa.DAO.Pessoa().Dados(codcli);
+    var listaContratos = new sisa.DAO.Contrato().Lista(codcli);
+    var listaParcelas = ViewBag.Parcelas != null ? ViewBag.Parcelas : null;
+    int i = 0;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4><i class="glyphicon glyphicon-user"></i>&nbsp;Cliente</h4>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Index", "Pessoa", new { codcli = codcli }))
+        { 
+            <div class="row">
+                <div class="col-lg-4">
+                    <label>Nome Cliente</label>
+                    <input type="text" id="nomecli" name="nomecli" class="form-control input-sm" placeholder="Pesquisa por nome do cliente" value="" />
+                    <input type="hidden" id="codcli" name="codcli"/>
+                </div>
+                <div class="col-lg-2">
+                    <label>CPF/CNPJ</label>
+                    <input type="text" id="cpfcnpj" name="cpfcnpj" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Código Chave</label>
+                    <input type="text" id="codchave" name="codchave" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Banco</label>
+                    <input type="text" id="banco" name="banco" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Agência</label>
+                    <input type="text" id="agencia" name="agencia" class="form-control input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    <label>Status</label>
+                    <input type="text" id="status" name="status" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Carteira</label>
+                    <input type="text" id="carteira" name="operador" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Operador</label>
+                    <input type="text" id="operador" name="operador" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Proc.Substabelecido</label>
+                    <input type="text" id="procsubs" name="procsubs" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-3">
+                    <label>Localizador</label>
+                    <input type="text" id="localizador" name="localizador" class="form-control input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <label>Campanha</label>
+                    <input type="text" id="campanha" name="campanha" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-3">
+                    <label>Informativo</label>
+                    <input type="text" id="infomativo" name="informativo" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-3">
+                    <label>Recurso Auxiliar</label>
+                    <input type="text" id="recursoaux" name="recursoaux" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-3">
+                    <label>Cluster</label>
+                    <input type="text" id="cluster" name="cluster" class="form-control input-sm" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Contratos/Processos</h4>
+        </div>
+        <div class="panel-body">
+            <div id="_lstcontratos"></div>
+        </div>
+    </div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        var pathname = window.location.pathname;
+        //alert("teste");
+
+        $("#nomecli").autocomplete({
+            source: function (request, response) {
+                var customer = new Array();
+                $.ajax({
+                    async: false,
+                    cache: false,
+                    type: "POST",
+                    dataType: 'json',
+                    url: "@(Url.Action("AutocompletePessoa", "Pessoa"))",
+                    data: { "term": request.term },
+                    success: function (data) {
+                        for (var i = 0; i < data.length ; i++) {
+                            customer[i] = { label: data[i].Value, Id: data[i].Key };
+                        }
+                    }
+                });
+                response(customer);
+            },
+            select: function (event, ui) {
+                //fill selected customer details on form
+                $.ajax({
+                    cache: false,
+                    async: false,
+                    type: "POST",
+                    url: "@(Url.Action("GetDetail", "Pessoa"))",
+                    data: { "id": ui.item.Id },
+                    success: function (data) {
+                        //var cnpjcpf = data.AN_CNPJ_CPF;
+
+                        $("#cpfcnpj").val(data.AN_CNPJ_CPF);
+                        $("#codchave").val(data.CD_CLIENTE);
+                        codcli = data.CD_CLIENTE;
+                        //$("#operador").val(_op);
+                        
+                        //$("#lnklocalizar").attr('href', pathname+'/Index?codcli='+codcli);
+
+                        //$("#_lstcontratos").html("");
+                        //$(data).each(function (index, el) {
+                        //    $("#_lstcontratos").last().append("<tr><td>" + el.CD_CLIENTE + "</td></tr>");
+                        //});
+                        if (codcli > 0) {
+                            //ListarContratos2(codcli);
+                            $("#_lstcontratos").load("/Contrato/ListaContratos?codcli=" + codcli);
+                        }
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Erro, Não foi possível executar operação, tente novamente !!!");
+                    }
+                });
+
+            }
+        });
+
+    });
+
+    function ListarContratos(idcli) {
+        $.ajax({
+            async: false,
+            cache: false,
+            type: "POST",
+            url: '@Url.Action("ListaContratos", "Contrato")',
+            data: { "codcli": idcli },
+            success: function (data) {
+                //action = data.Action;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Erro no ListarContratos, Não foi possível executar operação, tente novamente !!!");
+            }
+        });
+    }
+
+    function Contrato(sel) {
+        //alert("selecionou" + sel.innerHTML);
+        $("#_lstparcelas").load("/Contrato/ListaParcelas?codcontrato=" + sel.innerHTML);
+    }
+</script>
+}

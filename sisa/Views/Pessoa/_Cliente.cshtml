@@ -1,0 +1,85 @@
+﻿@model IEnumerable<sisa.Models.TB_PESSOA>
+@{
+    Layout = null;
+}
+
+@if (Model != null)
+{
+
+    var pes = Model.Single();
+    
+<div class="panel panel-default">
+    <div class="panel-heading">
+            <h4>
+                <i class="glyphicon glyphicon-user"></i>&nbsp;Cliente 
+            </h4>
+    </div>
+    <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <label>Nome Cliente</label>
+                    <input type="text" id="nomecli" name="nomecli" class="form-control input-sm" placeholder="Pesquisa por nome do cliente" value="@pes.NM_PESSOA" />
+                    <spam id="selecionar"></spam>
+                    <input type="hidden" id="codcli" name="codcli" />
+                </div>
+                <div class="col-lg-2">
+                    <label>CPF/CNPJ</label>
+                    <input type="text" id="cpfcnpj" name="cpfcnpj" class="form-control input-sm" value="@pes.AN_CNPJ_CPF"/>
+                </div>
+                <div class="col-lg-2">
+                    <label>Código Chave</label>
+                    <input type="text" id="codchave" name="codchave" class="form-control input-sm" value="@pes.CD_CLIENTE"/>
+                </div>
+                <div class="col-lg-2">
+                    <label>Banco</label>
+                    <input type="text" id="banco" name="banco" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Agência</label>
+                    <input type="text" id="agencia" name="agencia" class="form-control input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    <label>Status</label>
+                    <input type="text" id="status" name="status" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Carteira</label>
+                    <input type="text" id="carteira" name="operador" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Operador</label>
+                    <input type="text" id="operador" name="operador" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-2">
+                    <label>Proc.Substabelecido</label>
+                    <input type="text" id="procsubs" name="procsubs" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-3">
+                    <label>Localizador</label>
+                    <input type="text" id="localizador" name="localizador" class="form-control input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <label>Campanha</label>
+                    <input type="text" id="campanha" name="campanha" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-3">
+                    <label>Informativo</label>
+                    <input type="text" id="infomativo" name="informativo" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-3">
+                    <label>Recurso Auxiliar</label>
+                    <input type="text" id="recursoaux" name="recursoaux" class="form-control input-sm" />
+                </div>
+                <div class="col-lg-3">
+                    <label>Cluster</label>
+                    <input type="text" id="cluster" name="cluster" class="form-control input-sm" />
+                </div>
+            </div>
+
+    </div>
+</div>
+}
