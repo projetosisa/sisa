@@ -7,11 +7,11 @@ namespace sisa.DAO
 {
     static public class Conexao
     {
-        static public sisa.Models.SisaModel Banco
+        static public sisa.Models.SisaEntities Banco
         {
             get
             {
-                return new sisa.Models.SisaModel();
+                return new sisa.Models.SisaEntities();
             }
         } 
     }

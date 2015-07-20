@@ -125,64 +125,199 @@
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\Contrato.cs" />
     <Compile Include="DAO\Dados.cs" />
+    <Compile Include="DAO\ListaContrato.cs" />
     <Compile Include="DAO\Parcela.cs" />
     <Compile Include="DAO\Pessoa.cs" />
     <Compile Include="DAO\Processo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\menuMaster.cs" />
-    <Compile Include="Models\SisaModel.cs" />
-    <Compile Include="Models\TB_ACORDO.cs" />
-    <Compile Include="Models\TB_ADVOGADO.cs" />
-    <Compile Include="Models\TB_ALVARAS_AUTOMATIZADOS.cs" />
-    <Compile Include="Models\TB_AND_PROCESSO.cs" />
-    <Compile Include="Models\TB_AUDIENCIAS.cs" />
-    <Compile Include="Models\TB_AVALISTA.cs" />
-    <Compile Include="Models\TB_BANCO.cs" />
-    <Compile Include="Models\TB_BOLETO.cs" />
-    <Compile Include="Models\TB_CLIENTE.cs" />
-    <Compile Include="Models\TB_COD_AND_PROCESSOS.cs" />
-    <Compile Include="Models\TB_COD_DESPESA.cs" />
-    <Compile Include="Models\TB_COD_EVENTO.cs" />
-    <Compile Include="Models\TB_COD_HONORARIO.cs" />
-    <Compile Include="Models\TB_COMARCA.cs" />
-    <Compile Include="Models\TB_CONTATO.cs" />
-    <Compile Include="Models\TB_CONTRATO.cs" />
-    <Compile Include="Models\TB_CUSTAS.cs" />
-    <Compile Include="Models\TB_DADOS_REFERENCIA.cs" />
-    <Compile Include="Models\TB_DEPOSITOS_JUDICIAIS.cs" />
-    <Compile Include="Models\TB_DESPESA.cs" />
-    <Compile Include="Models\TB_DIC_DADOS.cs" />
-    <Compile Include="Models\TB_DOMINIO.cs" />
-    <Compile Include="Models\TB_EMAIL.cs" />
-    <Compile Include="Models\TB_ENDERECO.cs" />
-    <Compile Include="Models\TB_EVENTO.cs" />
-    <Compile Include="Models\TB_FERIADO.cs" />
-    <Compile Include="Models\TB_GRUPO.cs" />
-    <Compile Include="Models\TB_HISTORICO.cs" />
-    <Compile Include="Models\TB_HONORARIO.cs" />
-    <Compile Include="Models\TB_HORARIOS.cs" />
-    <Compile Include="Models\TB_INDICE.cs" />
-    <Compile Include="Models\TB_LOGIN.cs" />
-    <Compile Include="Models\TB_MANDADOSOFICIAIS.cs" />
-    <Compile Include="Models\TB_MOVIMENTACOES.cs" />
-    <Compile Include="Models\TB_NOTAS_EXPEDIENTE.cs" />
-    <Compile Include="Models\TB_NOTIFICACAO.cs" />
-    <Compile Include="Models\TB_OBSERVACAO_JUDICIAL.cs" />
-    <Compile Include="Models\TB_OBSERVACAO_PREJUD.cs" />
-    <Compile Include="Models\TB_PARTES_ENVOLVIDAS.cs" />
-    <Compile Include="Models\TB_PERMISSOES.cs" />
-    <Compile Include="Models\TB_PESSOA.cs" />
-    <Compile Include="Models\TB_PETICOES.cs" />
-    <Compile Include="Models\TB_PROCESSO.cs" />
-    <Compile Include="Models\TB_SISTEMA.cs" />
-    <Compile Include="Models\TB_TELA.cs" />
-    <Compile Include="Models\TB_TIPO_ACAO.cs" />
-    <Compile Include="Models\TB_TITULO.cs" />
-    <Compile Include="Models\TB_UF.cs" />
-    <Compile Include="Models\TB_USUARIO.cs" />
-    <Compile Include="Models\TB_VEICULO.cs" />
+    <Compile Include="Models\menuMaster.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SisaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SisaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SisaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SisaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SisaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_ACORDO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_ADVOGADO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_ALVARAS_AUTOMATIZADOS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_AND_PROCESSO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_AUDIENCIAS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_AVALISTA.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_BANCO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_BOLETO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_CLIENTE.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_COD_AND_PROCESSOS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_COD_DESPESA.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_COD_EVENTO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_COD_HONORARIO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_COMARCA.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_CONTATO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_CONTRATO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_CUSTAS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_DADOS_REFERENCIA.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_DEPOSITOS_JUDICIAIS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_DESPESA.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_DIC_DADOS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_DOMINIO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_EMAIL.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_ENDERECO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_EVENTO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_FERIADO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_GRUPO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_HISTORICO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_HONORARIO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_HORARIOS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_INDICE.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_LOGIN.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_MANDADOSOFICIAIS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_MOVIMENTACOES.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_NOTAS_EXPEDIENTE.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_NOTIFICACAO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_OBSERVACAO_JUDICIAL.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_OBSERVACAO_PREJUD.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_PARTES_ENVOLVIDAS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_PERMISSOES.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_PESSOA.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_PETICOES.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_PROCESSO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_SISTEMA.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_TELA.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_TIPO_ACAO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_TITULO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_UF.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_USUARIO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_VEICULO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\View_Dias_Atraso.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_busca_cliente_banco.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_CONTRATOS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_listacontratos.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_PROCESSO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_TITULOS.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +427,23 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Models\SisaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SisaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SisaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SisaModel.edmx</DependentUpon>
+      <LastGenOutput>SisaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SisaModel.edmx.diagram">
+      <DependentUpon>SisaModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\SisaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SisaModel.edmx</DependentUpon>
+      <LastGenOutput>SisaModel.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\sisa.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -345,6 +497,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

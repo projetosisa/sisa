@@ -13,16 +13,19 @@ namespace sisa.Controllers
 {
     public class PessoaController : Controller
     {
-        private SisaModel db = new SisaModel();
+        private SisaEntities db = new SisaEntities();
 
         // GET: Pessoa
-        public ActionResult Index(int codcli = 0,string banco=null)
+        public ActionResult Index(int codcli = 0,string banco=null,string contrato=null)
         {
             ViewBag.CodCliente = codcli;
             ViewBag.Banco = banco;
+            ViewBag.Contrato = contrato;
+            ViewBag.ExibirConsulta = true;
             if (codcli > 0)
             {
-                ViewBag.Contratos = new sisa.DAO.Contrato().Lista(codcli);
+                ViewBag.ExibirConsulta = false;
+                ViewBag.Contratos = new sisa.DAO.Contrato().RetornaContratos(codcli);
             }
             return View();
         }
@@ -32,6 +35,7 @@ namespace sisa.Controllers
             ViewBag.CodCliente = codcli;
             ViewBag.Banco = banco;
             ViewBag.Contratos = new Contrato().RetornaContratos(codcli, banco);
+            ViewBag.ExibirConsulta = false;
             return View("Index");
         }
 
@@ -40,13 +44,16 @@ namespace sisa.Controllers
             ViewBag.CodCliente = codcli;
             ViewBag.Banco = banco;
             var lista = new Processo().Lista(codcli, banco);
+            ViewBag.ExibirConsulta = false;
             return View("Processos",lista);
         }
-        public ActionResult ListaParcelas(int codcli, string banco)
+        public ActionResult ListaParcelas(int codcli, string banco, string contrato)
         {
-            var lista = new Parcela().ListaTb(codcli, banco);
+            var lista = new Parcela().ListaTb(codcli, banco, contrato);
             ViewBag.CodCliente = codcli;
             ViewBag.Banco = banco;
+            ViewBag.Contrato = contrato;
+            ViewBag.exibirConsulta = false;
             return View("Parcelas", lista);
         }
 

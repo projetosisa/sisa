@@ -1,0 +1,1692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SisaModelStoreContainer" CdmEntityContainer="SisaEntities">
+    <EntitySetMapping Name="menuMaster">
+      <EntityTypeMapping TypeName="SisaModel.menuMaster">
+        <MappingFragment StoreEntitySet="menuMaster">
+          <ScalarProperty Name="Menu_ID" ColumnName="Menu_ID" />
+          <ScalarProperty Name="Menu_Nome" ColumnName="Menu_Nome" />
+          <ScalarProperty Name="Menu_Parent" ColumnName="Menu_Parent" />
+          <ScalarProperty Name="Menu_Enable" ColumnName="Menu_Enable" />
+          <ScalarProperty Name="Menu_Form" ColumnName="Menu_Form" />
+          <ScalarProperty Name="Menu_Texto" ColumnName="Menu_Texto" />
+          <ScalarProperty Name="Menu_Tipo" ColumnName="Menu_Tipo" />
+          <ScalarProperty Name="Menu_Icone" ColumnName="Menu_Icone" />
+          <ScalarProperty Name="Menu_Modulo" ColumnName="Menu_Modulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ACORDO">
+      <EntityTypeMapping TypeName="SisaModel.TB_ACORDO">
+        <MappingFragment StoreEntitySet="TB_ACORDO">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
+          <ScalarProperty Name="NR_ACORDO" ColumnName="NR_ACORDO" />
+          <ScalarProperty Name="CD_BOLETO" ColumnName="CD_BOLETO" />
+          <ScalarProperty Name="DT_VCTO" ColumnName="DT_VCTO" />
+          <ScalarProperty Name="VL_TITULO" ColumnName="VL_TITULO" />
+          <ScalarProperty Name="DT_PAGTO" ColumnName="DT_PAGTO" />
+          <ScalarProperty Name="VL_HONORARIOS" ColumnName="VL_HONORARIOS" />
+          <ScalarProperty Name="VL_CUSTAS" ColumnName="VL_CUSTAS" />
+          <ScalarProperty Name="VL_TARIFA" ColumnName="VL_TARIFA" />
+          <ScalarProperty Name="VL_TOTAL_GERAL" ColumnName="VL_TOTAL_GERAL" />
+          <ScalarProperty Name="TX_OBSERVACAO" ColumnName="TX_OBSERVACAO" />
+          <ScalarProperty Name="AN_TIPO_PAGTO" ColumnName="AN_TIPO_PAGTO" />
+          <ScalarProperty Name="DT_ACORDO" ColumnName="DT_ACORDO" />
+          <ScalarProperty Name="HR_ACORDO" ColumnName="HR_ACORDO" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="VL_BANCO" ColumnName="VL_BANCO" />
+          <ScalarProperty Name="VL_REPASSE" ColumnName="VL_REPASSE" />
+          <ScalarProperty Name="DT_REPASSE" ColumnName="DT_REPASSE" />
+          <ScalarProperty Name="HR_REPASSE" ColumnName="HR_REPASSE" />
+          <ScalarProperty Name="CD_USUARIO_REPASSE" ColumnName="CD_USUARIO_REPASSE" />
+          <ScalarProperty Name="AN_TIPO_ACORDO" ColumnName="AN_TIPO_ACORDO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ADVOGADO">
+      <EntityTypeMapping TypeName="SisaModel.TB_ADVOGADO">
+        <MappingFragment StoreEntitySet="TB_ADVOGADO">
+          <ScalarProperty Name="CD_ADVOGADO" ColumnName="CD_ADVOGADO" />
+          <ScalarProperty Name="NM_ADVOGADO" ColumnName="NM_ADVOGADO" />
+          <ScalarProperty Name="CD_OAB" ColumnName="CD_OAB" />
+          <ScalarProperty Name="AN_TELEFONE" ColumnName="AN_TELEFONE" />
+          <ScalarProperty Name="AN_EMAIL" ColumnName="AN_EMAIL" />
+          <ScalarProperty Name="NM_ESCRITORIO" ColumnName="NM_ESCRITORIO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ALVARAS_AUTOMATIZADOS">
+      <EntityTypeMapping TypeName="SisaModel.TB_ALVARAS_AUTOMATIZADOS">
+        <MappingFragment StoreEntitySet="TB_ALVARAS_AUTOMATIZADOS">
+          <ScalarProperty Name="ID_ALVARA" ColumnName="ID_ALVARA" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="NR_OPERACAO" ColumnName="NR_OPERACAO" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CONTRATO" ColumnName="CD_CONTRATO" />
+          <ScalarProperty Name="NR_PROCESSO_CNJ" ColumnName="NR_PROCESSO_CNJ" />
+          <ScalarProperty Name="NR_PROCESSO_THEMIS" ColumnName="NR_PROCESSO_THEMIS" />
+          <ScalarProperty Name="NR_ALVARA" ColumnName="NR_ALVARA" />
+          <ScalarProperty Name="BENEFICIARIO" ColumnName="BENEFICIARIO" />
+          <ScalarProperty Name="DATA_ALVARA" ColumnName="DATA_ALVARA" />
+          <ScalarProperty Name="SITUACAO" ColumnName="SITUACAO" />
+          <ScalarProperty Name="TIPO_RESGATE" ColumnName="TIPO_RESGATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AND_PROCESSO">
+      <EntityTypeMapping TypeName="SisaModel.TB_AND_PROCESSO">
+        <MappingFragment StoreEntitySet="TB_AND_PROCESSO">
+          <ScalarProperty Name="ID_ANDAMENTO" ColumnName="ID_ANDAMENTO" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="CD_ANDAMENTO" ColumnName="CD_ANDAMENTO" />
+          <ScalarProperty Name="DT_ANDAMENTO" ColumnName="DT_ANDAMENTO" />
+          <ScalarProperty Name="DS_ANDAMENTO" ColumnName="DS_ANDAMENTO" />
+          <ScalarProperty Name="FL_FIM_ACAO" ColumnName="FL_FIM_ACAO" />
+          <ScalarProperty Name="NR_C_FIN" ColumnName="NR_C_FIN" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AUDIENCIAS">
+      <EntityTypeMapping TypeName="SisaModel.TB_AUDIENCIAS">
+        <MappingFragment StoreEntitySet="TB_AUDIENCIAS">
+          <ScalarProperty Name="ID_AUDIENCIA" ColumnName="ID_AUDIENCIA" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="NR_OPERACAO" ColumnName="NR_OPERACAO" />
+          <ScalarProperty Name="CD_CONTRATO" ColumnName="CD_CONTRATO" />
+          <ScalarProperty Name="NR_PROCESSO_CNJ" ColumnName="NR_PROCESSO_CNJ" />
+          <ScalarProperty Name="NR_PROCESSO_THEMIS" ColumnName="NR_PROCESSO_THEMIS" />
+          <ScalarProperty Name="DATA_AUDIENCIA" ColumnName="DATA_AUDIENCIA" />
+          <ScalarProperty Name="TEXTO_AUDIENCIA" ColumnName="TEXTO_AUDIENCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AVALISTA">
+      <EntityTypeMapping TypeName="SisaModel.TB_AVALISTA">
+        <MappingFragment StoreEntitySet="TB_AVALISTA">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="SQ_AVALISTA" ColumnName="SQ_AVALISTA" />
+          <ScalarProperty Name="NM_AVALISTA" ColumnName="NM_AVALISTA" />
+          <ScalarProperty Name="IN_F_J_AVALISTA" ColumnName="IN_F_J_AVALISTA" />
+          <ScalarProperty Name="AN_ENDERECO" ColumnName="AN_ENDERECO" />
+          <ScalarProperty Name="AN_CIDADE" ColumnName="AN_CIDADE" />
+          <ScalarProperty Name="AN_BAIRRO" ColumnName="AN_BAIRRO" />
+          <ScalarProperty Name="AN_CEP" ColumnName="AN_CEP" />
+          <ScalarProperty Name="CD_UF" ColumnName="CD_UF" />
+          <ScalarProperty Name="AN_TELEFONE" ColumnName="AN_TELEFONE" />
+          <ScalarProperty Name="AN_CELULAR" ColumnName="AN_CELULAR" />
+          <ScalarProperty Name="AN_REF_AVALISTA1" ColumnName="AN_REF_AVALISTA1" />
+          <ScalarProperty Name="AN_REF_AVALISTA2" ColumnName="AN_REF_AVALISTA2" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_BANCO">
+      <EntityTypeMapping TypeName="SisaModel.TB_BANCO">
+        <MappingFragment StoreEntitySet="TB_BANCO">
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="CD_BANCO" ColumnName="CD_BANCO" />
+          <ScalarProperty Name="DS_BANCO" ColumnName="DS_BANCO" />
+          <ScalarProperty Name="AN_ENDERECO" ColumnName="AN_ENDERECO" />
+          <ScalarProperty Name="AN_CIDADE" ColumnName="AN_CIDADE" />
+          <ScalarProperty Name="CD_UF" ColumnName="CD_UF" />
+          <ScalarProperty Name="AN_CNPJ" ColumnName="AN_CNPJ" />
+          <ScalarProperty Name="AN_INS_EST" ColumnName="AN_INS_EST" />
+          <ScalarProperty Name="CD_AGENCIA" ColumnName="CD_AGENCIA" />
+          <ScalarProperty Name="CD_CEDENTE" ColumnName="CD_CEDENTE" />
+          <ScalarProperty Name="FT_IND_BANCO" ColumnName="FT_IND_BANCO" />
+          <ScalarProperty Name="FT_IND_JURIDICO" ColumnName="FT_IND_JURIDICO" />
+          <ScalarProperty Name="FT_IND_DESCONTO" ColumnName="FT_IND_DESCONTO" />
+          <ScalarProperty Name="FT_IND_JUROS" ColumnName="FT_IND_JUROS" />
+          <ScalarProperty Name="VL_ENCARGOS" ColumnName="VL_ENCARGOS" />
+          <ScalarProperty Name="VL_ESCRITORIO" ColumnName="VL_ESCRITORIO" />
+          <ScalarProperty Name="VL_NOTIFICACAO" ColumnName="VL_NOTIFICACAO" />
+          <ScalarProperty Name="VL_HONORARIOS" ColumnName="VL_HONORARIOS" />
+          <ScalarProperty Name="QT_DIAS_NOTIFICACAO" ColumnName="QT_DIAS_NOTIFICACAO" />
+          <ScalarProperty Name="NR_RECIBO" ColumnName="NR_RECIBO" />
+          <ScalarProperty Name="NR_BOLETO" ColumnName="NR_BOLETO" />
+          <ScalarProperty Name="NR_BORDERO" ColumnName="NR_BORDERO" />
+          <ScalarProperty Name="NR_NOTIFICACAO" ColumnName="NR_NOTIFICACAO" />
+          <ScalarProperty Name="NR_LOTE" ColumnName="NR_LOTE" />
+          <ScalarProperty Name="QT_DIAS_AJUIZAMENTO" ColumnName="QT_DIAS_AJUIZAMENTO" />
+          <ScalarProperty Name="QT_DIAS_CARTORIO" ColumnName="QT_DIAS_CARTORIO" />
+          <ScalarProperty Name="VL_META" ColumnName="VL_META" />
+          <ScalarProperty Name="VL_LOCALIZADOR" ColumnName="VL_LOCALIZADOR" />
+          <ScalarProperty Name="VL_MULTA" ColumnName="VL_MULTA" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_BOLETO">
+      <EntityTypeMapping TypeName="SisaModel.TB_BOLETO">
+        <MappingFragment StoreEntitySet="TB_BOLETO">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
+          <ScalarProperty Name="CD_BOLETO" ColumnName="CD_BOLETO" />
+          <ScalarProperty Name="DT_PREV_DEPOSITO" ColumnName="DT_PREV_DEPOSITO" />
+          <ScalarProperty Name="DT_VCTO" ColumnName="DT_VCTO" />
+          <ScalarProperty Name="VL_TITULO" ColumnName="VL_TITULO" />
+          <ScalarProperty Name="DT_PAGTO" ColumnName="DT_PAGTO" />
+          <ScalarProperty Name="VL_ENCARGOS" ColumnName="VL_ENCARGOS" />
+          <ScalarProperty Name="VL_ESCRITORIO" ColumnName="VL_ESCRITORIO" />
+          <ScalarProperty Name="VL_NOTIFICACAO" ColumnName="VL_NOTIFICACAO" />
+          <ScalarProperty Name="VL_HONORARIOS" ColumnName="VL_HONORARIOS" />
+          <ScalarProperty Name="VL_CPMF" ColumnName="VL_CPMF" />
+          <ScalarProperty Name="VL_LOCALIZADOR" ColumnName="VL_LOCALIZADOR" />
+          <ScalarProperty Name="VL_CUSTAS" ColumnName="VL_CUSTAS" />
+          <ScalarProperty Name="VL_DESP_EXTRA" ColumnName="VL_DESP_EXTRA" />
+          <ScalarProperty Name="VL_DESPESA" ColumnName="VL_DESPESA" />
+          <ScalarProperty Name="VL_TARIFA_BANCARIA" ColumnName="VL_TARIFA_BANCARIA" />
+          <ScalarProperty Name="VL_MULTA" ColumnName="VL_MULTA" />
+          <ScalarProperty Name="VL_PAGTO_S_HONO" ColumnName="VL_PAGTO_S_HONO" />
+          <ScalarProperty Name="VL_PAGTO_C_HONO" ColumnName="VL_PAGTO_C_HONO" />
+          <ScalarProperty Name="VL_DESCONTO" ColumnName="VL_DESCONTO" />
+          <ScalarProperty Name="VL_TOTAL" ColumnName="VL_TOTAL" />
+          <ScalarProperty Name="FT_IND_DESCONTO" ColumnName="FT_IND_DESCONTO" />
+          <ScalarProperty Name="VL_POR_DIA" ColumnName="VL_POR_DIA" />
+          <ScalarProperty Name="VL_JUROS" ColumnName="VL_JUROS" />
+          <ScalarProperty Name="FT_IND_BANCO" ColumnName="FT_IND_BANCO" />
+          <ScalarProperty Name="FT_IND_JURIDICO" ColumnName="FT_IND_JURIDICO" />
+          <ScalarProperty Name="VL_COMISSIONAMENTO" ColumnName="VL_COMISSIONAMENTO" />
+          <ScalarProperty Name="VL_COMISS_PERM" ColumnName="VL_COMISS_PERM" />
+          <ScalarProperty Name="VL_TOTAL_GERAL" ColumnName="VL_TOTAL_GERAL" />
+          <ScalarProperty Name="NR_DIAS_ATRASO" ColumnName="NR_DIAS_ATRASO" />
+          <ScalarProperty Name="TX_OBSERVACAO" ColumnName="TX_OBSERVACAO" />
+          <ScalarProperty Name="TX_OBSERVACAO2" ColumnName="TX_OBSERVACAO2" />
+          <ScalarProperty Name="TX_OBSERVACAO3" ColumnName="TX_OBSERVACAO3" />
+          <ScalarProperty Name="AN_TX_CONTRATO" ColumnName="AN_TX_CONTRATO" />
+          <ScalarProperty Name="NR_LOTE" ColumnName="NR_LOTE" />
+          <ScalarProperty Name="DT_ENTRADA" ColumnName="DT_ENTRADA" />
+          <ScalarProperty Name="FL_IMPRIMIR" ColumnName="FL_IMPRIMIR" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="AN_CAMPO_1" ColumnName="AN_CAMPO_1" />
+          <ScalarProperty Name="AN_DIGITO_1" ColumnName="AN_DIGITO_1" />
+          <ScalarProperty Name="AN_CAMPO_2" ColumnName="AN_CAMPO_2" />
+          <ScalarProperty Name="AN_DIGITO_2" ColumnName="AN_DIGITO_2" />
+          <ScalarProperty Name="AN_CAMPO_3" ColumnName="AN_CAMPO_3" />
+          <ScalarProperty Name="AN_DIGITO_3" ColumnName="AN_DIGITO_3" />
+          <ScalarProperty Name="AN_DIGITO_GERAL" ColumnName="AN_DIGITO_GERAL" />
+          <ScalarProperty Name="AN_CODIGO_BARRA" ColumnName="AN_CODIGO_BARRA" />
+          <ScalarProperty Name="CD_AGENCIA" ColumnName="CD_AGENCIA" />
+          <ScalarProperty Name="CD_CEDENTE" ColumnName="CD_CEDENTE" />
+          <ScalarProperty Name="NM_CEDENTE" ColumnName="NM_CEDENTE" />
+          <ScalarProperty Name="CD_REPR_NUMERICA" ColumnName="CD_REPR_NUMERICA" />
+          <ScalarProperty Name="IN_TIPO_BLOQUETO" ColumnName="IN_TIPO_BLOQUETO" />
+          <ScalarProperty Name="CD_ERRO" ColumnName="CD_ERRO" />
+          <ScalarProperty Name="AN_DESCR_ERRO" ColumnName="AN_DESCR_ERRO" />
+          <ScalarProperty Name="DT_RETORNO" ColumnName="DT_RETORNO" />
+          <ScalarProperty Name="DT_BOLETO_PAGO" ColumnName="DT_BOLETO_PAGO" />
+          <ScalarProperty Name="IN_TIPO_COMISS" ColumnName="IN_TIPO_COMISS" />
+          <ScalarProperty Name="NR_INCONSISTENCIA" ColumnName="NR_INCONSISTENCIA" />
+          <ScalarProperty Name="DT_CONFIRMA_PAGTO" ColumnName="DT_CONFIRMA_PAGTO" />
+          <ScalarProperty Name="IN_FAX_TRANSMITIDO" ColumnName="IN_FAX_TRANSMITIDO" />
+          <ScalarProperty Name="NR_FAX" ColumnName="NR_FAX" />
+          <ScalarProperty Name="AN_DESCR_BOLETO" ColumnName="AN_DESCR_BOLETO" />
+          <ScalarProperty Name="AN_CONTRATOS_BOLETO" ColumnName="AN_CONTRATOS_BOLETO" />
+          <ScalarProperty Name="AN_PARCELAS_BOLETO" ColumnName="AN_PARCELAS_BOLETO" />
+          <ScalarProperty Name="AN_COD_AUTORIZACAO" ColumnName="AN_COD_AUTORIZACAO" />
+          <ScalarProperty Name="CD_PROGRAMA" ColumnName="CD_PROGRAMA" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_EXCLUSAO" ColumnName="DT_EXCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="CD_USUARIO_EXC" ColumnName="CD_USUARIO_EXC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_COD_AND_PROCESSOS">
+      <EntityTypeMapping TypeName="SisaModel.TB_COD_AND_PROCESSOS">
+        <MappingFragment StoreEntitySet="TB_COD_AND_PROCESSOS">
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="CD_ANDAMENTO" ColumnName="CD_ANDAMENTO" />
+          <ScalarProperty Name="DS_TIPO_ANDAMENTO" ColumnName="DS_TIPO_ANDAMENTO" />
+          <ScalarProperty Name="FL_FIM_ACAO" ColumnName="FL_FIM_ACAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="DT_FRIA" ColumnName="DT_FRIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_COD_DESPESA">
+      <EntityTypeMapping TypeName="SisaModel.TB_COD_DESPESA">
+        <MappingFragment StoreEntitySet="TB_COD_DESPESA">
+          <ScalarProperty Name="ID_DESPESA" ColumnName="ID_DESPESA" />
+          <ScalarProperty Name="CD_DESPESA" ColumnName="CD_DESPESA" />
+          <ScalarProperty Name="DS_TIPO_DESPESA" ColumnName="DS_TIPO_DESPESA" />
+          <ScalarProperty Name="FL_DESPESA_REEMBOLSAVEL" ColumnName="FL_DESPESA_REEMBOLSAVEL" />
+          <ScalarProperty Name="VL_DESPESA" ColumnName="VL_DESPESA" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_COD_EVENTO">
+      <EntityTypeMapping TypeName="SisaModel.TB_COD_EVENTO">
+        <MappingFragment StoreEntitySet="TB_COD_EVENTO">
+          <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+          <ScalarProperty Name="CD_EVENTO" ColumnName="CD_EVENTO" />
+          <ScalarProperty Name="DS_TIPO_EVENTO" ColumnName="DS_TIPO_EVENTO" />
+          <ScalarProperty Name="FL_EVENTO_BANCO" ColumnName="FL_EVENTO_BANCO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_COD_HONORARIO">
+      <EntityTypeMapping TypeName="SisaModel.TB_COD_HONORARIO">
+        <MappingFragment StoreEntitySet="TB_COD_HONORARIO">
+          <ScalarProperty Name="ID_HONORARIO" ColumnName="ID_HONORARIO" />
+          <ScalarProperty Name="CD_HONORARIO" ColumnName="CD_HONORARIO" />
+          <ScalarProperty Name="DS_TIPO_HONORARIO" ColumnName="DS_TIPO_HONORARIO" />
+          <ScalarProperty Name="VL_HONORARIO" ColumnName="VL_HONORARIO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_COMARCA">
+      <EntityTypeMapping TypeName="SisaModel.TB_COMARCA">
+        <MappingFragment StoreEntitySet="TB_COMARCA">
+          <ScalarProperty Name="ID_COMARCA" ColumnName="ID_COMARCA" />
+          <ScalarProperty Name="NM_COMARCA" ColumnName="NM_COMARCA" />
+          <ScalarProperty Name="NM_VARA" ColumnName="NM_VARA" />
+          <ScalarProperty Name="AN_CIDADE" ColumnName="AN_CIDADE" />
+          <ScalarProperty Name="AN_ESTADO" ColumnName="AN_ESTADO" />
+          <ScalarProperty Name="AN_FILIAL" ColumnName="AN_FILIAL" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CONTATO">
+      <EntityTypeMapping TypeName="SisaModel.TB_CONTATO">
+        <MappingFragment StoreEntitySet="TB_CONTATO">
+          <ScalarProperty Name="ID_CONTATO" ColumnName="ID_CONTATO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="SQ_CONTATO" ColumnName="SQ_CONTATO" />
+          <ScalarProperty Name="IN_TP_CONTATO" ColumnName="IN_TP_CONTATO" />
+          <ScalarProperty Name="AN_DDD" ColumnName="AN_DDD" />
+          <ScalarProperty Name="AN_TELEFONE" ColumnName="AN_TELEFONE" />
+          <ScalarProperty Name="AN_RAMAL" ColumnName="AN_RAMAL" />
+          <ScalarProperty Name="AN_RESPONSAVEL" ColumnName="AN_RESPONSAVEL" />
+          <ScalarProperty Name="AN_EMAIL" ColumnName="AN_EMAIL" />
+          <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
+          <ScalarProperty Name="AN_ORIGEM" ColumnName="AN_ORIGEM" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CONTRATO">
+      <EntityTypeMapping TypeName="SisaModel.TB_CONTRATO">
+        <MappingFragment StoreEntitySet="TB_CONTRATO">
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="NR_OPERACAO" ColumnName="NR_OPERACAO" />
+          <ScalarProperty Name="CD_CONTRATO" ColumnName="CD_CONTRATO" />
+          <ScalarProperty Name="AN_INFORMATIVO" ColumnName="AN_INFORMATIVO" />
+          <ScalarProperty Name="DT_CONTRATO" ColumnName="DT_CONTRATO" />
+          <ScalarProperty Name="IN_TP_CONTRATO" ColumnName="IN_TP_CONTRATO" />
+          <ScalarProperty Name="CD_PRODUTO" ColumnName="CD_PRODUTO" />
+          <ScalarProperty Name="AN_TX_OBJETO" ColumnName="AN_TX_OBJETO" />
+          <ScalarProperty Name="AN_TX_BASE_JUDICIAL" ColumnName="AN_TX_BASE_JUDICIAL" />
+          <ScalarProperty Name="DT_ENVIO_CONTRATO" ColumnName="DT_ENVIO_CONTRATO" />
+          <ScalarProperty Name="DT_PRIM_NOTIFICACAO" ColumnName="DT_PRIM_NOTIFICACAO" />
+          <ScalarProperty Name="DT_NOTIFICACAO" ColumnName="DT_NOTIFICACAO" />
+          <ScalarProperty Name="DT_SERASA" ColumnName="DT_SERASA" />
+          <ScalarProperty Name="DT_SOLIC_DOC" ColumnName="DT_SOLIC_DOC" />
+          <ScalarProperty Name="FL_CONF_DIVIDA" ColumnName="FL_CONF_DIVIDA" />
+          <ScalarProperty Name="DT_CONF_DIVIDA" ColumnName="DT_CONF_DIVIDA" />
+          <ScalarProperty Name="VL_TOT_CONTRATO" ColumnName="VL_TOT_CONTRATO" />
+          <ScalarProperty Name="NR_PARCELAS" ColumnName="NR_PARCELAS" />
+          <ScalarProperty Name="VL_PARCELA" ColumnName="VL_PARCELA" />
+          <ScalarProperty Name="DT_PRIM_VENCTO" ColumnName="DT_PRIM_VENCTO" />
+          <ScalarProperty Name="DT_ULT_VENCTO" ColumnName="DT_ULT_VENCTO" />
+          <ScalarProperty Name="VL_SALDO_DEVEDOR" ColumnName="VL_SALDO_DEVEDOR" />
+          <ScalarProperty Name="VL_ACAO" ColumnName="VL_ACAO" />
+          <ScalarProperty Name="VL_VENCIDO" ColumnName="VL_VENCIDO" />
+          <ScalarProperty Name="VL_TAXA_FINANCIAMENTO" ColumnName="VL_TAXA_FINANCIAMENTO" />
+          <ScalarProperty Name="VL_INDICE_MOEDA" ColumnName="VL_INDICE_MOEDA" />
+          <ScalarProperty Name="VL_RISCO" ColumnName="VL_RISCO" />
+          <ScalarProperty Name="VL_RISCO_TOTAL" ColumnName="VL_RISCO_TOTAL" />
+          <ScalarProperty Name="VL_CARTEIRA" ColumnName="VL_CARTEIRA" />
+          <ScalarProperty Name="IN_FAIXA" ColumnName="IN_FAIXA" />
+          <ScalarProperty Name="NR_ACORDO" ColumnName="NR_ACORDO" />
+          <ScalarProperty Name="DT_INDICACAO" ColumnName="DT_INDICACAO" />
+          <ScalarProperty Name="NR_PASTA" ColumnName="NR_PASTA" />
+          <ScalarProperty Name="TX_OBSERVACAO_JUIZO" ColumnName="TX_OBSERVACAO_JUIZO" />
+          <ScalarProperty Name="FL_ALEGA_ACAOCONTRA" ColumnName="FL_ALEGA_ACAOCONTRA" />
+          <ScalarProperty Name="CD_ADVOGADO" ColumnName="CD_ADVOGADO" />
+          <ScalarProperty Name="CD_BANRISUL" ColumnName="CD_BANRISUL" />
+          <ScalarProperty Name="FL_EXCLUIDO" ColumnName="FL_EXCLUIDO" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="NM_ARQUIVO" ColumnName="NM_ARQUIVO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_EXCLUSAO" ColumnName="DT_EXCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_EXC" ColumnName="CD_USUARIO_EXC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="NR_PARCELAS_PAGAS" ColumnName="NR_PARCELAS_PAGAS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CUSTAS">
+      <EntityTypeMapping TypeName="SisaModel.TB_CUSTAS">
+        <MappingFragment StoreEntitySet="TB_CUSTAS">
+          <ScalarProperty Name="ID_CUSTAS" ColumnName="ID_CUSTAS" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="DATA_EMISSAO" ColumnName="DATA_EMISSAO" />
+          <ScalarProperty Name="NR_GUIA" ColumnName="NR_GUIA" />
+          <ScalarProperty Name="VLR_GUIA" ColumnName="VLR_GUIA" />
+          <ScalarProperty Name="DATA_PAGTO" ColumnName="DATA_PAGTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_DADOS_REFERENCIA">
+      <EntityTypeMapping TypeName="SisaModel.TB_DADOS_REFERENCIA">
+        <MappingFragment StoreEntitySet="TB_DADOS_REFERENCIA">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="AN_CONTATO_TEL_RES" ColumnName="AN_CONTATO_TEL_RES" />
+          <ScalarProperty Name="AN_NOME_CONJUGE" ColumnName="AN_NOME_CONJUGE" />
+          <ScalarProperty Name="AN_NOME_PRIM_REFERENCIA" ColumnName="AN_NOME_PRIM_REFERENCIA" />
+          <ScalarProperty Name="AN_TP_PARENTESCO_PRIM_PES" ColumnName="AN_TP_PARENTESCO_PRIM_PES" />
+          <ScalarProperty Name="AN_NOME_SEG_REFERENCIA" ColumnName="AN_NOME_SEG_REFERENCIA" />
+          <ScalarProperty Name="AN_TP_PARENTESCO_SEG_PES" ColumnName="AN_TP_PARENTESCO_SEG_PES" />
+          <ScalarProperty Name="AN_TIPO_OPERACAO" ColumnName="AN_TIPO_OPERACAO" />
+          <ScalarProperty Name="AN_NUCLEO" ColumnName="AN_NUCLEO" />
+          <ScalarProperty Name="CD_LOJA" ColumnName="CD_LOJA" />
+          <ScalarProperty Name="AN_NOME_LOJA" ColumnName="AN_NOME_LOJA" />
+          <ScalarProperty Name="CD_FILIAL" ColumnName="CD_FILIAL" />
+          <ScalarProperty Name="AN_NOME_FILIAL" ColumnName="AN_NOME_FILIAL" />
+          <ScalarProperty Name="CD_GRUPO" ColumnName="CD_GRUPO" />
+          <ScalarProperty Name="AN_NOME_GRUPO" ColumnName="AN_NOME_GRUPO" />
+          <ScalarProperty Name="CD_EMPRESA" ColumnName="CD_EMPRESA" />
+          <ScalarProperty Name="AN_NOME_EMPRESA" ColumnName="AN_NOME_EMPRESA" />
+          <ScalarProperty Name="AN_TIPO_SEGURO" ColumnName="AN_TIPO_SEGURO" />
+          <ScalarProperty Name="AN_LOCAL_TRABALHO" ColumnName="AN_LOCAL_TRABALHO" />
+          <ScalarProperty Name="AN_CARGO_TRABALHO" ColumnName="AN_CARGO_TRABALHO" />
+          <ScalarProperty Name="FL_PESQUISA" ColumnName="FL_PESQUISA" />
+          <ScalarProperty Name="DT_PESQUISA" ColumnName="DT_PESQUISA" />
+          <ScalarProperty Name="FL_LOCALIZADOR" ColumnName="FL_LOCALIZADOR" />
+          <ScalarProperty Name="DT_LOCALIZADOR" ColumnName="DT_LOCALIZADOR" />
+          <ScalarProperty Name="AN_NOME_LOCALIZADOR" ColumnName="AN_NOME_LOCALIZADOR" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_DEPOSITOS_JUDICIAIS">
+      <EntityTypeMapping TypeName="SisaModel.TB_DEPOSITOS_JUDICIAIS">
+        <MappingFragment StoreEntitySet="TB_DEPOSITOS_JUDICIAIS">
+          <ScalarProperty Name="ID_DEPOSITO" ColumnName="ID_DEPOSITO" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="DATA_EMISSAO" ColumnName="DATA_EMISSAO" />
+          <ScalarProperty Name="NR_GUIA" ColumnName="NR_GUIA" />
+          <ScalarProperty Name="VLR_GUIA" ColumnName="VLR_GUIA" />
+          <ScalarProperty Name="DATA_DEPOSITO" ColumnName="DATA_DEPOSITO" />
+          <ScalarProperty Name="DEPOSITANTE" ColumnName="DEPOSITANTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_DESPESA">
+      <EntityTypeMapping TypeName="SisaModel.TB_DESPESA">
+        <MappingFragment StoreEntitySet="TB_DESPESA">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="SQ_DESPESA" ColumnName="SQ_DESPESA" />
+          <ScalarProperty Name="DS_DESPESA" ColumnName="DS_DESPESA" />
+          <ScalarProperty Name="FL_COMPENSACAO" ColumnName="FL_COMPENSACAO" />
+          <ScalarProperty Name="DT_COMPENSACAO" ColumnName="DT_COMPENSACAO" />
+          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
+          <ScalarProperty Name="CD_DESPESA" ColumnName="CD_DESPESA" />
+          <ScalarProperty Name="VL_DESPESA" ColumnName="VL_DESPESA" />
+          <ScalarProperty Name="FL_STATUS_PGTO" ColumnName="FL_STATUS_PGTO" />
+          <ScalarProperty Name="DT_PAGTO" ColumnName="DT_PAGTO" />
+          <ScalarProperty Name="NR_DOC_NF" ColumnName="NR_DOC_NF" />
+          <ScalarProperty Name="DT_ENVIO_BANCO" ColumnName="DT_ENVIO_BANCO" />
+          <ScalarProperty Name="DT_PAGTO_PREST" ColumnName="DT_PAGTO_PREST" />
+          <ScalarProperty Name="NR_EMPRESA" ColumnName="NR_EMPRESA" />
+          <ScalarProperty Name="DT_MOVIMENTO" ColumnName="DT_MOVIMENTO" />
+          <ScalarProperty Name="NR_CGC_CARTORIO" ColumnName="NR_CGC_CARTORIO" />
+          <ScalarProperty Name="NR_LOTE_INTERNO" ColumnName="NR_LOTE_INTERNO" />
+          <ScalarProperty Name="NR_VALE" ColumnName="NR_VALE" />
+          <ScalarProperty Name="AN_JUSTIFICATIVA_MANUAL" ColumnName="AN_JUSTIFICATIVA_MANUAL" />
+          <ScalarProperty Name="DT_JUSTIFICATIVA" ColumnName="DT_JUSTIFICATIVA" />
+          <ScalarProperty Name="NR_BORDERO" ColumnName="NR_BORDERO" />
+          <ScalarProperty Name="AN_GRERJ" ColumnName="AN_GRERJ" />
+          <ScalarProperty Name="AN_PROCESSO" ColumnName="AN_PROCESSO" />
+          <ScalarProperty Name="NM_COMARCA" ColumnName="NM_COMARCA" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_DIC_DADOS">
+      <EntityTypeMapping TypeName="SisaModel.TB_DIC_DADOS">
+        <MappingFragment StoreEntitySet="TB_DIC_DADOS">
+          <ScalarProperty Name="CD_MODULO" ColumnName="CD_MODULO" />
+          <ScalarProperty Name="CD_TABELA" ColumnName="CD_TABELA" />
+          <ScalarProperty Name="CD_CAMPO" ColumnName="CD_CAMPO" />
+          <ScalarProperty Name="IN_TP_DADO" ColumnName="IN_TP_DADO" />
+          <ScalarProperty Name="IN_TP_OBJETO" ColumnName="IN_TP_OBJETO" />
+          <ScalarProperty Name="DS_CAMPO" ColumnName="DS_CAMPO" />
+          <ScalarProperty Name="AN_HELP" ColumnName="AN_HELP" />
+          <ScalarProperty Name="FL_OBRIGATORIO" ColumnName="FL_OBRIGATORIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_DOMINIO">
+      <EntityTypeMapping TypeName="SisaModel.TB_DOMINIO">
+        <MappingFragment StoreEntitySet="TB_DOMINIO">
+          <ScalarProperty Name="CD_DOMINIO" ColumnName="CD_DOMINIO" />
+          <ScalarProperty Name="AN_TP_DOMINIO" ColumnName="AN_TP_DOMINIO" />
+          <ScalarProperty Name="AN_VALUE" ColumnName="AN_VALUE" />
+          <ScalarProperty Name="AN_DECRICAO" ColumnName="AN_DECRICAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="VERID" ColumnName="VERID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_EMAIL">
+      <EntityTypeMapping TypeName="SisaModel.TB_EMAIL">
+        <MappingFragment StoreEntitySet="TB_EMAIL">
+          <ScalarProperty Name="ID_EMAIL" ColumnName="ID_EMAIL" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="SQ_EMAIL" ColumnName="SQ_EMAIL" />
+          <ScalarProperty Name="AN_EMAIL" ColumnName="AN_EMAIL" />
+          <ScalarProperty Name="AN_RESPONSAVEL" ColumnName="AN_RESPONSAVEL" />
+          <ScalarProperty Name="AN_ORIGEM" ColumnName="AN_ORIGEM" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ENDERECO">
+      <EntityTypeMapping TypeName="SisaModel.TB_ENDERECO">
+        <MappingFragment StoreEntitySet="TB_ENDERECO">
+          <ScalarProperty Name="ID_ENDERECO" ColumnName="ID_ENDERECO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="SQ_ENDERECO" ColumnName="SQ_ENDERECO" />
+          <ScalarProperty Name="IN_ENDERECO" ColumnName="IN_ENDERECO" />
+          <ScalarProperty Name="AN_ORIGEM" ColumnName="AN_ORIGEM" />
+          <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
+          <ScalarProperty Name="AN_ENDERECO" ColumnName="AN_ENDERECO" />
+          <ScalarProperty Name="NR_ENDERECO" ColumnName="NR_ENDERECO" />
+          <ScalarProperty Name="AN_COMPLEMENTO" ColumnName="AN_COMPLEMENTO" />
+          <ScalarProperty Name="AN_BAIRRO" ColumnName="AN_BAIRRO" />
+          <ScalarProperty Name="AN_CIDADE" ColumnName="AN_CIDADE" />
+          <ScalarProperty Name="CD_UF" ColumnName="CD_UF" />
+          <ScalarProperty Name="AN_CEP" ColumnName="AN_CEP" />
+          <ScalarProperty Name="AN_NOME_EMPRESA" ColumnName="AN_NOME_EMPRESA" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_EVENTO">
+      <EntityTypeMapping TypeName="SisaModel.TB_EVENTO">
+        <MappingFragment StoreEntitySet="TB_EVENTO">
+          <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="DT_EVENTO" ColumnName="DT_EVENTO" />
+          <ScalarProperty Name="HR_EVENTO" ColumnName="HR_EVENTO" />
+          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
+          <ScalarProperty Name="CD_USUARIO_RESP" ColumnName="CD_USUARIO_RESP" />
+          <ScalarProperty Name="CD_USUARIO_OPER" ColumnName="CD_USUARIO_OPER" />
+          <ScalarProperty Name="DT_EVENTO_REAL" ColumnName="DT_EVENTO_REAL" />
+          <ScalarProperty Name="HR_INI" ColumnName="HR_INI" />
+          <ScalarProperty Name="HR_FIM" ColumnName="HR_FIM" />
+          <ScalarProperty Name="IN_SIT_CONTATO" ColumnName="IN_SIT_CONTATO" />
+          <ScalarProperty Name="CD_TIPO_EVENTO" ColumnName="CD_TIPO_EVENTO" />
+          <ScalarProperty Name="AN_DS_EVENTO_ASSUNTO" ColumnName="AN_DS_EVENTO_ASSUNTO" />
+          <ScalarProperty Name="AN_OBS_EVENTO_ASSUNTO" ColumnName="AN_OBS_EVENTO_ASSUNTO" />
+          <ScalarProperty Name="NR_PRIORIDADE" ColumnName="NR_PRIORIDADE" />
+          <ScalarProperty Name="HR_TEMPO_LIGACAO" ColumnName="HR_TEMPO_LIGACAO" />
+          <ScalarProperty Name="HR_HORA_MARCADA" ColumnName="HR_HORA_MARCADA" />
+          <ScalarProperty Name="FL_EXPORTADO_EVENTO" ColumnName="FL_EXPORTADO_EVENTO" />
+          <ScalarProperty Name="DT_ENVIO_BANCO" ColumnName="DT_ENVIO_BANCO" />
+          <ScalarProperty Name="AN_ARQUIVO_ENVIO" ColumnName="AN_ARQUIVO_ENVIO" />
+          <ScalarProperty Name="NR_DDD" ColumnName="NR_DDD" />
+          <ScalarProperty Name="NR_TELEFONE" ColumnName="NR_TELEFONE" />
+          <ScalarProperty Name="IN_LIGACAO_EFETUADA" ColumnName="IN_LIGACAO_EFETUADA" />
+          <ScalarProperty Name="AN_STATUS" ColumnName="AN_STATUS" />
+          <ScalarProperty Name="AN_SITUACAO_CONTRATO" ColumnName="AN_SITUACAO_CONTRATO" />
+          <ScalarProperty Name="CD_PROGRAMA" ColumnName="CD_PROGRAMA" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USARIO_ALT" ColumnName="CD_USARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_FERIADO">
+      <EntityTypeMapping TypeName="SisaModel.TB_FERIADO">
+        <MappingFragment StoreEntitySet="TB_FERIADO">
+          <ScalarProperty Name="ID_FERIADO" ColumnName="ID_FERIADO" />
+          <ScalarProperty Name="DT_FERIADO" ColumnName="DT_FERIADO" />
+          <ScalarProperty Name="AN_DESCRICAO" ColumnName="AN_DESCRICAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_GRUPO">
+      <EntityTypeMapping TypeName="SisaModel.TB_GRUPO">
+        <MappingFragment StoreEntitySet="TB_GRUPO">
+          <ScalarProperty Name="CD_GRUPO" ColumnName="CD_GRUPO" />
+          <ScalarProperty Name="NM_GRUPO" ColumnName="NM_GRUPO" />
+          <ScalarProperty Name="DS_GRUPO" ColumnName="DS_GRUPO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="VERID" ColumnName="VERID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_HISTORICO">
+      <EntityTypeMapping TypeName="SisaModel.TB_HISTORICO">
+        <MappingFragment StoreEntitySet="TB_HISTORICO">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="NR_SEQ" ColumnName="NR_SEQ" />
+          <ScalarProperty Name="AN_OBSERVACAO" ColumnName="AN_OBSERVACAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="AN_PROGRAMA" ColumnName="AN_PROGRAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_HONORARIO">
+      <EntityTypeMapping TypeName="SisaModel.TB_HONORARIO">
+        <MappingFragment StoreEntitySet="TB_HONORARIO">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="SQ_HONORARIOS" ColumnName="SQ_HONORARIOS" />
+          <ScalarProperty Name="VL_HONORARIOS" ColumnName="VL_HONORARIOS" />
+          <ScalarProperty Name="NR_DOC_NF" ColumnName="NR_DOC_NF" />
+          <ScalarProperty Name="DT_ENVIO_BANCO" ColumnName="DT_ENVIO_BANCO" />
+          <ScalarProperty Name="DT_MOVIMENTO" ColumnName="DT_MOVIMENTO" />
+          <ScalarProperty Name="FL_REEMBOLSAVEL" ColumnName="FL_REEMBOLSAVEL" />
+          <ScalarProperty Name="NM_CLIENTE" ColumnName="NM_CLIENTE" />
+          <ScalarProperty Name="TX_OBS" ColumnName="TX_OBS" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_HORARIOS">
+      <EntityTypeMapping TypeName="SisaModel.TB_HORARIOS">
+        <MappingFragment StoreEntitySet="TB_HORARIOS">
+          <ScalarProperty Name="ID_HORARIO" ColumnName="ID_HORARIO" />
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+          <ScalarProperty Name="HORARIO_INICIAL" ColumnName="HORARIO_INICIAL" />
+          <ScalarProperty Name="HORARIO_FINAL" ColumnName="HORARIO_FINAL" />
+          <ScalarProperty Name="HORARIO_INTERVALO_INICIAL" ColumnName="HORARIO_INTERVALO_INICIAL" />
+          <ScalarProperty Name="HORARIO_INTERVALO_FINAL" ColumnName="HORARIO_INTERVALO_FINAL" />
+          <ScalarProperty Name="HORAS_DIA" ColumnName="HORAS_DIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_INDICE">
+      <EntityTypeMapping TypeName="SisaModel.TB_INDICE">
+        <MappingFragment StoreEntitySet="TB_INDICE">
+          <ScalarProperty Name="ID_INDICE" ColumnName="ID_INDICE" />
+          <ScalarProperty Name="NM_BANCO" ColumnName="NM_BANCO" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="INTERVALO" ColumnName="INTERVALO" />
+          <ScalarProperty Name="FT_DESC_PARCELA" ColumnName="FT_DESC_PARCELA" />
+          <ScalarProperty Name="FT_DESC_PRINCIPAL" ColumnName="FT_DESC_PRINCIPAL" />
+          <ScalarProperty Name="FT_JUROS" ColumnName="FT_JUROS" />
+          <ScalarProperty Name="FT_MULTA" ColumnName="FT_MULTA" />
+          <ScalarProperty Name="FT_HONORARIOS" ColumnName="FT_HONORARIOS" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_LOGIN">
+      <EntityTypeMapping TypeName="SisaModel.TB_LOGIN">
+        <MappingFragment StoreEntitySet="TB_LOGIN">
+          <ScalarProperty Name="Login_ID" ColumnName="Login_ID" />
+          <ScalarProperty Name="Login_Usuario" ColumnName="Login_Usuario" />
+          <ScalarProperty Name="Login_PC" ColumnName="Login_PC" />
+          <ScalarProperty Name="Login_Data" ColumnName="Login_Data" />
+          <ScalarProperty Name="Login_IP" ColumnName="Login_IP" />
+          <ScalarProperty Name="Login_MAC" ColumnName="Login_MAC" />
+          <ScalarProperty Name="Login_Hora" ColumnName="Login_Hora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_MANDADOSOFICIAIS">
+      <EntityTypeMapping TypeName="SisaModel.TB_MANDADOSOFICIAIS">
+        <MappingFragment StoreEntitySet="TB_MANDADOSOFICIAIS">
+          <ScalarProperty Name="ID_MANDADO" ColumnName="ID_MANDADO" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="NR_MANDADO" ColumnName="NR_MANDADO" />
+          <ScalarProperty Name="TIPO_MANDADO" ColumnName="TIPO_MANDADO" />
+          <ScalarProperty Name="DESTINATARIO_MANDADO" ColumnName="DESTINATARIO_MANDADO" />
+          <ScalarProperty Name="OFICIAL_MANDADO" ColumnName="OFICIAL_MANDADO" />
+          <ScalarProperty Name="DATA_REC_MANDADO" ColumnName="DATA_REC_MANDADO" />
+          <ScalarProperty Name="DATA_DEV_MANDADO" ColumnName="DATA_DEV_MANDADO" />
+          <ScalarProperty Name="RESULTADO_MANDADO" ColumnName="RESULTADO_MANDADO" />
+          <ScalarProperty Name="VLR_CONDUCAO_MANDADO" ColumnName="VLR_CONDUCAO_MANDADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_MOVIMENTACOES">
+      <EntityTypeMapping TypeName="SisaModel.TB_MOVIMENTACOES">
+        <MappingFragment StoreEntitySet="TB_MOVIMENTACOES">
+          <ScalarProperty Name="ID_MOVIMENTACAO" ColumnName="ID_MOVIMENTACAO" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="DATA_MOVIMENTACAO" ColumnName="DATA_MOVIMENTACAO" />
+          <ScalarProperty Name="TEXTO_MOVIMENTACAO" ColumnName="TEXTO_MOVIMENTACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_NOTAS_EXPEDIENTE">
+      <EntityTypeMapping TypeName="SisaModel.TB_NOTAS_EXPEDIENTE">
+        <MappingFragment StoreEntitySet="TB_NOTAS_EXPEDIENTE">
+          <ScalarProperty Name="ID_NOTA" ColumnName="ID_NOTA" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="NR_NOTA" ColumnName="NR_NOTA" />
+          <ScalarProperty Name="DATA_NOTA" ColumnName="DATA_NOTA" />
+          <ScalarProperty Name="TEXTO_NOTA" ColumnName="TEXTO_NOTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_NOTIFICACAO">
+      <EntityTypeMapping TypeName="SisaModel.TB_NOTIFICACAO">
+        <MappingFragment StoreEntitySet="TB_NOTIFICACAO">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="SQ_NOTIFICACAO" ColumnName="SQ_NOTIFICACAO" />
+          <ScalarProperty Name="DT_GERACAO" ColumnName="DT_GERACAO" />
+          <ScalarProperty Name="DT_ENVIO" ColumnName="DT_ENVIO" />
+          <ScalarProperty Name="DT_RETORNO" ColumnName="DT_RETORNO" />
+          <ScalarProperty Name="DT_RESPOSTA" ColumnName="DT_RESPOSTA" />
+          <ScalarProperty Name="AN_TIPO_NOTIFICACAO" ColumnName="AN_TIPO_NOTIFICACAO" />
+          <ScalarProperty Name="VL_NOTIFICACAO" ColumnName="VL_NOTIFICACAO" />
+          <ScalarProperty Name="NR_NOTIFICACAO" ColumnName="NR_NOTIFICACAO" />
+          <ScalarProperty Name="DT_PAGTO_NOTIFICACAO" ColumnName="DT_PAGTO_NOTIFICACAO" />
+          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
+          <ScalarProperty Name="AN_RESULTADO" ColumnName="AN_RESULTADO" />
+          <ScalarProperty Name="NR_RETORNO" ColumnName="NR_RETORNO" />
+          <ScalarProperty Name="AN_RENOTIFICACAO" ColumnName="AN_RENOTIFICACAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_OBSERVACAO_JUDICIAL">
+      <EntityTypeMapping TypeName="SisaModel.TB_OBSERVACAO_JUDICIAL">
+        <MappingFragment StoreEntitySet="TB_OBSERVACAO_JUDICIAL">
+          <ScalarProperty Name="ID_OBSERVACAO" ColumnName="ID_OBSERVACAO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="SQ_LANCTO" ColumnName="SQ_LANCTO" />
+          <ScalarProperty Name="DT_OBS" ColumnName="DT_OBS" />
+          <ScalarProperty Name="HR_OBSERVACAO" ColumnName="HR_OBSERVACAO" />
+          <ScalarProperty Name="CD_USUARIO_OBS" ColumnName="CD_USUARIO_OBS" />
+          <ScalarProperty Name="AN_OBSERVACAO" ColumnName="AN_OBSERVACAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_OBSERVACAO_PREJUD">
+      <EntityTypeMapping TypeName="SisaModel.TB_OBSERVACAO_PREJUD">
+        <MappingFragment StoreEntitySet="TB_OBSERVACAO_PREJUD">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="SQ_LANCTO" ColumnName="SQ_LANCTO" />
+          <ScalarProperty Name="DT_OBS" ColumnName="DT_OBS" />
+          <ScalarProperty Name="HR_OBSERVACAO" ColumnName="HR_OBSERVACAO" />
+          <ScalarProperty Name="CD_USUARIO_OBS" ColumnName="CD_USUARIO_OBS" />
+          <ScalarProperty Name="AN_OBSERVACAO" ColumnName="AN_OBSERVACAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PARTES_ENVOLVIDAS">
+      <EntityTypeMapping TypeName="SisaModel.TB_PARTES_ENVOLVIDAS">
+        <MappingFragment StoreEntitySet="TB_PARTES_ENVOLVIDAS">
+          <ScalarProperty Name="ID_PARTES_ENVOLVIDAS" ColumnName="ID_PARTES_ENVOLVIDAS" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="AN_REQUERENTE" ColumnName="AN_REQUERENTE" />
+          <ScalarProperty Name="AN_ADVOGADO_REQUERENTE" ColumnName="AN_ADVOGADO_REQUERENTE" />
+          <ScalarProperty Name="AN_REQUERIDO" ColumnName="AN_REQUERIDO" />
+          <ScalarProperty Name="AN_ADVOGADO_REQUERIDO" ColumnName="AN_ADVOGADO_REQUERIDO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PERMISSOES">
+      <EntityTypeMapping TypeName="SisaModel.TB_PERMISSOES">
+        <MappingFragment StoreEntitySet="TB_PERMISSOES">
+          <ScalarProperty Name="Permissao_ID" ColumnName="Permissao_ID" />
+          <ScalarProperty Name="Permissao_Usuario" ColumnName="Permissao_Usuario" />
+          <ScalarProperty Name="Permissao_Menu" ColumnName="Permissao_Menu" />
+          <ScalarProperty Name="Permissao_Editar" ColumnName="Permissao_Editar" />
+          <ScalarProperty Name="Permissao_Visualizar" ColumnName="Permissao_Visualizar" />
+          <ScalarProperty Name="Permissao_Adicionar" ColumnName="Permissao_Adicionar" />
+          <ScalarProperty Name="Permissao_Excluir" ColumnName="Permissao_Excluir" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PESSOA">
+      <EntityTypeMapping TypeName="SisaModel.TB_PESSOA">
+        <MappingFragment StoreEntitySet="TB_PESSOA">
+          <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="NM_PESSOA" ColumnName="NM_PESSOA" />
+          <ScalarProperty Name="IN_F_J" ColumnName="IN_F_J" />
+          <ScalarProperty Name="AN_CNPJ_CPF" ColumnName="AN_CNPJ_CPF" />
+          <ScalarProperty Name="AN_CLUSTER_RATING" ColumnName="AN_CLUSTER_RATING" />
+          <ScalarProperty Name="AN_TX_CARTEIRA" ColumnName="AN_TX_CARTEIRA" />
+          <ScalarProperty Name="AN_CARTEIRA" ColumnName="AN_CARTEIRA" />
+          <ScalarProperty Name="AN_TX_INFORMATIVO1" ColumnName="AN_TX_INFORMATIVO1" />
+          <ScalarProperty Name="AN_TX_INFORMATIVO2" ColumnName="AN_TX_INFORMATIVO2" />
+          <ScalarProperty Name="AN_RECURSO_AUXILIAR" ColumnName="AN_RECURSO_AUXILIAR" />
+          <ScalarProperty Name="AN_MES_BASE" ColumnName="AN_MES_BASE" />
+          <ScalarProperty Name="AN_PARCELA_INIBIDA" ColumnName="AN_PARCELA_INIBIDA" />
+          <ScalarProperty Name="AN_CREDITO" ColumnName="AN_CREDITO" />
+          <ScalarProperty Name="AN_OCUPACAO" ColumnName="AN_OCUPACAO" />
+          <ScalarProperty Name="AN_CARGO" ColumnName="AN_CARGO" />
+          <ScalarProperty Name="AN_RG" ColumnName="AN_RG" />
+          <ScalarProperty Name="DT_EMISSAO_RG" ColumnName="DT_EMISSAO_RG" />
+          <ScalarProperty Name="AN_ORGAO_EMISSAO_RG" ColumnName="AN_ORGAO_EMISSAO_RG" />
+          <ScalarProperty Name="CD_UF_RG" ColumnName="CD_UF_RG" />
+          <ScalarProperty Name="AN_SEXO" ColumnName="AN_SEXO" />
+          <ScalarProperty Name="DT_NASCIMENTO" ColumnName="DT_NASCIMENTO" />
+          <ScalarProperty Name="AN_NATURALIDADE" ColumnName="AN_NATURALIDADE" />
+          <ScalarProperty Name="AN_NACIONALIDADE" ColumnName="AN_NACIONALIDADE" />
+          <ScalarProperty Name="AN_ESTADO_CIVIL" ColumnName="AN_ESTADO_CIVIL" />
+          <ScalarProperty Name="AN_NOME_CONJUGE" ColumnName="AN_NOME_CONJUGE" />
+          <ScalarProperty Name="AN_NOME_PAI" ColumnName="AN_NOME_PAI" />
+          <ScalarProperty Name="AN_NOME_MAE" ColumnName="AN_NOME_MAE" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PETICOES">
+      <EntityTypeMapping TypeName="SisaModel.TB_PETICOES">
+        <MappingFragment StoreEntitySet="TB_PETICOES">
+          <ScalarProperty Name="ID_PETICAO" ColumnName="ID_PETICAO" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="DATA_PETICAO" ColumnName="DATA_PETICAO" />
+          <ScalarProperty Name="TEXTO_PETICAO" ColumnName="TEXTO_PETICAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PROCESSO">
+      <EntityTypeMapping TypeName="SisaModel.TB_PROCESSO">
+        <MappingFragment StoreEntitySet="TB_PROCESSO">
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="AN_PROCESSO" ColumnName="AN_PROCESSO" />
+          <ScalarProperty Name="AN_CNJ" ColumnName="AN_CNJ" />
+          <ScalarProperty Name="IN_TP_ACAO" ColumnName="IN_TP_ACAO" />
+          <ScalarProperty Name="IN_TP_PROCESSO" ColumnName="IN_TP_PROCESSO" />
+          <ScalarProperty Name="DT_CADASTRO" ColumnName="DT_CADASTRO" />
+          <ScalarProperty Name="CD_ADVOGADO" ColumnName="CD_ADVOGADO" />
+          <ScalarProperty Name="DT_DISTRIBUICAO" ColumnName="DT_DISTRIBUICAO" />
+          <ScalarProperty Name="AN_ESTADO" ColumnName="AN_ESTADO" />
+          <ScalarProperty Name="NM_COMARCA" ColumnName="NM_COMARCA" />
+          <ScalarProperty Name="VL_CUSTAS" ColumnName="VL_CUSTAS" />
+          <ScalarProperty Name="CD_VARA" ColumnName="CD_VARA" />
+          <ScalarProperty Name="VL_ACAO" ColumnName="VL_ACAO" />
+          <ScalarProperty Name="IN_CHANCE_PERDA" ColumnName="IN_CHANCE_PERDA" />
+          <ScalarProperty Name="DT_COPIA_RECEB" ColumnName="DT_COPIA_RECEB" />
+          <ScalarProperty Name="DT_ORIGINAL_RECEB" ColumnName="DT_ORIGINAL_RECEB" />
+          <ScalarProperty Name="DT_MINUTA_PROTOCOL" ColumnName="DT_MINUTA_PROTOCOL" />
+          <ScalarProperty Name="IN_FASE_PROCESSUAL" ColumnName="IN_FASE_PROCESSUAL" />
+          <ScalarProperty Name="IN_LIMINAR" ColumnName="IN_LIMINAR" />
+          <ScalarProperty Name="QT_ALVARA_LEV" ColumnName="QT_ALVARA_LEV" />
+          <ScalarProperty Name="VL_ALVARA_LEV" ColumnName="VL_ALVARA_LEV" />
+          <ScalarProperty Name="VL_TOT_ALVARA_LEV" ColumnName="VL_TOT_ALVARA_LEV" />
+          <ScalarProperty Name="QT_DEPOSITO_DEP" ColumnName="QT_DEPOSITO_DEP" />
+          <ScalarProperty Name="VL_DEPOSITO_DEP" ColumnName="VL_DEPOSITO_DEP" />
+          <ScalarProperty Name="IN_TIPO_ACORDO" ColumnName="IN_TIPO_ACORDO" />
+          <ScalarProperty Name="VL_TOTAL_ACORDO" ColumnName="VL_TOTAL_ACORDO" />
+          <ScalarProperty Name="VL_ENTRADA_ACORDO" ColumnName="VL_ENTRADA_ACORDO" />
+          <ScalarProperty Name="QT_PARCELAS_ACORDO" ColumnName="QT_PARCELAS_ACORDO" />
+          <ScalarProperty Name="VL_PARCELA" ColumnName="VL_PARCELA" />
+          <ScalarProperty Name="DT_VCTO" ColumnName="DT_VCTO" />
+          <ScalarProperty Name="AN_SITUACAO_ACORDO" ColumnName="AN_SITUACAO_ACORDO" />
+          <ScalarProperty Name="AN_PRESTACAO_CONTAS" ColumnName="AN_PRESTACAO_CONTAS" />
+          <ScalarProperty Name="AN_INSTANCIA" ColumnName="AN_INSTANCIA" />
+          <ScalarProperty Name="AN_AGRAVO" ColumnName="AN_AGRAVO" />
+          <ScalarProperty Name="VL_PROVISIONAMENTO" ColumnName="VL_PROVISIONAMENTO" />
+          <ScalarProperty Name="DT_AUDIENCIA" ColumnName="DT_AUDIENCIA" />
+          <ScalarProperty Name="AN_RAZAO_ENCERRAMENTO" ColumnName="AN_RAZAO_ENCERRAMENTO" />
+          <ScalarProperty Name="AN_VL_CONDENACAO" ColumnName="AN_VL_CONDENACAO" />
+          <ScalarProperty Name="AN_IDENTIFICACAO_ALVARA" ColumnName="AN_IDENTIFICACAO_ALVARA" />
+          <ScalarProperty Name="AN_SITUACAO_PROCESSUAL" ColumnName="AN_SITUACAO_PROCESSUAL" />
+          <ScalarProperty Name="DT_ANDAMENTO" ColumnName="DT_ANDAMENTO" />
+          <ScalarProperty Name="AN_TIPO_ENVIO" ColumnName="AN_TIPO_ENVIO" />
+          <ScalarProperty Name="NR_CODIGO" ColumnName="NR_CODIGO" />
+          <ScalarProperty Name="AN_SENTENCA" ColumnName="AN_SENTENCA" />
+          <ScalarProperty Name="AN_VL_DISCUTIDO_EXTRA" ColumnName="AN_VL_DISCUTIDO_EXTRA" />
+          <ScalarProperty Name="AN_OBSERVACAO" ColumnName="AN_OBSERVACAO" />
+          <ScalarProperty Name="AN_VL_ENTRADA_ACORDO_ESP" ColumnName="AN_VL_ENTRADA_ACORDO_ESP" />
+          <ScalarProperty Name="AN_FASE" ColumnName="AN_FASE" />
+          <ScalarProperty Name="VL_ALVARA_ACORDO" ColumnName="VL_ALVARA_ACORDO" />
+          <ScalarProperty Name="AN_SPC_SERASA" ColumnName="AN_SPC_SERASA" />
+          <ScalarProperty Name="IN_RET_ACAO_COB" ColumnName="IN_RET_ACAO_COB" />
+          <ScalarProperty Name="IN_PEND_LIQ_SENT" ColumnName="IN_PEND_LIQ_SENT" />
+          <ScalarProperty Name="AN_PROVIDENCIAS" ColumnName="AN_PROVIDENCIAS" />
+          <ScalarProperty Name="AN_DESCRICAO" ColumnName="AN_DESCRICAO" />
+          <ScalarProperty Name="AN_VL_ALVARA_EXTRA" ColumnName="AN_VL_ALVARA_EXTRA" />
+          <ScalarProperty Name="AN_SITUACAO_PROCESSO" ColumnName="AN_SITUACAO_PROCESSO" />
+          <ScalarProperty Name="DT_ENCERRAMENTO" ColumnName="DT_ENCERRAMENTO" />
+          <ScalarProperty Name="AN_SETOR_RESPONSAVEL" ColumnName="AN_SETOR_RESPONSAVEL" />
+          <ScalarProperty Name="AN_JUSTICA" ColumnName="AN_JUSTICA" />
+          <ScalarProperty Name="NR_PASTA" ColumnName="NR_PASTA" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_SISTEMA">
+      <EntityTypeMapping TypeName="SisaModel.TB_SISTEMA">
+        <MappingFragment StoreEntitySet="TB_SISTEMA">
+          <ScalarProperty Name="CD_SISTEMA" ColumnName="CD_SISTEMA" />
+          <ScalarProperty Name="NM_SISTEMA" ColumnName="NM_SISTEMA" />
+          <ScalarProperty Name="DS_SISTEMA" ColumnName="DS_SISTEMA" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="VERID" ColumnName="VERID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TELA">
+      <EntityTypeMapping TypeName="SisaModel.TB_TELA">
+        <MappingFragment StoreEntitySet="TB_TELA">
+          <ScalarProperty Name="CD_TELA" ColumnName="CD_TELA" />
+          <ScalarProperty Name="CD_SISTEMA" ColumnName="CD_SISTEMA" />
+          <ScalarProperty Name="NM_TELA" ColumnName="NM_TELA" />
+          <ScalarProperty Name="DS_TELA" ColumnName="DS_TELA" />
+          <ScalarProperty Name="AN_URL" ColumnName="AN_URL" />
+          <ScalarProperty Name="NR_ORDER" ColumnName="NR_ORDER" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="VERID" ColumnName="VERID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TIPO_ACAO">
+      <EntityTypeMapping TypeName="SisaModel.TB_TIPO_ACAO">
+        <MappingFragment StoreEntitySet="TB_TIPO_ACAO">
+          <ScalarProperty Name="ID_TIPO_ACAO" ColumnName="ID_TIPO_ACAO" />
+          <ScalarProperty Name="AN_TIPO_ACAO" ColumnName="AN_TIPO_ACAO" />
+          <ScalarProperty Name="AN_TIPO" ColumnName="AN_TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TITULO">
+      <EntityTypeMapping TypeName="SisaModel.TB_TITULO">
+        <MappingFragment StoreEntitySet="TB_TITULO">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
+          <ScalarProperty Name="NR_DIAS_ATRASO" ColumnName="NR_DIAS_ATRASO" />
+          <ScalarProperty Name="CD_BOLETO" ColumnName="CD_BOLETO" />
+          <ScalarProperty Name="DT_VCTO" ColumnName="DT_VCTO" />
+          <ScalarProperty Name="VL_TITULO" ColumnName="VL_TITULO" />
+          <ScalarProperty Name="DT_EMISSAO" ColumnName="DT_EMISSAO" />
+          <ScalarProperty Name="DT_PRIM_NOTIFICACAO" ColumnName="DT_PRIM_NOTIFICACAO" />
+          <ScalarProperty Name="DT_RECEBIMENTO" ColumnName="DT_RECEBIMENTO" />
+          <ScalarProperty Name="DT_CREDITO" ColumnName="DT_CREDITO" />
+          <ScalarProperty Name="DT_REPASSE" ColumnName="DT_REPASSE" />
+          <ScalarProperty Name="DT_BAIXA" ColumnName="DT_BAIXA" />
+          <ScalarProperty Name="FL_BAIXA_MANUAL" ColumnName="FL_BAIXA_MANUAL" />
+          <ScalarProperty Name="AN_ARQUIVO_ENVIO" ColumnName="AN_ARQUIVO_ENVIO" />
+          <ScalarProperty Name="NR_DIAS_PAGTO" ColumnName="NR_DIAS_PAGTO" />
+          <ScalarProperty Name="DT_BANCO_PAGTO" ColumnName="DT_BANCO_PAGTO" />
+          <ScalarProperty Name="CD_PROGRAMA_EXC" ColumnName="CD_PROGRAMA_EXC" />
+          <ScalarProperty Name="AN_MOTIVO_EXC" ColumnName="AN_MOTIVO_EXC" />
+          <ScalarProperty Name="DT_EXCLUSAO" ColumnName="DT_EXCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="CD_USUARIO_EXC" ColumnName="CD_USUARIO_EXC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_UF">
+      <EntityTypeMapping TypeName="SisaModel.TB_UF">
+        <MappingFragment StoreEntitySet="TB_UF">
+          <ScalarProperty Name="AN_ESTADO" ColumnName="AN_ESTADO" />
+          <ScalarProperty Name="NM_ESTADO" ColumnName="NM_ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_USUARIO">
+      <EntityTypeMapping TypeName="SisaModel.TB_USUARIO">
+        <MappingFragment StoreEntitySet="TB_USUARIO">
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="CD_USUARIO" ColumnName="CD_USUARIO" />
+          <ScalarProperty Name="GRUPO_USUARIO" ColumnName="GRUPO_USUARIO" />
+          <ScalarProperty Name="AN_SENHA" ColumnName="AN_SENHA" />
+          <ScalarProperty Name="IN_NIVEL" ColumnName="IN_NIVEL" />
+          <ScalarProperty Name="NM_NOME" ColumnName="NM_NOME" />
+          <ScalarProperty Name="AN_EMAIL" ColumnName="AN_EMAIL" />
+          <ScalarProperty Name="CD_HORARIO" ColumnName="CD_HORARIO" />
+          <ScalarProperty Name="FL_LOCALIZADOR" ColumnName="FL_LOCALIZADOR" />
+          <ScalarProperty Name="FL_PESQUISA" ColumnName="FL_PESQUISA" />
+          <ScalarProperty Name="FL_GESTOR" ColumnName="FL_GESTOR" />
+          <ScalarProperty Name="FL_ADVOGADO" ColumnName="FL_ADVOGADO" />
+          <ScalarProperty Name="FL_ACIONADOR" ColumnName="FL_ACIONADOR" />
+          <ScalarProperty Name="FL_FINANCEIRO" ColumnName="FL_FINANCEIRO" />
+          <ScalarProperty Name="FL_ADMINISTRADOR" ColumnName="FL_ADMINISTRADOR" />
+          <ScalarProperty Name="FL_LIBERA_HONORARIOS" ColumnName="FL_LIBERA_HONORARIOS" />
+          <ScalarProperty Name="FL_IMPRIME_RECIBO" ColumnName="FL_IMPRIME_RECIBO" />
+          <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
+          <ScalarProperty Name="FL_TROCA_SENHA" ColumnName="FL_TROCA_SENHA" />
+          <ScalarProperty Name="FL_INCLUI_ALTERA_PARCELA" ColumnName="FL_INCLUI_ALTERA_PARCELA" />
+          <ScalarProperty Name="FL_ALTERA_DADOS_ACORDO" ColumnName="FL_ALTERA_DADOS_ACORDO" />
+          <ScalarProperty Name="FL_EXCLUI_CLIENTE" ColumnName="FL_EXCLUI_CLIENTE" />
+          <ScalarProperty Name="FL_IMPRIME_BOLETO" ColumnName="FL_IMPRIME_BOLETO" />
+          <ScalarProperty Name="FL_BASE_ELETRONICA" ColumnName="FL_BASE_ELETRONICA" />
+          <ScalarProperty Name="FL_EMITE_MINUTAS" ColumnName="FL_EMITE_MINUTAS" />
+          <ScalarProperty Name="FL_EXCLUI_DADOS_PROCESSO" ColumnName="FL_EXCLUI_DADOS_PROCESSO" />
+          <ScalarProperty Name="FL_AUTORIZA_DESCONTO" ColumnName="FL_AUTORIZA_DESCONTO" />
+          <ScalarProperty Name="FL_LIBERA_CUSTAS" ColumnName="FL_LIBERA_CUSTAS" />
+          <ScalarProperty Name="FL_LIBERA_ESTORNO_PAGAMENTO" ColumnName="FL_LIBERA_ESTORNO_PAGAMENTO" />
+          <ScalarProperty Name="QT_EVENTOS_DIA" ColumnName="QT_EVENTOS_DIA" />
+          <ScalarProperty Name="TEMPO_EVENTOS_DIA" ColumnName="TEMPO_EVENTOS_DIA" />
+          <ScalarProperty Name="QT_BOLETOS_DIA" ColumnName="QT_BOLETOS_DIA" />
+          <ScalarProperty Name="VL_META" ColumnName="VL_META" />
+          <ScalarProperty Name="NR_FILIAL" ColumnName="NR_FILIAL" />
+          <ScalarProperty Name="AN_GESTOR" ColumnName="AN_GESTOR" />
+          <ScalarProperty Name="NM_CEDENTE" ColumnName="NM_CEDENTE" />
+          <ScalarProperty Name="AN_CIDADE" ColumnName="AN_CIDADE" />
+          <ScalarProperty Name="AN_ENDERECO" ColumnName="AN_ENDERECO" />
+          <ScalarProperty Name="DT_ALTERA_SENHA" ColumnName="DT_ALTERA_SENHA" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="FL_ACESSA_ALFA" ColumnName="FL_ACESSA_ALFA" />
+          <ScalarProperty Name="FL_ACESSA_DAYCOVAL" ColumnName="FL_ACESSA_DAYCOVAL" />
+          <ScalarProperty Name="FL_ACESSA_FICSA" ColumnName="FL_ACESSA_FICSA" />
+          <ScalarProperty Name="FL_ACESSA_OMNI" ColumnName="FL_ACESSA_OMNI" />
+          <ScalarProperty Name="FL_ACESSA_RENNER" ColumnName="FL_ACESSA_RENNER" />
+          <ScalarProperty Name="FL_ACESSA_SULFINANCEIRA" ColumnName="FL_ACESSA_SULFINANCEIRA" />
+          <ScalarProperty Name="FL_ACESSA_OUTROBANCOS" ColumnName="FL_ACESSA_OUTROBANCOS" />
+          <ScalarProperty Name="VL_META_ALFA" ColumnName="VL_META_ALFA" />
+          <ScalarProperty Name="VL_META_DAYCOVAL" ColumnName="VL_META_DAYCOVAL" />
+          <ScalarProperty Name="VL_META_FICSA" ColumnName="VL_META_FICSA" />
+          <ScalarProperty Name="VL_META_RENNER" ColumnName="VL_META_RENNER" />
+          <ScalarProperty Name="VL_META_OMNI" ColumnName="VL_META_OMNI" />
+          <ScalarProperty Name="VL_META_SULFINANCEIRA" ColumnName="VL_META_SULFINANCEIRA" />
+          <ScalarProperty Name="VL_META_OUTROSBANCOS" ColumnName="VL_META_OUTROSBANCOS" />
+          <ScalarProperty Name="NR_RECIBO" ColumnName="NR_RECIBO" />
+          <ScalarProperty Name="NR_BOLETO" ColumnName="NR_BOLETO" />
+          <ScalarProperty Name="NR_CNPJ_CARTORIO" ColumnName="NR_CNPJ_CARTORIO" />
+          <ScalarProperty Name="FL_EXCLUI_PARCELA" ColumnName="FL_EXCLUI_PARCELA" />
+          <ScalarProperty Name="AN_TIPO_SELECAO" ColumnName="AN_TIPO_SELECAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_VEICULO">
+      <EntityTypeMapping TypeName="SisaModel.TB_VEICULO">
+        <MappingFragment StoreEntitySet="TB_VEICULO">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="AN_MARCA_VEIC" ColumnName="AN_MARCA_VEIC" />
+          <ScalarProperty Name="AN_MODELO_VEIC" ColumnName="AN_MODELO_VEIC" />
+          <ScalarProperty Name="NR_COD_SEGURADORA" ColumnName="NR_COD_SEGURADORA" />
+          <ScalarProperty Name="AN_MONTADORA_VEIC" ColumnName="AN_MONTADORA_VEIC" />
+          <ScalarProperty Name="AN_ANO_FAB_VEIC" ColumnName="AN_ANO_FAB_VEIC" />
+          <ScalarProperty Name="AN_ANO_MODELO_VEIC" ColumnName="AN_ANO_MODELO_VEIC" />
+          <ScalarProperty Name="AN_COR_VEIC" ColumnName="AN_COR_VEIC" />
+          <ScalarProperty Name="AN_PLACA_VEIC" ColumnName="AN_PLACA_VEIC" />
+          <ScalarProperty Name="CD_UF_VEIC" ColumnName="CD_UF_VEIC" />
+          <ScalarProperty Name="AN_CHASSI_VEIC" ColumnName="AN_CHASSI_VEIC" />
+          <ScalarProperty Name="CD_RENAVAN" ColumnName="CD_RENAVAN" />
+          <ScalarProperty Name="CD_COMBUST_VEIC" ColumnName="CD_COMBUST_VEIC" />
+          <ScalarProperty Name="AN_CERTIF_VEIC" ColumnName="AN_CERTIF_VEIC" />
+          <ScalarProperty Name="DT_ENT_VEIC_GARAGEM" ColumnName="DT_ENT_VEIC_GARAGEM" />
+          <ScalarProperty Name="DT_VCTO_VEIC_GARAGEM" ColumnName="DT_VCTO_VEIC_GARAGEM" />
+          <ScalarProperty Name="AN_END_GARAGEM" ColumnName="AN_END_GARAGEM" />
+          <ScalarProperty Name="AN_OBS_GARAGEM" ColumnName="AN_OBS_GARAGEM" />
+          <ScalarProperty Name="AN_DEPOSITARIO_GARAGEM" ColumnName="AN_DEPOSITARIO_GARAGEM" />
+          <ScalarProperty Name="AN_GUINCHO" ColumnName="AN_GUINCHO" />
+          <ScalarProperty Name="AN_FONE_GARAGEM" ColumnName="AN_FONE_GARAGEM" />
+          <ScalarProperty Name="AN_LOCAL_DEPOSITO" ColumnName="AN_LOCAL_DEPOSITO" />
+          <ScalarProperty Name="DT_APREENSAO" ColumnName="DT_APREENSAO" />
+          <ScalarProperty Name="FL_VEIC_REMOVIDO" ColumnName="FL_VEIC_REMOVIDO" />
+          <ScalarProperty Name="VL_PAGO_REMOVIDO" ColumnName="VL_PAGO_REMOVIDO" />
+          <ScalarProperty Name="DT_SAIDA_GARAGEM" ColumnName="DT_SAIDA_GARAGEM" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CLIENTE">
+      <EntityTypeMapping TypeName="SisaModel.TB_CLIENTE">
+        <MappingFragment StoreEntitySet="TB_CLIENTE">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="FL_EXCLUIDO" ColumnName="FL_EXCLUIDO" />
+          <ScalarProperty Name="FL_PESQUISA" ColumnName="FL_PESQUISA" />
+          <ScalarProperty Name="FL_LOCALIZADOR" ColumnName="FL_LOCALIZADOR" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Dias_Atraso">
+      <EntityTypeMapping TypeName="SisaModel.View_Dias_Atraso">
+        <MappingFragment StoreEntitySet="View_Dias_Atraso">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="NM_BANCO" ColumnName="NM_BANCO" />
+          <ScalarProperty Name="NR_OPERACAO" ColumnName="NR_OPERACAO" />
+          <ScalarProperty Name="CD_CONTRATO" ColumnName="CD_CONTRATO" />
+          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
+          <ScalarProperty Name="NR_DIAS_ATRASO" ColumnName="NR_DIAS_ATRASO" />
+          <ScalarProperty Name="CD_BOLETO" ColumnName="CD_BOLETO" />
+          <ScalarProperty Name="DT_VCTO" ColumnName="DT_VCTO" />
+          <ScalarProperty Name="VL_TITULO" ColumnName="VL_TITULO" />
+          <ScalarProperty Name="DT_EMISSAO" ColumnName="DT_EMISSAO" />
+          <ScalarProperty Name="DT_PRIM_NOTIFICACAO" ColumnName="DT_PRIM_NOTIFICACAO" />
+          <ScalarProperty Name="DT_RECEBIMENTO" ColumnName="DT_RECEBIMENTO" />
+          <ScalarProperty Name="DT_CREDITO" ColumnName="DT_CREDITO" />
+          <ScalarProperty Name="DT_REPASSE" ColumnName="DT_REPASSE" />
+          <ScalarProperty Name="DT_BAIXA" ColumnName="DT_BAIXA" />
+          <ScalarProperty Name="FL_BAIXA_MANUAL" ColumnName="FL_BAIXA_MANUAL" />
+          <ScalarProperty Name="AN_ARQUIVO_ENVIO" ColumnName="AN_ARQUIVO_ENVIO" />
+          <ScalarProperty Name="NR_DIAS_PAGTO" ColumnName="NR_DIAS_PAGTO" />
+          <ScalarProperty Name="DT_BANCO_PAGTO" ColumnName="DT_BANCO_PAGTO" />
+          <ScalarProperty Name="CD_PROGRAMA_EXC" ColumnName="CD_PROGRAMA_EXC" />
+          <ScalarProperty Name="AN_MOTIVO_EXC" ColumnName="AN_MOTIVO_EXC" />
+          <ScalarProperty Name="DT_EXCLUSAO" ColumnName="DT_EXCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="CD_USUARIO_EXC" ColumnName="CD_USUARIO_EXC" />
+          <ScalarProperty Name="dia_atraso" ColumnName="dia_atraso" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_busca_cliente_banco">
+      <EntityTypeMapping TypeName="SisaModel.vw_busca_cliente_banco">
+        <MappingFragment StoreEntitySet="vw_busca_cliente_banco">
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="Contratos_Excluidos" ColumnName="Contratos_Excluidos" />
+          <ScalarProperty Name="Contratos_Ativos" ColumnName="Contratos_Ativos" />
+          <ScalarProperty Name="Contratos_Total" ColumnName="Contratos_Total" />
+          <ScalarProperty Name="AN_CNPJ_CPF" ColumnName="AN_CNPJ_CPF" />
+          <ScalarProperty Name="NM_PESSOA" ColumnName="NM_PESSOA" />
+          <ScalarProperty Name="NM_BANCO" ColumnName="NM_BANCO" />
+          <ScalarProperty Name="CD_USUARIO_RESP" ColumnName="CD_USUARIO_RESP" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_listacontratos">
+      <EntityTypeMapping TypeName="SisaModel.vw_listacontratos">
+        <MappingFragment StoreEntitySet="vw_listacontratos">
+          <ScalarProperty Name="dia_atraso" ColumnName="dia_atraso" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="NM_BANCO" ColumnName="NM_BANCO" />
+          <ScalarProperty Name="NR_OPERACAO" ColumnName="NR_OPERACAO" />
+          <ScalarProperty Name="CD_CONTRATO" ColumnName="CD_CONTRATO" />
+          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
+          <ScalarProperty Name="NR_DIAS_ATRASO" ColumnName="NR_DIAS_ATRASO" />
+          <ScalarProperty Name="CD_BOLETO" ColumnName="CD_BOLETO" />
+          <ScalarProperty Name="DT_VCTO" ColumnName="DT_VCTO" />
+          <ScalarProperty Name="VL_TITULO" ColumnName="VL_TITULO" />
+          <ScalarProperty Name="DT_EMISSAO" ColumnName="DT_EMISSAO" />
+          <ScalarProperty Name="DT_PRIM_NOTIFICACAO" ColumnName="DT_PRIM_NOTIFICACAO" />
+          <ScalarProperty Name="DT_RECEBIMENTO" ColumnName="DT_RECEBIMENTO" />
+          <ScalarProperty Name="DT_CREDITO" ColumnName="DT_CREDITO" />
+          <ScalarProperty Name="DT_REPASSE" ColumnName="DT_REPASSE" />
+          <ScalarProperty Name="DT_BAIXA" ColumnName="DT_BAIXA" />
+          <ScalarProperty Name="FL_BAIXA_MANUAL" ColumnName="FL_BAIXA_MANUAL" />
+          <ScalarProperty Name="AN_ARQUIVO_ENVIO" ColumnName="AN_ARQUIVO_ENVIO" />
+          <ScalarProperty Name="NR_DIAS_PAGTO" ColumnName="NR_DIAS_PAGTO" />
+          <ScalarProperty Name="DT_BANCO_PAGTO" ColumnName="DT_BANCO_PAGTO" />
+          <ScalarProperty Name="CD_PROGRAMA_EXC" ColumnName="CD_PROGRAMA_EXC" />
+          <ScalarProperty Name="AN_MOTIVO_EXC" ColumnName="AN_MOTIVO_EXC" />
+          <ScalarProperty Name="DT_EXCLUSAO" ColumnName="DT_EXCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="CD_USUARIO_EXC" ColumnName="CD_USUARIO_EXC" />
+          <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="NM_PESSOA" ColumnName="NM_PESSOA" />
+          <ScalarProperty Name="IN_F_J" ColumnName="IN_F_J" />
+          <ScalarProperty Name="AN_CNPJ_CPF" ColumnName="AN_CNPJ_CPF" />
+          <ScalarProperty Name="AN_OCUPACAO" ColumnName="AN_OCUPACAO" />
+          <ScalarProperty Name="AN_CARGO" ColumnName="AN_CARGO" />
+          <ScalarProperty Name="AN_RG" ColumnName="AN_RG" />
+          <ScalarProperty Name="DT_EMISSAO_RG" ColumnName="DT_EMISSAO_RG" />
+          <ScalarProperty Name="AN_ORGAO_EMISSAO_RG" ColumnName="AN_ORGAO_EMISSAO_RG" />
+          <ScalarProperty Name="CD_UF_RG" ColumnName="CD_UF_RG" />
+          <ScalarProperty Name="AN_SEXO" ColumnName="AN_SEXO" />
+          <ScalarProperty Name="DT_NASCIMENTO" ColumnName="DT_NASCIMENTO" />
+          <ScalarProperty Name="AN_NATURALIDADE" ColumnName="AN_NATURALIDADE" />
+          <ScalarProperty Name="AN_NACIONALIDADE" ColumnName="AN_NACIONALIDADE" />
+          <ScalarProperty Name="AN_ESTADO_CIVIL" ColumnName="AN_ESTADO_CIVIL" />
+          <ScalarProperty Name="AN_NOME_CONJUGE" ColumnName="AN_NOME_CONJUGE" />
+          <ScalarProperty Name="AN_NOME_PAI" ColumnName="AN_NOME_PAI" />
+          <ScalarProperty Name="AN_NOME_MAE" ColumnName="AN_NOME_MAE" />
+          <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+          <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+          <ScalarProperty Name="Expr4" ColumnName="Expr4" />
+          <ScalarProperty Name="Expr5" ColumnName="Expr5" />
+          <ScalarProperty Name="Expr6" ColumnName="Expr6" />
+          <ScalarProperty Name="Expr7" ColumnName="Expr7" />
+          <ScalarProperty Name="Expr8" ColumnName="Expr8" />
+          <ScalarProperty Name="Expr9" ColumnName="Expr9" />
+          <ScalarProperty Name="DT_PREV_DEPOSITO" ColumnName="DT_PREV_DEPOSITO" />
+          <ScalarProperty Name="Expr10" ColumnName="Expr10" />
+          <ScalarProperty Name="Expr11" ColumnName="Expr11" />
+          <ScalarProperty Name="DT_PAGTO" ColumnName="DT_PAGTO" />
+          <ScalarProperty Name="VL_ENCARGOS" ColumnName="VL_ENCARGOS" />
+          <ScalarProperty Name="VL_ESCRITORIO" ColumnName="VL_ESCRITORIO" />
+          <ScalarProperty Name="VL_NOTIFICACAO" ColumnName="VL_NOTIFICACAO" />
+          <ScalarProperty Name="VL_HONORARIOS" ColumnName="VL_HONORARIOS" />
+          <ScalarProperty Name="VL_CPMF" ColumnName="VL_CPMF" />
+          <ScalarProperty Name="VL_LOCALIZADOR" ColumnName="VL_LOCALIZADOR" />
+          <ScalarProperty Name="VL_CUSTAS" ColumnName="VL_CUSTAS" />
+          <ScalarProperty Name="VL_DESP_EXTRA" ColumnName="VL_DESP_EXTRA" />
+          <ScalarProperty Name="VL_DESPESA" ColumnName="VL_DESPESA" />
+          <ScalarProperty Name="VL_TARIFA_BANCARIA" ColumnName="VL_TARIFA_BANCARIA" />
+          <ScalarProperty Name="VL_MULTA" ColumnName="VL_MULTA" />
+          <ScalarProperty Name="VL_PAGTO_S_HONO" ColumnName="VL_PAGTO_S_HONO" />
+          <ScalarProperty Name="VL_PAGTO_C_HONO" ColumnName="VL_PAGTO_C_HONO" />
+          <ScalarProperty Name="VL_DESCONTO" ColumnName="VL_DESCONTO" />
+          <ScalarProperty Name="VL_TOTAL" ColumnName="VL_TOTAL" />
+          <ScalarProperty Name="FT_IND_DESCONTO" ColumnName="FT_IND_DESCONTO" />
+          <ScalarProperty Name="VL_POR_DIA" ColumnName="VL_POR_DIA" />
+          <ScalarProperty Name="VL_JUROS" ColumnName="VL_JUROS" />
+          <ScalarProperty Name="FT_IND_BANCO" ColumnName="FT_IND_BANCO" />
+          <ScalarProperty Name="FT_IND_JURIDICO" ColumnName="FT_IND_JURIDICO" />
+          <ScalarProperty Name="VL_COMISSIONAMENTO" ColumnName="VL_COMISSIONAMENTO" />
+          <ScalarProperty Name="VL_COMISS_PERM" ColumnName="VL_COMISS_PERM" />
+          <ScalarProperty Name="VL_TOTAL_GERAL" ColumnName="VL_TOTAL_GERAL" />
+          <ScalarProperty Name="Expr12" ColumnName="Expr12" />
+          <ScalarProperty Name="TX_OBSERVACAO" ColumnName="TX_OBSERVACAO" />
+          <ScalarProperty Name="TX_OBSERVACAO2" ColumnName="TX_OBSERVACAO2" />
+          <ScalarProperty Name="TX_OBSERVACAO3" ColumnName="TX_OBSERVACAO3" />
+          <ScalarProperty Name="AN_TX_CONTRATO" ColumnName="AN_TX_CONTRATO" />
+          <ScalarProperty Name="NR_LOTE" ColumnName="NR_LOTE" />
+          <ScalarProperty Name="DT_ENTRADA" ColumnName="DT_ENTRADA" />
+          <ScalarProperty Name="FL_IMPRIMIR" ColumnName="FL_IMPRIMIR" />
+          <ScalarProperty Name="CD_USUARIO" ColumnName="CD_USUARIO" />
+          <ScalarProperty Name="AN_CAMPO_1" ColumnName="AN_CAMPO_1" />
+          <ScalarProperty Name="AN_DIGITO_1" ColumnName="AN_DIGITO_1" />
+          <ScalarProperty Name="AN_CAMPO_2" ColumnName="AN_CAMPO_2" />
+          <ScalarProperty Name="AN_DIGITO_2" ColumnName="AN_DIGITO_2" />
+          <ScalarProperty Name="AN_CAMPO_3" ColumnName="AN_CAMPO_3" />
+          <ScalarProperty Name="AN_DIGITO_3" ColumnName="AN_DIGITO_3" />
+          <ScalarProperty Name="AN_DIGITO_GERAL" ColumnName="AN_DIGITO_GERAL" />
+          <ScalarProperty Name="AN_CODIGO_BARRA" ColumnName="AN_CODIGO_BARRA" />
+          <ScalarProperty Name="CD_AGENCIA" ColumnName="CD_AGENCIA" />
+          <ScalarProperty Name="CD_CEDENTE" ColumnName="CD_CEDENTE" />
+          <ScalarProperty Name="NM_CEDENTE" ColumnName="NM_CEDENTE" />
+          <ScalarProperty Name="CD_REPR_NUMERICA" ColumnName="CD_REPR_NUMERICA" />
+          <ScalarProperty Name="IN_TIPO_BLOQUETO" ColumnName="IN_TIPO_BLOQUETO" />
+          <ScalarProperty Name="CD_ERRO" ColumnName="CD_ERRO" />
+          <ScalarProperty Name="AN_DESCR_ERRO" ColumnName="AN_DESCR_ERRO" />
+          <ScalarProperty Name="DT_RETORNO" ColumnName="DT_RETORNO" />
+          <ScalarProperty Name="DT_BOLETO_PAGO" ColumnName="DT_BOLETO_PAGO" />
+          <ScalarProperty Name="IN_TIPO_COMISS" ColumnName="IN_TIPO_COMISS" />
+          <ScalarProperty Name="NR_INCONSISTENCIA" ColumnName="NR_INCONSISTENCIA" />
+          <ScalarProperty Name="DT_CONFIRMA_PAGTO" ColumnName="DT_CONFIRMA_PAGTO" />
+          <ScalarProperty Name="IN_FAX_TRANSMITIDO" ColumnName="IN_FAX_TRANSMITIDO" />
+          <ScalarProperty Name="NR_FAX" ColumnName="NR_FAX" />
+          <ScalarProperty Name="AN_DESCR_BOLETO" ColumnName="AN_DESCR_BOLETO" />
+          <ScalarProperty Name="AN_CONTRATOS_BOLETO" ColumnName="AN_CONTRATOS_BOLETO" />
+          <ScalarProperty Name="AN_PARCELAS_BOLETO" ColumnName="AN_PARCELAS_BOLETO" />
+          <ScalarProperty Name="AN_COD_AUTORIZACAO" ColumnName="AN_COD_AUTORIZACAO" />
+          <ScalarProperty Name="CD_PROGRAMA" ColumnName="CD_PROGRAMA" />
+          <ScalarProperty Name="Expr13" ColumnName="Expr13" />
+          <ScalarProperty Name="Expr14" ColumnName="Expr14" />
+          <ScalarProperty Name="Expr15" ColumnName="Expr15" />
+          <ScalarProperty Name="Expr16" ColumnName="Expr16" />
+          <ScalarProperty Name="Expr17" ColumnName="Expr17" />
+          <ScalarProperty Name="Expr18" ColumnName="Expr18" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="CD_BANCO" ColumnName="CD_BANCO" />
+          <ScalarProperty Name="DS_BANCO" ColumnName="DS_BANCO" />
+          <ScalarProperty Name="AN_ENDERECO" ColumnName="AN_ENDERECO" />
+          <ScalarProperty Name="AN_CIDADE" ColumnName="AN_CIDADE" />
+          <ScalarProperty Name="CD_UF" ColumnName="CD_UF" />
+          <ScalarProperty Name="AN_CNPJ" ColumnName="AN_CNPJ" />
+          <ScalarProperty Name="AN_INS_EST" ColumnName="AN_INS_EST" />
+          <ScalarProperty Name="Expr19" ColumnName="Expr19" />
+          <ScalarProperty Name="Expr20" ColumnName="Expr20" />
+          <ScalarProperty Name="Expr21" ColumnName="Expr21" />
+          <ScalarProperty Name="Expr22" ColumnName="Expr22" />
+          <ScalarProperty Name="Expr23" ColumnName="Expr23" />
+          <ScalarProperty Name="FT_IND_JUROS" ColumnName="FT_IND_JUROS" />
+          <ScalarProperty Name="Expr24" ColumnName="Expr24" />
+          <ScalarProperty Name="Expr25" ColumnName="Expr25" />
+          <ScalarProperty Name="Expr26" ColumnName="Expr26" />
+          <ScalarProperty Name="Expr27" ColumnName="Expr27" />
+          <ScalarProperty Name="QT_DIAS_NOTIFICACAO" ColumnName="QT_DIAS_NOTIFICACAO" />
+          <ScalarProperty Name="NR_RECIBO" ColumnName="NR_RECIBO" />
+          <ScalarProperty Name="NR_BOLETO" ColumnName="NR_BOLETO" />
+          <ScalarProperty Name="NR_BORDERO" ColumnName="NR_BORDERO" />
+          <ScalarProperty Name="NR_NOTIFICACAO" ColumnName="NR_NOTIFICACAO" />
+          <ScalarProperty Name="Expr28" ColumnName="Expr28" />
+          <ScalarProperty Name="QT_DIAS_AJUIZAMENTO" ColumnName="QT_DIAS_AJUIZAMENTO" />
+          <ScalarProperty Name="QT_DIAS_CARTORIO" ColumnName="QT_DIAS_CARTORIO" />
+          <ScalarProperty Name="VL_META" ColumnName="VL_META" />
+          <ScalarProperty Name="Expr29" ColumnName="Expr29" />
+          <ScalarProperty Name="Expr30" ColumnName="Expr30" />
+          <ScalarProperty Name="Expr31" ColumnName="Expr31" />
+          <ScalarProperty Name="Expr32" ColumnName="Expr32" />
+          <ScalarProperty Name="Expr33" ColumnName="Expr33" />
+          <ScalarProperty Name="Expr34" ColumnName="Expr34" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_TITULOS">
+      <EntityTypeMapping TypeName="SisaModel.VW_TITULOS">
+        <MappingFragment StoreEntitySet="VW_TITULOS">
+          <ScalarProperty Name="NR_PARCELAS_PAGAS" ColumnName="NR_PARCELAS_PAGAS" />
+          <ScalarProperty Name="NM_ARQUIVO" ColumnName="NM_ARQUIVO" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="FL_EXCLUIDO" ColumnName="FL_EXCLUIDO" />
+          <ScalarProperty Name="CD_BANRISUL" ColumnName="CD_BANRISUL" />
+          <ScalarProperty Name="CD_ADVOGADO" ColumnName="CD_ADVOGADO" />
+          <ScalarProperty Name="FL_ALEGA_ACAOCONTRA" ColumnName="FL_ALEGA_ACAOCONTRA" />
+          <ScalarProperty Name="TX_OBSERVACAO_JUIZO" ColumnName="TX_OBSERVACAO_JUIZO" />
+          <ScalarProperty Name="NR_PASTA" ColumnName="NR_PASTA" />
+          <ScalarProperty Name="DT_INDICACAO" ColumnName="DT_INDICACAO" />
+          <ScalarProperty Name="NR_ACORDO" ColumnName="NR_ACORDO" />
+          <ScalarProperty Name="IN_FAIXA" ColumnName="IN_FAIXA" />
+          <ScalarProperty Name="VL_CARTEIRA" ColumnName="VL_CARTEIRA" />
+          <ScalarProperty Name="VL_RISCO_TOTAL" ColumnName="VL_RISCO_TOTAL" />
+          <ScalarProperty Name="VL_RISCO" ColumnName="VL_RISCO" />
+          <ScalarProperty Name="VL_INDICE_MOEDA" ColumnName="VL_INDICE_MOEDA" />
+          <ScalarProperty Name="VL_TAXA_FINANCIAMENTO" ColumnName="VL_TAXA_FINANCIAMENTO" />
+          <ScalarProperty Name="VL_VENCIDO" ColumnName="VL_VENCIDO" />
+          <ScalarProperty Name="VL_ACAO" ColumnName="VL_ACAO" />
+          <ScalarProperty Name="VL_SALDO_DEVEDOR" ColumnName="VL_SALDO_DEVEDOR" />
+          <ScalarProperty Name="DT_ULT_VENCTO" ColumnName="DT_ULT_VENCTO" />
+          <ScalarProperty Name="DT_PRIM_VENCTO" ColumnName="DT_PRIM_VENCTO" />
+          <ScalarProperty Name="VL_PARCELA" ColumnName="VL_PARCELA" />
+          <ScalarProperty Name="NR_PARCELAS" ColumnName="NR_PARCELAS" />
+          <ScalarProperty Name="VL_TOT_CONTRATO" ColumnName="VL_TOT_CONTRATO" />
+          <ScalarProperty Name="DT_CONF_DIVIDA" ColumnName="DT_CONF_DIVIDA" />
+          <ScalarProperty Name="FL_CONF_DIVIDA" ColumnName="FL_CONF_DIVIDA" />
+          <ScalarProperty Name="DT_SOLIC_DOC" ColumnName="DT_SOLIC_DOC" />
+          <ScalarProperty Name="DT_SERASA" ColumnName="DT_SERASA" />
+          <ScalarProperty Name="DT_NOTIFICACAO" ColumnName="DT_NOTIFICACAO" />
+          <ScalarProperty Name="DT_ENVIO_CONTRATO" ColumnName="DT_ENVIO_CONTRATO" />
+          <ScalarProperty Name="AN_TX_BASE_JUDICIAL" ColumnName="AN_TX_BASE_JUDICIAL" />
+          <ScalarProperty Name="AN_TX_OBJETO" ColumnName="AN_TX_OBJETO" />
+          <ScalarProperty Name="CD_PRODUTO" ColumnName="CD_PRODUTO" />
+          <ScalarProperty Name="IN_TP_CONTRATO" ColumnName="IN_TP_CONTRATO" />
+          <ScalarProperty Name="DT_CONTRATO" ColumnName="DT_CONTRATO" />
+          <ScalarProperty Name="AN_INFORMATIVO" ColumnName="AN_INFORMATIVO" />
+          <ScalarProperty Name="CD_CONTRATO" ColumnName="CD_CONTRATO" />
+          <ScalarProperty Name="NR_OPERACAO" ColumnName="NR_OPERACAO" />
+          <ScalarProperty Name="DS_BANCO" ColumnName="DS_BANCO" />
+          <ScalarProperty Name="CD_BANCO" ColumnName="CD_BANCO" />
+          <ScalarProperty Name="CD_USUARIO_EXC" ColumnName="CD_USUARIO_EXC" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="DT_EXCLUSAO" ColumnName="DT_EXCLUSAO" />
+          <ScalarProperty Name="AN_MOTIVO_EXC" ColumnName="AN_MOTIVO_EXC" />
+          <ScalarProperty Name="CD_PROGRAMA_EXC" ColumnName="CD_PROGRAMA_EXC" />
+          <ScalarProperty Name="DT_BANCO_PAGTO" ColumnName="DT_BANCO_PAGTO" />
+          <ScalarProperty Name="NR_DIAS_PAGTO" ColumnName="NR_DIAS_PAGTO" />
+          <ScalarProperty Name="AN_ARQUIVO_ENVIO" ColumnName="AN_ARQUIVO_ENVIO" />
+          <ScalarProperty Name="FL_BAIXA_MANUAL" ColumnName="FL_BAIXA_MANUAL" />
+          <ScalarProperty Name="DT_BAIXA" ColumnName="DT_BAIXA" />
+          <ScalarProperty Name="DT_REPASSE" ColumnName="DT_REPASSE" />
+          <ScalarProperty Name="DT_CREDITO" ColumnName="DT_CREDITO" />
+          <ScalarProperty Name="DT_RECEBIMENTO" ColumnName="DT_RECEBIMENTO" />
+          <ScalarProperty Name="DT_PRIM_NOTIFICACAO" ColumnName="DT_PRIM_NOTIFICACAO" />
+          <ScalarProperty Name="DT_EMISSAO" ColumnName="DT_EMISSAO" />
+          <ScalarProperty Name="VL_TITULO" ColumnName="VL_TITULO" />
+          <ScalarProperty Name="DT_VCTO" ColumnName="DT_VCTO" />
+          <ScalarProperty Name="CD_BOLETO" ColumnName="CD_BOLETO" />
+          <ScalarProperty Name="NR_DIAS_ATRASO" ColumnName="NR_DIAS_ATRASO" />
+          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_CONTRATOS">
+      <EntityTypeMapping TypeName="SisaModel.VW_CONTRATOS">
+        <MappingFragment StoreEntitySet="VW_CONTRATOS">
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="VL_MULTA" ColumnName="VL_MULTA" />
+          <ScalarProperty Name="VL_LOCALIZADOR" ColumnName="VL_LOCALIZADOR" />
+          <ScalarProperty Name="VL_META" ColumnName="VL_META" />
+          <ScalarProperty Name="QT_DIAS_CARTORIO" ColumnName="QT_DIAS_CARTORIO" />
+          <ScalarProperty Name="QT_DIAS_AJUIZAMENTO" ColumnName="QT_DIAS_AJUIZAMENTO" />
+          <ScalarProperty Name="NR_LOTE" ColumnName="NR_LOTE" />
+          <ScalarProperty Name="NR_NOTIFICACAO" ColumnName="NR_NOTIFICACAO" />
+          <ScalarProperty Name="NR_BORDERO" ColumnName="NR_BORDERO" />
+          <ScalarProperty Name="NR_BOLETO" ColumnName="NR_BOLETO" />
+          <ScalarProperty Name="NR_RECIBO" ColumnName="NR_RECIBO" />
+          <ScalarProperty Name="QT_DIAS_NOTIFICACAO" ColumnName="QT_DIAS_NOTIFICACAO" />
+          <ScalarProperty Name="VL_HONORARIOS" ColumnName="VL_HONORARIOS" />
+          <ScalarProperty Name="VL_NOTIFICACAO" ColumnName="VL_NOTIFICACAO" />
+          <ScalarProperty Name="VL_ESCRITORIO" ColumnName="VL_ESCRITORIO" />
+          <ScalarProperty Name="VL_ENCARGOS" ColumnName="VL_ENCARGOS" />
+          <ScalarProperty Name="FT_IND_JUROS" ColumnName="FT_IND_JUROS" />
+          <ScalarProperty Name="FT_IND_DESCONTO" ColumnName="FT_IND_DESCONTO" />
+          <ScalarProperty Name="FT_IND_JURIDICO" ColumnName="FT_IND_JURIDICO" />
+          <ScalarProperty Name="FT_IND_BANCO" ColumnName="FT_IND_BANCO" />
+          <ScalarProperty Name="CD_CEDENTE" ColumnName="CD_CEDENTE" />
+          <ScalarProperty Name="CD_AGENCIA" ColumnName="CD_AGENCIA" />
+          <ScalarProperty Name="AN_INS_EST" ColumnName="AN_INS_EST" />
+          <ScalarProperty Name="AN_CNPJ" ColumnName="AN_CNPJ" />
+          <ScalarProperty Name="CD_UF" ColumnName="CD_UF" />
+          <ScalarProperty Name="AN_CIDADE" ColumnName="AN_CIDADE" />
+          <ScalarProperty Name="AN_ENDERECO" ColumnName="AN_ENDERECO" />
+          <ScalarProperty Name="DS_BANCO" ColumnName="DS_BANCO" />
+          <ScalarProperty Name="CD_BANCO" ColumnName="CD_BANCO" />
+          <ScalarProperty Name="NR_PARCELAS_PAGAS" ColumnName="NR_PARCELAS_PAGAS" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="CD_USUARIO_EXC" ColumnName="CD_USUARIO_EXC" />
+          <ScalarProperty Name="DT_EXCLUSAO" ColumnName="DT_EXCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="NM_ARQUIVO" ColumnName="NM_ARQUIVO" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="FL_EXCLUIDO" ColumnName="FL_EXCLUIDO" />
+          <ScalarProperty Name="CD_BANRISUL" ColumnName="CD_BANRISUL" />
+          <ScalarProperty Name="CD_ADVOGADO" ColumnName="CD_ADVOGADO" />
+          <ScalarProperty Name="FL_ALEGA_ACAOCONTRA" ColumnName="FL_ALEGA_ACAOCONTRA" />
+          <ScalarProperty Name="TX_OBSERVACAO_JUIZO" ColumnName="TX_OBSERVACAO_JUIZO" />
+          <ScalarProperty Name="NR_PASTA" ColumnName="NR_PASTA" />
+          <ScalarProperty Name="DT_INDICACAO" ColumnName="DT_INDICACAO" />
+          <ScalarProperty Name="NR_ACORDO" ColumnName="NR_ACORDO" />
+          <ScalarProperty Name="IN_FAIXA" ColumnName="IN_FAIXA" />
+          <ScalarProperty Name="VL_CARTEIRA" ColumnName="VL_CARTEIRA" />
+          <ScalarProperty Name="VL_RISCO_TOTAL" ColumnName="VL_RISCO_TOTAL" />
+          <ScalarProperty Name="VL_RISCO" ColumnName="VL_RISCO" />
+          <ScalarProperty Name="VL_INDICE_MOEDA" ColumnName="VL_INDICE_MOEDA" />
+          <ScalarProperty Name="VL_TAXA_FINANCIAMENTO" ColumnName="VL_TAXA_FINANCIAMENTO" />
+          <ScalarProperty Name="VL_VENCIDO" ColumnName="VL_VENCIDO" />
+          <ScalarProperty Name="VL_ACAO" ColumnName="VL_ACAO" />
+          <ScalarProperty Name="VL_SALDO_DEVEDOR" ColumnName="VL_SALDO_DEVEDOR" />
+          <ScalarProperty Name="DT_ULT_VENCTO" ColumnName="DT_ULT_VENCTO" />
+          <ScalarProperty Name="DT_PRIM_VENCTO" ColumnName="DT_PRIM_VENCTO" />
+          <ScalarProperty Name="VL_PARCELA" ColumnName="VL_PARCELA" />
+          <ScalarProperty Name="NR_PARCELAS" ColumnName="NR_PARCELAS" />
+          <ScalarProperty Name="VL_TOT_CONTRATO" ColumnName="VL_TOT_CONTRATO" />
+          <ScalarProperty Name="DT_CONF_DIVIDA" ColumnName="DT_CONF_DIVIDA" />
+          <ScalarProperty Name="FL_CONF_DIVIDA" ColumnName="FL_CONF_DIVIDA" />
+          <ScalarProperty Name="DT_SOLIC_DOC" ColumnName="DT_SOLIC_DOC" />
+          <ScalarProperty Name="DT_SERASA" ColumnName="DT_SERASA" />
+          <ScalarProperty Name="DT_NOTIFICACAO" ColumnName="DT_NOTIFICACAO" />
+          <ScalarProperty Name="DT_PRIM_NOTIFICACAO" ColumnName="DT_PRIM_NOTIFICACAO" />
+          <ScalarProperty Name="DT_ENVIO_CONTRATO" ColumnName="DT_ENVIO_CONTRATO" />
+          <ScalarProperty Name="AN_TX_BASE_JUDICIAL" ColumnName="AN_TX_BASE_JUDICIAL" />
+          <ScalarProperty Name="AN_TX_OBJETO" ColumnName="AN_TX_OBJETO" />
+          <ScalarProperty Name="CD_PRODUTO" ColumnName="CD_PRODUTO" />
+          <ScalarProperty Name="IN_TP_CONTRATO" ColumnName="IN_TP_CONTRATO" />
+          <ScalarProperty Name="DT_CONTRATO" ColumnName="DT_CONTRATO" />
+          <ScalarProperty Name="AN_INFORMATIVO" ColumnName="AN_INFORMATIVO" />
+          <ScalarProperty Name="CD_CONTRATO" ColumnName="CD_CONTRATO" />
+          <ScalarProperty Name="NR_OPERACAO" ColumnName="NR_OPERACAO" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_PROCESSO">
+      <EntityTypeMapping TypeName="SisaModel.VW_PROCESSO">
+        <MappingFragment StoreEntitySet="VW_PROCESSO">
+          <ScalarProperty Name="NR_PARCELAS_PAGAS" ColumnName="NR_PARCELAS_PAGAS" />
+          <ScalarProperty Name="CD_USUARIO_EXC" ColumnName="CD_USUARIO_EXC" />
+          <ScalarProperty Name="DT_EXCLUSAO" ColumnName="DT_EXCLUSAO" />
+          <ScalarProperty Name="NM_ARQUIVO" ColumnName="NM_ARQUIVO" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="FL_EXCLUIDO" ColumnName="FL_EXCLUIDO" />
+          <ScalarProperty Name="CD_BANRISUL" ColumnName="CD_BANRISUL" />
+          <ScalarProperty Name="FL_ALEGA_ACAOCONTRA" ColumnName="FL_ALEGA_ACAOCONTRA" />
+          <ScalarProperty Name="TX_OBSERVACAO_JUIZO" ColumnName="TX_OBSERVACAO_JUIZO" />
+          <ScalarProperty Name="DT_INDICACAO" ColumnName="DT_INDICACAO" />
+          <ScalarProperty Name="NR_ACORDO" ColumnName="NR_ACORDO" />
+          <ScalarProperty Name="IN_FAIXA" ColumnName="IN_FAIXA" />
+          <ScalarProperty Name="VL_CARTEIRA" ColumnName="VL_CARTEIRA" />
+          <ScalarProperty Name="VL_RISCO_TOTAL" ColumnName="VL_RISCO_TOTAL" />
+          <ScalarProperty Name="VL_RISCO" ColumnName="VL_RISCO" />
+          <ScalarProperty Name="VL_INDICE_MOEDA" ColumnName="VL_INDICE_MOEDA" />
+          <ScalarProperty Name="VL_TAXA_FINANCIAMENTO" ColumnName="VL_TAXA_FINANCIAMENTO" />
+          <ScalarProperty Name="VL_VENCIDO" ColumnName="VL_VENCIDO" />
+          <ScalarProperty Name="VL_SALDO_DEVEDOR" ColumnName="VL_SALDO_DEVEDOR" />
+          <ScalarProperty Name="DT_ULT_VENCTO" ColumnName="DT_ULT_VENCTO" />
+          <ScalarProperty Name="DT_PRIM_VENCTO" ColumnName="DT_PRIM_VENCTO" />
+          <ScalarProperty Name="NR_PARCELAS" ColumnName="NR_PARCELAS" />
+          <ScalarProperty Name="VL_TOT_CONTRATO" ColumnName="VL_TOT_CONTRATO" />
+          <ScalarProperty Name="DT_CONF_DIVIDA" ColumnName="DT_CONF_DIVIDA" />
+          <ScalarProperty Name="FL_CONF_DIVIDA" ColumnName="FL_CONF_DIVIDA" />
+          <ScalarProperty Name="DT_SOLIC_DOC" ColumnName="DT_SOLIC_DOC" />
+          <ScalarProperty Name="DT_SERASA" ColumnName="DT_SERASA" />
+          <ScalarProperty Name="DT_NOTIFICACAO" ColumnName="DT_NOTIFICACAO" />
+          <ScalarProperty Name="DT_PRIM_NOTIFICACAO" ColumnName="DT_PRIM_NOTIFICACAO" />
+          <ScalarProperty Name="DT_ENVIO_CONTRATO" ColumnName="DT_ENVIO_CONTRATO" />
+          <ScalarProperty Name="AN_TX_BASE_JUDICIAL" ColumnName="AN_TX_BASE_JUDICIAL" />
+          <ScalarProperty Name="AN_TX_OBJETO" ColumnName="AN_TX_OBJETO" />
+          <ScalarProperty Name="CD_PRODUTO" ColumnName="CD_PRODUTO" />
+          <ScalarProperty Name="IN_TP_CONTRATO" ColumnName="IN_TP_CONTRATO" />
+          <ScalarProperty Name="DT_CONTRATO" ColumnName="DT_CONTRATO" />
+          <ScalarProperty Name="AN_INFORMATIVO" ColumnName="AN_INFORMATIVO" />
+          <ScalarProperty Name="CD_CONTRATO" ColumnName="CD_CONTRATO" />
+          <ScalarProperty Name="NR_OPERACAO" ColumnName="NR_OPERACAO" />
+          <ScalarProperty Name="VL_MULTA" ColumnName="VL_MULTA" />
+          <ScalarProperty Name="VL_LOCALIZADOR" ColumnName="VL_LOCALIZADOR" />
+          <ScalarProperty Name="VL_META" ColumnName="VL_META" />
+          <ScalarProperty Name="QT_DIAS_CARTORIO" ColumnName="QT_DIAS_CARTORIO" />
+          <ScalarProperty Name="QT_DIAS_AJUIZAMENTO" ColumnName="QT_DIAS_AJUIZAMENTO" />
+          <ScalarProperty Name="NR_LOTE" ColumnName="NR_LOTE" />
+          <ScalarProperty Name="NR_NOTIFICACAO" ColumnName="NR_NOTIFICACAO" />
+          <ScalarProperty Name="NR_BORDERO" ColumnName="NR_BORDERO" />
+          <ScalarProperty Name="NR_BOLETO" ColumnName="NR_BOLETO" />
+          <ScalarProperty Name="NR_RECIBO" ColumnName="NR_RECIBO" />
+          <ScalarProperty Name="QT_DIAS_NOTIFICACAO" ColumnName="QT_DIAS_NOTIFICACAO" />
+          <ScalarProperty Name="VL_HONORARIOS" ColumnName="VL_HONORARIOS" />
+          <ScalarProperty Name="VL_NOTIFICACAO" ColumnName="VL_NOTIFICACAO" />
+          <ScalarProperty Name="VL_ESCRITORIO" ColumnName="VL_ESCRITORIO" />
+          <ScalarProperty Name="VL_ENCARGOS" ColumnName="VL_ENCARGOS" />
+          <ScalarProperty Name="FT_IND_JUROS" ColumnName="FT_IND_JUROS" />
+          <ScalarProperty Name="FT_IND_DESCONTO" ColumnName="FT_IND_DESCONTO" />
+          <ScalarProperty Name="FT_IND_JURIDICO" ColumnName="FT_IND_JURIDICO" />
+          <ScalarProperty Name="FT_IND_BANCO" ColumnName="FT_IND_BANCO" />
+          <ScalarProperty Name="CD_CEDENTE" ColumnName="CD_CEDENTE" />
+          <ScalarProperty Name="CD_AGENCIA" ColumnName="CD_AGENCIA" />
+          <ScalarProperty Name="AN_INS_EST" ColumnName="AN_INS_EST" />
+          <ScalarProperty Name="AN_CNPJ" ColumnName="AN_CNPJ" />
+          <ScalarProperty Name="CD_UF" ColumnName="CD_UF" />
+          <ScalarProperty Name="AN_CIDADE" ColumnName="AN_CIDADE" />
+          <ScalarProperty Name="AN_ENDERECO" ColumnName="AN_ENDERECO" />
+          <ScalarProperty Name="DS_BANCO" ColumnName="DS_BANCO" />
+          <ScalarProperty Name="CD_BANCO" ColumnName="CD_BANCO" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="NR_PASTA" ColumnName="NR_PASTA" />
+          <ScalarProperty Name="AN_JUSTICA" ColumnName="AN_JUSTICA" />
+          <ScalarProperty Name="AN_SETOR_RESPONSAVEL" ColumnName="AN_SETOR_RESPONSAVEL" />
+          <ScalarProperty Name="DT_ENCERRAMENTO" ColumnName="DT_ENCERRAMENTO" />
+          <ScalarProperty Name="AN_SITUACAO_PROCESSO" ColumnName="AN_SITUACAO_PROCESSO" />
+          <ScalarProperty Name="AN_VL_ALVARA_EXTRA" ColumnName="AN_VL_ALVARA_EXTRA" />
+          <ScalarProperty Name="AN_DESCRICAO" ColumnName="AN_DESCRICAO" />
+          <ScalarProperty Name="AN_PROVIDENCIAS" ColumnName="AN_PROVIDENCIAS" />
+          <ScalarProperty Name="IN_PEND_LIQ_SENT" ColumnName="IN_PEND_LIQ_SENT" />
+          <ScalarProperty Name="IN_RET_ACAO_COB" ColumnName="IN_RET_ACAO_COB" />
+          <ScalarProperty Name="AN_SPC_SERASA" ColumnName="AN_SPC_SERASA" />
+          <ScalarProperty Name="VL_ALVARA_ACORDO" ColumnName="VL_ALVARA_ACORDO" />
+          <ScalarProperty Name="AN_FASE" ColumnName="AN_FASE" />
+          <ScalarProperty Name="AN_VL_ENTRADA_ACORDO_ESP" ColumnName="AN_VL_ENTRADA_ACORDO_ESP" />
+          <ScalarProperty Name="AN_OBSERVACAO" ColumnName="AN_OBSERVACAO" />
+          <ScalarProperty Name="AN_VL_DISCUTIDO_EXTRA" ColumnName="AN_VL_DISCUTIDO_EXTRA" />
+          <ScalarProperty Name="AN_SENTENCA" ColumnName="AN_SENTENCA" />
+          <ScalarProperty Name="NR_CODIGO" ColumnName="NR_CODIGO" />
+          <ScalarProperty Name="AN_TIPO_ENVIO" ColumnName="AN_TIPO_ENVIO" />
+          <ScalarProperty Name="DT_ANDAMENTO" ColumnName="DT_ANDAMENTO" />
+          <ScalarProperty Name="AN_SITUACAO_PROCESSUAL" ColumnName="AN_SITUACAO_PROCESSUAL" />
+          <ScalarProperty Name="AN_IDENTIFICACAO_ALVARA" ColumnName="AN_IDENTIFICACAO_ALVARA" />
+          <ScalarProperty Name="AN_VL_CONDENACAO" ColumnName="AN_VL_CONDENACAO" />
+          <ScalarProperty Name="AN_RAZAO_ENCERRAMENTO" ColumnName="AN_RAZAO_ENCERRAMENTO" />
+          <ScalarProperty Name="DT_AUDIENCIA" ColumnName="DT_AUDIENCIA" />
+          <ScalarProperty Name="VL_PROVISIONAMENTO" ColumnName="VL_PROVISIONAMENTO" />
+          <ScalarProperty Name="AN_AGRAVO" ColumnName="AN_AGRAVO" />
+          <ScalarProperty Name="AN_INSTANCIA" ColumnName="AN_INSTANCIA" />
+          <ScalarProperty Name="AN_PRESTACAO_CONTAS" ColumnName="AN_PRESTACAO_CONTAS" />
+          <ScalarProperty Name="AN_SITUACAO_ACORDO" ColumnName="AN_SITUACAO_ACORDO" />
+          <ScalarProperty Name="DT_VCTO" ColumnName="DT_VCTO" />
+          <ScalarProperty Name="VL_PARCELA" ColumnName="VL_PARCELA" />
+          <ScalarProperty Name="QT_PARCELAS_ACORDO" ColumnName="QT_PARCELAS_ACORDO" />
+          <ScalarProperty Name="VL_ENTRADA_ACORDO" ColumnName="VL_ENTRADA_ACORDO" />
+          <ScalarProperty Name="VL_TOTAL_ACORDO" ColumnName="VL_TOTAL_ACORDO" />
+          <ScalarProperty Name="IN_TIPO_ACORDO" ColumnName="IN_TIPO_ACORDO" />
+          <ScalarProperty Name="VL_DEPOSITO_DEP" ColumnName="VL_DEPOSITO_DEP" />
+          <ScalarProperty Name="QT_DEPOSITO_DEP" ColumnName="QT_DEPOSITO_DEP" />
+          <ScalarProperty Name="VL_TOT_ALVARA_LEV" ColumnName="VL_TOT_ALVARA_LEV" />
+          <ScalarProperty Name="VL_ALVARA_LEV" ColumnName="VL_ALVARA_LEV" />
+          <ScalarProperty Name="QT_ALVARA_LEV" ColumnName="QT_ALVARA_LEV" />
+          <ScalarProperty Name="IN_LIMINAR" ColumnName="IN_LIMINAR" />
+          <ScalarProperty Name="IN_FASE_PROCESSUAL" ColumnName="IN_FASE_PROCESSUAL" />
+          <ScalarProperty Name="DT_MINUTA_PROTOCOL" ColumnName="DT_MINUTA_PROTOCOL" />
+          <ScalarProperty Name="DT_ORIGINAL_RECEB" ColumnName="DT_ORIGINAL_RECEB" />
+          <ScalarProperty Name="DT_COPIA_RECEB" ColumnName="DT_COPIA_RECEB" />
+          <ScalarProperty Name="IN_CHANCE_PERDA" ColumnName="IN_CHANCE_PERDA" />
+          <ScalarProperty Name="VL_ACAO" ColumnName="VL_ACAO" />
+          <ScalarProperty Name="CD_VARA" ColumnName="CD_VARA" />
+          <ScalarProperty Name="VL_CUSTAS" ColumnName="VL_CUSTAS" />
+          <ScalarProperty Name="NM_COMARCA" ColumnName="NM_COMARCA" />
+          <ScalarProperty Name="AN_ESTADO" ColumnName="AN_ESTADO" />
+          <ScalarProperty Name="DT_DISTRIBUICAO" ColumnName="DT_DISTRIBUICAO" />
+          <ScalarProperty Name="CD_ADVOGADO" ColumnName="CD_ADVOGADO" />
+          <ScalarProperty Name="DT_CADASTRO" ColumnName="DT_CADASTRO" />
+          <ScalarProperty Name="IN_TP_PROCESSO" ColumnName="IN_TP_PROCESSO" />
+          <ScalarProperty Name="IN_TP_ACAO" ColumnName="IN_TP_ACAO" />
+          <ScalarProperty Name="AN_CNJ" ColumnName="AN_CNJ" />
+          <ScalarProperty Name="AN_PROCESSO" ColumnName="AN_PROCESSO" />
+          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

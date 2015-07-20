@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Parcelas";
     int codcli = ViewBag.CodCliente != null ? ViewBag.CodCliente : 0;
+    string contrato = ViewBag.Contrato != null ? ViewBag.Contrato : null;
     var ExibirCliente = new sisa.DAO.Pessoa().Lista(codcli);
     var dados = new sisa.DAO.Pessoa().Dados(codcli);
 }
@@ -15,14 +16,18 @@
     </div>
 
     @Html.Partial("~/Views/Pessoa/_Cliente.cshtml", ExibirCliente)
-    <div class="row">
-        <div class="col-lg-1 text-center">
-            <p>
-                <a href="@Url.Action("Index", "Pessoa", new {codcli=codcli,banco=ViewBag.Banco })" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-repeat"></i>&nbsp;Voltar</a>
-            </p>
+    <div class="well well-sm">
+        <div class="row">
+            <div class="col-md-1 text-center">
+                    <a href="@Url.Action("Index", "Pessoa", new {codcli=codcli,banco=ViewBag.Banco,contrato=contrato })" class="btn btn-default"><i class="glyphicon glyphicon-repeat"></i>&nbsp;Voltar</a>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" type="button">
+                    <i class="glyphicon glyphicon-folder-open">&nbsp;</i>Contrato&nbsp;<span class="badge">@contrato</span>
+                </button>
+            </div>
         </div>
     </div>
-
 }
 
 @if (Model != null)
@@ -40,8 +45,6 @@
                     <th>Dt.Vencimento</th>
                     <th>Valor Titulo</th>
                     <th>Boleto</th>
-                    <th>Dt.Recebimento</th>
-                    <th>Banco</th>
                     <th>Dt.Pagamento</th>
                     <th>Honorários</th>
                     <th>Juros</th>
@@ -53,14 +56,12 @@
                         <td>@itm["NR_PARCELA"]</td>
                         <td>@itm["NR_DIAS_ATRASO"]</td>
                         <td>@itm["DT_VCTO"]</td>
-                        <td>@itm["VL_TITULO"]</td>
+                        <td>@String.Format("{0:C}",itm["VL_TITULO"])</td>
                         <td>@itm["CD_BOLETO"]</td>
-                        <td>@itm["DT_RECEBIMENTO"]</td>
-                        <td>@itm["NM_BANCO"]</td>
                         <td>@itm["DT_PAGTO"]</td>
-                        <td>@itm["VL_HONORARIOS"]</td>
-                        <td>@itm["VL_JUROS"]</td>
-                        <td>@itm["VL_TOTAL"]</td>
+                        <td>@String.Format("{0:C}", itm["VL_HONORARIOS"])</td>
+                        <td>@String.Format("{0:C}",itm["VL_JUROS"])</td>
+                        <td>@String.Format("{0:C}",itm["VL_TOTAL"])</td>
                     </tr>
                 }
             </table>

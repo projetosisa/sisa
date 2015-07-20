@@ -1,0 +1,2313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SisaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="menuMaster">
+    <Key>
+      <PropertyRef Name="Menu_ID" />
+    </Key>
+    <Property Name="Menu_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Menu_Nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Menu_Parent" Type="int" />
+    <Property Name="Menu_Enable" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Form" Type="varchar" MaxLength="100" />
+    <Property Name="Menu_Texto" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Tipo" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Icone" Type="varchar" MaxLength="50" />
+    <Property Name="Menu_Modulo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TB_ACORDO">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="NR_PARCELA" />
+      <PropertyRef Name="NR_ACORDO" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="NR_PARCELA" Type="int" Nullable="false" />
+    <Property Name="NR_ACORDO" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CD_BOLETO" Type="varchar" MaxLength="8" />
+    <Property Name="DT_VCTO" Type="smalldatetime" />
+    <Property Name="VL_TITULO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_PAGTO" Type="smalldatetime" />
+    <Property Name="VL_HONORARIOS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_CUSTAS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TARIFA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TOTAL_GERAL" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="TX_OBSERVACAO" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_TIPO_PAGTO" Type="varchar" MaxLength="15" />
+    <Property Name="DT_ACORDO" Type="smalldatetime" />
+    <Property Name="HR_ACORDO" Type="varchar" MaxLength="8" />
+    <Property Name="ID_USUARIO" Type="nchar" MaxLength="10" />
+    <Property Name="VL_BANCO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_REPASSE" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_REPASSE" Type="smalldatetime" />
+    <Property Name="HR_REPASSE" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_REPASSE" Type="varchar" MaxLength="35" />
+    <Property Name="AN_TIPO_ACORDO" Type="varchar" MaxLength="50" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_ADVOGADO">
+    <Key>
+      <PropertyRef Name="CD_ADVOGADO" />
+    </Key>
+    <Property Name="CD_ADVOGADO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NM_ADVOGADO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CD_OAB" Type="varchar" MaxLength="20" />
+    <Property Name="AN_TELEFONE" Type="varchar" MaxLength="15" />
+    <Property Name="AN_EMAIL" Type="varchar" MaxLength="70" />
+    <Property Name="NM_ESCRITORIO" Type="varchar" MaxLength="100" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_ALVARAS_AUTOMATIZADOS">
+    <Key>
+      <PropertyRef Name="ID_ALVARA" />
+    </Key>
+    <Property Name="ID_ALVARA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" />
+    <Property Name="NR_OPERACAO" Type="int" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CONTRATO" Type="varchar" MaxLength="50" />
+    <Property Name="NR_PROCESSO_CNJ" Type="varchar" MaxLength="50" />
+    <Property Name="NR_PROCESSO_THEMIS" Type="varchar" MaxLength="50" />
+    <Property Name="NR_ALVARA" Type="varchar" MaxLength="15" />
+    <Property Name="BENEFICIARIO" Type="varchar" MaxLength="100" />
+    <Property Name="DATA_ALVARA" Type="smalldatetime" />
+    <Property Name="SITUACAO" Type="varchar" MaxLength="255" />
+    <Property Name="TIPO_RESGATE" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="TB_AND_PROCESSO">
+    <Key>
+      <PropertyRef Name="ID_ANDAMENTO" />
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="CD_ANDAMENTO" />
+      <PropertyRef Name="DT_ANDAMENTO" />
+    </Key>
+    <Property Name="ID_ANDAMENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="CD_ANDAMENTO" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DT_ANDAMENTO" Type="smalldatetime" Nullable="false" />
+    <Property Name="DS_ANDAMENTO" Type="varchar" MaxLength="255" />
+    <Property Name="FL_FIM_ACAO" Type="int" />
+    <Property Name="NR_C_FIN" Type="int" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_AUDIENCIAS">
+    <Key>
+      <PropertyRef Name="ID_AUDIENCIA" />
+    </Key>
+    <Property Name="ID_AUDIENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" />
+    <Property Name="NR_OPERACAO" Type="int" />
+    <Property Name="CD_CONTRATO" Type="varchar" MaxLength="50" />
+    <Property Name="NR_PROCESSO_CNJ" Type="varchar" MaxLength="50" />
+    <Property Name="NR_PROCESSO_THEMIS" Type="varchar" MaxLength="50" />
+    <Property Name="DATA_AUDIENCIA" Type="smalldatetime" />
+    <Property Name="TEXTO_AUDIENCIA" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TB_AVALISTA">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="SQ_AVALISTA" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="SQ_AVALISTA" Type="int" Nullable="false" />
+    <Property Name="NM_AVALISTA" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="IN_F_J_AVALISTA" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="AN_ENDERECO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_CIDADE" Type="varchar" MaxLength="100" />
+    <Property Name="AN_BAIRRO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_CEP" Type="varchar" MaxLength="9" />
+    <Property Name="CD_UF" Type="varchar" MaxLength="2" />
+    <Property Name="AN_TELEFONE" Type="varchar" MaxLength="18" />
+    <Property Name="AN_CELULAR" Type="varchar" MaxLength="18" />
+    <Property Name="AN_REF_AVALISTA1" Type="varchar" MaxLength="255" />
+    <Property Name="AN_REF_AVALISTA2" Type="varchar" MaxLength="255" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_BANCO">
+    <Key>
+      <PropertyRef Name="ID_BANCO" />
+    </Key>
+    <Property Name="ID_BANCO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_BANCO" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DS_BANCO" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="AN_ENDERECO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_CIDADE" Type="varchar" MaxLength="50" />
+    <Property Name="CD_UF" Type="varchar" MaxLength="2" />
+    <Property Name="AN_CNPJ" Type="varchar" MaxLength="20" />
+    <Property Name="AN_INS_EST" Type="varchar" MaxLength="45" />
+    <Property Name="CD_AGENCIA" Type="varchar" MaxLength="6" />
+    <Property Name="CD_CEDENTE" Type="varchar" MaxLength="8" />
+    <Property Name="FT_IND_BANCO" Type="float" />
+    <Property Name="FT_IND_JURIDICO" Type="float" />
+    <Property Name="FT_IND_DESCONTO" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="FT_IND_JUROS" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="VL_ENCARGOS" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_ESCRITORIO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_NOTIFICACAO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_HONORARIOS" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="QT_DIAS_NOTIFICACAO" Type="int" />
+    <Property Name="NR_RECIBO" Type="int" />
+    <Property Name="NR_BOLETO" Type="int" />
+    <Property Name="NR_BORDERO" Type="int" />
+    <Property Name="NR_NOTIFICACAO" Type="int" />
+    <Property Name="NR_LOTE" Type="int" />
+    <Property Name="QT_DIAS_AJUIZAMENTO" Type="int" />
+    <Property Name="QT_DIAS_CARTORIO" Type="int" />
+    <Property Name="VL_META" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="VL_LOCALIZADOR" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="VL_MULTA" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_BOLETO">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="NR_PARCELA" />
+      <PropertyRef Name="CD_BOLETO" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="NR_PARCELA" Type="int" Nullable="false" />
+    <Property Name="CD_BOLETO" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="DT_PREV_DEPOSITO" Type="smalldatetime" />
+    <Property Name="DT_VCTO" Type="smalldatetime" />
+    <Property Name="VL_TITULO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_PAGTO" Type="smalldatetime" />
+    <Property Name="VL_ENCARGOS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_ESCRITORIO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_NOTIFICACAO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_HONORARIOS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_CPMF" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_LOCALIZADOR" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_CUSTAS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_DESP_EXTRA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_DESPESA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TARIFA_BANCARIA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_MULTA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_PAGTO_S_HONO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_PAGTO_C_HONO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_DESCONTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TOTAL" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="FT_IND_DESCONTO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_POR_DIA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_JUROS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="FT_IND_BANCO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="FT_IND_JURIDICO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_COMISSIONAMENTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_COMISS_PERM" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TOTAL_GERAL" Type="varchar" MaxLength="15" />
+    <Property Name="NR_DIAS_ATRASO" Type="int" />
+    <Property Name="TX_OBSERVACAO" Type="varchar" MaxLength="1000" />
+    <Property Name="TX_OBSERVACAO2" Type="varchar" MaxLength="1000" />
+    <Property Name="TX_OBSERVACAO3" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_TX_CONTRATO" Type="varchar" MaxLength="50" />
+    <Property Name="NR_LOTE" Type="int" />
+    <Property Name="DT_ENTRADA" Type="smalldatetime" />
+    <Property Name="FL_IMPRIMIR" Type="int" />
+    <Property Name="ID_USUARIO" Type="int" />
+    <Property Name="AN_CAMPO_1" Type="varchar" MaxLength="10" />
+    <Property Name="AN_DIGITO_1" Type="varchar" MaxLength="1" />
+    <Property Name="AN_CAMPO_2" Type="varchar" MaxLength="11" />
+    <Property Name="AN_DIGITO_2" Type="varchar" MaxLength="1" />
+    <Property Name="AN_CAMPO_3" Type="varchar" MaxLength="11" />
+    <Property Name="AN_DIGITO_3" Type="varchar" MaxLength="1" />
+    <Property Name="AN_DIGITO_GERAL" Type="varchar" MaxLength="1" />
+    <Property Name="AN_CODIGO_BARRA" Type="varchar" MaxLength="50" />
+    <Property Name="CD_AGENCIA" Type="varchar" MaxLength="15" />
+    <Property Name="CD_CEDENTE" Type="varchar" MaxLength="15" />
+    <Property Name="NM_CEDENTE" Type="varchar" MaxLength="100" />
+    <Property Name="CD_REPR_NUMERICA" Type="varchar" MaxLength="55" />
+    <Property Name="IN_TIPO_BLOQUETO" Type="varchar" MaxLength="1" />
+    <Property Name="CD_ERRO" Type="varchar" MaxLength="3" />
+    <Property Name="AN_DESCR_ERRO" Type="varchar" MaxLength="100" />
+    <Property Name="DT_RETORNO" Type="smalldatetime" />
+    <Property Name="DT_BOLETO_PAGO" Type="smalldatetime" />
+    <Property Name="IN_TIPO_COMISS" Type="varchar" MaxLength="2" />
+    <Property Name="NR_INCONSISTENCIA" Type="int" />
+    <Property Name="DT_CONFIRMA_PAGTO" Type="smalldatetime" />
+    <Property Name="IN_FAX_TRANSMITIDO" Type="int" />
+    <Property Name="NR_FAX" Type="varchar" MaxLength="50" />
+    <Property Name="AN_DESCR_BOLETO" Type="varchar" MaxLength="20" />
+    <Property Name="AN_CONTRATOS_BOLETO" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_PARCELAS_BOLETO" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_COD_AUTORIZACAO" Type="varchar" MaxLength="5" />
+    <Property Name="CD_PROGRAMA" Type="varchar" MaxLength="20" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_EXCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_EXC" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SISABANCO.dbo.TB_CLIENTE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TB_CLIENTE">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="FL_EXCLUIDO" Type="int" />
+    <Property Name="FL_PESQUISA" Type="int" />
+    <Property Name="FL_LOCALIZADOR" Type="int" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_COD_AND_PROCESSOS">
+    <Key>
+      <PropertyRef Name="ID_TIPO" />
+    </Key>
+    <Property Name="ID_TIPO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_ANDAMENTO" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DS_TIPO_ANDAMENTO" Type="varchar" MaxLength="200" />
+    <Property Name="FL_FIM_ACAO" Type="int" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="DT_FRIA" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="TB_COD_DESPESA">
+    <Key>
+      <PropertyRef Name="ID_DESPESA" />
+    </Key>
+    <Property Name="ID_DESPESA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_DESPESA" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DS_TIPO_DESPESA" Type="varchar" MaxLength="200" />
+    <Property Name="FL_DESPESA_REEMBOLSAVEL" Type="int" />
+    <Property Name="VL_DESPESA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_COD_EVENTO">
+    <Key>
+      <PropertyRef Name="ID_EVENTO" />
+    </Key>
+    <Property Name="ID_EVENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_EVENTO" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DS_TIPO_EVENTO" Type="varchar" MaxLength="200" />
+    <Property Name="FL_EVENTO_BANCO" Type="int" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_COD_HONORARIO">
+    <Key>
+      <PropertyRef Name="ID_HONORARIO" />
+    </Key>
+    <Property Name="ID_HONORARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_HONORARIO" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DS_TIPO_HONORARIO" Type="varchar" MaxLength="200" />
+    <Property Name="VL_HONORARIO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_COMARCA">
+    <Key>
+      <PropertyRef Name="ID_COMARCA" />
+    </Key>
+    <Property Name="ID_COMARCA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NM_COMARCA" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NM_VARA" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AN_CIDADE" Type="varchar" MaxLength="100" />
+    <Property Name="AN_ESTADO" Type="varchar" MaxLength="2" />
+    <Property Name="AN_FILIAL" Type="varchar" MaxLength="90" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_CONTATO">
+    <Key>
+      <PropertyRef Name="ID_CONTATO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="SQ_CONTATO" />
+    </Key>
+    <Property Name="ID_CONTATO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="SQ_CONTATO" Type="int" Nullable="false" />
+    <Property Name="IN_TP_CONTATO" Type="char" MaxLength="2" />
+    <Property Name="AN_DDD" Type="varchar" MaxLength="4" />
+    <Property Name="AN_TELEFONE" Type="varchar" MaxLength="25" />
+    <Property Name="AN_RAMAL" Type="varchar" MaxLength="5" />
+    <Property Name="AN_RESPONSAVEL" Type="varchar" MaxLength="150" />
+    <Property Name="AN_EMAIL" Type="varchar" MaxLength="255" />
+    <Property Name="FL_ATIVO" Type="int" />
+    <Property Name="AN_ORIGEM" Type="varchar" MaxLength="10" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_CONTRATO">
+    <Key>
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_BANCO" />
+    </Key>
+    <Property Name="ID_CONTRATO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="NR_OPERACAO" Type="int" />
+    <Property Name="CD_CONTRATO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_INFORMATIVO" Type="varchar" MaxLength="100" />
+    <Property Name="DT_CONTRATO" Type="smalldatetime" />
+    <Property Name="IN_TP_CONTRATO" Type="varchar" MaxLength="40" />
+    <Property Name="CD_PRODUTO" Type="int" />
+    <Property Name="AN_TX_OBJETO" Type="varchar" MaxLength="500" />
+    <Property Name="AN_TX_BASE_JUDICIAL" Type="varchar" MaxLength="500" />
+    <Property Name="DT_ENVIO_CONTRATO" Type="smalldatetime" />
+    <Property Name="DT_PRIM_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_SERASA" Type="smalldatetime" />
+    <Property Name="DT_SOLIC_DOC" Type="smalldatetime" />
+    <Property Name="FL_CONF_DIVIDA" Type="int" />
+    <Property Name="DT_CONF_DIVIDA" Type="smalldatetime" />
+    <Property Name="VL_TOT_CONTRATO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="NR_PARCELAS" Type="int" />
+    <Property Name="VL_PARCELA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_PRIM_VENCTO" Type="smalldatetime" />
+    <Property Name="DT_ULT_VENCTO" Type="smalldatetime" />
+    <Property Name="VL_SALDO_DEVEDOR" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_ACAO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_VENCIDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TAXA_FINANCIAMENTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_INDICE_MOEDA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_RISCO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_RISCO_TOTAL" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_CARTEIRA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="IN_FAIXA" Type="varchar" MaxLength="50" />
+    <Property Name="NR_ACORDO" Type="varchar" MaxLength="15" />
+    <Property Name="DT_INDICACAO" Type="smalldatetime" />
+    <Property Name="NR_PASTA" Type="varchar" MaxLength="50" />
+    <Property Name="TX_OBSERVACAO_JUIZO" Type="varchar" MaxLength="1000" />
+    <Property Name="FL_ALEGA_ACAOCONTRA" Type="int" />
+    <Property Name="CD_ADVOGADO" Type="int" />
+    <Property Name="CD_BANRISUL" Type="int" />
+    <Property Name="FL_EXCLUIDO" Type="int" />
+    <Property Name="ID_USUARIO" Type="int" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="NM_ARQUIVO" Type="varchar" MaxLength="50" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_EXCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_EXC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="NR_PARCELAS_PAGAS" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_CUSTAS">
+    <Key>
+      <PropertyRef Name="ID_CUSTAS" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="DATA_EMISSAO" />
+      <PropertyRef Name="NR_GUIA" />
+    </Key>
+    <Property Name="ID_CUSTAS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="DATA_EMISSAO" Type="date" Nullable="false" />
+    <Property Name="NR_GUIA" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VLR_GUIA" Type="decimal" Precision="13" Scale="2" />
+    <Property Name="DATA_PAGTO" Type="date" />
+  </EntityType>
+  <EntityType Name="TB_DADOS_REFERENCIA">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="AN_CONTATO_TEL_RES" Type="varchar" MaxLength="15" />
+    <Property Name="AN_NOME_CONJUGE" Type="varchar" MaxLength="50" />
+    <Property Name="AN_NOME_PRIM_REFERENCIA" Type="varchar" MaxLength="30" />
+    <Property Name="AN_TP_PARENTESCO_PRIM_PES" Type="varchar" MaxLength="15" />
+    <Property Name="AN_NOME_SEG_REFERENCIA" Type="varchar" MaxLength="30" />
+    <Property Name="AN_TP_PARENTESCO_SEG_PES" Type="varchar" MaxLength="15" />
+    <Property Name="AN_TIPO_OPERACAO" Type="varchar" MaxLength="10" />
+    <Property Name="AN_NUCLEO" Type="varchar" MaxLength="12" />
+    <Property Name="CD_LOJA" Type="int" />
+    <Property Name="AN_NOME_LOJA" Type="varchar" MaxLength="150" />
+    <Property Name="CD_FILIAL" Type="int" />
+    <Property Name="AN_NOME_FILIAL" Type="varchar" MaxLength="40" />
+    <Property Name="CD_GRUPO" Type="int" />
+    <Property Name="AN_NOME_GRUPO" Type="varchar" MaxLength="40" />
+    <Property Name="CD_EMPRESA" Type="int" />
+    <Property Name="AN_NOME_EMPRESA" Type="varchar" MaxLength="50" />
+    <Property Name="AN_TIPO_SEGURO" Type="varchar" MaxLength="1" />
+    <Property Name="AN_LOCAL_TRABALHO" Type="varchar" MaxLength="150" />
+    <Property Name="AN_CARGO_TRABALHO" Type="varchar" MaxLength="50" />
+    <Property Name="FL_PESQUISA" Type="int" />
+    <Property Name="DT_PESQUISA" Type="smalldatetime" />
+    <Property Name="FL_LOCALIZADOR" Type="int" />
+    <Property Name="DT_LOCALIZADOR" Type="smalldatetime" />
+    <Property Name="AN_NOME_LOCALIZADOR" Type="varchar" MaxLength="50" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_DEPOSITOS_JUDICIAIS">
+    <Key>
+      <PropertyRef Name="ID_DEPOSITO" />
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="DATA_EMISSAO" />
+    </Key>
+    <Property Name="ID_DEPOSITO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="DATA_EMISSAO" Type="smalldatetime" Nullable="false" />
+    <Property Name="NR_GUIA" Type="varchar" MaxLength="15" />
+    <Property Name="VLR_GUIA" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DATA_DEPOSITO" Type="smalldatetime" />
+    <Property Name="DEPOSITANTE" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TB_DESPESA">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="SQ_DESPESA" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="SQ_DESPESA" Type="int" Nullable="false" />
+    <Property Name="DS_DESPESA" Type="varchar" MaxLength="100" />
+    <Property Name="FL_COMPENSACAO" Type="int" />
+    <Property Name="DT_COMPENSACAO" Type="smalldatetime" />
+    <Property Name="NR_PARCELA" Type="int" />
+    <Property Name="CD_DESPESA" Type="varchar" MaxLength="6" />
+    <Property Name="VL_DESPESA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="FL_STATUS_PGTO" Type="int" />
+    <Property Name="DT_PAGTO" Type="smalldatetime" />
+    <Property Name="NR_DOC_NF" Type="int" />
+    <Property Name="DT_ENVIO_BANCO" Type="smalldatetime" />
+    <Property Name="DT_PAGTO_PREST" Type="smalldatetime" />
+    <Property Name="NR_EMPRESA" Type="int" />
+    <Property Name="DT_MOVIMENTO" Type="smalldatetime" />
+    <Property Name="NR_CGC_CARTORIO" Type="decimal" Precision="35" Scale="0" />
+    <Property Name="NR_LOTE_INTERNO" Type="int" />
+    <Property Name="NR_VALE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AN_JUSTIFICATIVA_MANUAL" Type="varchar" MaxLength="500" />
+    <Property Name="DT_JUSTIFICATIVA" Type="smalldatetime" />
+    <Property Name="NR_BORDERO" Type="int" />
+    <Property Name="AN_GRERJ" Type="varchar" MaxLength="20" />
+    <Property Name="AN_PROCESSO" Type="varchar" MaxLength="35" />
+    <Property Name="NM_COMARCA" Type="varchar" MaxLength="80" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_DIC_DADOS">
+    <Key>
+      <PropertyRef Name="CD_MODULO" />
+      <PropertyRef Name="CD_TABELA" />
+      <PropertyRef Name="CD_CAMPO" />
+    </Key>
+    <Property Name="CD_MODULO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CD_TABELA" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="CD_CAMPO" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="IN_TP_DADO" Type="varchar" MaxLength="45" />
+    <Property Name="IN_TP_OBJETO" Type="varchar" MaxLength="45" />
+    <Property Name="DS_CAMPO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_HELP" Type="varchar" MaxLength="2000" />
+    <Property Name="FL_OBRIGATORIO" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_DOMINIO">
+    <Key>
+      <PropertyRef Name="CD_DOMINIO" />
+      <PropertyRef Name="AN_TP_DOMINIO" />
+    </Key>
+    <Property Name="CD_DOMINIO" Type="int" Nullable="false" />
+    <Property Name="AN_TP_DOMINIO" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="AN_VALUE" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AN_DECRICAO" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="50" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="50" />
+    <Property Name="VERID" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_EMAIL">
+    <Key>
+      <PropertyRef Name="ID_EMAIL" />
+    </Key>
+    <Property Name="ID_EMAIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="SQ_EMAIL" Type="int" />
+    <Property Name="AN_EMAIL" Type="varchar" MaxLength="255" />
+    <Property Name="AN_RESPONSAVEL" Type="varchar" MaxLength="250" />
+    <Property Name="AN_ORIGEM" Type="varchar" MaxLength="15" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_ENDERECO">
+    <Key>
+      <PropertyRef Name="ID_ENDERECO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="SQ_ENDERECO" />
+    </Key>
+    <Property Name="ID_ENDERECO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="SQ_ENDERECO" Type="int" Nullable="false" />
+    <Property Name="IN_ENDERECO" Type="varchar" MaxLength="2" />
+    <Property Name="AN_ORIGEM" Type="varchar" MaxLength="50" />
+    <Property Name="FL_ATIVO" Type="int" />
+    <Property Name="AN_ENDERECO" Type="varchar" MaxLength="70" />
+    <Property Name="NR_ENDERECO" Type="int" />
+    <Property Name="AN_COMPLEMENTO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_BAIRRO" Type="varchar" MaxLength="70" />
+    <Property Name="AN_CIDADE" Type="varchar" MaxLength="70" />
+    <Property Name="CD_UF" Type="varchar" MaxLength="2" />
+    <Property Name="AN_CEP" Type="varchar" MaxLength="9" />
+    <Property Name="AN_NOME_EMPRESA" Type="varchar" MaxLength="70" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_EVENTO">
+    <Key>
+      <PropertyRef Name="ID_EVENTO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="DT_EVENTO" />
+      <PropertyRef Name="HR_EVENTO" />
+    </Key>
+    <Property Name="ID_EVENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="DT_EVENTO" Type="smalldatetime" Nullable="false" />
+    <Property Name="HR_EVENTO" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="NR_PARCELA" Type="int" Nullable="false" />
+    <Property Name="CD_USUARIO_RESP" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="CD_USUARIO_OPER" Type="varchar" MaxLength="35" />
+    <Property Name="DT_EVENTO_REAL" Type="smalldatetime" />
+    <Property Name="HR_INI" Type="varchar" MaxLength="8" />
+    <Property Name="HR_FIM" Type="varchar" MaxLength="8" />
+    <Property Name="IN_SIT_CONTATO" Type="varchar" MaxLength="10" />
+    <Property Name="CD_TIPO_EVENTO" Type="varchar" MaxLength="6" />
+    <Property Name="AN_DS_EVENTO_ASSUNTO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_OBS_EVENTO_ASSUNTO" Type="varchar" MaxLength="1000" />
+    <Property Name="NR_PRIORIDADE" Type="int" />
+    <Property Name="HR_TEMPO_LIGACAO" Type="varchar" MaxLength="8" />
+    <Property Name="HR_HORA_MARCADA" Type="varchar" MaxLength="8" />
+    <Property Name="FL_EXPORTADO_EVENTO" Type="int" />
+    <Property Name="DT_ENVIO_BANCO" Type="smalldatetime" />
+    <Property Name="AN_ARQUIVO_ENVIO" Type="varchar" MaxLength="50" />
+    <Property Name="NR_DDD" Type="varchar" MaxLength="5" />
+    <Property Name="NR_TELEFONE" Type="varchar" MaxLength="25" />
+    <Property Name="IN_LIGACAO_EFETUADA" Type="char" MaxLength="1" />
+    <Property Name="AN_STATUS" Type="varchar" MaxLength="50" />
+    <Property Name="AN_SITUACAO_CONTRATO" Type="varchar" MaxLength="50" />
+    <Property Name="CD_PROGRAMA" Type="varchar" MaxLength="50" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_FERIADO">
+    <Key>
+      <PropertyRef Name="ID_FERIADO" />
+    </Key>
+    <Property Name="ID_FERIADO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DT_FERIADO" Type="smalldatetime" Nullable="false" />
+    <Property Name="AN_DESCRICAO" Type="varchar" MaxLength="255" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_GRUPO">
+    <Key>
+      <PropertyRef Name="CD_GRUPO" />
+    </Key>
+    <Property Name="CD_GRUPO" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="NM_GRUPO" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="DS_GRUPO" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="50" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="50" />
+    <Property Name="VERID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_HISTORICO">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="NR_SEQ" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="NR_SEQ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AN_OBSERVACAO" Type="varchar" MaxLength="500" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="AN_PROGRAMA" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_HONORARIO">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="SQ_HONORARIOS" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="SQ_HONORARIOS" Type="int" Nullable="false" />
+    <Property Name="VL_HONORARIOS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="NR_DOC_NF" Type="int" />
+    <Property Name="DT_ENVIO_BANCO" Type="smalldatetime" />
+    <Property Name="DT_MOVIMENTO" Type="smalldatetime" />
+    <Property Name="FL_REEMBOLSAVEL" Type="int" />
+    <Property Name="NM_CLIENTE" Type="varchar" MaxLength="100" />
+    <Property Name="TX_OBS" Type="varchar" MaxLength="255" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_HORARIOS">
+    <Key>
+      <PropertyRef Name="ID_HORARIO" />
+    </Key>
+    <Property Name="ID_HORARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CODIGO" Type="int" Nullable="false" />
+    <Property Name="HORARIO_INICIAL" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="HORARIO_FINAL" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="HORARIO_INTERVALO_INICIAL" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="HORARIO_INTERVALO_FINAL" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="HORAS_DIA" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="TB_INDICE">
+    <Key>
+      <PropertyRef Name="ID_INDICE" />
+    </Key>
+    <Property Name="ID_INDICE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NM_BANCO" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="INTERVALO" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="FT_DESC_PARCELA" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="FT_DESC_PRINCIPAL" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="FT_JUROS" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="FT_MULTA" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="FT_HONORARIOS" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_LOGIN">
+    <Key>
+      <PropertyRef Name="Login_ID" />
+    </Key>
+    <Property Name="Login_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login_Usuario" Type="int" />
+    <Property Name="Login_PC" Type="varchar" MaxLength="50" />
+    <Property Name="Login_Data" Type="date" />
+    <Property Name="Login_IP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login_MAC" Type="varchar" MaxLength="50" />
+    <Property Name="Login_Hora" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="TB_MANDADOSOFICIAIS">
+    <Key>
+      <PropertyRef Name="ID_MANDADO" />
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="NR_MANDADO" />
+    </Key>
+    <Property Name="ID_MANDADO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="NR_MANDADO" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="TIPO_MANDADO" Type="varchar" MaxLength="255" />
+    <Property Name="DESTINATARIO_MANDADO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="OFICIAL_MANDADO" Type="varchar" MaxLength="100" />
+    <Property Name="DATA_REC_MANDADO" Type="date" />
+    <Property Name="DATA_DEV_MANDADO" Type="date" />
+    <Property Name="RESULTADO_MANDADO" Type="varchar" MaxLength="100" />
+    <Property Name="VLR_CONDUCAO_MANDADO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TB_MOVIMENTACOES">
+    <Key>
+      <PropertyRef Name="ID_MOVIMENTACAO" />
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="DATA_MOVIMENTACAO" />
+    </Key>
+    <Property Name="ID_MOVIMENTACAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="DATA_MOVIMENTACAO" Type="smalldatetime" Nullable="false" />
+    <Property Name="TEXTO_MOVIMENTACAO" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TB_NOTAS_EXPEDIENTE">
+    <Key>
+      <PropertyRef Name="ID_NOTA" />
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="NR_NOTA" />
+      <PropertyRef Name="DATA_NOTA" />
+    </Key>
+    <Property Name="ID_NOTA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="NR_NOTA" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DATA_NOTA" Type="smalldatetime" Nullable="false" />
+    <Property Name="TEXTO_NOTA" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TB_NOTIFICACAO">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="SQ_NOTIFICACAO" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="SQ_NOTIFICACAO" Type="int" Nullable="false" />
+    <Property Name="DT_GERACAO" Type="smalldatetime" />
+    <Property Name="DT_ENVIO" Type="smalldatetime" />
+    <Property Name="DT_RETORNO" Type="smalldatetime" />
+    <Property Name="DT_RESPOSTA" Type="smalldatetime" />
+    <Property Name="AN_TIPO_NOTIFICACAO" Type="varchar" MaxLength="35" />
+    <Property Name="VL_NOTIFICACAO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="NR_NOTIFICACAO" Type="int" />
+    <Property Name="DT_PAGTO_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="NR_PARCELA" Type="int" />
+    <Property Name="AN_RESULTADO" Type="varchar" MaxLength="25" />
+    <Property Name="NR_RETORNO" Type="int" />
+    <Property Name="AN_RENOTIFICACAO" Type="varchar" MaxLength="1" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_OBSERVACAO_JUDICIAL">
+    <Key>
+      <PropertyRef Name="ID_OBSERVACAO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="SQ_LANCTO" />
+    </Key>
+    <Property Name="ID_OBSERVACAO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="SQ_LANCTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DT_OBS" Type="smalldatetime" Nullable="false" />
+    <Property Name="HR_OBSERVACAO" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="CD_USUARIO_OBS" Type="varchar" MaxLength="35" />
+    <Property Name="AN_OBSERVACAO" Type="varchar" MaxLength="1000" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_OBSERVACAO_PREJUD">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="SQ_LANCTO" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="SQ_LANCTO" Type="int" Nullable="false" />
+    <Property Name="DT_OBS" Type="smalldatetime" />
+    <Property Name="HR_OBSERVACAO" Type="varchar" MaxLength="8" />
+    <Property Name="CD_USUARIO_OBS" Type="varchar" MaxLength="35" />
+    <Property Name="AN_OBSERVACAO" Type="varchar" MaxLength="1000" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_PARTES_ENVOLVIDAS">
+    <Key>
+      <PropertyRef Name="ID_PARTES_ENVOLVIDAS" />
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+    </Key>
+    <Property Name="ID_PARTES_ENVOLVIDAS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="AN_REQUERENTE" Type="varchar" MaxLength="255" />
+    <Property Name="AN_ADVOGADO_REQUERENTE" Type="varchar" MaxLength="255" />
+    <Property Name="AN_REQUERIDO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_ADVOGADO_REQUERIDO" Type="varchar" MaxLength="255" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_PERMISSOES">
+    <Key>
+      <PropertyRef Name="Permissao_ID" />
+    </Key>
+    <Property Name="Permissao_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Permissao_Usuario" Type="int" />
+    <Property Name="Permissao_Menu" Type="int" />
+    <Property Name="Permissao_Editar" Type="tinyint" />
+    <Property Name="Permissao_Visualizar" Type="tinyint" />
+    <Property Name="Permissao_Adicionar" Type="tinyint" />
+    <Property Name="Permissao_Excluir" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TB_PESSOA">
+    <Key>
+      <PropertyRef Name="ID_PESSOA" />
+      <PropertyRef Name="CD_CLIENTE" />
+    </Key>
+    <Property Name="ID_PESSOA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="NM_PESSOA" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IN_F_J" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="AN_CNPJ_CPF" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AN_CLUSTER_RATING" Type="varchar" MaxLength="15" />
+    <Property Name="AN_TX_CARTEIRA" Type="varchar" MaxLength="300" />
+    <Property Name="AN_CARTEIRA" Type="varchar" MaxLength="200" />
+    <Property Name="AN_TX_INFORMATIVO1" Type="varchar" MaxLength="100" />
+    <Property Name="AN_TX_INFORMATIVO2" Type="varchar" MaxLength="100" />
+    <Property Name="AN_RECURSO_AUXILIAR" Type="varchar" MaxLength="500" />
+    <Property Name="AN_MES_BASE" Type="varchar" MaxLength="7" />
+    <Property Name="AN_PARCELA_INIBIDA" Type="varchar" MaxLength="1" />
+    <Property Name="AN_CREDITO" Type="varchar" MaxLength="10" />
+    <Property Name="AN_OCUPACAO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_CARGO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_RG" Type="varchar" MaxLength="20" />
+    <Property Name="DT_EMISSAO_RG" Type="smalldatetime" />
+    <Property Name="AN_ORGAO_EMISSAO_RG" Type="varchar" MaxLength="25" />
+    <Property Name="CD_UF_RG" Type="varchar" MaxLength="2" />
+    <Property Name="AN_SEXO" Type="char" MaxLength="1" />
+    <Property Name="DT_NASCIMENTO" Type="smalldatetime" />
+    <Property Name="AN_NATURALIDADE" Type="varchar" MaxLength="100" />
+    <Property Name="AN_NACIONALIDADE" Type="varchar" MaxLength="50" />
+    <Property Name="AN_ESTADO_CIVIL" Type="varchar" MaxLength="50" />
+    <Property Name="AN_NOME_CONJUGE" Type="varchar" MaxLength="100" />
+    <Property Name="AN_NOME_PAI" Type="varchar" MaxLength="100" />
+    <Property Name="AN_NOME_MAE" Type="varchar" MaxLength="100" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_PETICOES">
+    <Key>
+      <PropertyRef Name="ID_PETICAO" />
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="DATA_PETICAO" />
+    </Key>
+    <Property Name="ID_PETICAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="DATA_PETICAO" Type="smalldatetime" Nullable="false" />
+    <Property Name="TEXTO_PETICAO" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TB_PROCESSO">
+    <Key>
+      <PropertyRef Name="ID_PROCESSO" />
+    </Key>
+    <Property Name="ID_PROCESSO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="AN_PROCESSO" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="AN_CNJ" Type="varchar" MaxLength="26" Nullable="false" />
+    <Property Name="IN_TP_ACAO" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="IN_TP_PROCESSO" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="DT_CADASTRO" Type="smalldatetime" Nullable="false" />
+    <Property Name="CD_ADVOGADO" Type="int" />
+    <Property Name="DT_DISTRIBUICAO" Type="smalldatetime" />
+    <Property Name="AN_ESTADO" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="NM_COMARCA" Type="varchar" MaxLength="100" />
+    <Property Name="VL_CUSTAS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="CD_VARA" Type="varchar" MaxLength="100" />
+    <Property Name="VL_ACAO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="IN_CHANCE_PERDA" Type="varchar" MaxLength="10" />
+    <Property Name="DT_COPIA_RECEB" Type="smalldatetime" />
+    <Property Name="DT_ORIGINAL_RECEB" Type="smalldatetime" />
+    <Property Name="DT_MINUTA_PROTOCOL" Type="smalldatetime" />
+    <Property Name="IN_FASE_PROCESSUAL" Type="varchar" MaxLength="50" />
+    <Property Name="IN_LIMINAR" Type="varchar" MaxLength="255" />
+    <Property Name="QT_ALVARA_LEV" Type="int" />
+    <Property Name="VL_ALVARA_LEV" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TOT_ALVARA_LEV" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="QT_DEPOSITO_DEP" Type="int" />
+    <Property Name="VL_DEPOSITO_DEP" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="IN_TIPO_ACORDO" Type="varchar" MaxLength="50" />
+    <Property Name="VL_TOTAL_ACORDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_ENTRADA_ACORDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="QT_PARCELAS_ACORDO" Type="int" />
+    <Property Name="VL_PARCELA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_VCTO" Type="smalldatetime" />
+    <Property Name="AN_SITUACAO_ACORDO" Type="varchar" MaxLength="200" />
+    <Property Name="AN_PRESTACAO_CONTAS" Type="varchar" MaxLength="100" />
+    <Property Name="AN_INSTANCIA" Type="varchar" MaxLength="50" />
+    <Property Name="AN_AGRAVO" Type="varchar" MaxLength="50" />
+    <Property Name="VL_PROVISIONAMENTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_AUDIENCIA" Type="smalldatetime" />
+    <Property Name="AN_RAZAO_ENCERRAMENTO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_VL_CONDENACAO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_IDENTIFICACAO_ALVARA" Type="varchar" MaxLength="50" />
+    <Property Name="AN_SITUACAO_PROCESSUAL" Type="varchar" MaxLength="500" />
+    <Property Name="DT_ANDAMENTO" Type="smalldatetime" />
+    <Property Name="AN_TIPO_ENVIO" Type="varchar" MaxLength="50" />
+    <Property Name="NR_CODIGO" Type="int" />
+    <Property Name="AN_SENTENCA" Type="varchar" MaxLength="100" />
+    <Property Name="AN_VL_DISCUTIDO_EXTRA" Type="varchar" MaxLength="200" />
+    <Property Name="AN_OBSERVACAO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_VL_ENTRADA_ACORDO_ESP" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_FASE" Type="varchar" MaxLength="100" />
+    <Property Name="VL_ALVARA_ACORDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="AN_SPC_SERASA" Type="varchar" MaxLength="50" />
+    <Property Name="IN_RET_ACAO_COB" Type="varchar" MaxLength="3" />
+    <Property Name="IN_PEND_LIQ_SENT" Type="varchar" MaxLength="3" />
+    <Property Name="AN_PROVIDENCIAS" Type="varchar" MaxLength="100" />
+    <Property Name="AN_DESCRICAO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_VL_ALVARA_EXTRA" Type="varchar" MaxLength="200" />
+    <Property Name="AN_SITUACAO_PROCESSO" Type="varchar" MaxLength="50" />
+    <Property Name="DT_ENCERRAMENTO" Type="smalldatetime" />
+    <Property Name="AN_SETOR_RESPONSAVEL" Type="varchar" MaxLength="45" />
+    <Property Name="AN_JUSTICA" Type="varchar" MaxLength="50" />
+    <Property Name="NR_PASTA" Type="varchar" MaxLength="50" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_SISTEMA">
+    <Key>
+      <PropertyRef Name="CD_SISTEMA" />
+    </Key>
+    <Property Name="CD_SISTEMA" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="NM_SISTEMA" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="DS_SISTEMA" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="50" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="50" />
+    <Property Name="VERID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_TELA">
+    <Key>
+      <PropertyRef Name="CD_TELA" />
+      <PropertyRef Name="CD_SISTEMA" />
+    </Key>
+    <Property Name="CD_TELA" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="CD_SISTEMA" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="NM_TELA" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="DS_TELA" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AN_URL" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NR_ORDER" Type="int" Nullable="false" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="50" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="50" />
+    <Property Name="VERID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_TIPO_ACAO">
+    <Key>
+      <PropertyRef Name="ID_TIPO_ACAO" />
+    </Key>
+    <Property Name="ID_TIPO_ACAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AN_TIPO_ACAO" Type="varchar" MaxLength="150" />
+    <Property Name="AN_TIPO" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="TB_TITULO">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="NR_PARCELA" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="NR_PARCELA" Type="int" Nullable="false" />
+    <Property Name="NR_DIAS_ATRASO" Type="int" />
+    <Property Name="CD_BOLETO" Type="varchar" MaxLength="8" />
+    <Property Name="DT_VCTO" Type="smalldatetime" />
+    <Property Name="VL_TITULO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_EMISSAO" Type="smalldatetime" />
+    <Property Name="DT_PRIM_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_RECEBIMENTO" Type="smalldatetime" />
+    <Property Name="DT_CREDITO" Type="smalldatetime" />
+    <Property Name="DT_REPASSE" Type="smalldatetime" />
+    <Property Name="DT_BAIXA" Type="smalldatetime" />
+    <Property Name="FL_BAIXA_MANUAL" Type="int" />
+    <Property Name="AN_ARQUIVO_ENVIO" Type="varchar" MaxLength="100" />
+    <Property Name="NR_DIAS_PAGTO" Type="int" />
+    <Property Name="DT_BANCO_PAGTO" Type="smalldatetime" />
+    <Property Name="CD_PROGRAMA_EXC" Type="varchar" MaxLength="50" />
+    <Property Name="AN_MOTIVO_EXC" Type="varchar" MaxLength="150" />
+    <Property Name="DT_EXCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_EXC" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_UF">
+    <Key>
+      <PropertyRef Name="AN_ESTADO" />
+    </Key>
+    <Property Name="AN_ESTADO" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="NM_ESTADO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TB_USUARIO">
+    <Key>
+      <PropertyRef Name="ID_USUARIO" />
+      <PropertyRef Name="CD_USUARIO" />
+    </Key>
+    <Property Name="ID_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CD_USUARIO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GRUPO_USUARIO" Type="int" />
+    <Property Name="AN_SENHA" Type="varchar" MaxLength="20" />
+    <Property Name="IN_NIVEL" Type="varchar" MaxLength="15" />
+    <Property Name="NM_NOME" Type="varchar" MaxLength="100" />
+    <Property Name="AN_EMAIL" Type="varchar" MaxLength="60" />
+    <Property Name="CD_HORARIO" Type="int" />
+    <Property Name="FL_LOCALIZADOR" Type="int" />
+    <Property Name="FL_PESQUISA" Type="int" />
+    <Property Name="FL_GESTOR" Type="int" />
+    <Property Name="FL_ADVOGADO" Type="int" />
+    <Property Name="FL_ACIONADOR" Type="int" />
+    <Property Name="FL_FINANCEIRO" Type="int" />
+    <Property Name="FL_ADMINISTRADOR" Type="int" />
+    <Property Name="FL_LIBERA_HONORARIOS" Type="int" />
+    <Property Name="FL_IMPRIME_RECIBO" Type="int" />
+    <Property Name="FL_ATIVO" Type="int" />
+    <Property Name="FL_TROCA_SENHA" Type="int" />
+    <Property Name="FL_INCLUI_ALTERA_PARCELA" Type="int" />
+    <Property Name="FL_ALTERA_DADOS_ACORDO" Type="int" />
+    <Property Name="FL_EXCLUI_CLIENTE" Type="int" />
+    <Property Name="FL_IMPRIME_BOLETO" Type="int" />
+    <Property Name="FL_BASE_ELETRONICA" Type="int" />
+    <Property Name="FL_EMITE_MINUTAS" Type="int" />
+    <Property Name="FL_EXCLUI_DADOS_PROCESSO" Type="int" />
+    <Property Name="FL_AUTORIZA_DESCONTO" Type="int" />
+    <Property Name="FL_LIBERA_CUSTAS" Type="int" />
+    <Property Name="FL_LIBERA_ESTORNO_PAGAMENTO" Type="int" />
+    <Property Name="QT_EVENTOS_DIA" Type="int" />
+    <Property Name="TEMPO_EVENTOS_DIA" Type="varchar" MaxLength="8" />
+    <Property Name="QT_BOLETOS_DIA" Type="int" />
+    <Property Name="VL_META" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="NR_FILIAL" Type="int" />
+    <Property Name="AN_GESTOR" Type="varchar" MaxLength="50" />
+    <Property Name="NM_CEDENTE" Type="varchar" MaxLength="100" />
+    <Property Name="AN_CIDADE" Type="varchar" MaxLength="100" />
+    <Property Name="AN_ENDERECO" Type="varchar" MaxLength="100" />
+    <Property Name="DT_ALTERA_SENHA" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="50" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="50" />
+    <Property Name="FL_ACESSA_ALFA" Type="varchar" MaxLength="1" />
+    <Property Name="FL_ACESSA_DAYCOVAL" Type="varchar" MaxLength="1" />
+    <Property Name="FL_ACESSA_FICSA" Type="varchar" MaxLength="1" />
+    <Property Name="FL_ACESSA_OMNI" Type="varchar" MaxLength="1" />
+    <Property Name="FL_ACESSA_RENNER" Type="varchar" MaxLength="1" />
+    <Property Name="FL_ACESSA_SULFINANCEIRA" Type="varchar" MaxLength="1" />
+    <Property Name="FL_ACESSA_OUTROBANCOS" Type="varchar" MaxLength="1" />
+    <Property Name="VL_META_ALFA" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="VL_META_DAYCOVAL" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="VL_META_FICSA" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="VL_META_RENNER" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="VL_META_OMNI" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="VL_META_SULFINANCEIRA" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="VL_META_OUTROSBANCOS" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="NR_RECIBO" Type="int" />
+    <Property Name="NR_BOLETO" Type="int" />
+    <Property Name="NR_CNPJ_CARTORIO" Type="varchar" MaxLength="20" />
+    <Property Name="FL_EXCLUI_PARCELA" Type="int" />
+    <Property Name="AN_TIPO_SELECAO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TB_VEICULO">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="AN_MARCA_VEIC" />
+      <PropertyRef Name="AN_MODELO_VEIC" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="AN_MARCA_VEIC" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="AN_MODELO_VEIC" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="NR_COD_SEGURADORA" Type="int" />
+    <Property Name="AN_MONTADORA_VEIC" Type="varchar" MaxLength="30" />
+    <Property Name="AN_ANO_FAB_VEIC" Type="varchar" MaxLength="5" />
+    <Property Name="AN_ANO_MODELO_VEIC" Type="varchar" MaxLength="5" />
+    <Property Name="AN_COR_VEIC" Type="varchar" MaxLength="50" />
+    <Property Name="AN_PLACA_VEIC" Type="varchar" MaxLength="10" />
+    <Property Name="CD_UF_VEIC" Type="varchar" MaxLength="2" />
+    <Property Name="AN_CHASSI_VEIC" Type="varchar" MaxLength="50" />
+    <Property Name="CD_RENAVAN" Type="varchar" MaxLength="20" />
+    <Property Name="CD_COMBUST_VEIC" Type="varchar" MaxLength="20" />
+    <Property Name="AN_CERTIF_VEIC" Type="varchar" MaxLength="25" />
+    <Property Name="DT_ENT_VEIC_GARAGEM" Type="smalldatetime" />
+    <Property Name="DT_VCTO_VEIC_GARAGEM" Type="smalldatetime" />
+    <Property Name="AN_END_GARAGEM" Type="varchar" MaxLength="70" />
+    <Property Name="AN_OBS_GARAGEM" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_DEPOSITARIO_GARAGEM" Type="varchar" MaxLength="50" />
+    <Property Name="AN_GUINCHO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_FONE_GARAGEM" Type="varchar" MaxLength="20" />
+    <Property Name="AN_LOCAL_DEPOSITO" Type="varchar" MaxLength="50" />
+    <Property Name="DT_APREENSAO" Type="smalldatetime" />
+    <Property Name="FL_VEIC_REMOVIDO" Type="int" />
+    <Property Name="VL_PAGO_REMOVIDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_SAIDA_GARAGEM" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SISABANCO.dbo.View_Dias_Atraso' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Dias_Atraso">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="NM_BANCO" />
+      <PropertyRef Name="NR_OPERACAO" />
+      <PropertyRef Name="CD_CONTRATO" />
+      <PropertyRef Name="NR_PARCELA" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="NM_BANCO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NR_OPERACAO" Type="int" Nullable="false" />
+    <Property Name="CD_CONTRATO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NR_PARCELA" Type="int" Nullable="false" />
+    <Property Name="NR_DIAS_ATRASO" Type="int" />
+    <Property Name="CD_BOLETO" Type="varchar" MaxLength="8" />
+    <Property Name="DT_VCTO" Type="smalldatetime" />
+    <Property Name="VL_TITULO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_EMISSAO" Type="smalldatetime" />
+    <Property Name="DT_PRIM_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_RECEBIMENTO" Type="smalldatetime" />
+    <Property Name="DT_CREDITO" Type="smalldatetime" />
+    <Property Name="DT_REPASSE" Type="smalldatetime" />
+    <Property Name="DT_BAIXA" Type="smalldatetime" />
+    <Property Name="FL_BAIXA_MANUAL" Type="int" />
+    <Property Name="AN_ARQUIVO_ENVIO" Type="varchar" MaxLength="100" />
+    <Property Name="NR_DIAS_PAGTO" Type="int" />
+    <Property Name="DT_BANCO_PAGTO" Type="smalldatetime" />
+    <Property Name="CD_PROGRAMA_EXC" Type="varchar" MaxLength="50" />
+    <Property Name="AN_MOTIVO_EXC" Type="varchar" MaxLength="150" />
+    <Property Name="DT_EXCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_EXC" Type="varchar" MaxLength="35" />
+    <Property Name="dia_atraso" Type="int" />
+    <Property Name="Expr1" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SISABANCO.dbo.vw_busca_cliente_banco' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_busca_cliente_banco">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="AN_CNPJ_CPF" />
+      <PropertyRef Name="NM_PESSOA" />
+      <PropertyRef Name="Expr1" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="Contratos_Excluidos" Type="int" />
+    <Property Name="Contratos_Ativos" Type="int" />
+    <Property Name="Contratos_Total" Type="int" />
+    <Property Name="AN_CNPJ_CPF" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NM_PESSOA" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NM_BANCO" Type="varchar" MaxLength="50" />
+    <Property Name="CD_USUARIO_RESP" Type="varchar" MaxLength="25" />
+    <Property Name="Expr1" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SISABANCO.dbo.VW_CONTRATOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_CONTRATOS">
+    <Key>
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_BANCO" />
+    </Key>
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="NR_OPERACAO" Type="int" />
+    <Property Name="CD_CONTRATO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_INFORMATIVO" Type="varchar" MaxLength="100" />
+    <Property Name="DT_CONTRATO" Type="smalldatetime" />
+    <Property Name="IN_TP_CONTRATO" Type="varchar" MaxLength="40" />
+    <Property Name="CD_PRODUTO" Type="int" />
+    <Property Name="AN_TX_OBJETO" Type="varchar" MaxLength="500" />
+    <Property Name="AN_TX_BASE_JUDICIAL" Type="varchar" MaxLength="500" />
+    <Property Name="DT_ENVIO_CONTRATO" Type="smalldatetime" />
+    <Property Name="DT_PRIM_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_SERASA" Type="smalldatetime" />
+    <Property Name="DT_SOLIC_DOC" Type="smalldatetime" />
+    <Property Name="FL_CONF_DIVIDA" Type="int" />
+    <Property Name="DT_CONF_DIVIDA" Type="smalldatetime" />
+    <Property Name="VL_TOT_CONTRATO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="NR_PARCELAS" Type="int" />
+    <Property Name="VL_PARCELA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_PRIM_VENCTO" Type="smalldatetime" />
+    <Property Name="DT_ULT_VENCTO" Type="smalldatetime" />
+    <Property Name="VL_SALDO_DEVEDOR" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_ACAO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_VENCIDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TAXA_FINANCIAMENTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_INDICE_MOEDA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_RISCO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_RISCO_TOTAL" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_CARTEIRA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="IN_FAIXA" Type="varchar" MaxLength="50" />
+    <Property Name="NR_ACORDO" Type="varchar" MaxLength="15" />
+    <Property Name="DT_INDICACAO" Type="smalldatetime" />
+    <Property Name="NR_PASTA" Type="varchar" MaxLength="50" />
+    <Property Name="TX_OBSERVACAO_JUIZO" Type="varchar" MaxLength="1000" />
+    <Property Name="FL_ALEGA_ACAOCONTRA" Type="int" />
+    <Property Name="CD_ADVOGADO" Type="int" />
+    <Property Name="CD_BANRISUL" Type="int" />
+    <Property Name="FL_EXCLUIDO" Type="int" />
+    <Property Name="ID_USUARIO" Type="int" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="NM_ARQUIVO" Type="varchar" MaxLength="50" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_EXCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_EXC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="NR_PARCELAS_PAGAS" Type="int" />
+    <Property Name="CD_BANCO" Type="varchar" MaxLength="5" />
+    <Property Name="DS_BANCO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_ENDERECO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_CIDADE" Type="varchar" MaxLength="50" />
+    <Property Name="CD_UF" Type="varchar" MaxLength="2" />
+    <Property Name="AN_CNPJ" Type="varchar" MaxLength="20" />
+    <Property Name="AN_INS_EST" Type="varchar" MaxLength="45" />
+    <Property Name="CD_AGENCIA" Type="varchar" MaxLength="6" />
+    <Property Name="CD_CEDENTE" Type="varchar" MaxLength="8" />
+    <Property Name="FT_IND_BANCO" Type="float" />
+    <Property Name="FT_IND_JURIDICO" Type="float" />
+    <Property Name="FT_IND_DESCONTO" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="FT_IND_JUROS" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="VL_ENCARGOS" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_ESCRITORIO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_NOTIFICACAO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_HONORARIOS" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="QT_DIAS_NOTIFICACAO" Type="int" />
+    <Property Name="NR_RECIBO" Type="int" />
+    <Property Name="NR_BOLETO" Type="int" />
+    <Property Name="NR_BORDERO" Type="int" />
+    <Property Name="NR_NOTIFICACAO" Type="int" />
+    <Property Name="NR_LOTE" Type="int" />
+    <Property Name="QT_DIAS_AJUIZAMENTO" Type="int" />
+    <Property Name="QT_DIAS_CARTORIO" Type="int" />
+    <Property Name="VL_META" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="VL_LOCALIZADOR" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="VL_MULTA" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SISABANCO.dbo.vw_listacontratos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_listacontratos">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="NM_BANCO" />
+      <PropertyRef Name="NR_OPERACAO" />
+      <PropertyRef Name="CD_CONTRATO" />
+      <PropertyRef Name="NR_PARCELA" />
+    </Key>
+    <Property Name="dia_atraso" Type="int" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="NM_BANCO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NR_OPERACAO" Type="int" Nullable="false" />
+    <Property Name="CD_CONTRATO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NR_PARCELA" Type="int" Nullable="false" />
+    <Property Name="NR_DIAS_ATRASO" Type="int" />
+    <Property Name="CD_BOLETO" Type="varchar" MaxLength="8" />
+    <Property Name="DT_VCTO" Type="smalldatetime" />
+    <Property Name="VL_TITULO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_EMISSAO" Type="smalldatetime" />
+    <Property Name="DT_PRIM_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_RECEBIMENTO" Type="smalldatetime" />
+    <Property Name="DT_CREDITO" Type="smalldatetime" />
+    <Property Name="DT_REPASSE" Type="smalldatetime" />
+    <Property Name="DT_BAIXA" Type="smalldatetime" />
+    <Property Name="FL_BAIXA_MANUAL" Type="int" />
+    <Property Name="AN_ARQUIVO_ENVIO" Type="varchar" MaxLength="100" />
+    <Property Name="NR_DIAS_PAGTO" Type="int" />
+    <Property Name="DT_BANCO_PAGTO" Type="smalldatetime" />
+    <Property Name="CD_PROGRAMA_EXC" Type="varchar" MaxLength="50" />
+    <Property Name="AN_MOTIVO_EXC" Type="varchar" MaxLength="150" />
+    <Property Name="DT_EXCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_EXC" Type="varchar" MaxLength="35" />
+    <Property Name="ID_PESSOA" Type="int" />
+    <Property Name="Expr1" Type="int" />
+    <Property Name="NM_PESSOA" Type="varchar" MaxLength="100" />
+    <Property Name="IN_F_J" Type="char" MaxLength="1" />
+    <Property Name="AN_CNPJ_CPF" Type="varchar" MaxLength="20" />
+    <Property Name="AN_OCUPACAO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_CARGO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_RG" Type="varchar" MaxLength="20" />
+    <Property Name="DT_EMISSAO_RG" Type="smalldatetime" />
+    <Property Name="AN_ORGAO_EMISSAO_RG" Type="varchar" MaxLength="25" />
+    <Property Name="CD_UF_RG" Type="varchar" MaxLength="2" />
+    <Property Name="AN_SEXO" Type="char" MaxLength="1" />
+    <Property Name="DT_NASCIMENTO" Type="smalldatetime" />
+    <Property Name="AN_NATURALIDADE" Type="varchar" MaxLength="100" />
+    <Property Name="AN_NACIONALIDADE" Type="varchar" MaxLength="50" />
+    <Property Name="AN_ESTADO_CIVIL" Type="varchar" MaxLength="50" />
+    <Property Name="AN_NOME_CONJUGE" Type="varchar" MaxLength="100" />
+    <Property Name="AN_NOME_PAI" Type="varchar" MaxLength="100" />
+    <Property Name="AN_NOME_MAE" Type="varchar" MaxLength="100" />
+    <Property Name="Expr2" Type="smalldatetime" />
+    <Property Name="Expr3" Type="smalldatetime" />
+    <Property Name="Expr4" Type="varchar" MaxLength="35" />
+    <Property Name="Expr5" Type="varchar" MaxLength="35" />
+    <Property Name="Expr6" Type="int" />
+    <Property Name="Expr7" Type="varchar" MaxLength="50" />
+    <Property Name="Expr8" Type="int" />
+    <Property Name="Expr9" Type="varchar" MaxLength="8" />
+    <Property Name="DT_PREV_DEPOSITO" Type="smalldatetime" />
+    <Property Name="Expr10" Type="smalldatetime" />
+    <Property Name="Expr11" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_PAGTO" Type="smalldatetime" />
+    <Property Name="VL_ENCARGOS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_ESCRITORIO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_NOTIFICACAO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_HONORARIOS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_CPMF" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_LOCALIZADOR" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_CUSTAS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_DESP_EXTRA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_DESPESA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TARIFA_BANCARIA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_MULTA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_PAGTO_S_HONO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_PAGTO_C_HONO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_DESCONTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TOTAL" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="FT_IND_DESCONTO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_POR_DIA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_JUROS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="FT_IND_BANCO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="FT_IND_JURIDICO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_COMISSIONAMENTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_COMISS_PERM" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TOTAL_GERAL" Type="varchar" MaxLength="15" />
+    <Property Name="Expr12" Type="int" />
+    <Property Name="TX_OBSERVACAO" Type="varchar" MaxLength="1000" />
+    <Property Name="TX_OBSERVACAO2" Type="varchar" MaxLength="1000" />
+    <Property Name="TX_OBSERVACAO3" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_TX_CONTRATO" Type="varchar" MaxLength="50" />
+    <Property Name="NR_LOTE" Type="int" />
+    <Property Name="DT_ENTRADA" Type="smalldatetime" />
+    <Property Name="FL_IMPRIMIR" Type="int" />
+    <Property Name="CD_USUARIO" Type="varchar" MaxLength="35" />
+    <Property Name="AN_CAMPO_1" Type="varchar" MaxLength="10" />
+    <Property Name="AN_DIGITO_1" Type="varchar" MaxLength="1" />
+    <Property Name="AN_CAMPO_2" Type="varchar" MaxLength="11" />
+    <Property Name="AN_DIGITO_2" Type="varchar" MaxLength="1" />
+    <Property Name="AN_CAMPO_3" Type="varchar" MaxLength="11" />
+    <Property Name="AN_DIGITO_3" Type="varchar" MaxLength="1" />
+    <Property Name="AN_DIGITO_GERAL" Type="varchar" MaxLength="1" />
+    <Property Name="AN_CODIGO_BARRA" Type="varchar" MaxLength="50" />
+    <Property Name="CD_AGENCIA" Type="varchar" MaxLength="15" />
+    <Property Name="CD_CEDENTE" Type="varchar" MaxLength="15" />
+    <Property Name="NM_CEDENTE" Type="varchar" MaxLength="100" />
+    <Property Name="CD_REPR_NUMERICA" Type="varchar" MaxLength="55" />
+    <Property Name="IN_TIPO_BLOQUETO" Type="varchar" MaxLength="1" />
+    <Property Name="CD_ERRO" Type="varchar" MaxLength="3" />
+    <Property Name="AN_DESCR_ERRO" Type="varchar" MaxLength="100" />
+    <Property Name="DT_RETORNO" Type="smalldatetime" />
+    <Property Name="DT_BOLETO_PAGO" Type="smalldatetime" />
+    <Property Name="IN_TIPO_COMISS" Type="varchar" MaxLength="2" />
+    <Property Name="NR_INCONSISTENCIA" Type="int" />
+    <Property Name="DT_CONFIRMA_PAGTO" Type="smalldatetime" />
+    <Property Name="IN_FAX_TRANSMITIDO" Type="int" />
+    <Property Name="NR_FAX" Type="varchar" MaxLength="50" />
+    <Property Name="AN_DESCR_BOLETO" Type="varchar" MaxLength="20" />
+    <Property Name="AN_CONTRATOS_BOLETO" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_PARCELAS_BOLETO" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_COD_AUTORIZACAO" Type="varchar" MaxLength="5" />
+    <Property Name="CD_PROGRAMA" Type="varchar" MaxLength="20" />
+    <Property Name="Expr13" Type="smalldatetime" />
+    <Property Name="Expr14" Type="smalldatetime" />
+    <Property Name="Expr15" Type="smalldatetime" />
+    <Property Name="Expr16" Type="varchar" MaxLength="35" />
+    <Property Name="Expr17" Type="varchar" MaxLength="35" />
+    <Property Name="Expr18" Type="varchar" MaxLength="35" />
+    <Property Name="ID_BANCO" Type="int" />
+    <Property Name="CD_BANCO" Type="varchar" MaxLength="5" />
+    <Property Name="DS_BANCO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_ENDERECO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_CIDADE" Type="varchar" MaxLength="50" />
+    <Property Name="CD_UF" Type="varchar" MaxLength="2" />
+    <Property Name="AN_CNPJ" Type="varchar" MaxLength="20" />
+    <Property Name="AN_INS_EST" Type="varchar" MaxLength="45" />
+    <Property Name="Expr19" Type="varchar" MaxLength="6" />
+    <Property Name="Expr20" Type="varchar" MaxLength="8" />
+    <Property Name="Expr21" Type="decimal" Precision="8" Scale="7" />
+    <Property Name="Expr22" Type="decimal" Precision="8" Scale="7" />
+    <Property Name="Expr23" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="FT_IND_JUROS" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="Expr24" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Expr25" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Expr26" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Expr27" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="QT_DIAS_NOTIFICACAO" Type="int" />
+    <Property Name="NR_RECIBO" Type="int" />
+    <Property Name="NR_BOLETO" Type="int" />
+    <Property Name="NR_BORDERO" Type="int" />
+    <Property Name="NR_NOTIFICACAO" Type="int" />
+    <Property Name="Expr28" Type="int" />
+    <Property Name="QT_DIAS_AJUIZAMENTO" Type="int" />
+    <Property Name="QT_DIAS_CARTORIO" Type="int" />
+    <Property Name="VL_META" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="Expr29" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="Expr30" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="Expr31" Type="smalldatetime" />
+    <Property Name="Expr32" Type="smalldatetime" />
+    <Property Name="Expr33" Type="varchar" MaxLength="35" />
+    <Property Name="Expr34" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SISABANCO.dbo.VW_PROCESSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_PROCESSO">
+    <Key>
+      <PropertyRef Name="ID_PROCESSO" />
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="AN_PROCESSO" />
+      <PropertyRef Name="AN_CNJ" />
+      <PropertyRef Name="IN_TP_ACAO" />
+      <PropertyRef Name="IN_TP_PROCESSO" />
+      <PropertyRef Name="DT_CADASTRO" />
+      <PropertyRef Name="AN_ESTADO" />
+    </Key>
+    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="AN_PROCESSO" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="AN_CNJ" Type="varchar" MaxLength="26" Nullable="false" />
+    <Property Name="IN_TP_ACAO" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="IN_TP_PROCESSO" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="DT_CADASTRO" Type="smalldatetime" Nullable="false" />
+    <Property Name="CD_ADVOGADO" Type="int" />
+    <Property Name="DT_DISTRIBUICAO" Type="smalldatetime" />
+    <Property Name="AN_ESTADO" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="NM_COMARCA" Type="varchar" MaxLength="100" />
+    <Property Name="VL_CUSTAS" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="CD_VARA" Type="varchar" MaxLength="100" />
+    <Property Name="VL_ACAO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="IN_CHANCE_PERDA" Type="varchar" MaxLength="10" />
+    <Property Name="DT_COPIA_RECEB" Type="smalldatetime" />
+    <Property Name="DT_ORIGINAL_RECEB" Type="smalldatetime" />
+    <Property Name="DT_MINUTA_PROTOCOL" Type="smalldatetime" />
+    <Property Name="IN_FASE_PROCESSUAL" Type="varchar" MaxLength="50" />
+    <Property Name="IN_LIMINAR" Type="varchar" MaxLength="255" />
+    <Property Name="QT_ALVARA_LEV" Type="int" />
+    <Property Name="VL_ALVARA_LEV" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TOT_ALVARA_LEV" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="QT_DEPOSITO_DEP" Type="int" />
+    <Property Name="VL_DEPOSITO_DEP" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="IN_TIPO_ACORDO" Type="varchar" MaxLength="50" />
+    <Property Name="VL_TOTAL_ACORDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_ENTRADA_ACORDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="QT_PARCELAS_ACORDO" Type="int" />
+    <Property Name="VL_PARCELA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_VCTO" Type="smalldatetime" />
+    <Property Name="AN_SITUACAO_ACORDO" Type="varchar" MaxLength="200" />
+    <Property Name="AN_PRESTACAO_CONTAS" Type="varchar" MaxLength="100" />
+    <Property Name="AN_INSTANCIA" Type="varchar" MaxLength="50" />
+    <Property Name="AN_AGRAVO" Type="varchar" MaxLength="50" />
+    <Property Name="VL_PROVISIONAMENTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_AUDIENCIA" Type="smalldatetime" />
+    <Property Name="AN_RAZAO_ENCERRAMENTO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_VL_CONDENACAO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_IDENTIFICACAO_ALVARA" Type="varchar" MaxLength="50" />
+    <Property Name="AN_SITUACAO_PROCESSUAL" Type="varchar" MaxLength="500" />
+    <Property Name="DT_ANDAMENTO" Type="smalldatetime" />
+    <Property Name="AN_TIPO_ENVIO" Type="varchar" MaxLength="50" />
+    <Property Name="NR_CODIGO" Type="int" />
+    <Property Name="AN_SENTENCA" Type="varchar" MaxLength="100" />
+    <Property Name="AN_VL_DISCUTIDO_EXTRA" Type="varchar" MaxLength="200" />
+    <Property Name="AN_OBSERVACAO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_VL_ENTRADA_ACORDO_ESP" Type="varchar" MaxLength="1000" />
+    <Property Name="AN_FASE" Type="varchar" MaxLength="100" />
+    <Property Name="VL_ALVARA_ACORDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="AN_SPC_SERASA" Type="varchar" MaxLength="50" />
+    <Property Name="IN_RET_ACAO_COB" Type="varchar" MaxLength="3" />
+    <Property Name="IN_PEND_LIQ_SENT" Type="varchar" MaxLength="3" />
+    <Property Name="AN_PROVIDENCIAS" Type="varchar" MaxLength="100" />
+    <Property Name="AN_DESCRICAO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_VL_ALVARA_EXTRA" Type="varchar" MaxLength="200" />
+    <Property Name="AN_SITUACAO_PROCESSO" Type="varchar" MaxLength="50" />
+    <Property Name="DT_ENCERRAMENTO" Type="smalldatetime" />
+    <Property Name="AN_SETOR_RESPONSAVEL" Type="varchar" MaxLength="45" />
+    <Property Name="AN_JUSTICA" Type="varchar" MaxLength="50" />
+    <Property Name="NR_PASTA" Type="varchar" MaxLength="50" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="CD_BANCO" Type="varchar" MaxLength="5" />
+    <Property Name="DS_BANCO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_ENDERECO" Type="varchar" MaxLength="255" />
+    <Property Name="AN_CIDADE" Type="varchar" MaxLength="50" />
+    <Property Name="CD_UF" Type="varchar" MaxLength="2" />
+    <Property Name="AN_CNPJ" Type="varchar" MaxLength="20" />
+    <Property Name="AN_INS_EST" Type="varchar" MaxLength="45" />
+    <Property Name="CD_AGENCIA" Type="varchar" MaxLength="6" />
+    <Property Name="CD_CEDENTE" Type="varchar" MaxLength="8" />
+    <Property Name="FT_IND_BANCO" Type="float" />
+    <Property Name="FT_IND_JURIDICO" Type="float" />
+    <Property Name="FT_IND_DESCONTO" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="FT_IND_JUROS" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="VL_ENCARGOS" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_ESCRITORIO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_NOTIFICACAO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VL_HONORARIOS" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="QT_DIAS_NOTIFICACAO" Type="int" />
+    <Property Name="NR_RECIBO" Type="int" />
+    <Property Name="NR_BOLETO" Type="int" />
+    <Property Name="NR_BORDERO" Type="int" />
+    <Property Name="NR_NOTIFICACAO" Type="int" />
+    <Property Name="NR_LOTE" Type="int" />
+    <Property Name="QT_DIAS_AJUIZAMENTO" Type="int" />
+    <Property Name="QT_DIAS_CARTORIO" Type="int" />
+    <Property Name="VL_META" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="VL_LOCALIZADOR" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="VL_MULTA" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="NR_OPERACAO" Type="int" />
+    <Property Name="CD_CONTRATO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_INFORMATIVO" Type="varchar" MaxLength="100" />
+    <Property Name="DT_CONTRATO" Type="smalldatetime" />
+    <Property Name="IN_TP_CONTRATO" Type="varchar" MaxLength="40" />
+    <Property Name="CD_PRODUTO" Type="int" />
+    <Property Name="AN_TX_OBJETO" Type="varchar" MaxLength="500" />
+    <Property Name="AN_TX_BASE_JUDICIAL" Type="varchar" MaxLength="500" />
+    <Property Name="DT_ENVIO_CONTRATO" Type="smalldatetime" />
+    <Property Name="DT_PRIM_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_SERASA" Type="smalldatetime" />
+    <Property Name="DT_SOLIC_DOC" Type="smalldatetime" />
+    <Property Name="FL_CONF_DIVIDA" Type="int" />
+    <Property Name="DT_CONF_DIVIDA" Type="smalldatetime" />
+    <Property Name="VL_TOT_CONTRATO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="NR_PARCELAS" Type="int" />
+    <Property Name="DT_PRIM_VENCTO" Type="smalldatetime" />
+    <Property Name="DT_ULT_VENCTO" Type="smalldatetime" />
+    <Property Name="VL_SALDO_DEVEDOR" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_VENCIDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TAXA_FINANCIAMENTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_INDICE_MOEDA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_RISCO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_RISCO_TOTAL" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_CARTEIRA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="IN_FAIXA" Type="varchar" MaxLength="50" />
+    <Property Name="NR_ACORDO" Type="varchar" MaxLength="15" />
+    <Property Name="DT_INDICACAO" Type="smalldatetime" />
+    <Property Name="TX_OBSERVACAO_JUIZO" Type="varchar" MaxLength="1000" />
+    <Property Name="FL_ALEGA_ACAOCONTRA" Type="int" />
+    <Property Name="CD_BANRISUL" Type="int" />
+    <Property Name="FL_EXCLUIDO" Type="int" />
+    <Property Name="ID_USUARIO" Type="int" />
+    <Property Name="NM_ARQUIVO" Type="varchar" MaxLength="50" />
+    <Property Name="DT_EXCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_EXC" Type="varchar" MaxLength="35" />
+    <Property Name="NR_PARCELAS_PAGAS" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_TITULOS">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="NR_PARCELA" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
+    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="NR_PARCELA" Type="int" Nullable="false" />
+    <Property Name="NR_DIAS_ATRASO" Type="int" />
+    <Property Name="CD_BOLETO" Type="varchar" MaxLength="8" />
+    <Property Name="DT_VCTO" Type="smalldatetime" />
+    <Property Name="VL_TITULO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_EMISSAO" Type="smalldatetime" />
+    <Property Name="DT_PRIM_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_RECEBIMENTO" Type="smalldatetime" />
+    <Property Name="DT_CREDITO" Type="smalldatetime" />
+    <Property Name="DT_REPASSE" Type="smalldatetime" />
+    <Property Name="DT_BAIXA" Type="smalldatetime" />
+    <Property Name="FL_BAIXA_MANUAL" Type="int" />
+    <Property Name="AN_ARQUIVO_ENVIO" Type="varchar" MaxLength="100" />
+    <Property Name="NR_DIAS_PAGTO" Type="int" />
+    <Property Name="DT_BANCO_PAGTO" Type="smalldatetime" />
+    <Property Name="CD_PROGRAMA_EXC" Type="varchar" MaxLength="50" />
+    <Property Name="AN_MOTIVO_EXC" Type="varchar" MaxLength="150" />
+    <Property Name="DT_EXCLUSAO" Type="smalldatetime" />
+    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+    <Property Name="CD_USUARIO_EXC" Type="varchar" MaxLength="35" />
+    <Property Name="CD_BANCO" Type="varchar" MaxLength="5" />
+    <Property Name="DS_BANCO" Type="varchar" MaxLength="255" />
+    <Property Name="NR_OPERACAO" Type="int" />
+    <Property Name="CD_CONTRATO" Type="varchar" MaxLength="50" />
+    <Property Name="AN_INFORMATIVO" Type="varchar" MaxLength="100" />
+    <Property Name="DT_CONTRATO" Type="smalldatetime" />
+    <Property Name="IN_TP_CONTRATO" Type="varchar" MaxLength="40" />
+    <Property Name="CD_PRODUTO" Type="int" />
+    <Property Name="AN_TX_OBJETO" Type="varchar" MaxLength="500" />
+    <Property Name="AN_TX_BASE_JUDICIAL" Type="varchar" MaxLength="500" />
+    <Property Name="DT_ENVIO_CONTRATO" Type="smalldatetime" />
+    <Property Name="DT_NOTIFICACAO" Type="smalldatetime" />
+    <Property Name="DT_SERASA" Type="smalldatetime" />
+    <Property Name="DT_SOLIC_DOC" Type="smalldatetime" />
+    <Property Name="FL_CONF_DIVIDA" Type="int" />
+    <Property Name="DT_CONF_DIVIDA" Type="smalldatetime" />
+    <Property Name="VL_TOT_CONTRATO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="NR_PARCELAS" Type="int" />
+    <Property Name="VL_PARCELA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="DT_PRIM_VENCTO" Type="smalldatetime" />
+    <Property Name="DT_ULT_VENCTO" Type="smalldatetime" />
+    <Property Name="VL_SALDO_DEVEDOR" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_ACAO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_VENCIDO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_TAXA_FINANCIAMENTO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_INDICE_MOEDA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_RISCO" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_RISCO_TOTAL" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="VL_CARTEIRA" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="IN_FAIXA" Type="varchar" MaxLength="50" />
+    <Property Name="NR_ACORDO" Type="varchar" MaxLength="15" />
+    <Property Name="DT_INDICACAO" Type="smalldatetime" />
+    <Property Name="NR_PASTA" Type="varchar" MaxLength="50" />
+    <Property Name="TX_OBSERVACAO_JUIZO" Type="varchar" MaxLength="1000" />
+    <Property Name="FL_ALEGA_ACAOCONTRA" Type="int" />
+    <Property Name="CD_ADVOGADO" Type="int" />
+    <Property Name="CD_BANRISUL" Type="int" />
+    <Property Name="FL_EXCLUIDO" Type="int" />
+    <Property Name="ID_USUARIO" Type="int" />
+    <Property Name="NM_ARQUIVO" Type="varchar" MaxLength="50" />
+    <Property Name="NR_PARCELAS_PAGAS" Type="int" />
+  </EntityType>
+  <EntityContainer Name="SisaModelStoreContainer">
+    <EntitySet Name="menuMaster" EntityType="Self.menuMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_ACORDO" EntityType="Self.TB_ACORDO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_ADVOGADO" EntityType="Self.TB_ADVOGADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_ALVARAS_AUTOMATIZADOS" EntityType="Self.TB_ALVARAS_AUTOMATIZADOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_AND_PROCESSO" EntityType="Self.TB_AND_PROCESSO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_AUDIENCIAS" EntityType="Self.TB_AUDIENCIAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_AVALISTA" EntityType="Self.TB_AVALISTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_BANCO" EntityType="Self.TB_BANCO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_BOLETO" EntityType="Self.TB_BOLETO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_COD_AND_PROCESSOS" EntityType="Self.TB_COD_AND_PROCESSOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_COD_DESPESA" EntityType="Self.TB_COD_DESPESA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_COD_EVENTO" EntityType="Self.TB_COD_EVENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_COD_HONORARIO" EntityType="Self.TB_COD_HONORARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_COMARCA" EntityType="Self.TB_COMARCA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_CONTATO" EntityType="Self.TB_CONTATO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_CONTRATO" EntityType="Self.TB_CONTRATO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_CUSTAS" EntityType="Self.TB_CUSTAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_DADOS_REFERENCIA" EntityType="Self.TB_DADOS_REFERENCIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_DEPOSITOS_JUDICIAIS" EntityType="Self.TB_DEPOSITOS_JUDICIAIS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_DESPESA" EntityType="Self.TB_DESPESA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_DIC_DADOS" EntityType="Self.TB_DIC_DADOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_DOMINIO" EntityType="Self.TB_DOMINIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_EMAIL" EntityType="Self.TB_EMAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_ENDERECO" EntityType="Self.TB_ENDERECO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_EVENTO" EntityType="Self.TB_EVENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_FERIADO" EntityType="Self.TB_FERIADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_GRUPO" EntityType="Self.TB_GRUPO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_HISTORICO" EntityType="Self.TB_HISTORICO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_HONORARIO" EntityType="Self.TB_HONORARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_HORARIOS" EntityType="Self.TB_HORARIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_INDICE" EntityType="Self.TB_INDICE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_LOGIN" EntityType="Self.TB_LOGIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_MANDADOSOFICIAIS" EntityType="Self.TB_MANDADOSOFICIAIS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_MOVIMENTACOES" EntityType="Self.TB_MOVIMENTACOES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_NOTAS_EXPEDIENTE" EntityType="Self.TB_NOTAS_EXPEDIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_NOTIFICACAO" EntityType="Self.TB_NOTIFICACAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_OBSERVACAO_JUDICIAL" EntityType="Self.TB_OBSERVACAO_JUDICIAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_OBSERVACAO_PREJUD" EntityType="Self.TB_OBSERVACAO_PREJUD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_PARTES_ENVOLVIDAS" EntityType="Self.TB_PARTES_ENVOLVIDAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_PERMISSOES" EntityType="Self.TB_PERMISSOES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_PESSOA" EntityType="Self.TB_PESSOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_PETICOES" EntityType="Self.TB_PETICOES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_PROCESSO" EntityType="Self.TB_PROCESSO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_SISTEMA" EntityType="Self.TB_SISTEMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_TELA" EntityType="Self.TB_TELA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_TIPO_ACAO" EntityType="Self.TB_TIPO_ACAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_TITULO" EntityType="Self.TB_TITULO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_UF" EntityType="Self.TB_UF" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_VEICULO" EntityType="Self.TB_VEICULO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_CLIENTE" EntityType="Self.TB_CLIENTE" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TB_CLIENTE].[CD_CLIENTE] AS [CD_CLIENTE], 
+    [TB_CLIENTE].[FL_EXCLUIDO] AS [FL_EXCLUIDO], 
+    [TB_CLIENTE].[FL_PESQUISA] AS [FL_PESQUISA], 
+    [TB_CLIENTE].[FL_LOCALIZADOR] AS [FL_LOCALIZADOR], 
+    [TB_CLIENTE].[DT_INCLUSAO] AS [DT_INCLUSAO], 
+    [TB_CLIENTE].[DT_ALTERACAO] AS [DT_ALTERACAO], 
+    [TB_CLIENTE].[CD_USUARIO_INC] AS [CD_USUARIO_INC], 
+    [TB_CLIENTE].[CD_USUARIO_ALT] AS [CD_USUARIO_ALT]
+    FROM [dbo].[TB_CLIENTE] AS [TB_CLIENTE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Dias_Atraso" EntityType="Self.View_Dias_Atraso" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Dias_Atraso].[CD_CLIENTE] AS [CD_CLIENTE], 
+    [View_Dias_Atraso].[NM_BANCO] AS [NM_BANCO], 
+    [View_Dias_Atraso].[NR_OPERACAO] AS [NR_OPERACAO], 
+    [View_Dias_Atraso].[CD_CONTRATO] AS [CD_CONTRATO], 
+    [View_Dias_Atraso].[NR_PARCELA] AS [NR_PARCELA], 
+    [View_Dias_Atraso].[NR_DIAS_ATRASO] AS [NR_DIAS_ATRASO], 
+    [View_Dias_Atraso].[CD_BOLETO] AS [CD_BOLETO], 
+    [View_Dias_Atraso].[DT_VCTO] AS [DT_VCTO], 
+    [View_Dias_Atraso].[VL_TITULO] AS [VL_TITULO], 
+    [View_Dias_Atraso].[DT_EMISSAO] AS [DT_EMISSAO], 
+    [View_Dias_Atraso].[DT_PRIM_NOTIFICACAO] AS [DT_PRIM_NOTIFICACAO], 
+    [View_Dias_Atraso].[DT_RECEBIMENTO] AS [DT_RECEBIMENTO], 
+    [View_Dias_Atraso].[DT_CREDITO] AS [DT_CREDITO], 
+    [View_Dias_Atraso].[DT_REPASSE] AS [DT_REPASSE], 
+    [View_Dias_Atraso].[DT_BAIXA] AS [DT_BAIXA], 
+    [View_Dias_Atraso].[FL_BAIXA_MANUAL] AS [FL_BAIXA_MANUAL], 
+    [View_Dias_Atraso].[AN_ARQUIVO_ENVIO] AS [AN_ARQUIVO_ENVIO], 
+    [View_Dias_Atraso].[NR_DIAS_PAGTO] AS [NR_DIAS_PAGTO], 
+    [View_Dias_Atraso].[DT_BANCO_PAGTO] AS [DT_BANCO_PAGTO], 
+    [View_Dias_Atraso].[CD_PROGRAMA_EXC] AS [CD_PROGRAMA_EXC], 
+    [View_Dias_Atraso].[AN_MOTIVO_EXC] AS [AN_MOTIVO_EXC], 
+    [View_Dias_Atraso].[DT_EXCLUSAO] AS [DT_EXCLUSAO], 
+    [View_Dias_Atraso].[DT_ALTERACAO] AS [DT_ALTERACAO], 
+    [View_Dias_Atraso].[DT_INCLUSAO] AS [DT_INCLUSAO], 
+    [View_Dias_Atraso].[CD_USUARIO_INC] AS [CD_USUARIO_INC], 
+    [View_Dias_Atraso].[CD_USUARIO_ALT] AS [CD_USUARIO_ALT], 
+    [View_Dias_Atraso].[CD_USUARIO_EXC] AS [CD_USUARIO_EXC], 
+    [View_Dias_Atraso].[dia_atraso] AS [dia_atraso], 
+    [View_Dias_Atraso].[Expr1] AS [Expr1]
+    FROM [dbo].[View_Dias_Atraso] AS [View_Dias_Atraso]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_busca_cliente_banco" EntityType="Self.vw_busca_cliente_banco" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_busca_cliente_banco].[CD_CLIENTE] AS [CD_CLIENTE], 
+    [vw_busca_cliente_banco].[Contratos_Excluidos] AS [Contratos_Excluidos], 
+    [vw_busca_cliente_banco].[Contratos_Ativos] AS [Contratos_Ativos], 
+    [vw_busca_cliente_banco].[Contratos_Total] AS [Contratos_Total], 
+    [vw_busca_cliente_banco].[AN_CNPJ_CPF] AS [AN_CNPJ_CPF], 
+    [vw_busca_cliente_banco].[NM_PESSOA] AS [NM_PESSOA], 
+    [vw_busca_cliente_banco].[NM_BANCO] AS [NM_BANCO], 
+    [vw_busca_cliente_banco].[CD_USUARIO_RESP] AS [CD_USUARIO_RESP], 
+    [vw_busca_cliente_banco].[Expr1] AS [Expr1]
+    FROM [dbo].[vw_busca_cliente_banco] AS [vw_busca_cliente_banco]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_CONTRATOS" EntityType="Self.VW_CONTRATOS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_CONTRATOS].[ID_CONTRATO] AS [ID_CONTRATO], 
+    [VW_CONTRATOS].[CD_CLIENTE] AS [CD_CLIENTE], 
+    [VW_CONTRATOS].[ID_BANCO] AS [ID_BANCO], 
+    [VW_CONTRATOS].[NR_OPERACAO] AS [NR_OPERACAO], 
+    [VW_CONTRATOS].[CD_CONTRATO] AS [CD_CONTRATO], 
+    [VW_CONTRATOS].[AN_INFORMATIVO] AS [AN_INFORMATIVO], 
+    [VW_CONTRATOS].[DT_CONTRATO] AS [DT_CONTRATO], 
+    [VW_CONTRATOS].[IN_TP_CONTRATO] AS [IN_TP_CONTRATO], 
+    [VW_CONTRATOS].[CD_PRODUTO] AS [CD_PRODUTO], 
+    [VW_CONTRATOS].[AN_TX_OBJETO] AS [AN_TX_OBJETO], 
+    [VW_CONTRATOS].[AN_TX_BASE_JUDICIAL] AS [AN_TX_BASE_JUDICIAL], 
+    [VW_CONTRATOS].[DT_ENVIO_CONTRATO] AS [DT_ENVIO_CONTRATO], 
+    [VW_CONTRATOS].[DT_PRIM_NOTIFICACAO] AS [DT_PRIM_NOTIFICACAO], 
+    [VW_CONTRATOS].[DT_NOTIFICACAO] AS [DT_NOTIFICACAO], 
+    [VW_CONTRATOS].[DT_SERASA] AS [DT_SERASA], 
+    [VW_CONTRATOS].[DT_SOLIC_DOC] AS [DT_SOLIC_DOC], 
+    [VW_CONTRATOS].[FL_CONF_DIVIDA] AS [FL_CONF_DIVIDA], 
+    [VW_CONTRATOS].[DT_CONF_DIVIDA] AS [DT_CONF_DIVIDA], 
+    [VW_CONTRATOS].[VL_TOT_CONTRATO] AS [VL_TOT_CONTRATO], 
+    [VW_CONTRATOS].[NR_PARCELAS] AS [NR_PARCELAS], 
+    [VW_CONTRATOS].[VL_PARCELA] AS [VL_PARCELA], 
+    [VW_CONTRATOS].[DT_PRIM_VENCTO] AS [DT_PRIM_VENCTO], 
+    [VW_CONTRATOS].[DT_ULT_VENCTO] AS [DT_ULT_VENCTO], 
+    [VW_CONTRATOS].[VL_SALDO_DEVEDOR] AS [VL_SALDO_DEVEDOR], 
+    [VW_CONTRATOS].[VL_ACAO] AS [VL_ACAO], 
+    [VW_CONTRATOS].[VL_VENCIDO] AS [VL_VENCIDO], 
+    [VW_CONTRATOS].[VL_TAXA_FINANCIAMENTO] AS [VL_TAXA_FINANCIAMENTO], 
+    [VW_CONTRATOS].[VL_INDICE_MOEDA] AS [VL_INDICE_MOEDA], 
+    [VW_CONTRATOS].[VL_RISCO] AS [VL_RISCO], 
+    [VW_CONTRATOS].[VL_RISCO_TOTAL] AS [VL_RISCO_TOTAL], 
+    [VW_CONTRATOS].[VL_CARTEIRA] AS [VL_CARTEIRA], 
+    [VW_CONTRATOS].[IN_FAIXA] AS [IN_FAIXA], 
+    [VW_CONTRATOS].[NR_ACORDO] AS [NR_ACORDO], 
+    [VW_CONTRATOS].[DT_INDICACAO] AS [DT_INDICACAO], 
+    [VW_CONTRATOS].[NR_PASTA] AS [NR_PASTA], 
+    [VW_CONTRATOS].[TX_OBSERVACAO_JUIZO] AS [TX_OBSERVACAO_JUIZO], 
+    [VW_CONTRATOS].[FL_ALEGA_ACAOCONTRA] AS [FL_ALEGA_ACAOCONTRA], 
+    [VW_CONTRATOS].[CD_ADVOGADO] AS [CD_ADVOGADO], 
+    [VW_CONTRATOS].[CD_BANRISUL] AS [CD_BANRISUL], 
+    [VW_CONTRATOS].[FL_EXCLUIDO] AS [FL_EXCLUIDO], 
+    [VW_CONTRATOS].[ID_USUARIO] AS [ID_USUARIO], 
+    [VW_CONTRATOS].[DT_INCLUSAO] AS [DT_INCLUSAO], 
+    [VW_CONTRATOS].[NM_ARQUIVO] AS [NM_ARQUIVO], 
+    [VW_CONTRATOS].[DT_ALTERACAO] AS [DT_ALTERACAO], 
+    [VW_CONTRATOS].[DT_EXCLUSAO] AS [DT_EXCLUSAO], 
+    [VW_CONTRATOS].[CD_USUARIO_EXC] AS [CD_USUARIO_EXC], 
+    [VW_CONTRATOS].[CD_USUARIO_ALT] AS [CD_USUARIO_ALT], 
+    [VW_CONTRATOS].[NR_PARCELAS_PAGAS] AS [NR_PARCELAS_PAGAS], 
+    [VW_CONTRATOS].[CD_BANCO] AS [CD_BANCO], 
+    [VW_CONTRATOS].[DS_BANCO] AS [DS_BANCO], 
+    [VW_CONTRATOS].[AN_ENDERECO] AS [AN_ENDERECO], 
+    [VW_CONTRATOS].[AN_CIDADE] AS [AN_CIDADE], 
+    [VW_CONTRATOS].[CD_UF] AS [CD_UF], 
+    [VW_CONTRATOS].[AN_CNPJ] AS [AN_CNPJ], 
+    [VW_CONTRATOS].[AN_INS_EST] AS [AN_INS_EST], 
+    [VW_CONTRATOS].[CD_AGENCIA] AS [CD_AGENCIA], 
+    [VW_CONTRATOS].[CD_CEDENTE] AS [CD_CEDENTE], 
+    [VW_CONTRATOS].[FT_IND_BANCO] AS [FT_IND_BANCO], 
+    [VW_CONTRATOS].[FT_IND_JURIDICO] AS [FT_IND_JURIDICO], 
+    [VW_CONTRATOS].[FT_IND_DESCONTO] AS [FT_IND_DESCONTO], 
+    [VW_CONTRATOS].[FT_IND_JUROS] AS [FT_IND_JUROS], 
+    [VW_CONTRATOS].[VL_ENCARGOS] AS [VL_ENCARGOS], 
+    [VW_CONTRATOS].[VL_ESCRITORIO] AS [VL_ESCRITORIO], 
+    [VW_CONTRATOS].[VL_NOTIFICACAO] AS [VL_NOTIFICACAO], 
+    [VW_CONTRATOS].[VL_HONORARIOS] AS [VL_HONORARIOS], 
+    [VW_CONTRATOS].[QT_DIAS_NOTIFICACAO] AS [QT_DIAS_NOTIFICACAO], 
+    [VW_CONTRATOS].[NR_RECIBO] AS [NR_RECIBO], 
+    [VW_CONTRATOS].[NR_BOLETO] AS [NR_BOLETO], 
+    [VW_CONTRATOS].[NR_BORDERO] AS [NR_BORDERO], 
+    [VW_CONTRATOS].[NR_NOTIFICACAO] AS [NR_NOTIFICACAO], 
+    [VW_CONTRATOS].[NR_LOTE] AS [NR_LOTE], 
+    [VW_CONTRATOS].[QT_DIAS_AJUIZAMENTO] AS [QT_DIAS_AJUIZAMENTO], 
+    [VW_CONTRATOS].[QT_DIAS_CARTORIO] AS [QT_DIAS_CARTORIO], 
+    [VW_CONTRATOS].[VL_META] AS [VL_META], 
+    [VW_CONTRATOS].[VL_LOCALIZADOR] AS [VL_LOCALIZADOR], 
+    [VW_CONTRATOS].[VL_MULTA] AS [VL_MULTA], 
+    [VW_CONTRATOS].[CD_USUARIO_INC] AS [CD_USUARIO_INC]
+    FROM [dbo].[VW_CONTRATOS] AS [VW_CONTRATOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_listacontratos" EntityType="Self.vw_listacontratos" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_listacontratos].[dia_atraso] AS [dia_atraso], 
+    [vw_listacontratos].[CD_CLIENTE] AS [CD_CLIENTE], 
+    [vw_listacontratos].[NM_BANCO] AS [NM_BANCO], 
+    [vw_listacontratos].[NR_OPERACAO] AS [NR_OPERACAO], 
+    [vw_listacontratos].[CD_CONTRATO] AS [CD_CONTRATO], 
+    [vw_listacontratos].[NR_PARCELA] AS [NR_PARCELA], 
+    [vw_listacontratos].[NR_DIAS_ATRASO] AS [NR_DIAS_ATRASO], 
+    [vw_listacontratos].[CD_BOLETO] AS [CD_BOLETO], 
+    [vw_listacontratos].[DT_VCTO] AS [DT_VCTO], 
+    [vw_listacontratos].[VL_TITULO] AS [VL_TITULO], 
+    [vw_listacontratos].[DT_EMISSAO] AS [DT_EMISSAO], 
+    [vw_listacontratos].[DT_PRIM_NOTIFICACAO] AS [DT_PRIM_NOTIFICACAO], 
+    [vw_listacontratos].[DT_RECEBIMENTO] AS [DT_RECEBIMENTO], 
+    [vw_listacontratos].[DT_CREDITO] AS [DT_CREDITO], 
+    [vw_listacontratos].[DT_REPASSE] AS [DT_REPASSE], 
+    [vw_listacontratos].[DT_BAIXA] AS [DT_BAIXA], 
+    [vw_listacontratos].[FL_BAIXA_MANUAL] AS [FL_BAIXA_MANUAL], 
+    [vw_listacontratos].[AN_ARQUIVO_ENVIO] AS [AN_ARQUIVO_ENVIO], 
+    [vw_listacontratos].[NR_DIAS_PAGTO] AS [NR_DIAS_PAGTO], 
+    [vw_listacontratos].[DT_BANCO_PAGTO] AS [DT_BANCO_PAGTO], 
+    [vw_listacontratos].[CD_PROGRAMA_EXC] AS [CD_PROGRAMA_EXC], 
+    [vw_listacontratos].[AN_MOTIVO_EXC] AS [AN_MOTIVO_EXC], 
+    [vw_listacontratos].[DT_EXCLUSAO] AS [DT_EXCLUSAO], 
+    [vw_listacontratos].[DT_ALTERACAO] AS [DT_ALTERACAO], 
+    [vw_listacontratos].[DT_INCLUSAO] AS [DT_INCLUSAO], 
+    [vw_listacontratos].[CD_USUARIO_INC] AS [CD_USUARIO_INC], 
+    [vw_listacontratos].[CD_USUARIO_ALT] AS [CD_USUARIO_ALT], 
+    [vw_listacontratos].[CD_USUARIO_EXC] AS [CD_USUARIO_EXC], 
+    [vw_listacontratos].[ID_PESSOA] AS [ID_PESSOA], 
+    [vw_listacontratos].[Expr1] AS [Expr1], 
+    [vw_listacontratos].[NM_PESSOA] AS [NM_PESSOA], 
+    [vw_listacontratos].[IN_F_J] AS [IN_F_J], 
+    [vw_listacontratos].[AN_CNPJ_CPF] AS [AN_CNPJ_CPF], 
+    [vw_listacontratos].[AN_OCUPACAO] AS [AN_OCUPACAO], 
+    [vw_listacontratos].[AN_CARGO] AS [AN_CARGO], 
+    [vw_listacontratos].[AN_RG] AS [AN_RG], 
+    [vw_listacontratos].[DT_EMISSAO_RG] AS [DT_EMISSAO_RG], 
+    [vw_listacontratos].[AN_ORGAO_EMISSAO_RG] AS [AN_ORGAO_EMISSAO_RG], 
+    [vw_listacontratos].[CD_UF_RG] AS [CD_UF_RG], 
+    [vw_listacontratos].[AN_SEXO] AS [AN_SEXO], 
+    [vw_listacontratos].[DT_NASCIMENTO] AS [DT_NASCIMENTO], 
+    [vw_listacontratos].[AN_NATURALIDADE] AS [AN_NATURALIDADE], 
+    [vw_listacontratos].[AN_NACIONALIDADE] AS [AN_NACIONALIDADE], 
+    [vw_listacontratos].[AN_ESTADO_CIVIL] AS [AN_ESTADO_CIVIL], 
+    [vw_listacontratos].[AN_NOME_CONJUGE] AS [AN_NOME_CONJUGE], 
+    [vw_listacontratos].[AN_NOME_PAI] AS [AN_NOME_PAI], 
+    [vw_listacontratos].[AN_NOME_MAE] AS [AN_NOME_MAE], 
+    [vw_listacontratos].[Expr2] AS [Expr2], 
+    [vw_listacontratos].[Expr3] AS [Expr3], 
+    [vw_listacontratos].[Expr4] AS [Expr4], 
+    [vw_listacontratos].[Expr5] AS [Expr5], 
+    [vw_listacontratos].[Expr6] AS [Expr6], 
+    [vw_listacontratos].[Expr7] AS [Expr7], 
+    [vw_listacontratos].[Expr8] AS [Expr8], 
+    [vw_listacontratos].[Expr9] AS [Expr9], 
+    [vw_listacontratos].[DT_PREV_DEPOSITO] AS [DT_PREV_DEPOSITO], 
+    [vw_listacontratos].[Expr10] AS [Expr10], 
+    [vw_listacontratos].[Expr11] AS [Expr11], 
+    [vw_listacontratos].[DT_PAGTO] AS [DT_PAGTO], 
+    [vw_listacontratos].[VL_ENCARGOS] AS [VL_ENCARGOS], 
+    [vw_listacontratos].[VL_ESCRITORIO] AS [VL_ESCRITORIO], 
+    [vw_listacontratos].[VL_NOTIFICACAO] AS [VL_NOTIFICACAO], 
+    [vw_listacontratos].[VL_HONORARIOS] AS [VL_HONORARIOS], 
+    [vw_listacontratos].[VL_CPMF] AS [VL_CPMF], 
+    [vw_listacontratos].[VL_LOCALIZADOR] AS [VL_LOCALIZADOR], 
+    [vw_listacontratos].[VL_CUSTAS] AS [VL_CUSTAS], 
+    [vw_listacontratos].[VL_DESP_EXTRA] AS [VL_DESP_EXTRA], 
+    [vw_listacontratos].[VL_DESPESA] AS [VL_DESPESA], 
+    [vw_listacontratos].[VL_TARIFA_BANCARIA] AS [VL_TARIFA_BANCARIA], 
+    [vw_listacontratos].[VL_MULTA] AS [VL_MULTA], 
+    [vw_listacontratos].[VL_PAGTO_S_HONO] AS [VL_PAGTO_S_HONO], 
+    [vw_listacontratos].[VL_PAGTO_C_HONO] AS [VL_PAGTO_C_HONO], 
+    [vw_listacontratos].[VL_DESCONTO] AS [VL_DESCONTO], 
+    [vw_listacontratos].[VL_TOTAL] AS [VL_TOTAL], 
+    [vw_listacontratos].[FT_IND_DESCONTO] AS [FT_IND_DESCONTO], 
+    [vw_listacontratos].[VL_POR_DIA] AS [VL_POR_DIA], 
+    [vw_listacontratos].[VL_JUROS] AS [VL_JUROS], 
+    [vw_listacontratos].[FT_IND_BANCO] AS [FT_IND_BANCO], 
+    [vw_listacontratos].[FT_IND_JURIDICO] AS [FT_IND_JURIDICO], 
+    [vw_listacontratos].[VL_COMISSIONAMENTO] AS [VL_COMISSIONAMENTO], 
+    [vw_listacontratos].[VL_COMISS_PERM] AS [VL_COMISS_PERM], 
+    [vw_listacontratos].[VL_TOTAL_GERAL] AS [VL_TOTAL_GERAL], 
+    [vw_listacontratos].[Expr12] AS [Expr12], 
+    [vw_listacontratos].[TX_OBSERVACAO] AS [TX_OBSERVACAO], 
+    [vw_listacontratos].[TX_OBSERVACAO2] AS [TX_OBSERVACAO2], 
+    [vw_listacontratos].[TX_OBSERVACAO3] AS [TX_OBSERVACAO3], 
+    [vw_listacontratos].[AN_TX_CONTRATO] AS [AN_TX_CONTRATO], 
+    [vw_listacontratos].[NR_LOTE] AS [NR_LOTE], 
+    [vw_listacontratos].[DT_ENTRADA] AS [DT_ENTRADA], 
+    [vw_listacontratos].[FL_IMPRIMIR] AS [FL_IMPRIMIR], 
+    [vw_listacontratos].[CD_USUARIO] AS [CD_USUARIO], 
+    [vw_listacontratos].[AN_CAMPO_1] AS [AN_CAMPO_1], 
+    [vw_listacontratos].[AN_DIGITO_1] AS [AN_DIGITO_1], 
+    [vw_listacontratos].[AN_CAMPO_2] AS [AN_CAMPO_2], 
+    [vw_listacontratos].[AN_DIGITO_2] AS [AN_DIGITO_2], 
+    [vw_listacontratos].[AN_CAMPO_3] AS [AN_CAMPO_3], 
+    [vw_listacontratos].[AN_DIGITO_3] AS [AN_DIGITO_3], 
+    [vw_listacontratos].[AN_DIGITO_GERAL] AS [AN_DIGITO_GERAL], 
+    [vw_listacontratos].[AN_CODIGO_BARRA] AS [AN_CODIGO_BARRA], 
+    [vw_listacontratos].[CD_AGENCIA] AS [CD_AGENCIA], 
+    [vw_listacontratos].[CD_CEDENTE] AS [CD_CEDENTE], 
+    [vw_listacontratos].[NM_CEDENTE] AS [NM_CEDENTE], 
+    [vw_listacontratos].[CD_REPR_NUMERICA] AS [CD_REPR_NUMERICA], 
+    [vw_listacontratos].[IN_TIPO_BLOQUETO] AS [IN_TIPO_BLOQUETO], 
+    [vw_listacontratos].[CD_ERRO] AS [CD_ERRO], 
+    [vw_listacontratos].[AN_DESCR_ERRO] AS [AN_DESCR_ERRO], 
+    [vw_listacontratos].[DT_RETORNO] AS [DT_RETORNO], 
+    [vw_listacontratos].[DT_BOLETO_PAGO] AS [DT_BOLETO_PAGO], 
+    [vw_listacontratos].[IN_TIPO_COMISS] AS [IN_TIPO_COMISS], 
+    [vw_listacontratos].[NR_INCONSISTENCIA] AS [NR_INCONSISTENCIA], 
+    [vw_listacontratos].[DT_CONFIRMA_PAGTO] AS [DT_CONFIRMA_PAGTO], 
+    [vw_listacontratos].[IN_FAX_TRANSMITIDO] AS [IN_FAX_TRANSMITIDO], 
+    [vw_listacontratos].[NR_FAX] AS [NR_FAX], 
+    [vw_listacontratos].[AN_DESCR_BOLETO] AS [AN_DESCR_BOLETO], 
+    [vw_listacontratos].[AN_CONTRATOS_BOLETO] AS [AN_CONTRATOS_BOLETO], 
+    [vw_listacontratos].[AN_PARCELAS_BOLETO] AS [AN_PARCELAS_BOLETO], 
+    [vw_listacontratos].[AN_COD_AUTORIZACAO] AS [AN_COD_AUTORIZACAO], 
+    [vw_listacontratos].[CD_PROGRAMA] AS [CD_PROGRAMA], 
+    [vw_listacontratos].[Expr13] AS [Expr13], 
+    [vw_listacontratos].[Expr14] AS [Expr14], 
+    [vw_listacontratos].[Expr15] AS [Expr15], 
+    [vw_listacontratos].[Expr16] AS [Expr16], 
+    [vw_listacontratos].[Expr17] AS [Expr17], 
+    [vw_listacontratos].[Expr18] AS [Expr18], 
+    [vw_listacontratos].[ID_BANCO] AS [ID_BANCO], 
+    [vw_listacontratos].[CD_BANCO] AS [CD_BANCO], 
+    [vw_listacontratos].[DS_BANCO] AS [DS_BANCO], 
+    [vw_listacontratos].[AN_ENDERECO] AS [AN_ENDERECO], 
+    [vw_listacontratos].[AN_CIDADE] AS [AN_CIDADE], 
+    [vw_listacontratos].[CD_UF] AS [CD_UF], 
+    [vw_listacontratos].[AN_CNPJ] AS [AN_CNPJ], 
+    [vw_listacontratos].[AN_INS_EST] AS [AN_INS_EST], 
+    [vw_listacontratos].[Expr19] AS [Expr19], 
+    [vw_listacontratos].[Expr20] AS [Expr20], 
+    [vw_listacontratos].[Expr21] AS [Expr21], 
+    [vw_listacontratos].[Expr22] AS [Expr22], 
+    [vw_listacontratos].[Expr23] AS [Expr23], 
+    [vw_listacontratos].[FT_IND_JUROS] AS [FT_IND_JUROS], 
+    [vw_listacontratos].[Expr24] AS [Expr24], 
+    [vw_listacontratos].[Expr25] AS [Expr25], 
+    [vw_listacontratos].[Expr26] AS [Expr26], 
+    [vw_listacontratos].[Expr27] AS [Expr27], 
+    [vw_listacontratos].[QT_DIAS_NOTIFICACAO] AS [QT_DIAS_NOTIFICACAO], 
+    [vw_listacontratos].[NR_RECIBO] AS [NR_RECIBO], 
+    [vw_listacontratos].[NR_BOLETO] AS [NR_BOLETO], 
+    [vw_listacontratos].[NR_BORDERO] AS [NR_BORDERO], 
+    [vw_listacontratos].[NR_NOTIFICACAO] AS [NR_NOTIFICACAO], 
+    [vw_listacontratos].[Expr28] AS [Expr28], 
+    [vw_listacontratos].[QT_DIAS_AJUIZAMENTO] AS [QT_DIAS_AJUIZAMENTO], 
+    [vw_listacontratos].[QT_DIAS_CARTORIO] AS [QT_DIAS_CARTORIO], 
+    [vw_listacontratos].[VL_META] AS [VL_META], 
+    [vw_listacontratos].[Expr29] AS [Expr29], 
+    [vw_listacontratos].[Expr30] AS [Expr30], 
+    [vw_listacontratos].[Expr31] AS [Expr31], 
+    [vw_listacontratos].[Expr32] AS [Expr32], 
+    [vw_listacontratos].[Expr33] AS [Expr33], 
+    [vw_listacontratos].[Expr34] AS [Expr34]
+    FROM [dbo].[vw_listacontratos] AS [vw_listacontratos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_PROCESSO" EntityType="Self.VW_PROCESSO" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_PROCESSO].[ID_PROCESSO] AS [ID_PROCESSO], 
+    [VW_PROCESSO].[CD_CLIENTE] AS [CD_CLIENTE], 
+    [VW_PROCESSO].[ID_BANCO] AS [ID_BANCO], 
+    [VW_PROCESSO].[ID_CONTRATO] AS [ID_CONTRATO], 
+    [VW_PROCESSO].[AN_PROCESSO] AS [AN_PROCESSO], 
+    [VW_PROCESSO].[AN_CNJ] AS [AN_CNJ], 
+    [VW_PROCESSO].[IN_TP_ACAO] AS [IN_TP_ACAO], 
+    [VW_PROCESSO].[IN_TP_PROCESSO] AS [IN_TP_PROCESSO], 
+    [VW_PROCESSO].[DT_CADASTRO] AS [DT_CADASTRO], 
+    [VW_PROCESSO].[CD_ADVOGADO] AS [CD_ADVOGADO], 
+    [VW_PROCESSO].[DT_DISTRIBUICAO] AS [DT_DISTRIBUICAO], 
+    [VW_PROCESSO].[AN_ESTADO] AS [AN_ESTADO], 
+    [VW_PROCESSO].[NM_COMARCA] AS [NM_COMARCA], 
+    [VW_PROCESSO].[VL_CUSTAS] AS [VL_CUSTAS], 
+    [VW_PROCESSO].[CD_VARA] AS [CD_VARA], 
+    [VW_PROCESSO].[VL_ACAO] AS [VL_ACAO], 
+    [VW_PROCESSO].[IN_CHANCE_PERDA] AS [IN_CHANCE_PERDA], 
+    [VW_PROCESSO].[DT_COPIA_RECEB] AS [DT_COPIA_RECEB], 
+    [VW_PROCESSO].[DT_ORIGINAL_RECEB] AS [DT_ORIGINAL_RECEB], 
+    [VW_PROCESSO].[DT_MINUTA_PROTOCOL] AS [DT_MINUTA_PROTOCOL], 
+    [VW_PROCESSO].[IN_FASE_PROCESSUAL] AS [IN_FASE_PROCESSUAL], 
+    [VW_PROCESSO].[IN_LIMINAR] AS [IN_LIMINAR], 
+    [VW_PROCESSO].[QT_ALVARA_LEV] AS [QT_ALVARA_LEV], 
+    [VW_PROCESSO].[VL_ALVARA_LEV] AS [VL_ALVARA_LEV], 
+    [VW_PROCESSO].[VL_TOT_ALVARA_LEV] AS [VL_TOT_ALVARA_LEV], 
+    [VW_PROCESSO].[QT_DEPOSITO_DEP] AS [QT_DEPOSITO_DEP], 
+    [VW_PROCESSO].[VL_DEPOSITO_DEP] AS [VL_DEPOSITO_DEP], 
+    [VW_PROCESSO].[IN_TIPO_ACORDO] AS [IN_TIPO_ACORDO], 
+    [VW_PROCESSO].[VL_TOTAL_ACORDO] AS [VL_TOTAL_ACORDO], 
+    [VW_PROCESSO].[VL_ENTRADA_ACORDO] AS [VL_ENTRADA_ACORDO], 
+    [VW_PROCESSO].[QT_PARCELAS_ACORDO] AS [QT_PARCELAS_ACORDO], 
+    [VW_PROCESSO].[VL_PARCELA] AS [VL_PARCELA], 
+    [VW_PROCESSO].[DT_VCTO] AS [DT_VCTO], 
+    [VW_PROCESSO].[AN_SITUACAO_ACORDO] AS [AN_SITUACAO_ACORDO], 
+    [VW_PROCESSO].[AN_PRESTACAO_CONTAS] AS [AN_PRESTACAO_CONTAS], 
+    [VW_PROCESSO].[AN_INSTANCIA] AS [AN_INSTANCIA], 
+    [VW_PROCESSO].[AN_AGRAVO] AS [AN_AGRAVO], 
+    [VW_PROCESSO].[VL_PROVISIONAMENTO] AS [VL_PROVISIONAMENTO], 
+    [VW_PROCESSO].[DT_AUDIENCIA] AS [DT_AUDIENCIA], 
+    [VW_PROCESSO].[AN_RAZAO_ENCERRAMENTO] AS [AN_RAZAO_ENCERRAMENTO], 
+    [VW_PROCESSO].[AN_VL_CONDENACAO] AS [AN_VL_CONDENACAO], 
+    [VW_PROCESSO].[AN_IDENTIFICACAO_ALVARA] AS [AN_IDENTIFICACAO_ALVARA], 
+    [VW_PROCESSO].[AN_SITUACAO_PROCESSUAL] AS [AN_SITUACAO_PROCESSUAL], 
+    [VW_PROCESSO].[DT_ANDAMENTO] AS [DT_ANDAMENTO], 
+    [VW_PROCESSO].[AN_TIPO_ENVIO] AS [AN_TIPO_ENVIO], 
+    [VW_PROCESSO].[NR_CODIGO] AS [NR_CODIGO], 
+    [VW_PROCESSO].[AN_SENTENCA] AS [AN_SENTENCA], 
+    [VW_PROCESSO].[AN_VL_DISCUTIDO_EXTRA] AS [AN_VL_DISCUTIDO_EXTRA], 
+    [VW_PROCESSO].[AN_OBSERVACAO] AS [AN_OBSERVACAO], 
+    [VW_PROCESSO].[AN_VL_ENTRADA_ACORDO_ESP] AS [AN_VL_ENTRADA_ACORDO_ESP], 
+    [VW_PROCESSO].[AN_FASE] AS [AN_FASE], 
+    [VW_PROCESSO].[VL_ALVARA_ACORDO] AS [VL_ALVARA_ACORDO], 
+    [VW_PROCESSO].[AN_SPC_SERASA] AS [AN_SPC_SERASA], 
+    [VW_PROCESSO].[IN_RET_ACAO_COB] AS [IN_RET_ACAO_COB], 
+    [VW_PROCESSO].[IN_PEND_LIQ_SENT] AS [IN_PEND_LIQ_SENT], 
+    [VW_PROCESSO].[AN_PROVIDENCIAS] AS [AN_PROVIDENCIAS], 
+    [VW_PROCESSO].[AN_DESCRICAO] AS [AN_DESCRICAO], 
+    [VW_PROCESSO].[AN_VL_ALVARA_EXTRA] AS [AN_VL_ALVARA_EXTRA], 
+    [VW_PROCESSO].[AN_SITUACAO_PROCESSO] AS [AN_SITUACAO_PROCESSO], 
+    [VW_PROCESSO].[DT_ENCERRAMENTO] AS [DT_ENCERRAMENTO], 
+    [VW_PROCESSO].[AN_SETOR_RESPONSAVEL] AS [AN_SETOR_RESPONSAVEL], 
+    [VW_PROCESSO].[AN_JUSTICA] AS [AN_JUSTICA], 
+    [VW_PROCESSO].[NR_PASTA] AS [NR_PASTA], 
+    [VW_PROCESSO].[DT_ALTERACAO] AS [DT_ALTERACAO], 
+    [VW_PROCESSO].[DT_INCLUSAO] AS [DT_INCLUSAO], 
+    [VW_PROCESSO].[CD_USUARIO_INC] AS [CD_USUARIO_INC], 
+    [VW_PROCESSO].[CD_USUARIO_ALT] AS [CD_USUARIO_ALT], 
+    [VW_PROCESSO].[CD_BANCO] AS [CD_BANCO], 
+    [VW_PROCESSO].[DS_BANCO] AS [DS_BANCO], 
+    [VW_PROCESSO].[AN_ENDERECO] AS [AN_ENDERECO], 
+    [VW_PROCESSO].[AN_CIDADE] AS [AN_CIDADE], 
+    [VW_PROCESSO].[CD_UF] AS [CD_UF], 
+    [VW_PROCESSO].[AN_CNPJ] AS [AN_CNPJ], 
+    [VW_PROCESSO].[AN_INS_EST] AS [AN_INS_EST], 
+    [VW_PROCESSO].[CD_AGENCIA] AS [CD_AGENCIA], 
+    [VW_PROCESSO].[CD_CEDENTE] AS [CD_CEDENTE], 
+    [VW_PROCESSO].[FT_IND_BANCO] AS [FT_IND_BANCO], 
+    [VW_PROCESSO].[FT_IND_JURIDICO] AS [FT_IND_JURIDICO], 
+    [VW_PROCESSO].[FT_IND_DESCONTO] AS [FT_IND_DESCONTO], 
+    [VW_PROCESSO].[FT_IND_JUROS] AS [FT_IND_JUROS], 
+    [VW_PROCESSO].[VL_ENCARGOS] AS [VL_ENCARGOS], 
+    [VW_PROCESSO].[VL_ESCRITORIO] AS [VL_ESCRITORIO], 
+    [VW_PROCESSO].[VL_NOTIFICACAO] AS [VL_NOTIFICACAO], 
+    [VW_PROCESSO].[VL_HONORARIOS] AS [VL_HONORARIOS], 
+    [VW_PROCESSO].[QT_DIAS_NOTIFICACAO] AS [QT_DIAS_NOTIFICACAO], 
+    [VW_PROCESSO].[NR_RECIBO] AS [NR_RECIBO], 
+    [VW_PROCESSO].[NR_BOLETO] AS [NR_BOLETO], 
+    [VW_PROCESSO].[NR_BORDERO] AS [NR_BORDERO], 
+    [VW_PROCESSO].[NR_NOTIFICACAO] AS [NR_NOTIFICACAO], 
+    [VW_PROCESSO].[NR_LOTE] AS [NR_LOTE], 
+    [VW_PROCESSO].[QT_DIAS_AJUIZAMENTO] AS [QT_DIAS_AJUIZAMENTO], 
+    [VW_PROCESSO].[QT_DIAS_CARTORIO] AS [QT_DIAS_CARTORIO], 
+    [VW_PROCESSO].[VL_META] AS [VL_META], 
+    [VW_PROCESSO].[VL_LOCALIZADOR] AS [VL_LOCALIZADOR], 
+    [VW_PROCESSO].[VL_MULTA] AS [VL_MULTA], 
+    [VW_PROCESSO].[NR_OPERACAO] AS [NR_OPERACAO], 
+    [VW_PROCESSO].[CD_CONTRATO] AS [CD_CONTRATO], 
+    [VW_PROCESSO].[AN_INFORMATIVO] AS [AN_INFORMATIVO], 
+    [VW_PROCESSO].[DT_CONTRATO] AS [DT_CONTRATO], 
+    [VW_PROCESSO].[IN_TP_CONTRATO] AS [IN_TP_CONTRATO], 
+    [VW_PROCESSO].[CD_PRODUTO] AS [CD_PRODUTO], 
+    [VW_PROCESSO].[AN_TX_OBJETO] AS [AN_TX_OBJETO], 
+    [VW_PROCESSO].[AN_TX_BASE_JUDICIAL] AS [AN_TX_BASE_JUDICIAL], 
+    [VW_PROCESSO].[DT_ENVIO_CONTRATO] AS [DT_ENVIO_CONTRATO], 
+    [VW_PROCESSO].[DT_PRIM_NOTIFICACAO] AS [DT_PRIM_NOTIFICACAO], 
+    [VW_PROCESSO].[DT_NOTIFICACAO] AS [DT_NOTIFICACAO], 
+    [VW_PROCESSO].[DT_SERASA] AS [DT_SERASA], 
+    [VW_PROCESSO].[DT_SOLIC_DOC] AS [DT_SOLIC_DOC], 
+    [VW_PROCESSO].[FL_CONF_DIVIDA] AS [FL_CONF_DIVIDA], 
+    [VW_PROCESSO].[DT_CONF_DIVIDA] AS [DT_CONF_DIVIDA], 
+    [VW_PROCESSO].[VL_TOT_CONTRATO] AS [VL_TOT_CONTRATO], 
+    [VW_PROCESSO].[NR_PARCELAS] AS [NR_PARCELAS], 
+    [VW_PROCESSO].[DT_PRIM_VENCTO] AS [DT_PRIM_VENCTO], 
+    [VW_PROCESSO].[DT_ULT_VENCTO] AS [DT_ULT_VENCTO], 
+    [VW_PROCESSO].[VL_SALDO_DEVEDOR] AS [VL_SALDO_DEVEDOR], 
+    [VW_PROCESSO].[VL_VENCIDO] AS [VL_VENCIDO], 
+    [VW_PROCESSO].[VL_TAXA_FINANCIAMENTO] AS [VL_TAXA_FINANCIAMENTO], 
+    [VW_PROCESSO].[VL_INDICE_MOEDA] AS [VL_INDICE_MOEDA], 
+    [VW_PROCESSO].[VL_RISCO] AS [VL_RISCO], 
+    [VW_PROCESSO].[VL_RISCO_TOTAL] AS [VL_RISCO_TOTAL], 
+    [VW_PROCESSO].[VL_CARTEIRA] AS [VL_CARTEIRA], 
+    [VW_PROCESSO].[IN_FAIXA] AS [IN_FAIXA], 
+    [VW_PROCESSO].[NR_ACORDO] AS [NR_ACORDO], 
+    [VW_PROCESSO].[DT_INDICACAO] AS [DT_INDICACAO], 
+    [VW_PROCESSO].[TX_OBSERVACAO_JUIZO] AS [TX_OBSERVACAO_JUIZO], 
+    [VW_PROCESSO].[FL_ALEGA_ACAOCONTRA] AS [FL_ALEGA_ACAOCONTRA], 
+    [VW_PROCESSO].[CD_BANRISUL] AS [CD_BANRISUL], 
+    [VW_PROCESSO].[FL_EXCLUIDO] AS [FL_EXCLUIDO], 
+    [VW_PROCESSO].[ID_USUARIO] AS [ID_USUARIO], 
+    [VW_PROCESSO].[NM_ARQUIVO] AS [NM_ARQUIVO], 
+    [VW_PROCESSO].[DT_EXCLUSAO] AS [DT_EXCLUSAO], 
+    [VW_PROCESSO].[CD_USUARIO_EXC] AS [CD_USUARIO_EXC], 
+    [VW_PROCESSO].[NR_PARCELAS_PAGAS] AS [NR_PARCELAS_PAGAS]
+    FROM [dbo].[VW_PROCESSO] AS [VW_PROCESSO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_TITULOS" EntityType="Self.VW_TITULOS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_TITULOS].[CD_CLIENTE] AS [CD_CLIENTE], 
+    [VW_TITULOS].[ID_BANCO] AS [ID_BANCO], 
+    [VW_TITULOS].[ID_CONTRATO] AS [ID_CONTRATO], 
+    [VW_TITULOS].[NR_PARCELA] AS [NR_PARCELA], 
+    [VW_TITULOS].[NR_DIAS_ATRASO] AS [NR_DIAS_ATRASO], 
+    [VW_TITULOS].[CD_BOLETO] AS [CD_BOLETO], 
+    [VW_TITULOS].[DT_VCTO] AS [DT_VCTO], 
+    [VW_TITULOS].[VL_TITULO] AS [VL_TITULO], 
+    [VW_TITULOS].[DT_EMISSAO] AS [DT_EMISSAO], 
+    [VW_TITULOS].[DT_PRIM_NOTIFICACAO] AS [DT_PRIM_NOTIFICACAO], 
+    [VW_TITULOS].[DT_RECEBIMENTO] AS [DT_RECEBIMENTO], 
+    [VW_TITULOS].[DT_CREDITO] AS [DT_CREDITO], 
+    [VW_TITULOS].[DT_REPASSE] AS [DT_REPASSE], 
+    [VW_TITULOS].[DT_BAIXA] AS [DT_BAIXA], 
+    [VW_TITULOS].[FL_BAIXA_MANUAL] AS [FL_BAIXA_MANUAL], 
+    [VW_TITULOS].[AN_ARQUIVO_ENVIO] AS [AN_ARQUIVO_ENVIO], 
+    [VW_TITULOS].[NR_DIAS_PAGTO] AS [NR_DIAS_PAGTO], 
+    [VW_TITULOS].[DT_BANCO_PAGTO] AS [DT_BANCO_PAGTO], 
+    [VW_TITULOS].[CD_PROGRAMA_EXC] AS [CD_PROGRAMA_EXC], 
+    [VW_TITULOS].[AN_MOTIVO_EXC] AS [AN_MOTIVO_EXC], 
+    [VW_TITULOS].[DT_EXCLUSAO] AS [DT_EXCLUSAO], 
+    [VW_TITULOS].[DT_ALTERACAO] AS [DT_ALTERACAO], 
+    [VW_TITULOS].[DT_INCLUSAO] AS [DT_INCLUSAO], 
+    [VW_TITULOS].[CD_USUARIO_INC] AS [CD_USUARIO_INC], 
+    [VW_TITULOS].[CD_USUARIO_ALT] AS [CD_USUARIO_ALT], 
+    [VW_TITULOS].[CD_USUARIO_EXC] AS [CD_USUARIO_EXC], 
+    [VW_TITULOS].[CD_BANCO] AS [CD_BANCO], 
+    [VW_TITULOS].[DS_BANCO] AS [DS_BANCO], 
+    [VW_TITULOS].[NR_OPERACAO] AS [NR_OPERACAO], 
+    [VW_TITULOS].[CD_CONTRATO] AS [CD_CONTRATO], 
+    [VW_TITULOS].[AN_INFORMATIVO] AS [AN_INFORMATIVO], 
+    [VW_TITULOS].[DT_CONTRATO] AS [DT_CONTRATO], 
+    [VW_TITULOS].[IN_TP_CONTRATO] AS [IN_TP_CONTRATO], 
+    [VW_TITULOS].[CD_PRODUTO] AS [CD_PRODUTO], 
+    [VW_TITULOS].[AN_TX_OBJETO] AS [AN_TX_OBJETO], 
+    [VW_TITULOS].[AN_TX_BASE_JUDICIAL] AS [AN_TX_BASE_JUDICIAL], 
+    [VW_TITULOS].[DT_ENVIO_CONTRATO] AS [DT_ENVIO_CONTRATO], 
+    [VW_TITULOS].[DT_NOTIFICACAO] AS [DT_NOTIFICACAO], 
+    [VW_TITULOS].[DT_SERASA] AS [DT_SERASA], 
+    [VW_TITULOS].[DT_SOLIC_DOC] AS [DT_SOLIC_DOC], 
+    [VW_TITULOS].[FL_CONF_DIVIDA] AS [FL_CONF_DIVIDA], 
+    [VW_TITULOS].[DT_CONF_DIVIDA] AS [DT_CONF_DIVIDA], 
+    [VW_TITULOS].[VL_TOT_CONTRATO] AS [VL_TOT_CONTRATO], 
+    [VW_TITULOS].[NR_PARCELAS] AS [NR_PARCELAS], 
+    [VW_TITULOS].[VL_PARCELA] AS [VL_PARCELA], 
+    [VW_TITULOS].[DT_PRIM_VENCTO] AS [DT_PRIM_VENCTO], 
+    [VW_TITULOS].[DT_ULT_VENCTO] AS [DT_ULT_VENCTO], 
+    [VW_TITULOS].[VL_SALDO_DEVEDOR] AS [VL_SALDO_DEVEDOR], 
+    [VW_TITULOS].[VL_ACAO] AS [VL_ACAO], 
+    [VW_TITULOS].[VL_VENCIDO] AS [VL_VENCIDO], 
+    [VW_TITULOS].[VL_TAXA_FINANCIAMENTO] AS [VL_TAXA_FINANCIAMENTO], 
+    [VW_TITULOS].[VL_INDICE_MOEDA] AS [VL_INDICE_MOEDA], 
+    [VW_TITULOS].[VL_RISCO] AS [VL_RISCO], 
+    [VW_TITULOS].[VL_RISCO_TOTAL] AS [VL_RISCO_TOTAL], 
+    [VW_TITULOS].[VL_CARTEIRA] AS [VL_CARTEIRA], 
+    [VW_TITULOS].[IN_FAIXA] AS [IN_FAIXA], 
+    [VW_TITULOS].[NR_ACORDO] AS [NR_ACORDO], 
+    [VW_TITULOS].[DT_INDICACAO] AS [DT_INDICACAO], 
+    [VW_TITULOS].[NR_PASTA] AS [NR_PASTA], 
+    [VW_TITULOS].[TX_OBSERVACAO_JUIZO] AS [TX_OBSERVACAO_JUIZO], 
+    [VW_TITULOS].[FL_ALEGA_ACAOCONTRA] AS [FL_ALEGA_ACAOCONTRA], 
+    [VW_TITULOS].[CD_ADVOGADO] AS [CD_ADVOGADO], 
+    [VW_TITULOS].[CD_BANRISUL] AS [CD_BANRISUL], 
+    [VW_TITULOS].[FL_EXCLUIDO] AS [FL_EXCLUIDO], 
+    [VW_TITULOS].[ID_USUARIO] AS [ID_USUARIO], 
+    [VW_TITULOS].[NM_ARQUIVO] AS [NM_ARQUIVO], 
+    [VW_TITULOS].[NR_PARCELAS_PAGAS] AS [NR_PARCELAS_PAGAS]
+    FROM [dbo].[VW_TITULOS] AS [VW_TITULOS]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

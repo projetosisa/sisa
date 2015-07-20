@@ -1,12 +1,20 @@
 ﻿@{
     ViewBag.Title = "Cliente";
+    bool exibirConsulta = ViewBag.ExibirConsulta != null ? ViewBag.ExibirConsulta : false;
     int codcli = ViewBag.CodCliente != null ? ViewBag.CodCliente : 0;
     string banco = ViewBag.Banco != null ? ViewBag.Banco : null;
+    string contrato = ViewBag.Contrato != null ? ViewBag.Contrato : null;
+    if(codcli>0){ 
     var pes = new sisa.DAO.Pessoa().Dados(codcli);
     var listaContratos = new sisa.DAO.Contrato().Lista(codcli);
-    var listaParcelas = ViewBag.Parcelas != null ? ViewBag.Parcelas : null;
-    var ExibirCliente = new sisa.DAO.Pessoa().Lista(codcli);
     var dados = new sisa.DAO.Pessoa().Dados(codcli);
+    }
+    var ExibirCliente = new sisa.DAO.Pessoa().Lista(codcli);
+    var listaParcelas = ViewBag.Parcelas != null ? ViewBag.Parcelas : null;
+    
+
+    //CultureInfo newCulture = new CultureInfo("pt-BR");
+    //Thread.CurrentThread.CurrentCulture = newCulture;
 }
 
     <div id="selecionarTMP" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -22,7 +30,7 @@
             </div>
         </div>
     </div>
-
+@if (exibirConsulta){
 <div id="pnl_consulta" class="panel panel-default">
     <div class="panel-heading">
         <h4><i class="glyphicon glyphicon-search"></i>&nbsp;Consultar</h4>
@@ -39,6 +47,7 @@
             </div>
     </div>
 </div>
+}
 
 @if (ExibirCliente.Count()>0)
 { 
@@ -48,19 +57,39 @@
 <p>
     @if (codcli > 0 && banco != null)
     {
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Listar
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="@Url.Action("ListaProcessos", "Pessoa", new {codcli=codcli, banco=banco })" class="btn-link"><i class="fa fa-list" ></i>&nbsp;Processos</a></li>
-                <li><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli=codcli, banco=banco })" class=""><i class="fa fa-calculator"></i>&nbsp;Parcelas</a></li>
-                <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-inbox"></i>&nbsp;Histórico da Cobrança</a></li>
-                <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-book"></i>&nbsp;Telefones/Endereços</a></li>
-                <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-check-square"></i>&nbsp;Acordos</a></li>
-            </ul>
-        </div>
+        <div class="well well-sm">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="dropdown" role="group">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Listar
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="@Url.Action("ListaProcessos", "Pessoa", new {codcli=codcli, banco=banco })" class="btn-link"><i class="fa fa-list"></i>&nbsp;Processos</a></li>
+                            @if (contrato != null)
+                            {
+                                <li><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli=codcli, banco=banco, contrato=contrato })" class=""><i class="fa fa-calculator"></i>&nbsp;Parcelas</a></li>
+                            }
+                            <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-inbox"></i>&nbsp;Histórico da Cobrança</a></li>
+                            <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-book"></i>&nbsp;Telefones/Endereços</a></li>
+                            <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-check-square"></i>&nbsp;Acordos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("Index", "Pessoa")" class="btn btn-default"><i class="fa fa-search"></i>&nbsp;Nova Consulta</a>
+                    @if (contrato != null)
+                    {
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="button">
+                                <i class="glyphicon glyphicon-folder-open">&nbsp;</i>Contrato&nbsp;<span class="badge">@contrato</span>
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+       </div>
     }
 </p>
 
@@ -74,11 +103,11 @@
         <div id="_lstcontratos"></div>
             <table class="table table-bordered table-striped">
                 <tr>
-                    <th>Banco</th><th>Contrato</th><th>Tipo</th><th>Valor Total</th>
+                    <th>Banco</th><th>Contrato</th><th>Tipo</th><th class="text-right">Valor Total</th>
                 </tr>
             @foreach (var itm in ViewBag.Contratos)
             {
-                <tr><td>@itm.NM_BANCO</td><td>@itm.CD_CONTRATO</td><td>@itm.IN_TP_CONTRATO</td><td>@itm.VL_TOT_CONTRATO</td></tr>
+                <tr><td>@itm.DS_BANCO</td><td><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO })">@itm.CD_CONTRATO</a></td><td>@itm.IN_TP_CONTRATO</td><td class="text-right">@String.Format("{0:C}", @itm.VL_TOT_CONTRATO)</td></tr>
             }
             </table>
     </div>
@@ -134,7 +163,6 @@
                     data: { "id": ui.item.Id },
                     success: function (data) {
                         //var cnpjcpf = data.AN_CNPJ_CPF;
-
                         $("#cpfcnpj").val(data.AN_CNPJ_CPF);
                         $("#codchave").val(data.CD_CLIENTE);
                         codcli = data.CD_CLIENTE;

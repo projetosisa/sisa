@@ -8,9 +8,9 @@ namespace sisa.DAO
 {
     public class Processo
     {
-        public List<TB_PROCESSO> Lista(int codcli, string banco)
+        public List<VW_PROCESSO> Lista(int codcli, string banco)
         {
-            return Conexao.Banco.TB_PROCESSO.Where(x => x.CD_CLIENTE == codcli && x.NM_BANCO.Equals(banco)).ToList();
+            return Conexao.Banco.VW_PROCESSO.Where(p=>p.CD_CLIENTE==codcli && p.DS_BANCO.Equals(banco)).ToList();
         }
     }
 }
