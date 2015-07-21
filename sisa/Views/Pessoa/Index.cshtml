@@ -51,6 +51,9 @@
 
 @if (ExibirCliente.Count()>0)
 { 
+    var ct = new sisa.DAO.Contrato(codcli,banco,contrato);
+    ViewBag.Status = ct.Status;
+    ViewBag.Operador = ct.NomeUsuario;
     @Html.Partial("~/Views/Pessoa/_Cliente.cshtml", ExibirCliente)
 }
 
@@ -175,7 +178,7 @@
                         //$(data).each(function (index, el) {
                         //    $("#_lstcontratos").last().append("<tr><td>" + el.CD_CLIENTE + "</td></tr>");
                         //});
-                        if (codcli > 0) {
+                        if(codcli>0){
                             //ListarContratos2(codcli);
                             //$("#_lstcontratos").load("/Contrato/ListaContratos?codcli=" + codcli);
                             //$("#selecionar").modal('show');

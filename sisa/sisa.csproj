@@ -129,6 +129,7 @@
     <Compile Include="DAO\Parcela.cs" />
     <Compile Include="DAO\Pessoa.cs" />
     <Compile Include="DAO\Processo.cs" />
+    <Compile Include="DAO\Usuario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

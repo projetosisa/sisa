@@ -63,13 +63,15 @@ namespace sisa.Controllers
             var result = new List<KeyValuePair<string, string>>();
             IList<SelectListItem> List = new List<SelectListItem>();
 
-            var lista = (from r in db.TB_PESSOA
-                         where r.NM_PESSOA.ToLower().Contains(term.ToLower())
-                         select new { r.NM_PESSOA, r.CD_CLIENTE }).ToList();
+            var lista = new DAO.Dados().RetornaDados("select NM_PESSOA,CD_CLIENTE from TB_PESSOA WHERE NM_PESSOA LIKE '"+term.ToLower()+"%'");
 
-            foreach (var item in lista)
+            /*var lista = (from r in db.TB_PESSOA
+                         where r.NM_PESSOA.ToLower().Contains(term.ToLower())
+                         select new { r.NM_PESSOA, r.CD_CLIENTE }).ToList();*/
+
+            foreach (System.Data.DataRow item in lista.Rows)
             {
-                result.Add(new KeyValuePair<string, string>(item.CD_CLIENTE.ToString(), item.NM_PESSOA));
+                result.Add(new KeyValuePair<string, string>(item["CD_CLIENTE"].ToString(), item["NM_PESSOA"].ToString()));
             }
             var result3 = result.Where(s => s.Value.ToLower().Contains(term.ToLower())).Select(w => w).ToList();
 
