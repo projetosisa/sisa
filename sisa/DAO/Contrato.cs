@@ -36,16 +36,24 @@ namespace sisa.DAO
             Status = RetornaStatus(codcli, IdBanco);
         }
 
-        public Contrato(int codcli, string nmbanco, string contrato)
+        public Contrato(int codcli, string nmbanco, int contrato)
         {
             try
             {
                 IdBanco = RetornaIdBanco(nmbanco);
                 Status = RetornaStatus(codcli, IdBanco);
-                if (contrato != null)
+                if (contrato != 0)
                 {
-                    IdUsuario = int.Parse(Conexao.Banco.TB_CONTRATO.Single(c => c.CD_CONTRATO.Equals(contrato)).ID_USUARIO.ToString());
-                    NomeUsuario = new DAO.Usuario(IdUsuario).Nome;
+                    var ct = Conexao.Banco.TB_CONTRATO.Single(c => c.ID_CONTRATO==contrato);
+                    if (ct.ID_USUARIO != null)
+                    {
+                        IdUsuario = int.Parse(ct.ID_USUARIO.ToString());
+                        NomeUsuario = new DAO.Usuario(IdUsuario).Nome;
+                    }
+                    else
+                    {
+                        IdUsuario = 0;
+                    }
                 }
             }
             catch (Exception ex)

@@ -16,16 +16,18 @@ namespace sisa.Controllers
         private SisaEntities db = new SisaEntities();
 
         // GET: Pessoa
-        public ActionResult Index(int codcli = 0,string banco=null,string contrato=null)
+        public ActionResult Index(int codcli = 0,string banco=null,string contrato=null,int id_contrato=0)
         {
             ViewBag.CodCliente = codcli;
             ViewBag.Banco = banco;
             ViewBag.Contrato = contrato;
+            ViewBag.IdContrato = id_contrato;
             ViewBag.ExibirConsulta = true;
             if (codcli > 0)
             {
                 ViewBag.ExibirConsulta = false;
-                ViewBag.Contratos = new sisa.DAO.Contrato().RetornaContratos(codcli);
+                ViewBag.Contratos = new sisa.DAO.Contrato().RetornaContratos(codcli,banco);
+                ViewBag.Parcelas = new sisa.DAO.Parcela().ListaTb(codcli, banco, contrato);
             }
             return View();
         }
@@ -34,7 +36,15 @@ namespace sisa.Controllers
         {
             ViewBag.CodCliente = codcli;
             ViewBag.Banco = banco;
-            ViewBag.Contratos = new Contrato().RetornaContratos(codcli, banco);
+
+            var ct = new Contrato().RetornaContratos(codcli, banco);
+            ViewBag.Contratos = ct;
+            if(ct.Count()==1){
+                foreach(var itm in ct){
+                    ViewBag.Parcelas = new sisa.DAO.Parcela().ListaTb(codcli, banco, itm.CD_CONTRATO.ToString());
+                }
+            }
+
             ViewBag.ExibirConsulta = false;
             return View("Index");
         }
@@ -63,7 +73,7 @@ namespace sisa.Controllers
             var result = new List<KeyValuePair<string, string>>();
             IList<SelectListItem> List = new List<SelectListItem>();
 
-            var lista = new DAO.Dados().RetornaDados("select NM_PESSOA,CD_CLIENTE from TB_PESSOA WHERE NM_PESSOA LIKE '"+term.ToLower()+"%'");
+            var lista = new DAO.Dados().RetornaDados("select CAST(REPLICATE('0', 7 - LEN(CD_CLIENTE)) + RTrim(CD_CLIENTE) as varchar(10))+' - '+NM_PESSOA AS NM_PESSOA,CD_CLIENTE from TB_PESSOA WHERE NM_PESSOA LIKE '" + term.ToLower() + "%'");
 
             /*var lista = (from r in db.TB_PESSOA
                          where r.NM_PESSOA.ToLower().Contains(term.ToLower())

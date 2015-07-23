@@ -4,6 +4,7 @@
     int codcli = ViewBag.CodCliente != null ? ViewBag.CodCliente : 0;
     string banco = ViewBag.Banco != null ? ViewBag.Banco : null;
     string contrato = ViewBag.Contrato != null ? ViewBag.Contrato : null;
+    int id_contrato = ViewBag.IdContrato!=null? ViewBag.IdContrato : 0;
     if(codcli>0){ 
     var pes = new sisa.DAO.Pessoa().Dados(codcli);
     var listaContratos = new sisa.DAO.Contrato().Lista(codcli);
@@ -51,7 +52,7 @@
 
 @if (ExibirCliente.Count()>0)
 { 
-    var ct = new sisa.DAO.Contrato(codcli,banco,contrato);
+    var ct = new sisa.DAO.Contrato(codcli,banco,id_contrato);
     ViewBag.Status = ct.Status;
     ViewBag.Operador = ct.NomeUsuario;
     @Html.Partial("~/Views/Pessoa/_Cliente.cshtml", ExibirCliente)
@@ -60,7 +61,7 @@
 <p>
     @if (codcli > 0 && banco != null)
     {
-        <div class="well well-sm">
+        @*<div class="well well-sm">
             <div class="row">
                 <div class="col-md-2">
                     <div class="dropdown" role="group">
@@ -92,7 +93,7 @@
                     }
                 </div>
             </div>
-       </div>
+       </div>*@
     }
 </p>
 
@@ -100,7 +101,20 @@
 {
 <div class="panel panel-default">
    <div class="panel-heading">
-            <h4>Contratos</h4>
+            <h4>
+                    <i class="fa fa-file-text-o"></i>&nbsp;Contratos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             
+              @if (codcli > 0 && banco != null)
+              {
+                @*<a href="@Url.Action("Index", "Pessoa")" class="input-sm text-primary"><i class="fa fa-paperclip"></i>&nbsp;PARCELAS</a>*@
+    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-archive"></i>&nbsp;HISTÓRICO COBANÇA</a>
+    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i>&nbsp;OUTROS DADOS</a>
+    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-phone"></i>&nbsp;TELEFONE/ENDEREÇO</a>
+    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-clock-o"></i>&nbsp;HONORÁRIOS/DESPESAS</a>
+    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-thumbs-o-up"></i>&nbsp;ACORDOS</a>
+    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-exclamation-circle"></i>&nbsp;OBSERVAÇÕES</a>
+              }
+            </h4>
    </div>
    <div class="panel-body">
         <div id="_lstcontratos"></div>
@@ -110,12 +124,56 @@
                 </tr>
             @foreach (var itm in ViewBag.Contratos)
             {
-                <tr><td>@itm.DS_BANCO</td><td><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO })">@itm.CD_CONTRATO</a></td><td>@itm.IN_TP_CONTRATO</td><td class="text-right">@String.Format("{0:C}", @itm.VL_TOT_CONTRATO)</td></tr>
+                <tr><td>@itm.DS_BANCO</td>
+                    @*<td><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO })">@itm.CD_CONTRATO</a></td>*@
+                    <td><a href="@Url.Action("Index", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO, id_contrato = itm.ID_CONTRATO })">@itm.CD_CONTRATO</a></td>
+                <td>@itm.IN_TP_CONTRATO</td><td class="text-right">@String.Format("{0:C}", @itm.VL_TOT_CONTRATO)</td></tr>
             }
             </table>
     </div>
 </div>
+    //LISTA PACELAS
+ if (ViewBag.Parcelas != null)
+ {
+ <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4><i class="fa fa-paperclip"></i>&nbsp;Parcelas</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Parcelas</th>
+                    <th>Dias Atraso</th>
+                    <th>Dt.Vencimento</th>
+                    <th>Valor Titulo</th>
+                    <th>Boleto</th>
+                    <th>Dt.Pagamento</th>
+                    <th>Honorários</th>
+                    <th>Juros</th>
+                    <th>Valor Total</th>
+                </tr>
+             
+                @foreach (System.Data.DataRow itm in ViewBag.Parcelas.Rows)
+                {
+                    <tr>
+                        <td>@itm["NR_PARCELA"]</td>
+                        <td>@itm["NR_DIAS_ATRASO"]</td>
+                        <td>@itm["DT_VCTO"]</td>
+                        <td>@String.Format("{0:C}", itm["VL_TITULO"])</td>
+                        <td>@itm["CD_BOLETO"]</td>
+                        <td>@itm["DT_PAGTO"]</td>
+                        <td>@String.Format("{0:C}", itm["VL_HONORARIOS"])</td>
+                        <td>@String.Format("{0:C}", itm["VL_JUROS"])</td>
+                        <td>@String.Format("{0:C}", itm["VL_TOTAL"])</td>
+                    </tr>
+                }
+             
+            </table>
+        </div>
+    </div>
+  }
 }
+
 
 @if (ViewBag.Processos != null)
 {
