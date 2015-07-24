@@ -7,6 +7,8 @@
 {
 
     var pes = Model.Single();
+    var tel = new sisa.DAO.Pessoa();
+    tel.ConsultaContato(pes.CD_CLIENTE); 
     
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -14,6 +16,10 @@
            <div class="display-table-cell">
              <h4>
                 <i class="glyphicon glyphicon-user"></i>&nbsp;Cliente 
+                 @if (ViewBag.Contrato != null)
+                 {
+                     <a href="@Url.Action("", "")" class="btn btn-default"><i class="fa fa-file"></i>&nbsp;@ViewBag.Contrato</a>
+                 }
                  <a href="@Url.Action("Index", "Pessoa")" class="btn btn-success btn-sm"><i class="fa fa-search"></i>&nbsp;Nova Consulta</a>
                  <a href="@Url.Action("Index", "Pessoa")" class="btn btn-primary btn-sm"><i class="fa fa-user-plus"></i>&nbsp;Novo Cliente</a>
             </h4>
@@ -74,9 +80,13 @@
                     <label>Informativo</label>
                     <input type="text" id="infomativo" name="informativo" class="form-control input-sm" value="@pes.AN_TX_INFORMATIVO2" />
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label>Cluster</label>
                     <input type="text" id="cluster" name="cluster" class="form-control input-sm" value="@pes.AN_CLUSTER_RATING" />
+                </div>
+                <div class="col-md-2">
+                    <label>Telefone</label>
+                    <input type="text" id="tel" name="tel" class="form-control input-sm" value="(@tel.DDD)@tel.Telefone"/>
                 </div>
             </div>
         <div class="row">

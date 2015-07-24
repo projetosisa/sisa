@@ -55,6 +55,7 @@
     var ct = new sisa.DAO.Contrato(codcli,banco,id_contrato);
     ViewBag.Status = ct.Status;
     ViewBag.Operador = ct.NomeUsuario;
+    ViewBag.Contrato = contrato;
     @Html.Partial("~/Views/Pessoa/_Cliente.cshtml", ExibirCliente)
 }
 
@@ -102,17 +103,17 @@
 <div class="panel panel-default">
    <div class="panel-heading">
             <h4>
-                    <i class="fa fa-file-text-o"></i>&nbsp;Contratos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-file-text-o"></i>&nbsp;Contratos&nbsp;&nbsp;
                              
-              @if (codcli > 0 && banco != null)
+              @if (codcli > 0 && banco != null && contrato!=null)
               {
-                @*<a href="@Url.Action("Index", "Pessoa")" class="input-sm text-primary"><i class="fa fa-paperclip"></i>&nbsp;PARCELAS</a>*@
-    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-archive"></i>&nbsp;HISTÓRICO COBANÇA</a>
-    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i>&nbsp;OUTROS DADOS</a>
-    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-phone"></i>&nbsp;TELEFONE/ENDEREÇO</a>
-    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-clock-o"></i>&nbsp;HONORÁRIOS/DESPESAS</a>
-    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-thumbs-o-up"></i>&nbsp;ACORDOS</a>
-    <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-exclamation-circle"></i>&nbsp;OBSERVAÇÕES</a>
+                <a href="@Url.Action("ListaProcessos", "Pessoa", new { codcli, banco, contrato})" class="btn btn-default btn-sm"><i class="fa fa-files-o"></i>&nbsp;PROCESSOS</a>
+                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-archive"></i>&nbsp;HIST. COBANÇA</a>
+                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i>&nbsp;OUTROS DADOS</a>
+                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-phone"></i>&nbsp;TELEFONE/ENDEREÇO</a>
+                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-clock-o"></i>&nbsp;HONORÁRIOS/DESPESAS</a>
+                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-thumbs-o-up"></i>&nbsp;ACORDOS</a>
+                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-exclamation-circle"></i>&nbsp;OBSERVAÇÕES</a>
               }
             </h4>
    </div>
@@ -283,5 +284,6 @@
     {
         $("#pnl_consulta").hide();
     }
+    
 </script>
 }

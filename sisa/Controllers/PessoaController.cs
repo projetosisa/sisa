@@ -49,10 +49,11 @@ namespace sisa.Controllers
             return View("Index");
         }
 
-        public ActionResult ListaProcessos(int codcli, string banco)
+        public ActionResult ListaProcessos(int codcli, string banco, string contrato)
         {
             ViewBag.CodCliente = codcli;
             ViewBag.Banco = banco;
+            ViewBag.Contrato = contrato;
             var lista = new Processo().Lista(codcli, banco);
             ViewBag.ExibirConsulta = false;
             return View("Processos",lista);
