@@ -16,7 +16,7 @@
     </div>
 
     @Html.Partial("~/Views/Pessoa/_Cliente.cshtml", ExibirCliente)
-    <div class="well well-sm">
+    @*<div class="well well-sm">
         <div class="row">
             <div class="col-md-1 text-center">
                     <a href="@Url.Action("Index", "Pessoa", new {codcli=codcli,banco=ViewBag.Banco,contrato=contrato })" class="btn btn-default"><i class="glyphicon glyphicon-repeat"></i>&nbsp;Voltar</a>
@@ -27,7 +27,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div>*@
 }
 
 @if (Model != null)

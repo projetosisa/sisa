@@ -4,55 +4,57 @@
     int codcli = ViewBag.CodCliente != null ? ViewBag.CodCliente : 0;
     string banco = ViewBag.Banco != null ? ViewBag.Banco : null;
     string contrato = ViewBag.Contrato != null ? ViewBag.Contrato : null;
-    int id_contrato = ViewBag.IdContrato!=null? ViewBag.IdContrato : 0;
-    if(codcli>0){ 
-    var pes = new sisa.DAO.Pessoa().Dados(codcli);
-    var listaContratos = new sisa.DAO.Contrato().Lista(codcli);
-    var dados = new sisa.DAO.Pessoa().Dados(codcli);
+    int id_contrato = ViewBag.IdContrato != null ? ViewBag.IdContrato : 0;
+    if (codcli > 0)
+    {
+        var pes = new sisa.DAO.Pessoa().Dados(codcli);
+        var listaContratos = new sisa.DAO.Contrato().Lista(codcli);
+        var dados = new sisa.DAO.Pessoa().Dados(codcli);
     }
     var ExibirCliente = new sisa.DAO.Pessoa().Lista(codcli);
     var listaParcelas = ViewBag.Parcelas != null ? ViewBag.Parcelas : null;
-    
+
 
     //CultureInfo newCulture = new CultureInfo("pt-BR");
     //Thread.CurrentThread.CurrentCulture = newCulture;
 }
 
-    <div id="selecionarTMP" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Selecionar Banco</h4>
-                </div>
-                <div class="modal-body">
-                    
-                </div>
+<div id="selecionarTMP" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Selecionar Banco</h4>
+            </div>
+            <div class="modal-body">
+
             </div>
         </div>
     </div>
-@if (exibirConsulta){
-<div id="pnl_consulta" class="panel panel-default">
-    <div class="panel-heading">
-        <h4><i class="glyphicon glyphicon-search"></i>&nbsp;Consultar</h4>
-    </div>
-    <div class="panel-body">
-        
+</div>
+@if (exibirConsulta)
+{
+    <div id="pnl_consulta" class="panel panel-default">
+        <div class="panel-heading">
+            <h4><i class="glyphicon glyphicon-search"></i>&nbsp;Consultar</h4>
+        </div>
+        <div class="panel-body">
+
             <div class="row">
                 <div class="col-lg-4">
                     <label>Nome Cliente</label>
                     <input type="text" id="nomecli" name="nomecli" class="form-control input-sm" placeholder="Pesquisa por nome do cliente" value="" />
-                    <spam id="selecionar"></spam>
-                    <input type="hidden" id="codcli" name="codcli"/>
+                    <span id="selecionar"></span>
+                    <input type="hidden" id="codcli" name="codcli" />
                 </div>
             </div>
+        </div>
     </div>
-</div>
 }
 
-@if (ExibirCliente.Count()>0)
-{ 
-    var ct = new sisa.DAO.Contrato(codcli,banco,id_contrato);
+@if (ExibirCliente.Count > 0)
+{
+    var ct = new sisa.DAO.Contrato(codcli, banco, id_contrato);
     ViewBag.Status = ct.Status;
     ViewBag.Operador = ct.NomeUsuario;
     ViewBag.Contrato = contrato;
@@ -63,227 +65,250 @@
     @if (codcli > 0 && banco != null)
     {
         @*<div class="well well-sm">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="dropdown" role="group">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Listar
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="@Url.Action("ListaProcessos", "Pessoa", new {codcli=codcli, banco=banco })" class="btn-link"><i class="fa fa-list"></i>&nbsp;Processos</a></li>
-                            @if (contrato != null)
-                            {
-                                <li><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli=codcli, banco=banco, contrato=contrato })" class=""><i class="fa fa-calculator"></i>&nbsp;Parcelas</a></li>
-                            }
-                            <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-inbox"></i>&nbsp;Histórico da Cobrança</a></li>
-                            <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-book"></i>&nbsp;Telefones/Endereços</a></li>
-                            <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-check-square"></i>&nbsp;Acordos</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <a href="@Url.Action("Index", "Pessoa")" class="btn btn-default"><i class="fa fa-search"></i>&nbsp;Nova Consulta</a>
-                    @if (contrato != null)
-                    {
-                        <div class="col-md-2">
-                            <button class="btn btn-primary" type="button">
-                                <i class="glyphicon glyphicon-folder-open">&nbsp;</i>Contrato&nbsp;<span class="badge">@contrato</span>
-                            </button>
-                        </div>
-                    }
-                </div>
-            </div>
-       </div>*@
+                 <div class="row">
+                     <div class="col-md-2">
+                         <div class="dropdown" role="group">
+                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                 Listar
+                                 <span class="caret"></span>
+                             </button>
+                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                 <li><a href="@Url.Action("ListaProcessos", "Pessoa", new {codcli=codcli, banco=banco })" class="btn-link"><i class="fa fa-list"></i>&nbsp;Processos</a></li>
+                                 @if (contrato != null)
+                                 {
+                                     <li><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli=codcli, banco=banco, contrato=contrato })" class=""><i class="fa fa-calculator"></i>&nbsp;Parcelas</a></li>
+                                 }
+                                 <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-inbox"></i>&nbsp;Histórico da Cobrança</a></li>
+                                 <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-book"></i>&nbsp;Telefones/Endereços</a></li>
+                                 <li><a href="@Url.Action("ListaProcessos", "Pessoa")" class=""><i class="fa fa-check-square"></i>&nbsp;Acordos</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                     <div class="col-md-3">
+                         <a href="@Url.Action("Index", "Pessoa")" class="btn btn-default"><i class="fa fa-search"></i>&nbsp;Nova Consulta</a>
+                         @if (contrato != null)
+                         {
+                             <div class="col-md-2">
+                                 <button class="btn btn-primary" type="button">
+                                     <i class="glyphicon glyphicon-folder-open">&nbsp;</i>Contrato&nbsp;<span class="badge">@contrato</span>
+                                 </button>
+                             </div>
+                         }
+                     </div>
+                 </div>
+            </div>*@
     }
 </p>
 
-@if (ViewBag.Contratos != null)
-{
-<div class="panel panel-default">
-   <div class="panel-heading">
-            <h4>
-                    <i class="fa fa-file-text-o"></i>&nbsp;Contratos&nbsp;&nbsp;
-                             
-              @if (codcli > 0 && banco != null && contrato!=null)
-              {
-                <a href="@Url.Action("ListaProcessos", "Pessoa", new { codcli, banco, contrato})" class="btn btn-default btn-sm"><i class="fa fa-files-o"></i>&nbsp;PROCESSOS</a>
-                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-archive"></i>&nbsp;HIST. COBANÇA</a>
-                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i>&nbsp;OUTROS DADOS</a>
-                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-phone"></i>&nbsp;TELEFONE/ENDEREÇO</a>
-                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-clock-o"></i>&nbsp;HONORÁRIOS/DESPESAS</a>
-                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-thumbs-o-up"></i>&nbsp;ACORDOS</a>
-                <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-exclamation-circle"></i>&nbsp;OBSERVAÇÕES</a>
-              }
-            </h4>
-   </div>
-   <div class="panel-body">
-        <div id="_lstcontratos"></div>
-            <table class="table table-bordered table-striped">
-                <tr>
-                    <th>Banco</th><th>Contrato</th><th>Tipo</th><th class="text-right">Valor Total</th>
-                </tr>
-            @foreach (var itm in ViewBag.Contratos)
-            {
-                <tr><td>@itm.DS_BANCO</td>
-                    @*<td><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO })">@itm.CD_CONTRATO</a></td>*@
-                    <td><a href="@Url.Action("Index", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO, id_contrato = itm.ID_CONTRATO })">@itm.CD_CONTRATO</a></td>
-                <td>@itm.IN_TP_CONTRATO</td><td class="text-right">@String.Format("{0:C}", @itm.VL_TOT_CONTRATO)</td></tr>
-            }
-            </table>
-    </div>
-</div>
-    //LISTA PACELAS
- if (ViewBag.Parcelas != null)
- {
- <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4><i class="fa fa-paperclip"></i>&nbsp;Parcelas</h4>
+
+        @if (ViewBag.Contratos != null)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>
+                        <i class="fa fa-file-text-o"></i>&nbsp;Contratos&nbsp;&nbsp;
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <div id="_lstcontratos"></div>
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>Banco</th>
+                            <th>Contrato</th>
+                            <th>Tipo</th>
+                            <th class="text-right">Valor Total</th>
+                        </tr>
+                        @foreach (var itm in ViewBag.Contratos)
+                        {
+                            <tr>
+                                <td>@itm.DS_BANCO</td>
+                                @*<td><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO })">@itm.CD_CONTRATO</a></td>*@
+                                <td><a href="@Url.Action("Index", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO, id_contrato = itm.ID_CONTRATO })">@itm.CD_CONTRATO</a></td>
+                                <td>@itm.IN_TP_CONTRATO</td>
+                                <td class="text-right">@String.Format("{0:C}", @itm.VL_TOT_CONTRATO)</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+                        //LISTA PACELAS
+                        if (ViewBag.Parcelas != null)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4><i class="fa fa-paperclip"></i>&nbsp;Parcelas</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Parcelas</th>
+                                            <th>Dias Atraso</th>
+                                            <th>Dt.Vencimento</th>
+                                            <th>Valor Titulo</th>
+                                            <th>Boleto</th>
+                                            <th>Dt.Pagamento</th>
+                                            <th>Honorários</th>
+                                            <th>Juros</th>
+                                            <th>Valor Total</th>
+                                        </tr>
+
+                                        @foreach (System.Data.DataRow itm in ViewBag.Parcelas.Rows)
+                                        {
+                                            <tr>
+                                                <td>@itm["NR_PARCELA"]</td>
+                                                <td>@itm["NR_DIAS_ATRASO"]</td>
+                                                <td>@itm["DT_VCTO"]</td>
+                                                <td>@String.Format("{0:C}", itm["VL_TITULO"])</td>
+                                                <td>@itm["CD_BOLETO"]</td>
+                                                <td>@itm["DT_PAGTO"]</td>
+                                                <td>@String.Format("{0:C}", itm["VL_HONORARIOS"])</td>
+                                                <td>@String.Format("{0:C}", itm["VL_JUROS"])</td>
+                                                <td>@String.Format("{0:C}", itm["VL_TOTAL"])</td>
+                                            </tr>
+                                        }
+
+                                    </table>
+                                </div>
+                            </div>
+                        }
+        }
+
+
+        @if (ViewBag.Processos != null)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Processos</h4>
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        }
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalInformativo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Informativo</h4>
+                    </div>
+                    <div class="modal-body" id="txtinfo">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
-            <table class="table table-bordered table-striped">
-                <tr>
-                    <th>Parcelas</th>
-                    <th>Dias Atraso</th>
-                    <th>Dt.Vencimento</th>
-                    <th>Valor Titulo</th>
-                    <th>Boleto</th>
-                    <th>Dt.Pagamento</th>
-                    <th>Honorários</th>
-                    <th>Juros</th>
-                    <th>Valor Total</th>
-                </tr>
-             
-                @foreach (System.Data.DataRow itm in ViewBag.Parcelas.Rows)
-                {
-                    <tr>
-                        <td>@itm["NR_PARCELA"]</td>
-                        <td>@itm["NR_DIAS_ATRASO"]</td>
-                        <td>@itm["DT_VCTO"]</td>
-                        <td>@String.Format("{0:C}", itm["VL_TITULO"])</td>
-                        <td>@itm["CD_BOLETO"]</td>
-                        <td>@itm["DT_PAGTO"]</td>
-                        <td>@String.Format("{0:C}", itm["VL_HONORARIOS"])</td>
-                        <td>@String.Format("{0:C}", itm["VL_JUROS"])</td>
-                        <td>@String.Format("{0:C}", itm["VL_TOTAL"])</td>
-                    </tr>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @section Scripts {
+            <script>
+                $(document).ready(function () {
+                    var pathname = window.location.pathname;
+                    //alert("teste");
+                    $("#basic-addon1").click(function () {
+                        //alert($('#informativo').val());
+                        $("#modalInformativo").modal('show');
+                        $("#txtinfo").text('');
+                        $("#txtinfo").append($('#informativo').val());
+                    });
+
+                    $("#nomecli").autocomplete({
+                        source: function (request, response) {
+                            var customer = new Array();
+                            $.ajax({
+                                async: false,
+                                cache: false,
+                                type: "POST",
+                                dataType: 'json',
+                                url: "@(Url.Action("AutocompletePessoa", "Pessoa"))",
+                                data: { "term": request.term },
+                                success: function (data) {
+                                    for (var i = 0; i < data.length; i++) {
+                                        customer[i] = { label: data[i].Value, Id: data[i].Key };
+                                    }
+                                }
+                            });
+                            response(customer);
+                        },
+                        select: function (event, ui) {
+                            //fill selected customer details on form
+                            $.ajax({
+                                cache: false,
+                                async: false,
+                                type: "POST",
+                                url: "@(Url.Action("GetDetail", "Pessoa"))",
+                                data: { "id": ui.item.Id },
+                                success: function (data) {
+                                    //var cnpjcpf = data.AN_CNPJ_CPF;
+                                    $("#cpfcnpj").val(data.AN_CNPJ_CPF);
+                                    $("#codchave").val(data.CD_CLIENTE);
+                                    codcli = data.CD_CLIENTE;
+
+                                    //$("#operador").val(_op);
+
+                                    //$("#lnklocalizar").attr('href', pathname+'/Index?codcli='+codcli);
+
+                                    //$("#_lstcontratos").html("");
+                                    //$(data).each(function (index, el) {
+                                    //    $("#_lstcontratos").last().append("<tr><td>" + el.CD_CLIENTE + "</td></tr>");
+                                    //});
+                                    if (codcli > 0) {
+                                        //ListarContratos2(codcli);
+                                        //$("#_lstcontratos").load("/Contrato/ListaContratos?codcli=" + codcli);
+                                        //$("#selecionar").modal('show');
+                                        $("#selecionar").load("/Contrato/ListaBancos?codcli=" + codcli);
+                                    }
+                                },
+                                error: function (xhr, ajaxOptions, thrownError) {
+                                    alert("Erro, Não foi possível executar operação, tente novamente !!!");
+                                }
+                            });
+
+                        }
+                    });
+
+                });
+
+                function ListarContratos(idcli) {
+                    $.ajax({
+                        async: false,
+                        cache: false,
+                        type: "POST",
+                        url: '@Url.Action("ListaContratos", "Contrato")',
+                        data: { "codcli": idcli },
+                        success: function (data) {
+                            //action = data.Action;
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert("Erro no ListarContratos, Não foi possível executar operação, tente novamente !!!");
+                        }
+                    });
                 }
-             
-            </table>
-        </div>
-    </div>
-  }
-}
 
+                function Contrato(sel) {
+                    //alert("selecionou" + sel.innerHTML);
+                    $("#_lstparcelas").load("/Contrato/ListaParcelas?codcontrato=" + sel.innerHTML);
+                }
 
-@if (ViewBag.Processos != null)
-{
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h4>Processos</h4>
-    </div>
-    <div class="panel-body">
-        
-    </div>
-</div>
-}
+                function teste() {
+                    $("#selecionar").modal('hide');
+                }
 
+                function fechar() {
+                    $("#selecionar").modal('hide');
+                }
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/jqueryui")
-@section Scripts {
-<script>
-    $(document).ready(function () {
-        var pathname = window.location.pathname;
-        //alert("teste");
+                function naoconsultar() {
+                    $("#pnl_consulta").hide();
+                    $("#banco").focus();
+                }
 
-        $("#nomecli").autocomplete({
-            source: function (request, response) {
-                var customer = new Array();
-                $.ajax({
-                    async: false,
-                    cache: false,
-                    type: "POST",
-                    dataType: 'json',
-                    url: "@(Url.Action("AutocompletePessoa", "Pessoa"))",
-                    data: { "term": request.term },
-                    success: function (data) {
-                        for (var i = 0; i < data.length ; i++) {
-                            customer[i] = { label: data[i].Value, Id: data[i].Key };
-                        }
-                    }
-                });
-                response(customer);
-            },
-            select: function (event, ui) {
-                //fill selected customer details on form
-                $.ajax({
-                    cache: false,
-                    async: false,
-                    type: "POST",
-                    url: "@(Url.Action("GetDetail", "Pessoa"))",
-                    data: { "id": ui.item.Id },
-                    success: function (data) {
-                        //var cnpjcpf = data.AN_CNPJ_CPF;
-                        $("#cpfcnpj").val(data.AN_CNPJ_CPF);
-                        $("#codchave").val(data.CD_CLIENTE);
-                        codcli = data.CD_CLIENTE;
-
-                        //$("#operador").val(_op);
-                        
-                        //$("#lnklocalizar").attr('href', pathname+'/Index?codcli='+codcli);
-
-                        //$("#_lstcontratos").html("");
-                        //$(data).each(function (index, el) {
-                        //    $("#_lstcontratos").last().append("<tr><td>" + el.CD_CLIENTE + "</td></tr>");
-                        //});
-                        if(codcli>0){
-                            //ListarContratos2(codcli);
-                            //$("#_lstcontratos").load("/Contrato/ListaContratos?codcli=" + codcli);
-                            //$("#selecionar").modal('show');
-                            $("#selecionar").load("/Contrato/ListaBancos?codcli=" + codcli);
-                        }
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        alert("Erro, Não foi possível executar operação, tente novamente !!!");
-                    }
-                });
-
-            }
-        });
-
-    });
-
-    function ListarContratos(idcli) {
-        $.ajax({
-            async: false,
-            cache: false,
-            type: "POST",
-            url: '@Url.Action("ListaContratos", "Contrato")',
-            data: { "codcli": idcli },
-            success: function (data) {
-                //action = data.Action;
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                alert("Erro no ListarContratos, Não foi possível executar operação, tente novamente !!!");
-            }
-        });
-    }
-
-    function Contrato(sel) {
-        //alert("selecionou" + sel.innerHTML);
-        $("#_lstparcelas").load("/Contrato/ListaParcelas?codcontrato=" + sel.innerHTML);
-    }
-    function teste() {
-        $("#selecionar").modal('hide');
-    }
-    function fechar() {
-        $("#selecionar").modal('hide');
-    }
-    function naoconsultar()
-    {
-        $("#pnl_consulta").hide();
-    }
-    
-</script>
-}
+            </script>
+        }

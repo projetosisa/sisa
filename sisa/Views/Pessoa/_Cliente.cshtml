@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<sisa.Models.TB_PESSOA>
 @{
     Layout = null;
+    int codcli = ViewBag.CodCliente != null ? ViewBag.CodCliente : 0;
+    string banco = ViewBag.Banco != null ? ViewBag.Banco : null;
+    string contrato = ViewBag.Contrato != null ? ViewBag.Contrato : null;
 }
 
 @if (Model != null)
@@ -10,23 +13,23 @@
     var tel = new sisa.DAO.Pessoa();
     tel.ConsultaContato(pes.CD_CLIENTE); 
     
-<div class="panel panel-default">
-    <div class="panel-heading">
-       <div class="display-table">
-           <div class="display-table-cell">
-             <h4>
-                <i class="glyphicon glyphicon-user"></i>&nbsp;Cliente 
-                 @if (ViewBag.Contrato != null)
-                 {
-                     <a href="@Url.Action("", "")" class="btn btn-default"><i class="fa fa-file"></i>&nbsp;@ViewBag.Contrato</a>
-                 }
-                 <a href="@Url.Action("Index", "Pessoa")" class="btn btn-success btn-sm"><i class="fa fa-search"></i>&nbsp;Nova Consulta</a>
-                 <a href="@Url.Action("Index", "Pessoa")" class="btn btn-primary btn-sm"><i class="fa fa-user-plus"></i>&nbsp;Novo Cliente</a>
-            </h4>
-           </div>
-       </div>
-    </div>
-    <div class="panel-body">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="display-table">
+                <div class="display-table-cell">
+                    <h4>
+                        <i class="glyphicon glyphicon-user"></i>&nbsp;Cliente 
+                        @if (ViewBag.Contrato != null)
+                        {
+                            <a href="@Url.Action("", "")" class="btn btn-default"><i class="fa fa-file"></i>&nbsp;@ViewBag.Contrato</a>
+                        }
+                        <a href="@Url.Action("Index", "Pessoa")" class="btn btn-success btn-sm"><i class="fa fa-search"></i>&nbsp;Nova Consulta</a>
+                        <a href="@Url.Action("Index", "Pessoa")" class="btn btn-primary btn-sm"><i class="fa fa-user-plus"></i>&nbsp;Novo Cliente</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
             <div class="row">
                 <div class="col-md-3">
                     <label>Nome Cliente</label>
@@ -44,9 +47,9 @@
                 </div>
                 <div class="col-md-3">
                     <label>Banco</label>
-                    <input type="text" id="banco" name="banco" class="form-control input-sm" />
+                    <input type="text" id="banco" name="banco" class="form-control input-sm" value="@ViewBag.Banco" />
                 </div>
-                </div>
+            </div>
             <div class="row">
                 @*<div class="col-md-3">
                     <label>Agência</label>
@@ -62,7 +65,10 @@
                 </div>*@
                 <div class="col-md-3">
                     <label>Operador</label>
-                    <input type="text" id="operador" name="operador" class="form-control input-sm" />
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+                        <input type="text" id="operador" name="operador" class="form-control input-sm" value="@ViewBag.Operador" />
+                    </div>
                 </div>
                 @*<div class="col-md-3">
                     <label>Proc.Substabelecido</label>
@@ -78,26 +84,56 @@
                 </div>
                 <div class="col-md-6">
                     <label>Informativo</label>
-                    <input type="text" id="infomativo" name="informativo" class="form-control input-sm" value="@pes.AN_TX_INFORMATIVO2" />
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-comment-o"></i></span>
+                        <input type="text" id="informativo" name="informativo" class="form-control input-sm" aria-describedby="basic-addon1" value="@pes.AN_TX_INFORMATIVO2" />
+                    </div>
                 </div>
-                <div class="col-md-4">
+                @*<div class="col-md-4">
                     <label>Cluster</label>
                     <input type="text" id="cluster" name="cluster" class="form-control input-sm" value="@pes.AN_CLUSTER_RATING" />
-                </div>
+                </div>*@
                 <div class="col-md-2">
                     <label>Telefone</label>
-                    <input type="text" id="tel" name="tel" class="form-control input-sm" value="(@tel.DDD)@tel.Telefone"/>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone"></i></span>
+                        <input type="text" id="tel" name="tel" class="form-control input-sm" value="(@tel.DDD)@tel.Telefone" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>E-mail</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o"></i></span>
+                        <input type="text" id="email" name="email" class="form-control input-sm" value="@tel.Email" />
+                    </div>
                 </div>
             </div>
-        <div class="row">
+            <div class="row">
            
-        </div>
-        @*<div class="row">
+            </div>
+            @*<div class="row">
             <div class="col-md-12">
                 <label>Recurso Auxiliar</label>
                 <input type="text" id="recursoaux" name="recursoaux" class="form-control input-sm" value="@pes.AN_RECURSO_AUXILIAR" />
             </div>            
         </div>*@
+        </div>
     </div>
-</div>
+    <div class="well well-sm">
+
+        @if (codcli > 0 && banco != null && contrato != null)
+        {
+            <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-archive"></i>&nbsp;HIST.COBANÇA</a>
+            <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-clock-o"></i>&nbsp;HONORÁRIOS/DESPESAS</a>
+            @*<a href="@Url.Action("ListaParcelas", "Pessoa", new {codcli, banco, contrato} )" class="btn btn-default btn-sm"><i class="fa fa-file"></i>&nbsp;PARCELAS</a>*@
+        }
+        
+        <a href="@Url.Action("ListaContratos", "Pessoa", new { codcli, banco})" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i>&nbsp;CONTRATOS</a>
+        <a href="@Url.Action("ListaProcessos", "Pessoa", new { codcli, banco, contrato})" class="btn btn-default btn-sm"><i class="fa fa-files-o"></i>&nbsp;PROCESSOS</a>
+        <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i>&nbsp;OUTROS DADOS</a>
+        <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-phone"></i>&nbsp;TELEF./ENDEREÇO</a>
+        <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-thumbs-o-up"></i>&nbsp;ACORDOS</a>
+        <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-exclamation-circle"></i>&nbsp;OBSERV.</a>
+
+    </div>
 }
