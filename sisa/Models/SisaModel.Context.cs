@@ -30,7 +30,6 @@ namespace sisa.Models
         public virtual DbSet<TB_ADVOGADO> TB_ADVOGADO { get; set; }
         public virtual DbSet<TB_ALVARAS_AUTOMATIZADOS> TB_ALVARAS_AUTOMATIZADOS { get; set; }
         public virtual DbSet<TB_AND_PROCESSO> TB_AND_PROCESSO { get; set; }
-        public virtual DbSet<TB_AUDIENCIAS> TB_AUDIENCIAS { get; set; }
         public virtual DbSet<TB_AVALISTA> TB_AVALISTA { get; set; }
         public virtual DbSet<TB_BANCO> TB_BANCO { get; set; }
         public virtual DbSet<TB_BOLETO> TB_BOLETO { get; set; }
@@ -47,12 +46,9 @@ namespace sisa.Models
         public virtual DbSet<TB_DESPESA> TB_DESPESA { get; set; }
         public virtual DbSet<TB_DIC_DADOS> TB_DIC_DADOS { get; set; }
         public virtual DbSet<TB_DOMINIO> TB_DOMINIO { get; set; }
-        public virtual DbSet<TB_EMAIL> TB_EMAIL { get; set; }
         public virtual DbSet<TB_ENDERECO> TB_ENDERECO { get; set; }
-        public virtual DbSet<TB_EVENTO> TB_EVENTO { get; set; }
         public virtual DbSet<TB_FERIADO> TB_FERIADO { get; set; }
         public virtual DbSet<TB_GRUPO> TB_GRUPO { get; set; }
-        public virtual DbSet<TB_HISTORICO> TB_HISTORICO { get; set; }
         public virtual DbSet<TB_HONORARIO> TB_HONORARIO { get; set; }
         public virtual DbSet<TB_HORARIOS> TB_HORARIOS { get; set; }
         public virtual DbSet<TB_INDICE> TB_INDICE { get; set; }
@@ -82,5 +78,6 @@ namespace sisa.Models
         public virtual DbSet<VW_TITULOS> VW_TITULOS { get; set; }
         public virtual DbSet<VW_CONTRATOS> VW_CONTRATOS { get; set; }
         public virtual DbSet<VW_PROCESSO> VW_PROCESSO { get; set; }
+        public virtual DbSet<TB_LOCALIZADOR> TB_LOCALIZADOR { get; set; }
     }
 }

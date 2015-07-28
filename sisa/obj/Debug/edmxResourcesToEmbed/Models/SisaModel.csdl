@@ -106,20 +106,6 @@
     <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
     <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="TB_AUDIENCIAS">
-    <Key>
-      <PropertyRef Name="ID_AUDIENCIA" />
-    </Key>
-    <Property Name="ID_AUDIENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ID_PROCESSO" Type="Int32" Nullable="false" />
-    <Property Name="CD_CLIENTE" Type="Int32" />
-    <Property Name="NR_OPERACAO" Type="Int32" />
-    <Property Name="CD_CONTRATO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NR_PROCESSO_CNJ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NR_PROCESSO_THEMIS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="DATA_AUDIENCIA" Type="DateTime" Precision="0" />
-    <Property Name="TEXTO_AUDIENCIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="TB_AVALISTA">
     <Key>
       <PropertyRef Name="CD_CLIENTE" />
@@ -306,6 +292,7 @@
     <Property Name="DT_INCLUSAO" Type="DateTime" Precision="0" />
     <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
     <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="ID_BANCO" Type="Int32" />
   </EntityType>
   <EntityType Name="TB_COD_HONORARIO">
     <Key>
@@ -487,6 +474,7 @@
       <PropertyRef Name="CD_CLIENTE" />
       <PropertyRef Name="ID_CONTRATO" />
       <PropertyRef Name="SQ_DESPESA" />
+      <PropertyRef Name="ID_BANCO" />
     </Key>
     <Property Name="CD_CLIENTE" Type="Int32" Nullable="false" />
     <Property Name="ID_CONTRATO" Type="Int32" Nullable="false" />
@@ -517,6 +505,7 @@
     <Property Name="DT_INCLUSAO" Type="DateTime" Precision="0" />
     <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
     <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="TB_DIC_DADOS">
     <Key>
@@ -548,21 +537,6 @@
     <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="VERID" Type="Int32" />
   </EntityType>
-  <EntityType Name="TB_EMAIL">
-    <Key>
-      <PropertyRef Name="ID_EMAIL" />
-    </Key>
-    <Property Name="ID_EMAIL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CD_CLIENTE" Type="Int32" Nullable="false" />
-    <Property Name="SQ_EMAIL" Type="Int32" />
-    <Property Name="AN_EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="AN_RESPONSAVEL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-    <Property Name="AN_ORIGEM" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="DT_INCLUSAO" Type="DateTime" Precision="0" />
-    <Property Name="DT_ALTERACAO" Type="DateTime" Precision="0" />
-    <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-    <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="TB_ENDERECO">
     <Key>
       <PropertyRef Name="ID_ENDERECO" />
@@ -587,48 +561,6 @@
     <Property Name="DT_ALTERACAO" Type="DateTime" Precision="0" />
     <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
     <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="TB_EVENTO">
-    <Key>
-      <PropertyRef Name="ID_EVENTO" />
-      <PropertyRef Name="CD_CLIENTE" />
-      <PropertyRef Name="ID_CONTRATO" />
-      <PropertyRef Name="ID_BANCO" />
-      <PropertyRef Name="DT_EVENTO" />
-      <PropertyRef Name="HR_EVENTO" />
-    </Key>
-    <Property Name="ID_EVENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CD_CLIENTE" Type="Int32" Nullable="false" />
-    <Property Name="ID_CONTRATO" Type="Int32" Nullable="false" />
-    <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
-    <Property Name="DT_EVENTO" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="HR_EVENTO" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="NR_PARCELA" Type="Int32" Nullable="false" />
-    <Property Name="CD_USUARIO_RESP" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CD_USUARIO_OPER" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-    <Property Name="DT_EVENTO_REAL" Type="DateTime" Precision="0" />
-    <Property Name="HR_INI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-    <Property Name="HR_FIM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-    <Property Name="IN_SIT_CONTATO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="CD_TIPO_EVENTO" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
-    <Property Name="AN_DS_EVENTO_ASSUNTO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="AN_OBS_EVENTO_ASSUNTO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Name="NR_PRIORIDADE" Type="Int32" />
-    <Property Name="HR_TEMPO_LIGACAO" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-    <Property Name="HR_HORA_MARCADA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-    <Property Name="FL_EXPORTADO_EVENTO" Type="Int32" />
-    <Property Name="DT_ENVIO_BANCO" Type="DateTime" Precision="0" />
-    <Property Name="AN_ARQUIVO_ENVIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NR_DDD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Name="NR_TELEFONE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="IN_LIGACAO_EFETUADA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="AN_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="AN_SITUACAO_CONTRATO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CD_PROGRAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="DT_INCLUSAO" Type="DateTime" Precision="0" />
-    <Property Name="DT_ALTERACAO" Type="DateTime" Precision="0" />
-    <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-    <Property Name="CD_USARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TB_FERIADO">
     <Key>
@@ -655,27 +587,12 @@
     <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="VERID" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="TB_HISTORICO">
-    <Key>
-      <PropertyRef Name="CD_CLIENTE" />
-      <PropertyRef Name="ID_CONTRATO" />
-      <PropertyRef Name="NR_SEQ" />
-    </Key>
-    <Property Name="CD_CLIENTE" Type="Int32" Nullable="false" />
-    <Property Name="ID_CONTRATO" Type="Int32" Nullable="false" />
-    <Property Name="NR_SEQ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="AN_OBSERVACAO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="DT_ALTERACAO" Type="DateTime" Precision="0" />
-    <Property Name="DT_INCLUSAO" Type="DateTime" Precision="0" />
-    <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-    <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-    <Property Name="AN_PROGRAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
   <EntityType Name="TB_HONORARIO">
     <Key>
       <PropertyRef Name="CD_CLIENTE" />
       <PropertyRef Name="ID_CONTRATO" />
       <PropertyRef Name="SQ_HONORARIOS" />
+      <PropertyRef Name="ID_BANCO" />
     </Key>
     <Property Name="CD_CLIENTE" Type="Int32" Nullable="false" />
     <Property Name="ID_CONTRATO" Type="Int32" Nullable="false" />
@@ -691,6 +608,7 @@
     <Property Name="DT_INCLUSAO" Type="DateTime" Precision="0" />
     <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
     <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="TB_HORARIOS">
     <Key>
@@ -892,14 +810,14 @@
     </Key>
     <Property Name="ID_PESSOA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CD_CLIENTE" Type="Int32" Nullable="false" />
-    <Property Name="NM_PESSOA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NM_PESSOA" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IN_F_J" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="AN_CNPJ_CPF" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="AN_CLUSTER_RATING" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="AN_TX_CARTEIRA" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="AN_CARTEIRA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="AN_TX_INFORMATIVO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="AN_TX_INFORMATIVO2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AN_TX_INFORMATIVO2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="AN_RECURSO_AUXILIAR" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="AN_MES_BASE" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
     <Property Name="AN_PARCELA_INIBIDA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
@@ -1436,7 +1354,6 @@
     <EntitySet Name="TB_ADVOGADO" EntityType="Self.TB_ADVOGADO" />
     <EntitySet Name="TB_ALVARAS_AUTOMATIZADOS" EntityType="Self.TB_ALVARAS_AUTOMATIZADOS" />
     <EntitySet Name="TB_AND_PROCESSO" EntityType="Self.TB_AND_PROCESSO" />
-    <EntitySet Name="TB_AUDIENCIAS" EntityType="Self.TB_AUDIENCIAS" />
     <EntitySet Name="TB_AVALISTA" EntityType="Self.TB_AVALISTA" />
     <EntitySet Name="TB_BANCO" EntityType="Self.TB_BANCO" />
     <EntitySet Name="TB_BOLETO" EntityType="Self.TB_BOLETO" />
@@ -1453,12 +1370,9 @@
     <EntitySet Name="TB_DESPESA" EntityType="Self.TB_DESPESA" />
     <EntitySet Name="TB_DIC_DADOS" EntityType="Self.TB_DIC_DADOS" />
     <EntitySet Name="TB_DOMINIO" EntityType="Self.TB_DOMINIO" />
-    <EntitySet Name="TB_EMAIL" EntityType="Self.TB_EMAIL" />
     <EntitySet Name="TB_ENDERECO" EntityType="Self.TB_ENDERECO" />
-    <EntitySet Name="TB_EVENTO" EntityType="Self.TB_EVENTO" />
     <EntitySet Name="TB_FERIADO" EntityType="Self.TB_FERIADO" />
     <EntitySet Name="TB_GRUPO" EntityType="Self.TB_GRUPO" />
-    <EntitySet Name="TB_HISTORICO" EntityType="Self.TB_HISTORICO" />
     <EntitySet Name="TB_HONORARIO" EntityType="Self.TB_HONORARIO" />
     <EntitySet Name="TB_HORARIOS" EntityType="Self.TB_HORARIOS" />
     <EntitySet Name="TB_INDICE" EntityType="Self.TB_INDICE" />
@@ -1488,6 +1402,7 @@
     <EntitySet Name="VW_TITULOS" EntityType="SisaModel.VW_TITULOS" />
     <EntitySet Name="VW_CONTRATOS" EntityType="SisaModel.VW_CONTRATOS" />
     <EntitySet Name="VW_PROCESSO" EntityType="SisaModel.VW_PROCESSO" />
+    <EntitySet Name="TB_LOCALIZADOR" EntityType="SisaModel.TB_LOCALIZADOR" />
   </EntityContainer>
   <EntityType Name="VW_TITULOS">
     <Key>
@@ -1794,5 +1709,17 @@
     <Property Name="DT_EXCLUSAO" Type="DateTime" Precision="0" />
     <Property Name="CD_USUARIO_EXC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
     <Property Name="NR_PARCELAS_PAGAS" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TB_LOCALIZADOR">
+    <Key>
+      <PropertyRef Name="ID_LOCALIZADOR" />
+      <PropertyRef Name="NM_LOCALIZADOR" />
+    </Key>
+    <Property Name="ID_LOCALIZADOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NM_LOCALIZADOR" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="AN_CPF" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="AN_ENDERECO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AN_TELEFONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AN_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

@@ -5,15 +5,16 @@
     string banco = ViewBag.Banco != null ? ViewBag.Banco : null;
     string contrato = ViewBag.Contrato != null ? ViewBag.Contrato : null;
     int id_contrato = ViewBag.IdContrato != null ? ViewBag.IdContrato : 0;
+    List<sisa.Models.TB_PESSOA> ExibirCliente = null;
     if (codcli > 0)
     {
         var pes = new sisa.DAO.Pessoa().Dados(codcli);
         var listaContratos = new sisa.DAO.Contrato().Lista(codcli);
         var dados = new sisa.DAO.Pessoa().Dados(codcli);
+        ExibirCliente = new sisa.DAO.Pessoa().Lista(codcli);
     }
-    var ExibirCliente = new sisa.DAO.Pessoa().Lista(codcli);
+    
     var listaParcelas = ViewBag.Parcelas != null ? ViewBag.Parcelas : null;
-
 
     //CultureInfo newCulture = new CultureInfo("pt-BR");
     //Thread.CurrentThread.CurrentCulture = newCulture;
@@ -52,7 +53,7 @@
     </div>
 }
 
-@if (ExibirCliente.Count > 0)
+@if (ExibirCliente!= null && ExibirCliente.Count > 0)
 {
     var ct = new sisa.DAO.Contrato(codcli, banco, id_contrato);
     ViewBag.Status = ct.Status;

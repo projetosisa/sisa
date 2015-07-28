@@ -22,5 +22,6 @@ namespace sisa.Models
         public Nullable<System.DateTime> DT_INCLUSAO { get; set; }
         public string CD_USUARIO_INC { get; set; }
         public string CD_USUARIO_ALT { get; set; }
+        public Nullable<int> ID_BANCO { get; set; }
     }
 }

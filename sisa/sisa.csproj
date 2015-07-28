@@ -163,9 +163,6 @@
     <Compile Include="Models\TB_AND_PROCESSO.cs">
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TB_AUDIENCIAS.cs">
-      <DependentUpon>SisaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TB_AVALISTA.cs">
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
@@ -217,22 +214,13 @@
     <Compile Include="Models\TB_DOMINIO.cs">
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TB_EMAIL.cs">
-      <DependentUpon>SisaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TB_ENDERECO.cs">
-      <DependentUpon>SisaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TB_EVENTO.cs">
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_FERIADO.cs">
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_GRUPO.cs">
-      <DependentUpon>SisaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TB_HISTORICO.cs">
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_HONORARIO.cs">
@@ -242,6 +230,9 @@
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_INDICE.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_LOCALIZADOR.cs">
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_LOGIN.cs">

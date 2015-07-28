@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Antlr.Runtime;
 using sisa.Models;
 using sisa.DAO;
 
@@ -100,7 +101,7 @@ namespace sisa.Controllers
             }
             else
             {
-                pes = db.TB_PESSOA.SingleOrDefault(p=>p.CD_CLIENTE==id);
+                pes = db.TB_PESSOA.Where(p => p.CD_CLIENTE == id).SingleOrDefault();
             }
             ViewBag.CodCliente = id;
             return Json(pes);

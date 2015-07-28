@@ -106,20 +106,6 @@
     <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
     <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
   </EntityType>
-  <EntityType Name="TB_AUDIENCIAS">
-    <Key>
-      <PropertyRef Name="ID_AUDIENCIA" />
-    </Key>
-    <Property Name="ID_AUDIENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ID_PROCESSO" Type="int" Nullable="false" />
-    <Property Name="CD_CLIENTE" Type="int" />
-    <Property Name="NR_OPERACAO" Type="int" />
-    <Property Name="CD_CONTRATO" Type="varchar" MaxLength="50" />
-    <Property Name="NR_PROCESSO_CNJ" Type="varchar" MaxLength="50" />
-    <Property Name="NR_PROCESSO_THEMIS" Type="varchar" MaxLength="50" />
-    <Property Name="DATA_AUDIENCIA" Type="smalldatetime" />
-    <Property Name="TEXTO_AUDIENCIA" Type="nvarchar(max)" />
-  </EntityType>
   <EntityType Name="TB_AVALISTA">
     <Key>
       <PropertyRef Name="CD_CLIENTE" />
@@ -314,6 +300,7 @@ warning 6002: The table/view 'SISABANCO.dbo.TB_CLIENTE' does not have a primary 
       <PropertyRef Name="ID_EVENTO" />
     </Key>
     <Property Name="ID_EVENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" />
     <Property Name="CD_EVENTO" Type="varchar" MaxLength="5" Nullable="false" />
     <Property Name="DS_TIPO_EVENTO" Type="varchar" MaxLength="200" />
     <Property Name="FL_EVENTO_BANCO" Type="int" />
@@ -501,10 +488,12 @@ warning 6002: The table/view 'SISABANCO.dbo.TB_CLIENTE' does not have a primary 
     <Key>
       <PropertyRef Name="CD_CLIENTE" />
       <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="ID_BANCO" />
       <PropertyRef Name="SQ_DESPESA" />
     </Key>
     <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
     <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
     <Property Name="SQ_DESPESA" Type="int" Nullable="false" />
     <Property Name="DS_DESPESA" Type="varchar" MaxLength="100" />
     <Property Name="FL_COMPENSACAO" Type="int" />
@@ -563,21 +552,6 @@ warning 6002: The table/view 'SISABANCO.dbo.TB_CLIENTE' does not have a primary 
     <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="50" />
     <Property Name="VERID" Type="int" />
   </EntityType>
-  <EntityType Name="TB_EMAIL">
-    <Key>
-      <PropertyRef Name="ID_EMAIL" />
-    </Key>
-    <Property Name="ID_EMAIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
-    <Property Name="SQ_EMAIL" Type="int" />
-    <Property Name="AN_EMAIL" Type="varchar" MaxLength="255" />
-    <Property Name="AN_RESPONSAVEL" Type="varchar" MaxLength="250" />
-    <Property Name="AN_ORIGEM" Type="varchar" MaxLength="15" />
-    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
-    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
-    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
-    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
-  </EntityType>
   <EntityType Name="TB_ENDERECO">
     <Key>
       <PropertyRef Name="ID_ENDERECO" />
@@ -602,48 +576,6 @@ warning 6002: The table/view 'SISABANCO.dbo.TB_CLIENTE' does not have a primary 
     <Property Name="DT_ALTERACAO" Type="smalldatetime" />
     <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
     <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
-  </EntityType>
-  <EntityType Name="TB_EVENTO">
-    <Key>
-      <PropertyRef Name="ID_EVENTO" />
-      <PropertyRef Name="CD_CLIENTE" />
-      <PropertyRef Name="ID_CONTRATO" />
-      <PropertyRef Name="ID_BANCO" />
-      <PropertyRef Name="DT_EVENTO" />
-      <PropertyRef Name="HR_EVENTO" />
-    </Key>
-    <Property Name="ID_EVENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
-    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
-    <Property Name="ID_BANCO" Type="int" Nullable="false" />
-    <Property Name="DT_EVENTO" Type="smalldatetime" Nullable="false" />
-    <Property Name="HR_EVENTO" Type="varchar" MaxLength="8" Nullable="false" />
-    <Property Name="NR_PARCELA" Type="int" Nullable="false" />
-    <Property Name="CD_USUARIO_RESP" Type="varchar" MaxLength="35" Nullable="false" />
-    <Property Name="CD_USUARIO_OPER" Type="varchar" MaxLength="35" />
-    <Property Name="DT_EVENTO_REAL" Type="smalldatetime" />
-    <Property Name="HR_INI" Type="varchar" MaxLength="8" />
-    <Property Name="HR_FIM" Type="varchar" MaxLength="8" />
-    <Property Name="IN_SIT_CONTATO" Type="varchar" MaxLength="10" />
-    <Property Name="CD_TIPO_EVENTO" Type="varchar" MaxLength="6" />
-    <Property Name="AN_DS_EVENTO_ASSUNTO" Type="varchar" MaxLength="255" />
-    <Property Name="AN_OBS_EVENTO_ASSUNTO" Type="varchar" MaxLength="1000" />
-    <Property Name="NR_PRIORIDADE" Type="int" />
-    <Property Name="HR_TEMPO_LIGACAO" Type="varchar" MaxLength="8" />
-    <Property Name="HR_HORA_MARCADA" Type="varchar" MaxLength="8" />
-    <Property Name="FL_EXPORTADO_EVENTO" Type="int" />
-    <Property Name="DT_ENVIO_BANCO" Type="smalldatetime" />
-    <Property Name="AN_ARQUIVO_ENVIO" Type="varchar" MaxLength="50" />
-    <Property Name="NR_DDD" Type="varchar" MaxLength="5" />
-    <Property Name="NR_TELEFONE" Type="varchar" MaxLength="25" />
-    <Property Name="IN_LIGACAO_EFETUADA" Type="char" MaxLength="1" />
-    <Property Name="AN_STATUS" Type="varchar" MaxLength="50" />
-    <Property Name="AN_SITUACAO_CONTRATO" Type="varchar" MaxLength="50" />
-    <Property Name="CD_PROGRAMA" Type="varchar" MaxLength="50" />
-    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
-    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
-    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
-    <Property Name="CD_USARIO_ALT" Type="varchar" MaxLength="35" />
   </EntityType>
   <EntityType Name="TB_FERIADO">
     <Key>
@@ -670,30 +602,16 @@ warning 6002: The table/view 'SISABANCO.dbo.TB_CLIENTE' does not have a primary 
     <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="50" />
     <Property Name="VERID" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="TB_HISTORICO">
-    <Key>
-      <PropertyRef Name="CD_CLIENTE" />
-      <PropertyRef Name="ID_CONTRATO" />
-      <PropertyRef Name="NR_SEQ" />
-    </Key>
-    <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
-    <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
-    <Property Name="NR_SEQ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AN_OBSERVACAO" Type="varchar" MaxLength="500" />
-    <Property Name="DT_ALTERACAO" Type="smalldatetime" />
-    <Property Name="DT_INCLUSAO" Type="smalldatetime" />
-    <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
-    <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
-    <Property Name="AN_PROGRAMA" Type="varchar" MaxLength="50" Nullable="false" />
-  </EntityType>
   <EntityType Name="TB_HONORARIO">
     <Key>
       <PropertyRef Name="CD_CLIENTE" />
       <PropertyRef Name="ID_CONTRATO" />
+      <PropertyRef Name="ID_BANCO" />
       <PropertyRef Name="SQ_HONORARIOS" />
     </Key>
     <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
     <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="ID_BANCO" Type="int" Nullable="false" />
     <Property Name="SQ_HONORARIOS" Type="int" Nullable="false" />
     <Property Name="VL_HONORARIOS" Type="decimal" Precision="15" Scale="2" />
     <Property Name="NR_DOC_NF" Type="int" />
@@ -736,6 +654,18 @@ warning 6002: The table/view 'SISABANCO.dbo.TB_CLIENTE' does not have a primary 
     <Property Name="DT_INCLUSAO" Type="smalldatetime" />
     <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
     <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="TB_LOCALIZADOR">
+    <Key>
+      <PropertyRef Name="ID_LOCALIZADOR" />
+      <PropertyRef Name="NM_LOCALIZADOR" />
+    </Key>
+    <Property Name="ID_LOCALIZADOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NM_LOCALIZADOR" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="AN_CPF" Type="varchar" MaxLength="14" />
+    <Property Name="AN_ENDERECO" Type="varchar" MaxLength="100" />
+    <Property Name="AN_TELEFONE" Type="varchar" MaxLength="50" />
+    <Property Name="AN_EMAIL" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="TB_LOGIN">
     <Key>
@@ -907,14 +837,14 @@ warning 6002: The table/view 'SISABANCO.dbo.TB_CLIENTE' does not have a primary 
     </Key>
     <Property Name="ID_PESSOA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
-    <Property Name="NM_PESSOA" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NM_PESSOA" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="IN_F_J" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="AN_CNPJ_CPF" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="AN_CLUSTER_RATING" Type="varchar" MaxLength="15" />
     <Property Name="AN_TX_CARTEIRA" Type="varchar" MaxLength="300" />
     <Property Name="AN_CARTEIRA" Type="varchar" MaxLength="200" />
     <Property Name="AN_TX_INFORMATIVO1" Type="varchar" MaxLength="100" />
-    <Property Name="AN_TX_INFORMATIVO2" Type="varchar" MaxLength="100" />
+    <Property Name="AN_TX_INFORMATIVO2" Type="varchar" MaxLength="500" />
     <Property Name="AN_RECURSO_AUXILIAR" Type="varchar" MaxLength="500" />
     <Property Name="AN_MES_BASE" Type="varchar" MaxLength="7" />
     <Property Name="AN_PARCELA_INIBIDA" Type="varchar" MaxLength="1" />
@@ -1756,7 +1686,6 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary 
     <EntitySet Name="TB_ADVOGADO" EntityType="Self.TB_ADVOGADO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_ALVARAS_AUTOMATIZADOS" EntityType="Self.TB_ALVARAS_AUTOMATIZADOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_AND_PROCESSO" EntityType="Self.TB_AND_PROCESSO" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_AUDIENCIAS" EntityType="Self.TB_AUDIENCIAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_AVALISTA" EntityType="Self.TB_AVALISTA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_BANCO" EntityType="Self.TB_BANCO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_BOLETO" EntityType="Self.TB_BOLETO" Schema="dbo" store:Type="Tables" />
@@ -1773,15 +1702,13 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary 
     <EntitySet Name="TB_DESPESA" EntityType="Self.TB_DESPESA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_DIC_DADOS" EntityType="Self.TB_DIC_DADOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_DOMINIO" EntityType="Self.TB_DOMINIO" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_EMAIL" EntityType="Self.TB_EMAIL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_ENDERECO" EntityType="Self.TB_ENDERECO" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_EVENTO" EntityType="Self.TB_EVENTO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_FERIADO" EntityType="Self.TB_FERIADO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_GRUPO" EntityType="Self.TB_GRUPO" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_HISTORICO" EntityType="Self.TB_HISTORICO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_HONORARIO" EntityType="Self.TB_HONORARIO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_HORARIOS" EntityType="Self.TB_HORARIOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_INDICE" EntityType="Self.TB_INDICE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_LOCALIZADOR" EntityType="Self.TB_LOCALIZADOR" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_LOGIN" EntityType="Self.TB_LOGIN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_MANDADOSOFICIAIS" EntityType="Self.TB_MANDADOSOFICIAIS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_MOVIMENTACOES" EntityType="Self.TB_MOVIMENTACOES" Schema="dbo" store:Type="Tables" />

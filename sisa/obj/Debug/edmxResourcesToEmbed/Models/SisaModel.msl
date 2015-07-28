@@ -103,21 +103,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TB_AUDIENCIAS">
-      <EntityTypeMapping TypeName="SisaModel.TB_AUDIENCIAS">
-        <MappingFragment StoreEntitySet="TB_AUDIENCIAS">
-          <ScalarProperty Name="ID_AUDIENCIA" ColumnName="ID_AUDIENCIA" />
-          <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
-          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
-          <ScalarProperty Name="NR_OPERACAO" ColumnName="NR_OPERACAO" />
-          <ScalarProperty Name="CD_CONTRATO" ColumnName="CD_CONTRATO" />
-          <ScalarProperty Name="NR_PROCESSO_CNJ" ColumnName="NR_PROCESSO_CNJ" />
-          <ScalarProperty Name="NR_PROCESSO_THEMIS" ColumnName="NR_PROCESSO_THEMIS" />
-          <ScalarProperty Name="DATA_AUDIENCIA" ColumnName="DATA_AUDIENCIA" />
-          <ScalarProperty Name="TEXTO_AUDIENCIA" ColumnName="TEXTO_AUDIENCIA" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TB_AVALISTA">
       <EntityTypeMapping TypeName="SisaModel.TB_AVALISTA">
         <MappingFragment StoreEntitySet="TB_AVALISTA">
@@ -294,6 +279,7 @@
     <EntitySetMapping Name="TB_COD_EVENTO">
       <EntityTypeMapping TypeName="SisaModel.TB_COD_EVENTO">
         <MappingFragment StoreEntitySet="TB_COD_EVENTO">
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
           <ScalarProperty Name="CD_EVENTO" ColumnName="CD_EVENTO" />
           <ScalarProperty Name="DS_TIPO_EVENTO" ColumnName="DS_TIPO_EVENTO" />
@@ -477,6 +463,7 @@
     <EntitySetMapping Name="TB_DESPESA">
       <EntityTypeMapping TypeName="SisaModel.TB_DESPESA">
         <MappingFragment StoreEntitySet="TB_DESPESA">
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
           <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
           <ScalarProperty Name="SQ_DESPESA" ColumnName="SQ_DESPESA" />
@@ -538,22 +525,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TB_EMAIL">
-      <EntityTypeMapping TypeName="SisaModel.TB_EMAIL">
-        <MappingFragment StoreEntitySet="TB_EMAIL">
-          <ScalarProperty Name="ID_EMAIL" ColumnName="ID_EMAIL" />
-          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
-          <ScalarProperty Name="SQ_EMAIL" ColumnName="SQ_EMAIL" />
-          <ScalarProperty Name="AN_EMAIL" ColumnName="AN_EMAIL" />
-          <ScalarProperty Name="AN_RESPONSAVEL" ColumnName="AN_RESPONSAVEL" />
-          <ScalarProperty Name="AN_ORIGEM" ColumnName="AN_ORIGEM" />
-          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
-          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
-          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
-          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TB_ENDERECO">
       <EntityTypeMapping TypeName="SisaModel.TB_ENDERECO">
         <MappingFragment StoreEntitySet="TB_ENDERECO">
@@ -575,44 +546,6 @@
           <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
           <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
           <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TB_EVENTO">
-      <EntityTypeMapping TypeName="SisaModel.TB_EVENTO">
-        <MappingFragment StoreEntitySet="TB_EVENTO">
-          <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
-          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
-          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
-          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
-          <ScalarProperty Name="DT_EVENTO" ColumnName="DT_EVENTO" />
-          <ScalarProperty Name="HR_EVENTO" ColumnName="HR_EVENTO" />
-          <ScalarProperty Name="NR_PARCELA" ColumnName="NR_PARCELA" />
-          <ScalarProperty Name="CD_USUARIO_RESP" ColumnName="CD_USUARIO_RESP" />
-          <ScalarProperty Name="CD_USUARIO_OPER" ColumnName="CD_USUARIO_OPER" />
-          <ScalarProperty Name="DT_EVENTO_REAL" ColumnName="DT_EVENTO_REAL" />
-          <ScalarProperty Name="HR_INI" ColumnName="HR_INI" />
-          <ScalarProperty Name="HR_FIM" ColumnName="HR_FIM" />
-          <ScalarProperty Name="IN_SIT_CONTATO" ColumnName="IN_SIT_CONTATO" />
-          <ScalarProperty Name="CD_TIPO_EVENTO" ColumnName="CD_TIPO_EVENTO" />
-          <ScalarProperty Name="AN_DS_EVENTO_ASSUNTO" ColumnName="AN_DS_EVENTO_ASSUNTO" />
-          <ScalarProperty Name="AN_OBS_EVENTO_ASSUNTO" ColumnName="AN_OBS_EVENTO_ASSUNTO" />
-          <ScalarProperty Name="NR_PRIORIDADE" ColumnName="NR_PRIORIDADE" />
-          <ScalarProperty Name="HR_TEMPO_LIGACAO" ColumnName="HR_TEMPO_LIGACAO" />
-          <ScalarProperty Name="HR_HORA_MARCADA" ColumnName="HR_HORA_MARCADA" />
-          <ScalarProperty Name="FL_EXPORTADO_EVENTO" ColumnName="FL_EXPORTADO_EVENTO" />
-          <ScalarProperty Name="DT_ENVIO_BANCO" ColumnName="DT_ENVIO_BANCO" />
-          <ScalarProperty Name="AN_ARQUIVO_ENVIO" ColumnName="AN_ARQUIVO_ENVIO" />
-          <ScalarProperty Name="NR_DDD" ColumnName="NR_DDD" />
-          <ScalarProperty Name="NR_TELEFONE" ColumnName="NR_TELEFONE" />
-          <ScalarProperty Name="IN_LIGACAO_EFETUADA" ColumnName="IN_LIGACAO_EFETUADA" />
-          <ScalarProperty Name="AN_STATUS" ColumnName="AN_STATUS" />
-          <ScalarProperty Name="AN_SITUACAO_CONTRATO" ColumnName="AN_SITUACAO_CONTRATO" />
-          <ScalarProperty Name="CD_PROGRAMA" ColumnName="CD_PROGRAMA" />
-          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
-          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
-          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
-          <ScalarProperty Name="CD_USARIO_ALT" ColumnName="CD_USARIO_ALT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -643,24 +576,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TB_HISTORICO">
-      <EntityTypeMapping TypeName="SisaModel.TB_HISTORICO">
-        <MappingFragment StoreEntitySet="TB_HISTORICO">
-          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
-          <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
-          <ScalarProperty Name="NR_SEQ" ColumnName="NR_SEQ" />
-          <ScalarProperty Name="AN_OBSERVACAO" ColumnName="AN_OBSERVACAO" />
-          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
-          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
-          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
-          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
-          <ScalarProperty Name="AN_PROGRAMA" ColumnName="AN_PROGRAMA" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TB_HONORARIO">
       <EntityTypeMapping TypeName="SisaModel.TB_HONORARIO">
         <MappingFragment StoreEntitySet="TB_HONORARIO">
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
           <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
           <ScalarProperty Name="SQ_HONORARIOS" ColumnName="SQ_HONORARIOS" />
@@ -1685,6 +1604,18 @@
           <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
           <ScalarProperty Name="ID_PROCESSO" ColumnName="ID_PROCESSO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_LOCALIZADOR">
+      <EntityTypeMapping TypeName="SisaModel.TB_LOCALIZADOR">
+        <MappingFragment StoreEntitySet="TB_LOCALIZADOR">
+          <ScalarProperty Name="AN_EMAIL" ColumnName="AN_EMAIL" />
+          <ScalarProperty Name="AN_TELEFONE" ColumnName="AN_TELEFONE" />
+          <ScalarProperty Name="AN_ENDERECO" ColumnName="AN_ENDERECO" />
+          <ScalarProperty Name="AN_CPF" ColumnName="AN_CPF" />
+          <ScalarProperty Name="NM_LOCALIZADOR" ColumnName="NM_LOCALIZADOR" />
+          <ScalarProperty Name="ID_LOCALIZADOR" ColumnName="ID_LOCALIZADOR" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

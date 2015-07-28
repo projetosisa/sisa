@@ -12,16 +12,13 @@ namespace sisa.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TB_HISTORICO
+    public partial class TB_LOCALIZADOR
     {
-        public int CD_CLIENTE { get; set; }
-        public int ID_CONTRATO { get; set; }
-        public int NR_SEQ { get; set; }
-        public string AN_OBSERVACAO { get; set; }
-        public Nullable<System.DateTime> DT_ALTERACAO { get; set; }
-        public Nullable<System.DateTime> DT_INCLUSAO { get; set; }
-        public string CD_USUARIO_INC { get; set; }
-        public string CD_USUARIO_ALT { get; set; }
-        public string AN_PROGRAMA { get; set; }
+        public int ID_LOCALIZADOR { get; set; }
+        public string NM_LOCALIZADOR { get; set; }
+        public string AN_CPF { get; set; }
+        public string AN_ENDERECO { get; set; }
+        public string AN_TELEFONE { get; set; }
+        public string AN_EMAIL { get; set; }
     }
 }
