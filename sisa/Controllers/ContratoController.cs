@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using sisa.Models;
+using sisa.DAO;
 
 namespace sisa.Controllers
 {
     public class ContratoController : Controller
     {
-        
+        private SisaEntities db = new SisaEntities();
         public ActionResult ListaContratos(int codcli, string banco)
         {
             var lista = new sisa.DAO.Contrato().RetornaContratos(codcli,banco);
@@ -38,15 +41,48 @@ namespace sisa.Controllers
             return View();
         }
 
-        // GET: Contrato/Create
-        public ActionResult Create()
+        void CarregaListas()
         {
+            ViewBag.ListaTipoContrato = new Dados().RetornaSelectList("SELECT TIPOCONTRATO FROM VW_TIPOCONTRATO");
+            ViewBag.ListaInformativo = new Dados().RetornaSelectList("SELECT INFORMATIVO FROM VW_INFORMATIVO");
+            ViewBag.ListaFaixa = new Dados().RetornaSelectList("SELECT FAIXA FROM VW_FAIXA");
+        }
+
+        // GET: Contrato/Create
+        public ActionResult Create(int codcli, string banco)
+        {
+            ViewBag.CodCliente = codcli;
+            ViewBag.Banco = banco;
+            ViewBag.CodBanco = new Contrato().RetornaIdBanco(banco);
+            CarregaListas();
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(TB_CONTRATO tbContrato)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    db.TB_CONTRATO.Add(tbContrato);
+                    db.SaveChanges();
+                    TempData["Msg"] = "Gravado com sucesso.";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["MsgErro"] = "Erro: Verificar dados, tente novamente," + ex.Message;
+            }
+            return View(tbContrato);
+
         }
 
         // POST: Contrato/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CreateOriginal(FormCollection collection)
         {
             try
             {
