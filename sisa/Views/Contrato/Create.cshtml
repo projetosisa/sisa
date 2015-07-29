@@ -1,0 +1,110 @@
+﻿@model sisa.Models.TB_CONTRATO
+
+@{
+    ViewBag.Title = "Cadastrar Contrato";
+}
+
+<h2>Cadastrar Contrato</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="row">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-sm-12 input-sm">
+            <div class="col-sm-1">
+                <label>Cod.Cliente</label>
+                <input type="text" class="form-control input-sm" id="CD_CLIENTE" name="CD_CLIENTE" value="@ViewBag.CodCliente" disabled="disabled" />
+                @Html.ValidationMessageFor(model => model.CD_CLIENTE, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-1">
+                <label>Cod.Banco</label>
+                @Html.EditorFor(model => model.ID_BANCO, new { htmlAttributes = new { @class = "form-control input-sm", @Value = ViewBag.CodBanco, @disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.ID_BANCO, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-3">
+                <label>Nome do Banco</label>
+                <input type="text" class="form-control input-sm" value="@ViewBag.Banco" disabled="disabled" />
+            </div>
+            <div class="col-sm-2">
+                <label>Cod.Contrato</label>
+                @Html.EditorFor(model => model.CD_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.CD_CONTRATO, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-2">
+                <label>Data Contrato</label>
+                @Html.EditorFor(model => model.DT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.DT_CONTRATO, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-3">
+                <label>Tipo Contrato</label>
+                @Html.DropDownListFor(model => model.IN_TP_CONTRATO, new SelectList(ViewBag.ListaTipoContrato, "Key", "Value", "Selecione"), new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.IN_TP_CONTRATO, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Informativo</label>
+                @Html.DropDownListFor(model => model.AN_INFORMATIVO, new SelectList(ViewBag.ListaInformativo, "Key", "Value", "Selecione"), new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.AN_INFORMATIVO, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Valor Total Contrato</label>
+                @Html.EditorFor(model => model.VL_TOT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.VL_TOT_CONTRATO, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Data Primeiro Venc.</label>
+                @Html.EditorFor(model => model.DT_PRIM_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.DT_PRIM_VENCTO, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Data Ultimo Venc.</label>
+                @Html.EditorFor(model => model.DT_ULT_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.DT_ULT_VENCTO, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Qtd. Parcelas Pagas</label>
+                @Html.EditorFor(model => model.NR_PARCELAS_PAGAS, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.NR_PARCELAS_PAGAS, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Valor Devido</label>
+                @Html.EditorFor(model => model.VL_SALDO_DEVEDOR, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.VL_SALDO_DEVEDOR, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Faixa</label>
+                @Html.DropDownListFor(model => model.IN_FAIXA, new SelectList(ViewBag.ListaFaixa, "Key", "Value", "Selecione"), new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.IN_FAIXA, "", new { @class = "text-danger" })
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.FL_EXCLUIDO, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FL_EXCLUIDO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FL_EXCLUIDO, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <div class="col-sm-4 margin-top">
+                <input type="submit" value="Gravar" class="btn btn-success" /> |
+                @Html.ActionLink("Voltar", "Index")
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
