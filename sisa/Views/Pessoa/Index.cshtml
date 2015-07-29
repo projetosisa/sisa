@@ -126,7 +126,7 @@
                                 @*<td><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO })">@itm.CD_CONTRATO</a></td>*@
                                 <td><a href="@Url.Action("Index", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO, id_contrato = itm.ID_CONTRATO })">@itm.CD_CONTRATO</a></td>
                                 <td>@itm.IN_TP_CONTRATO</td>
-                                <td class="text-right">@String.Format("{0:C}", @itm.VL_TOT_CONTRATO)</td>
+                                <td class="text-right">@String.Format("{0:C}", @itm.VL_TOT_CONTRATO !=null? @itm.VL_TOT_CONTRATO : 0 )</td>
                             </tr>
                         }
                     </table>

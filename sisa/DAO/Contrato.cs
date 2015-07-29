@@ -120,6 +120,18 @@ namespace sisa.DAO
             }
         }
 
+        public string RetornaNomeBanco(int idBanco)
+        {
+            try
+            {
+                return Conexao.Banco.TB_BANCO.Single(b => b.ID_BANCO==idBanco).DS_BANCO;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro RetornaIdBanco, " + ex.Message);
+            }
+        }
+
         public string RetornaStatus(int codcli, int idbanco)
         {
             try
@@ -131,6 +143,12 @@ namespace sisa.DAO
             {
                 throw new Exception("Erro RetornaStatus, " + ex.Message);
             }
+        }
+
+        public Double TotalDiasAtraso(DateTime dtContrato)
+        {
+            TimeSpan dt = (Convert.ToDateTime(DateTime.Now).Date - Convert.ToDateTime(dtContrato).Date);
+            return dt.TotalDays;
         }
 
     }

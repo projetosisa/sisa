@@ -35,19 +35,46 @@ namespace sisa.DAO
             myDic.Add(1, "Sim");
             return myDic;
         }
-        public Dictionary<int, string> RetornaSelectList(string qry)
+        public Dictionary<string, string> RetornaSelectList(string qry)
         {
-            var db = RetornaDados(qry);
-            var myDic = new Dictionary<int, string>();
-            myDic.Add(-1, "Selecione");
-
-            int i = 0;
-            foreach (DataRow itm in db.Rows)
+            try
             {
-                myDic.Add(i, itm[0].ToString());
-                i++;
+                var db = RetornaDados(qry);
+                var myDic = new Dictionary<string, string>();
+                myDic.Add("Selecione", "Selecione");
+                foreach (DataRow itm in db.Rows)
+                {
+                    myDic.Add(itm[0].ToString(), itm[0].ToString());
+                }
+                return myDic;
             }
-            return myDic;
+            catch (Exception ex)
+            {
+                throw new Exception("Erro RetornaSelectList, "+ex.Message);
+            }
         }
+        public Dictionary<int, string> RetornaSelectList2(string qry)
+        {
+            try
+            {
+                var db = RetornaDados(qry);
+                var myDic = new Dictionary<int, string>();
+                myDic.Add(-1, "Selecione");
+
+                int i = 0;
+                foreach (DataRow itm in db.Rows)
+                {
+                    myDic.Add(i, itm[0].ToString());
+                    i++;
+                }
+                return myDic;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro RetornaSelectList2, "+ex.Message);
+            }
+            
+        }
+      
     }
 }

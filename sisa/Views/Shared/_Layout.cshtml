@@ -30,6 +30,9 @@
         </div>
     </div>
     <div class="container body-content">
+        <div id=aguarde class="aguarde"><img src="~/Content/carregando.gif" /></div>
+        <script>window.onload = function () { document.all.aguarde.style.display = 'none'; }</script>            
+
         @{Html.RenderPartial("_MsgErro");}
         @{Html.RenderPartial("_Msg");}
         @RenderBody()

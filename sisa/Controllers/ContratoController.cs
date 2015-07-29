@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using sisa.Models;
 using sisa.DAO;
 
@@ -64,18 +65,33 @@ namespace sisa.Controllers
         {
             try
             {
+                //if (tbContrato.VL_TOT_CONTRATO != null)
+                //{
+                //    tbContrato.VL_TOT_CONTRATO = Convert.ToDecimal(tbContrato.VL_TOT_CONTRATO.ToString().Replace(".", "").Replace(",", "."));
+                //}
+
                 if (ModelState.IsValid)
                 {
                     db.TB_CONTRATO.Add(tbContrato);
                     db.SaveChanges();
                     TempData["Msg"] = "Gravado com sucesso.";
-                    return RedirectToAction("Index");
+                    string dsBanco = new Contrato().RetornaNomeBanco(tbContrato.ID_BANCO);
+                    return RedirectToRoute("PessoaContratos", new {codcli=tbContrato.CD_CLIENTE, banco = dsBanco });
+                }
+                else
+                {
+                    TempData["MsgErro"] = "Erro: Verificar dados, tente novamente";
                 }
             }
             catch (Exception ex)
             {
                 TempData["MsgErro"] = "Erro: Verificar dados, tente novamente," + ex.Message;
             }
+            
+            CarregaListas();
+            ViewBag.CodCliente = tbContrato.CD_CLIENTE;
+            ViewBag.Banco = new Contrato().RetornaNomeBanco(tbContrato.ID_BANCO);
+            ViewBag.CodBanco = tbContrato.ID_BANCO;
             return View(tbContrato);
 
         }

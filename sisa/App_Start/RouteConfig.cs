@@ -18,6 +18,16 @@ namespace sisa
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "PessoaContratos",
+                url: "PessoaContratos/{codcli}/{banco}",
+                defaults: new { controller = "Pessoa", action = "Index", codcli = UrlParameter.Optional, banco = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "Exibir pagina Principal",
+                url: "TesteRota/",
+                defaults: new { controller = "Home", action = "Index" }
+            );
         }
     }
 }

@@ -4,7 +4,8 @@
     ViewBag.Title = "Cadastrar Contrato";
 }
 
-<h2>Cadastrar Contrato</h2>
+<h3>Cadastrar Contrato</h3>
+<hr />
 
 
 @using (Html.BeginForm()) 
@@ -12,23 +13,21 @@
     @Html.AntiForgeryToken()
     
     <div class="row">
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="col-sm-12 input-sm">
             <div class="col-sm-1">
                 <label>Cod.Cliente</label>
-                <input type="text" class="form-control input-sm" id="CD_CLIENTE" name="CD_CLIENTE" value="@ViewBag.CodCliente" disabled="disabled" />
-                @Html.ValidationMessageFor(model => model.CD_CLIENTE, "", new { @class = "text-danger" })
+                <input type="text" class="form-control input-sm" id="CD_CLIENTE" name="CD_CLIENTE" value="@ViewBag.CodCliente" readonly="readonly"/>
             </div>
 
             <div class="col-sm-1">
                 <label>Cod.Banco</label>
-                @Html.EditorFor(model => model.ID_BANCO, new { htmlAttributes = new { @class = "form-control input-sm", @Value = ViewBag.CodBanco, @disabled = "disabled" } })
+                @Html.EditorFor(model => model.ID_BANCO, new { htmlAttributes = new { @class = "form-control input-sm", @Value = ViewBag.CodBanco, @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.ID_BANCO, "", new { @class = "text-danger" })
             </div>
             <div class="col-sm-3">
                 <label>Nome do Banco</label>
-                <input type="text" class="form-control input-sm" value="@ViewBag.Banco" disabled="disabled" />
+                <input type="text" class="form-control input-sm" value="@ViewBag.Banco" readonly="readonly" />
             </div>
             <div class="col-sm-2">
                 <label>Cod.Contrato</label>
@@ -37,8 +36,10 @@
             </div>
             <div class="col-sm-2">
                 <label>Data Contrato</label>
-                @Html.EditorFor(model => model.DT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm" } })
-                @Html.ValidationMessageFor(model => model.DT_CONTRATO, "", new { @class = "text-danger" })
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                    @Html.EditorFor(model => model.DT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm", @onkeyup = "formataData(this,event)" } })
+                </div>
             </div>
             <div class="col-sm-3">
                 <label>Tipo Contrato</label>
@@ -54,20 +55,25 @@
 
             <div class="col-sm-2">
                 <label>Valor Total Contrato</label>
-                @Html.EditorFor(model => model.VL_TOT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm" } })
-                @Html.ValidationMessageFor(model => model.VL_TOT_CONTRATO, "", new { @class = "text-danger" })
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-vlct">R$</span>
+                    @Html.EditorFor(model => model.VL_TOT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm"} })
+                </div>
             </div>
 
             <div class="col-sm-2">
                 <label>Data Primeiro Venc.</label>
-                @Html.EditorFor(model => model.DT_PRIM_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm" } })
-                @Html.ValidationMessageFor(model => model.DT_PRIM_VENCTO, "", new { @class = "text-danger" })
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-dtprimvenc"><i class="fa fa-calendar"></i></span>
+                    @Html.EditorFor(model => model.DT_PRIM_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm", @onkeyup = "formataData(this,event)" } })
+                </div>
             </div>
-
             <div class="col-sm-2">
                 <label>Data Ultimo Venc.</label>
-                @Html.EditorFor(model => model.DT_ULT_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm" } })
-                @Html.ValidationMessageFor(model => model.DT_ULT_VENCTO, "", new { @class = "text-danger" })
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-dtultvenc"><i class="fa fa-calendar"></i></span>
+                    @Html.EditorFor(model => model.DT_ULT_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm", @onkeyup = "formataData(this,event)" } })
+                </div>
             </div>
 
             <div class="col-sm-2">
@@ -78,10 +84,11 @@
 
             <div class="col-sm-2">
                 <label>Valor Devido</label>
-                @Html.EditorFor(model => model.VL_SALDO_DEVEDOR, new { htmlAttributes = new { @class = "form-control input-sm" } })
-                @Html.ValidationMessageFor(model => model.VL_SALDO_DEVEDOR, "", new { @class = "text-danger" })
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-saldodev">R$</span>
+                    @Html.EditorFor(model => model.VL_SALDO_DEVEDOR, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                </div>
             </div>
-
             <div class="col-sm-2">
                 <label>Faixa</label>
                 @Html.DropDownListFor(model => model.IN_FAIXA, new SelectList(ViewBag.ListaFaixa, "Key", "Value", "Selecione"), new { @class = "form-control input-sm" })
@@ -95,16 +102,51 @@
                     @Html.ValidationMessageFor(model => model.FL_EXCLUIDO, "", new { @class = "text-danger" })
                 </div>
             </div>*@
-
-            <div class="col-sm-4 margin-top">
-                <input type="submit" value="Gravar" class="btn btn-success" /> |
-                @Html.ActionLink("Voltar", "Index")
-            </div>
+            
         </div>
     </div>
+    <div class="row">
+         <div class="col-sm-12 input-sm">
+                <div class="col-sm-4 margin-top">
+                <input type="submit" value="Gravar" id="btnGravar" class="btn btn-success" /> |
+                @Html.ActionLink("Voltar", "Index")
+            </div>
+         </div>
+    </div>
+    
 }
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        jQuery(function() {
+
+            $("#VL_TOT_CONTRATO").formataMascara(this);
+            
+            $("#btnGravar").click(function () {
+
+                $("#mostra").show();
+
+                if ($("#IN_TP_CONTRATO").val() == "Selecione") {
+                    ExibirMsg('Selecione Tipo Contrato');
+                    return false;
+                }
+                if ($("#AN_INFORMATIVO").val() == "Selecione") {
+                    ExibirMsg('Selecione Informativo');
+                    return false;
+                }
+                if ($("#IN_FAIXA").val() == "Selecione") {
+                    ExibirMsg('Selecione  Faixa');
+                    return false;
+                }
+                return true;
+            });
+
+            
+        });
+        
+        
+        
+    </script>
 }
