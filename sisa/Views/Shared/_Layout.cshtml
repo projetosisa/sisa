@@ -30,6 +30,8 @@
         </div>
     </div>
     <div class="container body-content">
+        @{Html.RenderPartial("_MsgErro");}
+        @{Html.RenderPartial("_Msg");}
         @RenderBody()
         <hr />
         <footer>

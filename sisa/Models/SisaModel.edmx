@@ -1292,6 +1292,16 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_CONTRATOS' does not have a primar
           <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'SISABANCO.dbo.VW_FAIXA' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VW_FAIXA">
+          <Property Name="FAIXA" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SISABANCO.dbo.VW_INFORMATIVO' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VW_INFORMATIVO">
+          <Property Name="INFORMATIVO" Type="varchar" MaxLength="100" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'SISABANCO.dbo.vw_listacontratos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_listacontratos">
           <Key>
@@ -1608,6 +1618,11 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_PROCESSO' does not have a primary
           <Property Name="CD_USUARIO_EXC" Type="varchar" MaxLength="35" />
           <Property Name="NR_PARCELAS_PAGAS" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SISABANCO.dbo.VW_TIPOCONTRATO' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VW_TIPOCONTRATO">
+          <Property Name="TIPOCONTRATO" Type="varchar" MaxLength="40" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VW_TITULOS">
