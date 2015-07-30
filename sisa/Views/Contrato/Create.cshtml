@@ -109,7 +109,8 @@
          <div class="col-sm-12 input-sm">
                 <div class="col-sm-4 margin-top">
                 <input type="submit" value="Gravar" id="btnGravar" class="btn btn-success" /> |
-                @Html.ActionLink("Voltar", "Index")
+                @Html.RouteLink("Voltar", "PessoaContratos", new {codcli = ViewBag.CodCliente, banco = ViewBag.Banco})
+                    
             </div>
          </div>
     </div>
@@ -121,8 +122,6 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script>
         jQuery(function() {
-
-            $("#VL_TOT_CONTRATO").formataMascara(this);
             
             $("#btnGravar").click(function () {
 
