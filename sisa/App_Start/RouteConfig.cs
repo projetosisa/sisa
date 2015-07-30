@@ -18,6 +18,12 @@ namespace sisa
                 url: "TesteRota",
                 defaults: new { controller = "Home", action = "Index" }
             );
+
+            routes.MapRoute(
+                name: "Retornar Contrato",
+                url: "TesteContrato/{codcli}/{banco}",
+                defaults: new { controller = "Pessoa", action = "Index" }
+            );
             
             routes.MapRoute(
                 name: "PessoaContratos",
