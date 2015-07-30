@@ -18,15 +18,33 @@
             <div class="display-table">
                 <div class="display-table-cell">
                     <h4>
-                        <i class="glyphicon glyphicon-user"></i>&nbsp;Cliente 
+                        <i class="glyphicon glyphicon-user"></i>&nbsp;Cliente
                         @if (ViewBag.Contrato != null)
                         {
                             <a href="@Url.Action("", "")" class="btn btn-default"><i class="fa fa-file"></i>&nbsp;@ViewBag.Contrato</a>
                         }
                         <a href="@Url.Action("Index", "Pessoa")" class="btn btn-success btn-sm"><i class="fa fa-search"></i>&nbsp;Nova Consulta</a>
-                        <a href="@Url.Action("Index", "Pessoa")" class="btn btn-primary btn-sm"><i class="fa fa-user-plus"></i>&nbsp;Novo Cliente</a>
-                        <a href="@Url.Action("Create", "Contrato", new {codcli,banco})" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;Novo Contrato</a>
+                        @*<a href="@Url.Action("Index", "Pessoa")" class="btn btn-primary btn-sm"><i class="fa fa-user-plus"></i>&nbsp;Novo Cliente</a>*@
+                        
+                        <!-- Split button -->
+                        <div class="btn-group btn-sm">
+                            <button type="button" class="btn btn-primary btn-sm">Cadastro</button>
+                            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("Create", "Contrato", new {codcli,banco})" class=""><i class="fa fa-file-text-o"></i>&nbsp;Contrato</a></li>
+                                <li><a href="#"><i class="fa fa-clone"></i>&nbsp;Processo</a></li>
+                                <li><a href="#"><i class="fa fa-list-alt"></i>&nbsp;Parcela</a></li>
+                                <li><a href="#"><i class="fa fa-minus-circle"></i>&nbsp;Despesa</a></li>
+                                <li><a href="#"><i class="fa fa-clock-o"></i>&nbsp;Honorário</a></li>
+                                @*<li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>*@
+                            </ul>
+                        </div>
                     </h4>
+                   
                 </div>
             </div>
         </div>
