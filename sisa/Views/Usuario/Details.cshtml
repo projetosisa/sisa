@@ -1,0 +1,506 @@
+﻿@model sisa.Models.TB_USUARIO
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>TB_USUARIO</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.GRUPO_USUARIO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.GRUPO_USUARIO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AN_SENHA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AN_SENHA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IN_NIVEL)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IN_NIVEL)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NM_NOME)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NM_NOME)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AN_EMAIL)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AN_EMAIL)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CD_HORARIO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CD_HORARIO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_LOCALIZADOR)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_LOCALIZADOR)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_PESQUISA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_PESQUISA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_GESTOR)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_GESTOR)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ADVOGADO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ADVOGADO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ACIONADOR)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ACIONADOR)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_FINANCEIRO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_FINANCEIRO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ADMINISTRADOR)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ADMINISTRADOR)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_LIBERA_HONORARIOS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_LIBERA_HONORARIOS)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_IMPRIME_RECIBO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_IMPRIME_RECIBO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ATIVO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ATIVO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_TROCA_SENHA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_TROCA_SENHA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_INCLUI_ALTERA_PARCELA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_INCLUI_ALTERA_PARCELA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ALTERA_DADOS_ACORDO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ALTERA_DADOS_ACORDO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_EXCLUI_CLIENTE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_EXCLUI_CLIENTE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_IMPRIME_BOLETO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_IMPRIME_BOLETO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_BASE_ELETRONICA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_BASE_ELETRONICA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_EMITE_MINUTAS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_EMITE_MINUTAS)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_EXCLUI_DADOS_PROCESSO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_EXCLUI_DADOS_PROCESSO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_AUTORIZA_DESCONTO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_AUTORIZA_DESCONTO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_LIBERA_CUSTAS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_LIBERA_CUSTAS)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_LIBERA_ESTORNO_PAGAMENTO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_LIBERA_ESTORNO_PAGAMENTO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QT_EVENTOS_DIA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QT_EVENTOS_DIA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TEMPO_EVENTOS_DIA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TEMPO_EVENTOS_DIA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QT_BOLETOS_DIA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QT_BOLETOS_DIA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VL_META)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VL_META)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NR_FILIAL)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NR_FILIAL)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AN_GESTOR)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AN_GESTOR)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NM_CEDENTE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NM_CEDENTE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AN_CIDADE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AN_CIDADE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AN_ENDERECO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AN_ENDERECO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DT_ALTERA_SENHA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DT_ALTERA_SENHA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DT_INCLUSAO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DT_INCLUSAO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DT_ALTERACAO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DT_ALTERACAO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CD_USUARIO_INC)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CD_USUARIO_INC)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CD_USUARIO_ALT)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CD_USUARIO_ALT)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ACESSA_ALFA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ACESSA_ALFA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ACESSA_DAYCOVAL)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ACESSA_DAYCOVAL)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ACESSA_FICSA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ACESSA_FICSA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ACESSA_OMNI)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ACESSA_OMNI)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ACESSA_RENNER)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ACESSA_RENNER)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ACESSA_SULFINANCEIRA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ACESSA_SULFINANCEIRA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_ACESSA_OUTROBANCOS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_ACESSA_OUTROBANCOS)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VL_META_ALFA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VL_META_ALFA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VL_META_DAYCOVAL)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VL_META_DAYCOVAL)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VL_META_FICSA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VL_META_FICSA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VL_META_RENNER)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VL_META_RENNER)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VL_META_OMNI)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VL_META_OMNI)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VL_META_SULFINANCEIRA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VL_META_SULFINANCEIRA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VL_META_OUTROSBANCOS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VL_META_OUTROSBANCOS)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NR_RECIBO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NR_RECIBO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NR_BOLETO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NR_BOLETO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NR_CNPJ_CARTORIO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NR_CNPJ_CARTORIO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FL_EXCLUI_PARCELA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FL_EXCLUI_PARCELA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AN_TIPO_SELECAO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AN_TIPO_SELECAO)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

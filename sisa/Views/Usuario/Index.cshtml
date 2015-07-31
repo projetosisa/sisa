@@ -1,0 +1,70 @@
+﻿@model IEnumerable<sisa.Models.TB_USUARIO>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/geral")
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+        <div class="container">
+            @{Html.RenderPartial("_MsgErro");}
+            @using (Html.BeginForm("Login", "Usuario"))
+            {
+
+                <div class="divcentro">
+                
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="well well-lg">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1><i class="fa fa-calendar-check-o"></i>SISA Web</h1>
+                                        <img src="~/Content/img/login.png" style="margin-bottom: 10px; width: 150px; height: 150px; margin-left: 30px;"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @*<label>Operador</label>*@
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-usu"><i class="fa fa-user"></i></span>
+                                            <input type="text" id="usuario" name="usuario" class="form-control" placeholder="digite usuário aqui" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @*<label>Operador</label>*@
+                                        <div class="input-group margin-top">
+                                            <span class="input-group-addon" id="basic-senha"><i class="fa fa-key"></i></span>
+                                            <input type="password" id="senha" name="senha" class="form-control" placeholder="digite senha aqui" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="input-group-btn">
+                                            <button id="btn_enviar" type="submit" class="btn btn-success margin-top" >
+                                                <span class="fa fa-key" aria-hidden="true"></span>&nbsp;Entrar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </body>
+</html>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryui")
