@@ -14,7 +14,12 @@ namespace sisa
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Pagina Principal",
+                name: "Login",
+                url: "Login",
+                defaults: new { controller = "Usuario", action = "Index" }
+            );
+            routes.MapRoute(
+                name: "Principal",
                 url: "Principal",
                 defaults: new { controller = "Home", action = "Index" }
             );

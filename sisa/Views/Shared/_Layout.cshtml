@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{
+    if (Session["login"] == null && Session["login"] != "1")
+    {
+        Response.RedirectToRoute("Login"); 
+    }
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -24,6 +30,7 @@
                     <ul class="nav navbar-nav">
                         @*<li>@Html.ActionLink(Url.Content("<i class='glyphicon glyphicon-users'></i>&nbsp;")+"Clientes", "Index", "Pessoa")</li>*@
                         <li><a href="@Url.Action("Index", "Pessoa")"><i class='fa fa-users'></i>&nbsp;Clientes</a></li>
+                        <li><a href="@Url.RouteUrl("Login")"><i class='fa fa-power-off'></i>&nbsp;Logout</a></li>
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     </ul>
@@ -42,7 +49,7 @@
                 <div class="row">
                     <div class="col-sm-12" style="font-size: 10px; color:silver;">
                         <div class="col-sm-10">&copy; @DateTime.Now.Year - SISA Web</div>
-                        <div class="col-sm-2 right">Versão: 30072015-0915</div>
+                        <div class="col-sm-2 right">Velloso & Advogados Associados</div>
                     </div>
                 </div>
             </footer>

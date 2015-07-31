@@ -17,26 +17,37 @@ namespace sisa.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
-            return View(db.TB_USUARIO.ToList());
+            return View();
         }
 
         [HttpPost]
         public ActionResult Login(FormCollection frm)
         {
-            string usu = frm["usuario"].ToUpper();
-            string psw = frm["senha"].ToString();
+            try
+            {
+                string usu = frm["usuario"].ToUpper();
+                string psw = frm["senha"].ToString();
 
-            var login = db.TB_USUARIO.Where(u => u.CD_USUARIO.Equals(usu) && u.AN_SENHA.Equals(psw)).ToList();
-            if (login.Count > 0)
-            {
-                Session["login"] = 1;
+                var login = db.TB_USUARIO.Where(u => u.CD_USUARIO.Equals(usu) && u.AN_SENHA.Equals(psw)).ToList();
+                if (login.Count > 0)
+                {
+                    Session["login"] = "1";
+                    Session["CodUsuario"] = login[0].ID_USUARIO.ToString();
+                    Session["NmUsuario"] = login[0].NM_NOME.ToString();
+                    TempData["Msg"] = "Login efetuado com sucesso, bem vindo "+login[0].NM_NOME.ToString();
+                    return RedirectToRoute("Principal");
+                }
+                else
+                {
+                    Session["login"] = "0";
+                    TempData["MsgErro"] = "Usuário ou senha inválidos, tente novamente";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Session["login"] = 0;
-                TempData["MsgErro"] = "Usuário ou senha inválidos, tente novamente";
-                return View("Index");
+                TempData["MsgErro"] = "Ocorreu o seguinte erro: ," + ex.Message;
             }
+            return View("Index");
         }
 
         // GET: Usuario/Details/5
