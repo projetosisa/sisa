@@ -1,0 +1,423 @@
+﻿@model IEnumerable<sisa.Models.TB_PROCESSO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CD_CLIENTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_BANCO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_CONTRATO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_PROCESSO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_CNJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IN_TP_ACAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IN_TP_PROCESSO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_CADASTRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CD_ADVOGADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_DISTRIBUICAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_ESTADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NM_COMARCA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_CUSTAS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CD_VARA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_ACAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IN_CHANCE_PERDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_COPIA_RECEB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_ORIGINAL_RECEB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_MINUTA_PROTOCOL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IN_FASE_PROCESSUAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IN_LIMINAR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QT_ALVARA_LEV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_ALVARA_LEV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_TOT_ALVARA_LEV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QT_DEPOSITO_DEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_DEPOSITO_DEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IN_TIPO_ACORDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_TOTAL_ACORDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_ENTRADA_ACORDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QT_PARCELAS_ACORDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_PARCELA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_VCTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_SITUACAO_ACORDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_PRESTACAO_CONTAS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_INSTANCIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_AGRAVO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_PROVISIONAMENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_AUDIENCIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_RAZAO_ENCERRAMENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_VL_CONDENACAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_IDENTIFICACAO_ALVARA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_SITUACAO_PROCESSUAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_ANDAMENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_TIPO_ENVIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NR_CODIGO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_SENTENCA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_VL_DISCUTIDO_EXTRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_OBSERVACAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_VL_ENTRADA_ACORDO_ESP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_FASE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VL_ALVARA_ACORDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_SPC_SERASA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IN_RET_ACAO_COB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IN_PEND_LIQ_SENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_PROVIDENCIAS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_DESCRICAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_VL_ALVARA_EXTRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_SITUACAO_PROCESSO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_ENCERRAMENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_SETOR_RESPONSAVEL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AN_JUSTICA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NR_PASTA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_ALTERACAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_INCLUSAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CD_USUARIO_INC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CD_USUARIO_ALT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD_CLIENTE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_BANCO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_CONTRATO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_PROCESSO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_CNJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IN_TP_ACAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IN_TP_PROCESSO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_CADASTRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD_ADVOGADO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_DISTRIBUICAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_ESTADO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NM_COMARCA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_CUSTAS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD_VARA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_ACAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IN_CHANCE_PERDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_COPIA_RECEB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_ORIGINAL_RECEB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_MINUTA_PROTOCOL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IN_FASE_PROCESSUAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IN_LIMINAR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QT_ALVARA_LEV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_ALVARA_LEV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_TOT_ALVARA_LEV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QT_DEPOSITO_DEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_DEPOSITO_DEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IN_TIPO_ACORDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_TOTAL_ACORDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_ENTRADA_ACORDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QT_PARCELAS_ACORDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_PARCELA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_VCTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_SITUACAO_ACORDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_PRESTACAO_CONTAS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_INSTANCIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_AGRAVO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_PROVISIONAMENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_AUDIENCIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_RAZAO_ENCERRAMENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_VL_CONDENACAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_IDENTIFICACAO_ALVARA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_SITUACAO_PROCESSUAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_ANDAMENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_TIPO_ENVIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NR_CODIGO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_SENTENCA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_VL_DISCUTIDO_EXTRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_OBSERVACAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_VL_ENTRADA_ACORDO_ESP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_FASE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VL_ALVARA_ACORDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_SPC_SERASA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IN_RET_ACAO_COB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IN_PEND_LIQ_SENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_PROVIDENCIAS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_DESCRICAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_VL_ALVARA_EXTRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_SITUACAO_PROCESSO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_ENCERRAMENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_SETOR_RESPONSAVEL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AN_JUSTICA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NR_PASTA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_ALTERACAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_INCLUSAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD_USUARIO_INC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD_USUARIO_ALT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_PROCESSO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_PROCESSO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_PROCESSO })
+        </td>
+    </tr>
+}
+
+</table>
