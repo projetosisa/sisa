@@ -67,7 +67,7 @@ namespace sisa.Controllers
             {
                 //if (tbContrato.VL_TOT_CONTRATO != null)
                 //{
-                //    tbContrato.VL_TOT_CONTRATO = Convert.ToDecimal(tbContrato.VL_TOT_CONTRATO.ToString().Replace(".", "").Replace(",", "."));
+                //    tbContrato.VL_TOT_CONTRATO = Convert.ToDecimal(tbContrato.VL_TOT_CONTRATO.ToString().Replace(".", ""));
                 //}
 
                 if (ModelState.IsValid)

@@ -15,7 +15,7 @@ $(document).ready(function () {
         buttonText: 'Selecionar data',
         showOtherMonths: "true",
         selectOtherMonths: "true"
-    })
+    });
 });
 
 //SCRIPTS JQUERY
