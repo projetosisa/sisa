@@ -142,17 +142,17 @@
 
         @if (codcli > 0 && banco != null && contrato != null)
         {
-            <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-archive"></i>&nbsp;HIST.COBANÇA</a>
             <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-clock-o"></i>&nbsp;HONORÁRIOS/DESPESAS</a>
             @*<a href="@Url.Action("ListaParcelas", "Pessoa", new {codcli, banco, contrato} )" class="btn btn-default btn-sm"><i class="fa fa-file"></i>&nbsp;PARCELAS</a>*@
         }
         
         <a href="@Url.Action("ListaContratos", "Pessoa", new { codcli, banco})" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i>&nbsp;CONTRATOS</a>
         <a href="@Url.Action("ListaProcessos", "Pessoa", new { codcli, banco, contrato})" class="btn btn-default btn-sm"><i class="fa fa-files-o"></i>&nbsp;PROCESSOS</a>
+        <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-archive"></i>&nbsp;HISTÓRICO DA COBANÇA</a>
         <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i>&nbsp;OUTROS DADOS</a>
         <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-phone"></i>&nbsp;TELEF./ENDEREÇO</a>
         <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-thumbs-o-up"></i>&nbsp;ACORDOS</a>
-        <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-exclamation-circle"></i>&nbsp;OBSERV.</a>
+        <a href="@Url.Action("", "")" class="btn btn-default btn-sm"><i class="fa fa-exclamation-circle"></i>&nbsp;OBSERVAÇÕES.</a>
 
     </div>
 }
