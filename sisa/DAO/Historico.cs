@@ -33,5 +33,29 @@ namespace sisa.DAO
             }
         }
 
+        public void Exclusao(int CdCliente, int CdBanco, string Obs, DateTime DtExclusao, string Usuario)
+        {
+            try
+            {
+                var hist = new TB_HISTORICO()
+                {
+                    CD_CLIENTE = CdCliente,
+                    ID_BANCO = CdBanco,
+                    AN_OBSERVACAO = Obs,
+                    DT_ALTERACAO = DtExclusao,
+                    CD_USUARIO_ALT = Usuario,
+                    AN_PROGRAMA = "SISA"
+                };
+
+                var db = Conexao.Banco;
+                db.TB_HISTORICO.Add(hist);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro Método Exclusão do Histórico, " + ex.Message);
+            }
+        }
+
     }
 }

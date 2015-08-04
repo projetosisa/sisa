@@ -123,6 +123,24 @@ function sonumeros(campo) {
     });
 }
 
+function MsgModal(titulo, texto) {
+    
+    bootbox.dialog({
+        message: texto,
+        title: titulo,
+        buttons: {
+            success: {
+                label: "Fechar",
+                className: "btn-success",
+                callback: function () {
+
+
+                }   
+            },
+        }
+    });
+}
+
 
 /*$('#nome').keydown(function(event){
     if(event.which===13){

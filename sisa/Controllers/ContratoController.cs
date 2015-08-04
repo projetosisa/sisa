@@ -170,6 +170,28 @@ namespace sisa.Controllers
             return View();
         }
 
+        public ActionResult Excluir(int id)
+        {
+            try
+            {
+                var db = Conexao.Banco;
+                var hst = db.TB_CONTRATO.First(c => c.ID_CONTRATO == id);
+                var ct = new Contrato(hst.CD_CONTRATO);      
+
+                db.TB_CONTRATO.Remove(hst);
+                db.SaveChanges();
+
+                TempData["Msg"] = "Contrato excluído.";
+                string dsBanco = new Contrato().RetornaNomeBanco(ct.IdBanco);
+                new Historico().Exclusao(ct.CodCliente, ct.IdBanco, "Contrato " + ct.CdContrato + " excluído pelo usuário " + Session["CodUsuario"] + " em " + DateTime.Now, DateTime.Now, Session["NmUsuario"].ToString());
+                return RedirectToRoute("PessoaContratos", new { codcli = ct.CodCliente, banco = dsBanco });
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         // POST: Contrato/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)

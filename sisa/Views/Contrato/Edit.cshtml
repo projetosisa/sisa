@@ -110,6 +110,7 @@
             
                 <div class="col-sm-12 margin-top">
                     <input type="submit" value="Gravar" id="btnGravar" class="btn btn-success" /> |
+                    <a href="#" id="btn_excluir" data-bb="btn_excluir" class="btn btn-danger"><i class="fa fa-trash-o"></i>&nbsp;Excluir</a>
                     @Html.RouteLink("Voltar", "PessoaContratos", new { codcli = ViewBag.CodCliente, banco = ViewBag.Banco })
                 </div>
         </div>
@@ -119,36 +120,75 @@
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
         <script>
-            jQuery(function () {
+    jQuery(function() {
 
-                Calendario('DT_CONTRATO');
-                Calendario('DT_PRIM_VENCTO');
-                Calendario('DT_ULT_VENCTO');
+        Calendario('DT_CONTRATO');
+        Calendario('DT_PRIM_VENCTO');
+        Calendario('DT_ULT_VENCTO');
 
-                $("#VL_TOT_CONTRATO").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
-                $("#VL_SALDO_DEVEDOR").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
+        $("#VL_TOT_CONTRATO").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
+        $("#VL_SALDO_DEVEDOR").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
 
-                $("#btnGravar").click(function () {
+        $("#btnGravar").click(function() {
 
-                    $("#mostra").show();
+            $("#mostra").show();
 
-                    if ($("#IN_TP_CONTRATO").val() == "Selecione") {
-                        ExibirMsg('Selecione Tipo Contrato');
-                        return false;
-                    }
-                    if ($("#AN_INFORMATIVO").val() == "Selecione") {
-                        ExibirMsg('Selecione Informativo');
-                        return false;
-                    }
-                    if ($("#IN_FAIXA").val() == "Selecione") {
-                        ExibirMsg('Selecione  Faixa');
-                        return false;
-                    }
-                    return true;
-                });
+            if ($("#IN_TP_CONTRATO").val() == "Selecione") {
+                ExibirMsg('Selecione Tipo Contrato');
+                return false;
+            }
+            if ($("#AN_INFORMATIVO").val() == "Selecione") {
+                ExibirMsg('Selecione Informativo');
+                return false;
+            }
+            if ($("#IN_FAIXA").val() == "Selecione") {
+                ExibirMsg('Selecione  Faixa');
+                return false;
+            }
+            return true;
+        });
 
+        $("#btn_excluir").click(function(){
 
+            bootbox.dialog({
+                message: "Deseja realmente excluir este contrato ?",
+                title: "Exclusão",
+                buttons: {
+                    success: {
+                        label: "Sim",
+                        className: "btn-success",
+                        callback: function () {
+
+                            $.ajax({
+                                cache: false,
+                                async: false,
+                                type: "POST",
+                                url: "@(Url.Action("Excluir", "Contrato"))",
+                                data: { "id": @Model.ID_CONTRATO },
+                                success: function (data) {
+
+                                    var url = "@Url.RouteUrl("PessoaContratos", new { codcli = @Model.CD_CLIENTE, banco = ViewBag.Banco })";
+                                    window.location.href = url;
+
+                                    },
+                                    error: function (xhr, ajaxOptions, thrownError) {
+                                        alert("Erro, Não foi possível executar operação, tente novamente !!!");
+                                    }
+                                });
+
+                                }
+                            },
+                            danger: {
+                                label: "Não excluir",
+                                className: "btn-danger",
+                                callback: function () {
+                                    return true;
+                                }
+                            },
+                        }
             });
+       });
+    });
 
         </script>
     }

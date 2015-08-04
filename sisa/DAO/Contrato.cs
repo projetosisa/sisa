@@ -14,6 +14,7 @@ namespace sisa.DAO
         public string NomeBanco { get; set; }
         public int IdUsuario { get; set; }
         public int IdContrato { get; set; }
+        public string CdContrato { get; set; }
         public string NomeUsuario { get; set; }
         public int CodCliente { get; set; }
 
@@ -26,7 +27,7 @@ namespace sisa.DAO
             try
             {
                 //IdUsuario = int.Parse(Conexao.Banco.TB_CONTRATO.Single(c => c.CD_CONTRATO.Equals(contrato)).ID_USUARIO.ToString());
-                var ct = Conexao.Banco.TB_CONTRATO.Single(c => c.CD_CONTRATO.Equals(contrato));
+                var ct = Conexao.Banco.TB_CONTRATO.FirstOrDefault(c => c.CD_CONTRATO.Equals(contrato));
                 if (ct != null)
                 {
                     CodCliente = ct.CD_CLIENTE;
@@ -35,7 +36,7 @@ namespace sisa.DAO
                         IdUsuario = int.Parse(ct.ID_USUARIO.ToString());
                         NomeUsuario = new DAO.Usuario(IdUsuario).Nome;
                     }
-                    
+                    CdContrato = contrato;
                     IdBanco = ct.ID_BANCO;
                     NomeBanco = IdBanco > 0 ? RetornaNomeBanco(IdBanco) : "";
                 }
