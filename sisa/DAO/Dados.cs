@@ -28,7 +28,7 @@ namespace sisa.DAO
 
         public Dictionary<int, string> ListaSelecione()
         {
-            Dictionary<int, string> myDic = new Dictionary<int, string>();
+            var myDic = new Dictionary<int, string>();
             //myDic.Add(System.DBNull.Value.ToString(), "Selecione");
             myDic.Add(-1, "Selecione");
             myDic.Add(0, "Não");

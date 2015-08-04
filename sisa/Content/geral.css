@@ -86,7 +86,7 @@
 }
 .ui-autocomplete > li {
   padding: 3px 20px;
-  color:red;
+  color:black;
 }
 .ui-autocomplete > li.ui-state-focus {
   background-color: #DDD;
@@ -97,7 +97,7 @@
 .ui-autocomplete > li:hover{
     background-color:silver;
     cursor:pointer;
-    color:red;
+    color:#0000ff;
     font-size:16px;
     font-weight:600;
 }

@@ -132,6 +132,7 @@
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\Contrato.cs" />
     <Compile Include="DAO\Dados.cs" />
+    <Compile Include="DAO\Historico.cs" />
     <Compile Include="DAO\ListaContrato.cs" />
     <Compile Include="DAO\Parcela.cs" />
     <Compile Include="DAO\Pessoa.cs" />
@@ -228,6 +229,9 @@
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_GRUPO.cs">
+      <DependentUpon>SisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_HISTORICO.cs">
       <DependentUpon>SisaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TB_HONORARIO.cs">
@@ -331,6 +335,7 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\external\jquery\jquery.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\geral.css" />
     <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\images\ui-bg_flat_0_eeeeee_40x100.png" />
     <Content Include="Content\images\ui-bg_flat_55_c0402a_40x100.png" />

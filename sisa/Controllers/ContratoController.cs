@@ -47,6 +47,7 @@ namespace sisa.Controllers
             ViewBag.ListaTipoContrato = new Dados().RetornaSelectList("SELECT TIPOCONTRATO FROM VW_TIPOCONTRATO");
             ViewBag.ListaInformativo = new Dados().RetornaSelectList("SELECT INFORMATIVO FROM VW_INFORMATIVO");
             ViewBag.ListaFaixa = new Dados().RetornaSelectList("SELECT FAIXA FROM VW_FAIXA");
+            ViewBag.ListaExcluido = new Dados().ListaSelecione();
         }
 
         // GET: Contrato/Create

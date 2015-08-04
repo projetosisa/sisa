@@ -607,6 +607,22 @@ warning 6002: The table/view 'SISABANCO.dbo.TB_CLIENTE' does not have a primary 
           <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="50" />
           <Property Name="VERID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="TB_HISTORICO">
+          <Key>
+            <PropertyRef Name="CD_CLIENTE" />
+            <PropertyRef Name="ID_BANCO" />
+            <PropertyRef Name="NR_SEQ" />
+          </Key>
+          <Property Name="CD_CLIENTE" Type="int" Nullable="false" />
+          <Property Name="ID_BANCO" Type="int" Nullable="false" />
+          <Property Name="NR_SEQ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AN_OBSERVACAO" Type="varchar" MaxLength="500" />
+          <Property Name="DT_ALTERACAO" Type="smalldatetime" />
+          <Property Name="DT_INCLUSAO" Type="smalldatetime" />
+          <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
+          <Property Name="CD_USUARIO_ALT" Type="varchar" MaxLength="35" />
+          <Property Name="AN_PROGRAMA" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="TB_HONORARIO">
           <Key>
             <PropertyRef Name="CD_CLIENTE" />
@@ -1292,16 +1308,6 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_CONTRATOS' does not have a primar
           <Property Name="CD_USUARIO_INC" Type="varchar" MaxLength="35" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'SISABANCO.dbo.VW_FAIXA' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VW_FAIXA">
-          <Property Name="FAIXA" Type="varchar" MaxLength="50" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'SISABANCO.dbo.VW_INFORMATIVO' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VW_INFORMATIVO">
-          <Property Name="INFORMATIVO" Type="varchar" MaxLength="100" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'SISABANCO.dbo.vw_listacontratos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_listacontratos">
           <Key>
@@ -1619,11 +1625,6 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_PROCESSO' does not have a primary
           <Property Name="NR_PARCELAS_PAGAS" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'SISABANCO.dbo.VW_TIPOCONTRATO' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VW_TIPOCONTRATO">
-          <Property Name="TIPOCONTRATO" Type="varchar" MaxLength="40" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VW_TITULOS">
           <Key>
@@ -1725,6 +1726,7 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary 
           <EntitySet Name="TB_ENDERECO" EntityType="Self.TB_ENDERECO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_FERIADO" EntityType="Self.TB_FERIADO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_GRUPO" EntityType="Self.TB_GRUPO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_HISTORICO" EntityType="Self.TB_HISTORICO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_HONORARIO" EntityType="Self.TB_HONORARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_HORARIOS" EntityType="Self.TB_HORARIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_INDICE" EntityType="Self.TB_INDICE" Schema="dbo" store:Type="Tables" />
@@ -3664,6 +3666,7 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary 
           <EntitySet Name="VW_CONTRATOS" EntityType="SisaModel.VW_CONTRATOS" />
           <EntitySet Name="VW_PROCESSO" EntityType="SisaModel.VW_PROCESSO" />
           <EntitySet Name="TB_LOCALIZADOR" EntityType="SisaModel.TB_LOCALIZADOR" />
+          <EntitySet Name="TB_HISTORICO" EntityType="SisaModel.TB_HISTORICO" />
         </EntityContainer>
         <EntityType Name="VW_TITULOS">
           <Key>
@@ -3982,6 +3985,22 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary 
           <Property Name="AN_ENDERECO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AN_TELEFONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AN_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TB_HISTORICO">
+          <Key>
+            <PropertyRef Name="CD_CLIENTE" />
+            <PropertyRef Name="ID_BANCO" />
+            <PropertyRef Name="NR_SEQ" />
+          </Key>
+          <Property Name="CD_CLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
+          <Property Name="NR_SEQ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AN_OBSERVACAO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DT_ALTERACAO" Type="DateTime" Precision="0" />
+          <Property Name="DT_INCLUSAO" Type="DateTime" Precision="0" />
+          <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="AN_PROGRAMA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -5604,6 +5623,21 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary 
                 <ScalarProperty Name="AN_CPF" ColumnName="AN_CPF" />
                 <ScalarProperty Name="NM_LOCALIZADOR" ColumnName="NM_LOCALIZADOR" />
                 <ScalarProperty Name="ID_LOCALIZADOR" ColumnName="ID_LOCALIZADOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_HISTORICO">
+            <EntityTypeMapping TypeName="SisaModel.TB_HISTORICO">
+              <MappingFragment StoreEntitySet="TB_HISTORICO">
+                <ScalarProperty Name="AN_PROGRAMA" ColumnName="AN_PROGRAMA" />
+                <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+                <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+                <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+                <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+                <ScalarProperty Name="AN_OBSERVACAO" ColumnName="AN_OBSERVACAO" />
+                <ScalarProperty Name="NR_SEQ" ColumnName="NR_SEQ" />
+                <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+                <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

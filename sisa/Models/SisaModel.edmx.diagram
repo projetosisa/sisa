@@ -59,6 +59,7 @@
         <EntityTypeShape EntityType="SisaModel.VW_CONTRATOS" Width="1.5" PointX="25.375" PointY="12.75" />
         <EntityTypeShape EntityType="SisaModel.VW_PROCESSO" Width="1.5" PointX="21.375" PointY="26.75" />
         <EntityTypeShape EntityType="SisaModel.TB_LOCALIZADOR" Width="1.5" PointX="27.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SisaModel.TB_HISTORICO" Width="1.5" PointX="0.75" PointY="17.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

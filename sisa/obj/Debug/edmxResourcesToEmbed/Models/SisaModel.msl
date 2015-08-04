@@ -1619,5 +1619,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TB_HISTORICO">
+      <EntityTypeMapping TypeName="SisaModel.TB_HISTORICO">
+        <MappingFragment StoreEntitySet="TB_HISTORICO">
+          <ScalarProperty Name="AN_PROGRAMA" ColumnName="AN_PROGRAMA" />
+          <ScalarProperty Name="CD_USUARIO_ALT" ColumnName="CD_USUARIO_ALT" />
+          <ScalarProperty Name="CD_USUARIO_INC" ColumnName="CD_USUARIO_INC" />
+          <ScalarProperty Name="DT_INCLUSAO" ColumnName="DT_INCLUSAO" />
+          <ScalarProperty Name="DT_ALTERACAO" ColumnName="DT_ALTERACAO" />
+          <ScalarProperty Name="AN_OBSERVACAO" ColumnName="AN_OBSERVACAO" />
+          <ScalarProperty Name="NR_SEQ" ColumnName="NR_SEQ" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="CD_CLIENTE" ColumnName="CD_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -79,5 +79,6 @@ namespace sisa.Models
         public virtual DbSet<VW_CONTRATOS> VW_CONTRATOS { get; set; }
         public virtual DbSet<VW_PROCESSO> VW_PROCESSO { get; set; }
         public virtual DbSet<TB_LOCALIZADOR> TB_LOCALIZADOR { get; set; }
+        public virtual DbSet<TB_HISTORICO> TB_HISTORICO { get; set; }
     }
 }

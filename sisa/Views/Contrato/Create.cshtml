@@ -95,13 +95,11 @@
                 @Html.ValidationMessageFor(model => model.IN_FAIXA, "", new { @class = "text-danger" })
             </div>
 
-            @*<div class="form-group">
-                @Html.LabelFor(model => model.FL_EXCLUIDO, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FL_EXCLUIDO, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FL_EXCLUIDO, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
+            <div class="col-sm-2">
+                <label>Excluido</label>
+                @Html.DropDownListFor(model => model.FL_EXCLUIDO, new SelectList(ViewBag.ListaExcluido, "Key", "Value", "Selecione"), new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.FL_EXCLUIDO, "", new { @class = "text-danger" })
+            </div>
             
         </div>
     </div>

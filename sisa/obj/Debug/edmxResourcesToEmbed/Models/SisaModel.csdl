@@ -1403,6 +1403,7 @@
     <EntitySet Name="VW_CONTRATOS" EntityType="SisaModel.VW_CONTRATOS" />
     <EntitySet Name="VW_PROCESSO" EntityType="SisaModel.VW_PROCESSO" />
     <EntitySet Name="TB_LOCALIZADOR" EntityType="SisaModel.TB_LOCALIZADOR" />
+    <EntitySet Name="TB_HISTORICO" EntityType="SisaModel.TB_HISTORICO" />
   </EntityContainer>
   <EntityType Name="VW_TITULOS">
     <Key>
@@ -1721,5 +1722,21 @@
     <Property Name="AN_ENDERECO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="AN_TELEFONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="AN_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TB_HISTORICO">
+    <Key>
+      <PropertyRef Name="CD_CLIENTE" />
+      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="NR_SEQ" />
+    </Key>
+    <Property Name="CD_CLIENTE" Type="Int32" Nullable="false" />
+    <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
+    <Property Name="NR_SEQ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AN_OBSERVACAO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DT_ALTERACAO" Type="DateTime" Precision="0" />
+    <Property Name="DT_INCLUSAO" Type="DateTime" Precision="0" />
+    <Property Name="CD_USUARIO_INC" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="CD_USUARIO_ALT" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="AN_PROGRAMA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>
