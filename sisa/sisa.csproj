@@ -547,6 +547,7 @@
     <Content Include="Views\Processo\Details.cshtml" />
     <Content Include="Views\Processo\Edit.cshtml" />
     <Content Include="Views\Processo\Index.cshtml" />
+    <Content Include="Views\Contrato\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

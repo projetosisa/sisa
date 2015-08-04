@@ -27,8 +27,8 @@ namespace sisa.Controllers
             if (codcli > 0)
             {
                 ViewBag.ExibirConsulta = false;
-                ViewBag.Contratos = new sisa.DAO.Contrato().RetornaContratos(codcli,banco);
-                ViewBag.Parcelas = new sisa.DAO.Parcela().ListaTb(codcli, banco, contrato);
+                ViewBag.Contratos = new Contrato().RetornaContratos(codcli,banco);
+                ViewBag.Parcelas = new Parcela().ListaTb(codcli, banco, contrato);
             }
             return View();
         }
@@ -42,7 +42,7 @@ namespace sisa.Controllers
             ViewBag.Contratos = ct;
             if(ct.Count()==1){
                 foreach(var itm in ct){
-                    ViewBag.Parcelas = new sisa.DAO.Parcela().ListaTb(codcli, banco, itm.CD_CONTRATO.ToString());
+                    ViewBag.Parcelas = new Parcela().ListaTb(codcli, banco, itm.CD_CONTRATO.ToString());
                 }
             }
 
