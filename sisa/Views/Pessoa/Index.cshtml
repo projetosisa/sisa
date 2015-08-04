@@ -16,6 +16,7 @@
     
     var listaParcelas = ViewBag.Parcelas != null ? ViewBag.Parcelas : null;
 
+    const string excluido = "style='color:red;'";
     //CultureInfo newCulture = new CultureInfo("pt-BR");
     //Thread.CurrentThread.CurrentCulture = newCulture;
 }
@@ -115,17 +116,19 @@
                         <tr>
                             <th>Banco</th>
                             <th>Contrato</th>
+                            <th>Editar</th>
                             <th>Tipo</th>
                             <th class="text-right">Valor Total</th>
                         </tr>
                         @foreach (var itm in ViewBag.Contratos)
                         {
-                            <tr>
+                            <tr @excluido>
                                 <td>@itm.DS_BANCO</td>
                                 @*<td><a href="@Url.Action("ListaParcelas", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO })">@itm.CD_CONTRATO</a></td>*@
                                 <td><a href="@Url.Action("Index", "Pessoa", new { codcli = itm.CD_CLIENTE, banco = itm.DS_BANCO, contrato = itm.CD_CONTRATO, id_contrato = itm.ID_CONTRATO })">@itm.CD_CONTRATO</a></td>
+                                <td><a href="@Url.Action("Edit", "Contrato", new { contrato = itm.CD_CONTRATO })" class="btn btn-default"><i class="fa fa-align-center fa-pencil-square-o"></i></a></td>
                                 <td>@itm.IN_TP_CONTRATO</td>
-                                <td class="text-right">@String.Format("{0:C}", @itm.VL_TOT_CONTRATO !=null? @itm.VL_TOT_CONTRATO : 0 )</td>
+                                <td class="text-right">@String.Format("{0:C}", @itm.VL_TOT_CONTRATO != null ? @itm.VL_TOT_CONTRATO : 0)</td>
                             </tr>
                         }
                     </table>

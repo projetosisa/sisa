@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using sisa.Models;
 using sisa.DAO;
+using System.Data.Entity;
 
 namespace sisa.Controllers
 {
@@ -114,25 +115,45 @@ namespace sisa.Controllers
         }
 
         // GET: Contrato/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
+        public ActionResult Edit(string contrato)
+        {   try
+            {
+            CarregaListas();
+            var ct = new Contrato(contrato);
+            ViewBag.CodCliente = ct.CodCliente;
+            ViewBag.CodBanco = ct.IdBanco;
+            ViewBag.Banco = ct.NomeBanco;
+            
+            }
+            catch (Exception ex)
+            {
+                TempData["MsgErro"] = "Erro: Verificar dados, tente novamente," + ex.Message;
+            }
+            
+            return View(db.TB_CONTRATO.SingleOrDefault(c=>c.CD_CONTRATO.Equals(contrato)));
         }
 
         // POST: Contrato/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(TB_CONTRATO tbl)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(tbl).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["Msg"] = "Gravado com sucesso.";
+                    string dsBanco = new Contrato().RetornaNomeBanco(tbl.ID_BANCO);
+                    return RedirectToRoute("PessoaContratos", new { codcli = tbl.CD_CLIENTE, banco = dsBanco });
+                }
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                TempData["MsgErro"] = "Erro: Verificar dados, tente novamente," + ex.Message;
+                
             }
+            return View();
         }
 
         // GET: Contrato/Delete/5
