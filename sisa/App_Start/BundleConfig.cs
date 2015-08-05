@@ -16,6 +16,7 @@ namespace sisa
                         "~/Scripts/jquery.validate*",
                         "~/Scripts/methods_pt.js",
                         "~/Scripts/mascara.js",
+                        "~/Scripts/bootbox.js",
                         "~/Scripts/Funcoes.js",
                         "~/Scripts/jquery.maskedinput.js"));
 
@@ -27,7 +28,6 @@ namespace sisa
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
-                      "~/Scripts/bootbox.js",
                       "~/Scripts/jquery.moneymask.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
