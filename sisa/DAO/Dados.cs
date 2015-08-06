@@ -9,6 +9,11 @@ using System.Web.Mvc;
 
 namespace sisa.DAO
 {
+    public class TipoProcesso
+    {
+        public string Autor { get; set; }
+        public string Reu { get; set; }
+    }
     public class Dados
     {
         string Conexao = ConfigurationManager.ConnectionStrings["SisaModel"].ConnectionString; 
@@ -74,6 +79,27 @@ namespace sisa.DAO
                 throw new Exception("Erro RetornaSelectList2, "+ex.Message);
             }
             
+        }
+
+        public Dictionary<int, string> RetornaSelectList3(string qry)
+        {
+            try
+            {
+                var db = RetornaDados(qry);
+                var myDic = new Dictionary<int, string>();
+                myDic.Add(0, "Selecione");
+
+                foreach (DataRow itm in db.Rows)
+                {
+                    myDic.Add(int.Parse(itm[0].ToString()), itm[1].ToString());
+                }
+                return myDic;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro RetornaSelectList3, " + ex.Message);
+            }
+
         }
       
     }

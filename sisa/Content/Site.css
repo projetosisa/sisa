@@ -14,10 +14,16 @@
     filter: alpha(opacity=40);
 }
 .aguarde{
+    padding: 10px 10px 10px 30px;
     position: absolute;
     left: 50%;
     top: 50%;
-	z-index:99;
+	z-index:9999;
+    width: 200px;
+    height: 60px;
+    border: 1px dotted cornflowerblue;
+    background: #444444;
+    color: white;
 }
 .margin-top{
     margin-top:10px;

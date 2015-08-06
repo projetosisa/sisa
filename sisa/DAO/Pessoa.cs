@@ -10,11 +10,25 @@ namespace sisa.DAO
 {
     public class Pessoa
     {
+        public string Nome { get; set; }
+        public string CNPJCPF { get; set; }
+        public string RG { get; set; }
         public string DDD { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
         public string Localizador { get; set; }
 
+        public Pessoa() { }
+
+        public Pessoa(int codcli)
+        {
+            string qry = string.Format("SELECT NM_PESSOA, AN_CNPJ_CPF, AN_RG FROM TB_PESSOA WHERE CD_CLIENTE={0}", codcli);
+            var tb = new Dados().RetornaDados(qry);
+            if (tb.Rows.Count <= 0) return;
+            Nome = tb.Rows[0][0].ToString();
+            CNPJCPF = tb.Rows[0][1].ToString();
+            RG = tb.Rows[0][2].ToString();
+        }
         public List<TB_PESSOA> Lista(int codcli)
         {
             return Conexao.Banco.TB_PESSOA.Where(c => c.CD_CLIENTE == codcli).ToList();
