@@ -9,7 +9,6 @@
 }
 
 function Calendario(campo) {
-
     var v_campo = $("#" + campo);
 
     v_campo.datepicker({
@@ -25,22 +24,36 @@ function Calendario(campo) {
         showOtherMonths: "true",
         selectOtherMonths: "true"
     });
-    
-    v_campo.blur(function () {
-        if (v_campo.val().length > 10) {
-            v_campo.focus();
-            v_campo.css('border-color', 'red');
-            return false;
+}
+
+function fIsDate(data) {
+    if (data.length == 10) {
+        er = /(0[0-9]|[12][0-9]|3[01])[-\.\/](0[0-9]|1[012])[-\.\/][0-9]{4}/;
+        if (er.exec(data)) {
+            return true;
         } else {
-            v_campo.css('border-color', 'green');
+            return false;
         }
-        //if (v_campo.val() == '') {
-        //    //v_campo.attr('placeholder', '* digite aqui campo obrigatório');
-        //    v_campo.css('border-color', 'red');
-        //}
-        //else {
-        //    v_campo.css('border-color', 'green');
-        //}
+
+    } else {
+        return false;
+    }
+}
+
+function VerificarData(campo) {
+    var cmp = $('#' + campo);
+    cmp.css('border-color', 'silver');
+    cmp.mask("99/99/9999", {
+        completed: function () {
+            if (fIsDate(this.val()) == false) {
+                alert('Data Inválida');
+                cmp.focus();
+                cmp.css('border-color', 'red');
+                return false;
+            } else {
+                cmp.css('border-color', 'silver');
+            }
+        }
     });
 }
 
