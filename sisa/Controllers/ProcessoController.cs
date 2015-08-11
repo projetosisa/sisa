@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using sisa.Models;
 using sisa.DAO;
 
@@ -107,25 +108,72 @@ namespace sisa.Controllers
             }
             catch (Exception ex)
             {
-                TempData["Msg"] = "Erro, verificar dados. "+ex.Message;
+                TempData["MsgErro"] = "Erro, verificar dados. "+ex.Message;
             }
 
             return View(tbl);
         }
 
-        // GET: Processo/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
-            if (id == null)
+            TB_PROCESSO tblProcesso = null;
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                tblProcesso = db.TB_PROCESSO.Find(id);
+
+                ViewBag.CodCliente = tblProcesso.CD_CLIENTE;
+                int idBanco = tblProcesso.ID_BANCO;
+                ViewBag.Banco = new Contrato().RetornaNomeBanco(idBanco);
+                ViewBag.CodBanco = idBanco;
+                CarregaListas(tblProcesso.CD_CLIENTE.ToString(), idBanco.ToString());
+                
+                if (tblProcesso == null)
+                {
+                    TempData["MsgErro"] = "Nenhum processo encontrato com esse Id";
+                }
             }
-            TB_PROCESSO tB_PROCESSO = db.TB_PROCESSO.Find(id);
-            if (tB_PROCESSO == null)
+            catch (Exception ex)
             {
-                return HttpNotFound();
+                TempData["MsgErro"] = "Erro, verificar dados. " + ex.Message;
+            }
+            return View("Edit",tblProcesso);
+
+        }
+
+        // GET: Processo/Edit/5
+        public ActionResult Edit(int? id, int codcli, int codbanco)
+        {
+            TB_PROCESSO tB_PROCESSO = null;
+            try
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                ViewBag.CodCliente = codcli;
+                int idBanco = codbanco;
+                ViewBag.Banco = new Contrato().RetornaNomeBanco(codbanco);
+                ViewBag.CodBanco = codbanco;
+                CarregaListas(codcli.ToString(), codbanco.ToString());
+
+                tB_PROCESSO = db.TB_PROCESSO.Find(id);
+                if (tB_PROCESSO == null)
+                {
+                    return HttpNotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["MsgErro"] = "Erro, verificar dados. " + ex.Message;
             }
             return View(tB_PROCESSO);
+            
         }
 
         // POST: Processo/Edit/5
@@ -133,15 +181,47 @@ namespace sisa.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_PROCESSO,CD_CLIENTE,ID_BANCO,ID_CONTRATO,AN_PROCESSO,AN_CNJ,IN_TP_ACAO,IN_TP_PROCESSO,DT_CADASTRO,CD_ADVOGADO,DT_DISTRIBUICAO,AN_ESTADO,NM_COMARCA,VL_CUSTAS,CD_VARA,VL_ACAO,IN_CHANCE_PERDA,DT_COPIA_RECEB,DT_ORIGINAL_RECEB,DT_MINUTA_PROTOCOL,IN_FASE_PROCESSUAL,IN_LIMINAR,QT_ALVARA_LEV,VL_ALVARA_LEV,VL_TOT_ALVARA_LEV,QT_DEPOSITO_DEP,VL_DEPOSITO_DEP,IN_TIPO_ACORDO,VL_TOTAL_ACORDO,VL_ENTRADA_ACORDO,QT_PARCELAS_ACORDO,VL_PARCELA,DT_VCTO,AN_SITUACAO_ACORDO,AN_PRESTACAO_CONTAS,AN_INSTANCIA,AN_AGRAVO,VL_PROVISIONAMENTO,DT_AUDIENCIA,AN_RAZAO_ENCERRAMENTO,AN_VL_CONDENACAO,AN_IDENTIFICACAO_ALVARA,AN_SITUACAO_PROCESSUAL,DT_ANDAMENTO,AN_TIPO_ENVIO,NR_CODIGO,AN_SENTENCA,AN_VL_DISCUTIDO_EXTRA,AN_OBSERVACAO,AN_VL_ENTRADA_ACORDO_ESP,AN_FASE,VL_ALVARA_ACORDO,AN_SPC_SERASA,IN_RET_ACAO_COB,IN_PEND_LIQ_SENT,AN_PROVIDENCIAS,AN_DESCRICAO,AN_VL_ALVARA_EXTRA,AN_SITUACAO_PROCESSO,DT_ENCERRAMENTO,AN_SETOR_RESPONSAVEL,AN_JUSTICA,NR_PASTA,DT_ALTERACAO,DT_INCLUSAO,CD_USUARIO_INC,CD_USUARIO_ALT")] TB_PROCESSO tB_PROCESSO)
+        public ActionResult Edit(TB_PROCESSO tblProcesso)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tB_PROCESSO).State = EntityState.Modified;
+                db.Entry(tblProcesso).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                TempData["Msg"] = "Gravado com sucesso.";
             }
-            return View(tB_PROCESSO);
+            else
+            {
+                TempData["MsgErro"] = "Não foi possível gravar, verificar dados.";
+            }
+            ViewBag.CodCliente = tblProcesso.CD_CLIENTE;
+            int idBanco = tblProcesso.ID_BANCO;
+            ViewBag.Banco = new Contrato().RetornaNomeBanco(idBanco);
+            ViewBag.CodBanco = idBanco;
+            CarregaListas(tblProcesso.CD_CLIENTE.ToString(), idBanco.ToString());
+            return View("Edit", new {id=tblProcesso.ID_PROCESSO , codcli=tblProcesso.CD_CLIENTE , codbanco=tblProcesso.ID_BANCO});
+        )
+        }
+
+        public ActionResult Excluir(int id)
+        {
+            var db = Conexao.Banco;
+            var hst = db.TB_PROCESSO.First(c => c.ID_PROCESSO == id);
+            int CodCliente = hst.CD_CLIENTE;
+            int IdBanco = hst.ID_BANCO;
+            string dsBanco = new Contrato().RetornaNomeBanco(IdBanco);
+            try
+            {
+                db.TB_PROCESSO.Remove(hst);
+                db.SaveChanges();
+                TempData["Msg"] = "Processo excluído.";
+                new Historico().Exclusao(CodCliente, IdBanco, "Processo " + id.ToString() + " excluído pelo usuário " + Session["CodUsuario"] + " em " + DateTime.Now, DateTime.Now, Session["NmUsuario"].ToString());
+                return RedirectToRoute("PessoaProcesso", new { codcli = CodCliente, banco = dsBanco });
+            }
+            catch(Exception ex)
+            {
+                TempData["Msg"] = "Erro ao tentar excluir, verificar dados. " + ex.Message;
+            }
+            return RedirectToAction("Edit", new { codcli = CodCliente, banco = dsBanco });
         }
 
         // GET: Processo/Delete/5

@@ -42,6 +42,18 @@ namespace sisa
             );
 
             routes.MapRoute(
+               name: "EditarProcesso",
+               url: "Processo/Editar/{id}",
+               defaults: new { controller = "Processo", action = "Editar" }
+           );
+
+            routes.MapRoute(
+               name: "PessoaProcesso",
+               url: "Pessoa/ListaProcessos/{codcli}/{banco}",
+               defaults: new { controller = "Pessoa", action = "ListaProcessos", codcli = UrlParameter.Optional, banco = UrlParameter.Optional, contrato = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

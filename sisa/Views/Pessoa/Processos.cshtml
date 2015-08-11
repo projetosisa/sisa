@@ -37,13 +37,21 @@
                     <tr>
                         <th>CNJ</th>
                         <th>Processo</th>
+                        <th class="text-center">Editar</th>
                         <th>Tipo Ação</th>
                         <th>Comarca</th>
                         <th>Contrato</th>
                     </tr>
                     @foreach (var itm in Model)
                     {
-                        <tr><td>@itm.AN_CNJ</td><td>@itm.AN_PROCESSO</td><td>@itm.IN_TP_ACAO</td><td>@itm.NM_COMARCA</td><td>@itm.CD_CONTRATO</td></tr>
+                        <tr>
+                            <td>@itm.AN_CNJ</td>
+                            <td>
+                                @itm.AN_PROCESSO
+                            </td>
+                            <td class="text-center"><a href="@Url.Action("Edit", "Processo", new { id = itm.ID_PROCESSO, codcli = itm.CD_CLIENTE, codbanco = itm.ID_BANCO })" class="btn btn-default btn-sm"><i class="fa fa-align-center fa-pencil"></i></a></td>
+                            <td>@itm.IN_TP_ACAO</td><td>@itm.NM_COMARCA</td><td>@itm.CD_CONTRATO</td>
+                        </tr>
                     }
                 </table>
             </div>

@@ -47,6 +47,31 @@ namespace sisa.DAO
             }
         }
 
+        public Contrato(int idcontrato)
+        {
+            try
+            {
+                //IdUsuario = int.Parse(Conexao.Banco.TB_CONTRATO.Single(c => c.CD_CONTRATO.Equals(contrato)).ID_USUARIO.ToString());
+                var ct = Conexao.Banco.TB_CONTRATO.FirstOrDefault(c => c.ID_CONTRATO==idcontrato);
+                if (ct != null)
+                {
+                    CodCliente = ct.CD_CLIENTE;
+                    if (ct.ID_USUARIO.HasValue)
+                    {
+                        IdUsuario = int.Parse(ct.ID_USUARIO.ToString());
+                        NomeUsuario = new DAO.Usuario(IdUsuario).Nome;
+                    }
+                    CdContrato = ct.CD_CONTRATO;
+                    IdBanco = ct.ID_BANCO;
+                    NomeBanco = IdBanco > 0 ? RetornaNomeBanco(IdBanco) : "";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro Construtor Contrato, " + ex.Message);
+            }
+        }
+
         public Contrato(int codcli, string nmbanco)
         {
             IdBanco = RetornaIdBanco(nmbanco);
