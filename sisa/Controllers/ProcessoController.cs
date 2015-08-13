@@ -97,14 +97,14 @@ namespace sisa.Controllers
                 ViewBag.CodBanco = idBanco;
                 CarregaListas(tbl.CD_CLIENTE.ToString(), idBanco.ToString());
 
-                if (ModelState.IsValid)
-                {
+                //if (ModelState.IsValid)
+                //{
                     db.TB_PROCESSO.Add(tbl);
                     db.SaveChanges();
                     TempData["Msg"] = "Gravado com sucesso.";
                     string dsBanco = new Contrato().RetornaNomeBanco(tbl.ID_BANCO);
                     return RedirectToRoute("PessoaContratos", new { codcli = tbl.CD_CLIENTE, banco = dsBanco });
-                }
+                //}
             }
             catch (Exception ex)
             {
@@ -183,23 +183,33 @@ namespace sisa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(TB_PROCESSO tblProcesso)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(tblProcesso).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //    TempData["Msg"] = "Gravado com sucesso.";
+            //}
+            //else
+            //{
+            //    TempData["MsgErro"] = "Não foi possível gravar, verificar dados.";
+            //}
+            try
             {
                 db.Entry(tblProcesso).State = EntityState.Modified;
                 db.SaveChanges();
                 TempData["Msg"] = "Gravado com sucesso.";
             }
-            else
+            catch(Exception ex)
             {
-                TempData["MsgErro"] = "Não foi possível gravar, verificar dados.";
+                TempData["MsgErro"] = "Não foi possível gravar, verificar dados. "+ex.Message;
             }
+
             ViewBag.CodCliente = tblProcesso.CD_CLIENTE;
             int idBanco = tblProcesso.ID_BANCO;
             ViewBag.Banco = new Contrato().RetornaNomeBanco(idBanco);
             ViewBag.CodBanco = idBanco;
             CarregaListas(tblProcesso.CD_CLIENTE.ToString(), idBanco.ToString());
-            return View("Edit", new {id=tblProcesso.ID_PROCESSO , codcli=tblProcesso.CD_CLIENTE , codbanco=tblProcesso.ID_BANCO});
-        )
+            return RedirectToAction("Edit", new { id = tblProcesso.ID_PROCESSO, codcli = tblProcesso.CD_CLIENTE, codbanco = tblProcesso.ID_BANCO });
         }
 
         public ActionResult Excluir(int id)

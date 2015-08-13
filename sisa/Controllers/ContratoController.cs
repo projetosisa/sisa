@@ -72,18 +72,18 @@ namespace sisa.Controllers
                 //    tbContrato.VL_TOT_CONTRATO = Convert.ToDecimal(tbContrato.VL_TOT_CONTRATO.ToString().Replace(".", ""));
                 //}
 
-                if (ModelState.IsValid)
-                {
+                //if (ModelState.IsValid)
+                //{
                     db.TB_CONTRATO.Add(tbContrato);
                     db.SaveChanges();
                     TempData["Msg"] = "Gravado com sucesso.";
                     string dsBanco = new Contrato().RetornaNomeBanco(tbContrato.ID_BANCO);
                     return RedirectToRoute("PessoaContratos", new {codcli=tbContrato.CD_CLIENTE, banco = dsBanco });
-                }
-                else
-                {
+                //}
+                //else
+                //{
                     TempData["MsgErro"] = "Erro: Verificar dados, tente novamente";
-                }
+                //}
             }
             catch (Exception ex)
             {

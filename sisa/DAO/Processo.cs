@@ -16,8 +16,8 @@ namespace sisa.DAO
         public Dictionary<string, string> ListaTipoProcesso()
         {
             var myDic = new Dictionary<string, string>();
-            myDic.Add(System.DBNull.Value.ToString(), "Selecione");
-            //myDic.Add(-1, "Selecione");
+            //myDic.Add(System.DBNull.Value.ToString(), "Selecione");
+            myDic.Add("Selecione", "Selecione");
             myDic.Add("Ativa", "Ativa");
             myDic.Add("Contra", "Contra");
             return myDic;
@@ -31,7 +31,8 @@ namespace sisa.DAO
         public Dictionary<string, string> ListaChancePerda()
         {
             var myDic = new Dictionary<string, string>();
-            myDic.Add(System.DBNull.Value.ToString(), "Selecione");
+            //myDic.Add(System.DBNull.Value.ToString(), "Selecione");
+            myDic.Add("Selecione", "Selecione");
             myDic.Add("Provável", "Provável");
             myDic.Add("Remoto", "Remoto");
             myDic.Add("Possível", "Possível");
@@ -41,8 +42,8 @@ namespace sisa.DAO
         public Dictionary<string, string> ListaSituacaoProcesso()
         {
             var myDic = new Dictionary<string, string>();
-            myDic.Add(System.DBNull.Value.ToString(), "Selecione");
-            //myDic.Add(-1, "Selecione");
+            //myDic.Add(System.DBNull.Value.ToString(), "Selecione");
+            myDic.Add("Selecione", "Selecione");
             myDic.Add("Em Andamento", "Em Andamento");
             myDic.Add("Encerrado", "Encerrado");
             return myDic;
@@ -75,8 +76,9 @@ namespace sisa.DAO
         public Dictionary<string, string> ListaTribunal()
         {
             var myDic = new Dictionary<string, string>();
-            myDic.Add(System.DBNull.Value.ToString(), "Selecione");
+            //myDic.Add(System.DBNull.Value.ToString(), "Selecione");
             //myDic.Add(-1, "Selecione");
+            myDic.Add("Selecione", "Selecione");
             myDic.Add("Tribunal de Justiça Federal", "Tribunal de Justiça Federal");
             myDic.Add("Tribunal de Justiça do Rio Grande do Sul", "Tribunal de Justiça do Rio Grande do Sul");
             myDic.Add("Tribunal do Trabalho","Tribunal do Trabalho");

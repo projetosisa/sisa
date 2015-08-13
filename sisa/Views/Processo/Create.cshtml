@@ -78,7 +78,7 @@
             <div class="input-group">
                 <span class="input-group-addon" id="basic-dtcadastro"><i class="fa fa-calendar"></i></span>
                 @Html.EditorFor(model => model.DT_CADASTRO, new { htmlAttributes = new { @class = "form-control input-sm", @onkeyup = "formataData(this,event)", maxlength = 10 } })
-                @Html.ValidationMessageFor(model => model.DT_CADASTRO, "", new { @class = "text-danger" })
+                @*@Html.ValidationMessageFor(model => model.DT_CADASTRO, "", new { @class = "text-danger" })*@
             </div>
         </div>
         
@@ -168,7 +168,7 @@
  </div>
     <div class="row margin-top">
         <div class="col-sm-12">
-            <input type="submit" value="Gravar" id="btnGravar" class="btn btn-success" /> |
+            <input type="submit" value="Gravar" id="btnGravar" class="btn btn-success"/> |
             @Html.RouteLink("Voltar", "PessoaContratos", new { codcli = ViewBag.CodCliente, banco = ViewBag.Banco })
         </div>
     </div>
@@ -179,49 +179,40 @@
     @Scripts.Render("~/bundles/jqueryval")
 
     <script>
-        jQuery(function() {
+        $().ready(function() {
             Calendario('DT_CADASTRO');
             Calendario('DT_ENCERRAMENTO');
-            
+
             $("#VL_ACAO").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
 
             $("#IN_TP_PROCESSO").on('change', function() {
-                //alert(this.value);
-                PreencherAutorReu(this.value);
+                if (this.value != '') {
+                    PreencherAutorReu(this.value);
+                }
             });
 
-            $("#btnGravar").click(function () {
+            $("#btnGravar").click(function() {
 
-                $("#mostra").show();
-                
-                if ($("#AN_PROCESSO").val() == "") {
-                    ExibirMsg('Selecione Nro. TJ');
+                if (ValidarCampo('Selecione Nrp. TJ', 'AN_PROCESSO', '') &&
+                    ValidarCampo('Selecione Nrp. CNJ', 'AN_CNJ', '') &&
+                    ValidarCampo('Selecione Tipo Processo', 'IN_TP_PROCESSO', 'Selecione') &&
+                    ValidarCampo('Selecione Tipo Ação', 'IN_TP_ACAO', 'Selecione') &&
+                    ValidarCampo('Preencher campo Data Cadastro, por favor ...', 'DT_CADASTRO', '') &&
+                    ValidarCampo('Selecione U.F.', 'AN_ESTADO', 'Selecione') &&
+                    ValidarCampo('Selecione Tribunal', 'AN_JUSTICA', 'Selecione')) {
+                    return true;
+                } else {
                     return false;
                 }
-                if ($("#AN_CNJ").val() == "") {
-                    ExibirMsg('Selecione Nrp. CNJ');
-                    return false;
-                }
-                if ($("#IN_TP_PROCESSO").val() == "Selecione") {
-                    ExibirMsg('Selecione Tipo Processo');
-                    return false;
-                }
-                if ($("#IN_TP_ACAO").val() == "Selecione") {
-                    ExibirMsg('Selecione Tipo Ação');
-                    return false;
-                }
-                if ($("#AN_ESTADO").val() == "Selecione") {
-                    ExibirMsg('Selecione U.F.');
-                    return false;
-                }
-                if ($("#AN_JUSTICA").val() == "Selecione") {
-                    ExibirMsg('Selecione Tribunal');
-                    return false;
-                }
-                return true;
+                //$("#mostra").show();
+                //if ($("#AN_PROCESSO").val() == "") {
+                //    ExibirMsg('Selecione Nro. TJ', 'AN_PROCESSO');
+                //    return false;
+                //}
             });
 
-        });
+        }
+        );
 
         function PreencherAutorReu(pTipo) {
             var _codcli = $("#v_codcli").val();
@@ -232,14 +223,14 @@
                 type: "POST",
                 url: "@(Url.Action("GetTipoProcesso", "Processo"))",
                 data: { "codcli": _codcli, "banco": _banco, "tipo": pTipo },
-            success: function (data) {
-                $("#autor").val(data.Autor);
-                $("#reu").val(data.Reu);
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                alert("Erro, Não foi possível preenche Autor ou Reu , tente novamente !!!");
-            }
-        });
+                success: function(data) {
+                    $("#autor").val(data.Autor);
+                    $("#reu").val(data.Reu);
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert("Erro, Não foi possível preenche Autor ou Reu , tente novamente !!!");
+                }
+            });
         }
     </script>
 }

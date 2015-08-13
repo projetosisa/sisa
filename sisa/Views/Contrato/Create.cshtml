@@ -129,21 +129,30 @@
 
             $("#btnGravar").click(function () {
 
-                $("#mostra").show();
+                //$("#mostra").show();
+                if (ValidarCampo('Cod. Contrato obrigatório...', 'CD_CONTRATO', '') &&
+                   ValidarCampo('Selecione Tipo Contrato', 'IN_TP_CONTRATO', 'Selecione') &&
+                   ValidarCampo('Selecione Informativo', 'AN_INFORMATIVO', 'Selecione') &&
+                   ValidarCampo('Selecione Faixa', 'IN_FAIXA', 'Selecione')) {
+                    return true;
+                } else {
+                    return false;
+                }
 
-                if ($("#IN_TP_CONTRATO").val() == "Selecione") {
-                    ExibirMsg('Selecione Tipo Contrato');
-                    return false;
-                }
-                if ($("#AN_INFORMATIVO").val() == "Selecione") {
-                    ExibirMsg('Selecione Informativo');
-                    return false;
-                }
-                if ($("#IN_FAIXA").val() == "Selecione") {
-                    ExibirMsg('Selecione  Faixa');
-                    return false;
-                }
-                return true;
+                //if ($("#IN_TP_CONTRATO").val() == "Selecione") {
+                //    ExibirMsg('Selecione Tipo Contrato');
+                //    return false;
+                //}
+                //if ($("#AN_INFORMATIVO").val() == "Selecione") {
+                //    ExibirMsg('Selecione Informativo');
+                //    return false;
+                //}
+                //if ($("#IN_FAIXA").val() == "Selecione") {
+                //    ExibirMsg('Selecione  Faixa');
+                //    return false;
+                //}
+                //return true;
+                
             });
 
            
