@@ -1,0 +1,245 @@
+﻿@model sisa.Models.TB_PROCESSO
+
+@{
+    ViewBag.Title = "Cadastrar Processo";
+    
+    //int CodCliente = ViewBag.CodCliente;
+    //int CodBanco = ViewBag.CodBanco;
+    //var DataAtual = DateTime.Now;
+    //int CodUsuario = int.Parse(Session["CodUsuario"].ToString());
+}
+
+<h2>Cadastrar Processo</h2>
+<hr/>
+
+<div class="row">
+    <div class="col-sm-1">
+        <label>Cod.Cliente</label>
+        <input type="text" id="v_codcli" name="v_codcli" class="form-control input-sm" value="@ViewBag.CodCliente" readonly="readonly" />
+    </div>
+    <div class="col-sm-1">
+        <label>Cod.Banco</label>
+        <input class="form-control input-sm" value="@(ViewBag.CodBanco??string.Empty)" readonly="readonly" />
+    </div>
+    <div class="col-sm-3">
+        <label>Nome do Banco</label>
+        <input type="text" id="v_banco" name="v_banco" class="form-control input-sm" value="@(ViewBag.Banco??string.Empty)" readonly="readonly"/>
+    </div>
+</div>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="row">
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        @Html.HiddenFor(model => model.CD_CLIENTE, new { Value = ViewBag.CodCliente })
+        @Html.HiddenFor(model => model.ID_BANCO, new { Value = ViewBag.CodBanco })
+        @Html.HiddenFor(model => model.DT_INCLUSAO, new { Value = DateTime.Now })
+        @Html.HiddenFor(model => model.CD_USUARIO_INC, new { Value = Session["CodUsuario"].ToString() })
+        
+        @*<div class="col-sm-2">
+            <label>Cod.Cliente</label>
+            @Html.DisplayFor(model => model.CD_CLIENTE, new { htmlAttributes = new { @class = "form-control input-sm", Value = CodCliente } })
+        </div>*@
+
+        <div class="col-sm-4">
+            <label>Nº TJ</label>
+            @Html.EditorFor(model => model.AN_PROCESSO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+            @Html.ValidationMessageFor(model => model.AN_PROCESSO, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-4">
+            <label>Nº CNJ</label>
+            @Html.EditorFor(model => model.AN_CNJ, new { htmlAttributes = new { @class = "form-control input-sm" } })
+            @Html.ValidationMessageFor(model => model.AN_CNJ, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-2">
+            <label>Tipo Processo</label>
+            @Html.DropDownListFor(model => model.IN_TP_PROCESSO, new SelectList(ViewBag.LstTipoProcesso, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.IN_TP_PROCESSO, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-4">
+            <label>Tipo Ação</label>
+            @Html.DropDownListFor(model => model.IN_TP_ACAO, new SelectList(ViewBag.LstTipoAcao, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.IN_TP_ACAO, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-2">
+            <label>Chance Perda</label>
+            @Html.DropDownListFor(model => model.IN_CHANCE_PERDA, new SelectList(ViewBag.LstChancePerda, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.IN_CHANCE_PERDA, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-2">
+            <label>Data Cadastro</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-dtcadastro"><i class="fa fa-calendar"></i></span>
+                @Html.EditorFor(model => model.DT_CADASTRO, new { htmlAttributes = new { @class = "form-control input-sm", @onkeyup = "formataData(this,event)", maxlength = 10 } })
+                @Html.ValidationMessageFor(model => model.DT_CADASTRO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="col-sm-2">
+            <label>Valor Ação</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-vlct">R$</span>
+                @Html.EditorFor(model => model.VL_ACAO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.VL_ACAO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label>Nro. Pasta</label>
+            @Html.EditorFor(model => model.NR_PASTA, new { htmlAttributes = new { @class = "form-control input-sm" } })
+            @Html.ValidationMessageFor(model => model.NR_PASTA, "", new { @class = "text-danger" })
+        </div>
+        
+        <div class="col-sm-2">
+            <label>Situação Processo</label>
+            @Html.DropDownListFor(model => model.AN_SITUACAO_PROCESSUAL, new SelectList(ViewBag.LstSituProcesso, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.AN_SITUACAO_PROCESSUAL, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-2">
+            <label>Data Encerramento</label>
+            @Html.EditorFor(model => model.DT_ENCERRAMENTO, new { htmlAttributes = new { @class = "form-control input-sm", @onkeyup = "formataData(this,event)", maxlength = 10 } })
+            @Html.ValidationMessageFor(model => model.DT_ENCERRAMENTO, "", new { @class = "text-danger" })
+        </div>
+        
+        <!-- Autor e Réu -->
+        <div class="col-sm-6">
+            <label>Autor</label>
+            <input type="text" id="autor" name="autor" class="form-control input-sm" readonly="readonly" />
+        </div>
+        <div class="col-sm-6">
+            <label>Réu</label>
+            <input type="text" id="reu" name="reu" class="form-control input-sm" readonly="readonly" />
+        </div>
+        <!-- Fim Autor e Réu -->
+
+        <div class="col-sm-2">
+            <label>U.F.</label>
+            @Html.DropDownListFor(model => model.AN_ESTADO, new SelectList(ViewBag.LstUF, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.AN_ESTADO, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-5">
+            <label>Comarca</label>
+            @Html.DropDownListFor(model => model.NM_COMARCA, new SelectList(ViewBag.LstComarca, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.NM_COMARCA, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-5">
+            <label>Vara</label>
+            @Html.EditorFor(model => model.CD_VARA, new { htmlAttributes = new { @class = "form-control input-sm" } })
+            @Html.ValidationMessageFor(model => model.CD_VARA, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-4">
+            <label>Advogado</label>
+            @Html.DropDownListFor(model => model.CD_ADVOGADO, new SelectList(ViewBag.LstAdvogados, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.CD_ADVOGADO, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-4">
+            <label>Tribunal</label>
+            @Html.DropDownListFor(model => model.AN_JUSTICA, new SelectList(ViewBag.LstTribunal, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.AN_JUSTICA, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-2">
+            <label>Contrato</label>
+            @Html.DropDownListFor(model => model.ID_CONTRATO, new SelectList(ViewBag.LstContratos, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.ID_CONTRATO, "", new { @class = "text-danger" })
+        </div>
+
+        @*
+        <div class="col-sm-2">
+            @Html.LabelFor(model => model.DT_ALTERACAO, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DT_ALTERACAO, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DT_ALTERACAO, "", new { @class = "text-danger" })
+        </div>
+    </div>
+        <div class="col-sm-2">
+        @Html.LabelFor(model => model.CD_USUARIO_ALT, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CD_USUARIO_ALT, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CD_USUARIO_ALT, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+ </div>
+    <div class="row margin-top">
+        <div class="col-sm-12">
+            <input type="submit" value="Gravar" id="btnGravar" class="btn btn-success" /> |
+            @Html.RouteLink("Voltar", "PessoaContratos", new { codcli = ViewBag.CodCliente, banco = ViewBag.Banco })
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        jQuery(function() {
+            Calendario('DT_CADASTRO');
+            Calendario('DT_ENCERRAMENTO');
+            
+            $("#VL_ACAO").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
+
+            $("#IN_TP_PROCESSO").on('change', function() {
+                //alert(this.value);
+                PreencherAutorReu(this.value);
+            });
+
+            $("#btnGravar").click(function () {
+
+                $("#mostra").show();
+                
+                if ($("#AN_PROCESSO").val() == "") {
+                    ExibirMsg('Selecione Nro. TJ');
+                    return false;
+                }
+                if ($("#AN_CNJ").val() == "") {
+                    ExibirMsg('Selecione Nrp. CNJ');
+                    return false;
+                }
+                if ($("#IN_TP_PROCESSO").val() == "Selecione") {
+                    ExibirMsg('Selecione Tipo Processo');
+                    return false;
+                }
+                if ($("#IN_TP_ACAO").val() == "Selecione") {
+                    ExibirMsg('Selecione Tipo Ação');
+                    return false;
+                }
+                if ($("#AN_ESTADO").val() == "Selecione") {
+                    ExibirMsg('Selecione U.F.');
+                    return false;
+                }
+                if ($("#AN_JUSTICA").val() == "Selecione") {
+                    ExibirMsg('Selecione Tribunal');
+                    return false;
+                }
+                return true;
+            });
+
+        });
+
+        function PreencherAutorReu(pTipo) {
+            var _codcli = $("#v_codcli").val();
+            var _banco = $("#v_banco").val();
+            $.ajax({
+                cache: false,
+                async: false,
+                type: "POST",
+                url: "@(Url.Action("GetTipoProcesso", "Processo"))",
+                data: { "codcli": _codcli, "banco": _banco, "tipo": pTipo },
+            success: function (data) {
+                $("#autor").val(data.Autor);
+                $("#reu").val(data.Reu);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Erro, Não foi possível preenche Autor ou Reu , tente novamente !!!");
+            }
+        });
+        }
+    </script>
+}

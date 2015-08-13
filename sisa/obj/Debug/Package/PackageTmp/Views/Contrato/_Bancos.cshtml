@@ -1,0 +1,35 @@
+﻿@model System.Data.DataTable
+@{
+    Layout = null;
+}
+
+@if (Model != null)
+{
+
+    <p>
+        <table class="table table-bordered table-striped">
+            @foreach (System.Data.DataRow itm in Model.Rows)
+            {
+                <tr><td data-dismiss="modal"><a href='@Url.Action("ListaContratos", "Pessoa", new { codcli = itm["CD_CLIENTE"], banco = itm["DS_BANCO"] })' onclick="naoconsultar"><i class="glyphicon glyphicon-briefcase"></i>&nbsp;@itm["DS_BANCO"]</a></td></tr>
+            }
+        </table>
+        @*<center>
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="fechar()">Fechar</button>
+        </center>*@
+    </p>
+}
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryui")
+
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        
+    });
+    
+</script>
+}
+
+

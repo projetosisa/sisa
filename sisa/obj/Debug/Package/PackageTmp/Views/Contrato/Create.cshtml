@@ -1,0 +1,153 @@
+﻿@model sisa.Models.TB_CONTRATO
+
+@{
+    ViewBag.Title = "Cadastrar Contrato";
+}
+
+<h3>Cadastrar Contrato</h3>
+<hr />
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="row">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-sm-12">
+            <div class="col-sm-1">
+                <label>Cod.Cliente</label>
+                <input type="text" class="form-control input-sm" id="CD_CLIENTE" name="CD_CLIENTE" value="@ViewBag.CodCliente" readonly="readonly"/>
+            </div>
+
+            <div class="col-sm-1">
+                <label>Cod.Banco</label>
+                @Html.EditorFor(model => model.ID_BANCO, new { htmlAttributes = new { @class = "form-control input-sm", @Value = ViewBag.CodBanco, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.ID_BANCO, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-3">
+                <label>Nome do Banco</label>
+                <input type="text" class="form-control input-sm" value="@ViewBag.Banco" readonly="readonly" />
+            </div>
+            <div class="col-sm-2">
+                <label>Cod.Contrato</label>
+                @Html.EditorFor(model => model.CD_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.CD_CONTRATO, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-2">
+                <label>Data Contrato</label>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                    @Html.EditorFor(model => model.DT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm", @onkeyup = "formataData(this,event)" } })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <label>Tipo Contrato</label>
+                @Html.DropDownListFor(model => model.IN_TP_CONTRATO, new SelectList(ViewBag.ListaTipoContrato, "Key", "Value", "Selecione"), new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.IN_TP_CONTRATO, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Informativo</label>
+                @Html.DropDownListFor(model => model.AN_INFORMATIVO, new SelectList(ViewBag.ListaInformativo, "Key", "Value", "Selecione"), new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.AN_INFORMATIVO, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Valor Total Contrato</label>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-vlct">R$</span>
+                    @Html.EditorFor(model => model.VL_TOT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm"} })
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <label>Data Primeiro Venc.</label>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-dtprimvenc"><i class="fa fa-calendar"></i></span>
+                    @Html.EditorFor(model => model.DT_PRIM_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm", @onkeyup = "formataData(this,event)" } })
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <label>Data Ultimo Venc.</label>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-dtultvenc"><i class="fa fa-calendar"></i></span>
+                    @Html.EditorFor(model => model.DT_ULT_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm", @onkeyup = "formataData(this,event)" } })
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <label>Qtd. Parcelas Pagas</label>
+                @Html.EditorFor(model => model.NR_PARCELAS_PAGAS, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                @Html.ValidationMessageFor(model => model.NR_PARCELAS_PAGAS, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Valor Devido</label>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-saldodev">R$</span>
+                    @Html.EditorFor(model => model.VL_SALDO_DEVEDOR, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <label>Faixa</label>
+                @Html.DropDownListFor(model => model.IN_FAIXA, new SelectList(ViewBag.ListaFaixa, "Key", "Value", "Selecione"), new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.IN_FAIXA, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-2">
+                <label>Excluido</label>
+                @Html.DropDownListFor(model => model.FL_EXCLUIDO, new SelectList(ViewBag.ListaExcluido, "Key", "Value", "Selecione"), new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.FL_EXCLUIDO, "", new { @class = "text-danger" })
+            </div>
+            
+        </div>
+    </div>
+    <div class="row">
+         <div class="col-sm-12">
+            <div class="col-sm-12 margin-top">
+                <input type="submit" value="Gravar" id="btnGravar" class="btn btn-success" /> |
+                @Html.RouteLink("Voltar", "PessoaContratos", new {codcli = ViewBag.CodCliente, banco = ViewBag.Banco})
+            </div>
+         </div>
+    </div>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        jQuery(function() {
+
+            Calendario('DT_CONTRATO');
+            Calendario('DT_PRIM_VENCTO');
+            Calendario('DT_ULT_VENCTO');
+            
+            $("#VL_TOT_CONTRATO").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
+            $("#VL_SALDO_DEVEDOR").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
+
+            $("#btnGravar").click(function () {
+
+                $("#mostra").show();
+
+                if ($("#IN_TP_CONTRATO").val() == "Selecione") {
+                    ExibirMsg('Selecione Tipo Contrato');
+                    return false;
+                }
+                if ($("#AN_INFORMATIVO").val() == "Selecione") {
+                    ExibirMsg('Selecione Informativo');
+                    return false;
+                }
+                if ($("#IN_FAIXA").val() == "Selecione") {
+                    ExibirMsg('Selecione  Faixa');
+                    return false;
+                }
+                return true;
+            });
+
+           
+        });
+        
+    </script>
+}

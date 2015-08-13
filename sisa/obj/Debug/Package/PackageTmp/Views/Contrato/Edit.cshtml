@@ -1,0 +1,223 @@
+﻿@model sisa.Models.TB_CONTRATO
+
+@{
+    ViewBag.Title = "Editar Contrato";
+}
+
+<h3>Editar Contrato</h3>
+<hr />
+
+<div class="row">
+        <div class="col-sm-1">
+            <label>Cod.Cliente</label>
+            <input type="text" class="form-control input-sm" value="@ViewBag.CodCliente" readonly="readonly" />
+        </div>
+        <div class="col-sm-1">
+            <label>Cod.Banco</label>
+            <input class="form-control input-sm" value="@(ViewBag.CodBanco??string.Empty)" readonly="readonly" />
+        </div>
+        <div class="col-sm-3">
+            <label>Nome do Banco</label>
+            <input type="text" class="form-control input-sm" value="@(ViewBag.Banco??string.Empty)" readonly="readonly" />
+        </div>
+</div>
+
+    @using (Html.BeginForm("Edit", "Contrato", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "Erro", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.ID_CONTRATO)
+        @Html.HiddenFor(model => model.CD_CLIENTE)
+        @Html.HiddenFor(model => model.ID_BANCO)
+        
+    <div class="row">
+
+        <div class="col-sm-2">
+            <label>Cod.Contrato</label>
+            @Html.EditorFor(model => model.CD_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+        </div>
+        <div class="col-sm-2">
+            <label>Data Contrato</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                @Html.EditorFor(model => model.DT_CONTRATO, new { Value = String.Format("{0:d}", Model.DT_CONTRATO.Value), htmlAttributes = new { @class = "form-control input-sm", onkeyup = "formataData(this,event)", maxlength = 10 } })
+                @*@Html.EditorFor(model => model.DT_CONTRATO, new { Value = String.Format("{0:dd/MM/yyyy}", Model.DT_CONTRATO.HasValue ? Model.DT_CONTRATO.Value.ToShortDateString() : string.Empty), htmlAttributes = new { @class = "form-control input-sm", onkeyup = "formataData(this,event)", maxlength = 10 } })*@
+                @*@Html.EditorFor(model => model.DT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm", @Value = String.Format("{0:d}", Model.DT_CONTRATO.HasValue ? Model.DT_CONTRATO.Value.ToShortDateString() : string.Empty), @onkeyup = "formataData(this,event)", maxlength = 10 } })*@
+            </div>
+            @*@Html.ValidationMessageFor(model => model.DT_CONTRATO, "Data Inválida", new { @class = "text-danger" })*@
+        </div>
+
+        <div class="col-sm-4">
+            <label>Tipo Contrato</label>
+            @Html.DropDownListFor(model => model.IN_TP_CONTRATO, new SelectList(ViewBag.ListaTipoContrato, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.IN_TP_CONTRATO, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-2">
+            <label>Informativo</label>
+            @Html.DropDownListFor(model => model.AN_INFORMATIVO, new SelectList(ViewBag.ListaInformativo, "Key", "Value"), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.AN_INFORMATIVO, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-2">
+            <label>Valor Total Contrato</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-vlct">R$</span>
+                @Html.EditorFor(model => model.VL_TOT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm" } })
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <label>Data Primeiro Venc.</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-dtprimvenc"><i class="fa fa-calendar"></i></span>
+                @Html.EditorFor(model => model.DT_PRIM_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm", @Value = String.Format("{0:d}", Model.DT_PRIM_VENCTO.HasValue ? Model.DT_PRIM_VENCTO.Value.ToShortDateString() : string.Empty), @onkeyup = "formataData(this,event)", maxlength = 10 } })
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <label>Data Ultimo Venc.</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-dtultvenc"><i class="fa fa-calendar"></i></span>
+                @Html.EditorFor(model => model.DT_ULT_VENCTO, new { htmlAttributes = new { @class = "form-control input-sm", @Value = String.Format("{0:d}", Model.DT_ULT_VENCTO.HasValue ? Model.DT_ULT_VENCTO.Value.ToShortDateString() : string.Empty), @onkeyup = "formataData(this,event)", maxlength = 10 } })
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <label>Qtd. Parcelas Pagas</label>
+            @Html.EditorFor(model => model.NR_PARCELAS_PAGAS, new { htmlAttributes = new { @class = "form-control input-sm" } })
+            @Html.ValidationMessageFor(model => model.NR_PARCELAS_PAGAS, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-2">
+            <label>Valor Devido</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-saldodev">R$</span>
+                @Html.EditorFor(model => model.VL_SALDO_DEVEDOR, new { htmlAttributes = new { @class = "form-control input-sm" } })
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <label>Faixa</label>
+            @Html.DropDownListFor(model => model.IN_FAIXA, new SelectList(ViewBag.ListaFaixa, "Key", "Value", Model.IN_FAIXA), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.IN_FAIXA, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-2">
+            <label>Excluido</label>
+            @Html.DropDownListFor(model => model.FL_EXCLUIDO, new SelectList(ViewBag.ListaExcluido, "Key", "Value", Model.FL_EXCLUIDO), new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(model => model.FL_EXCLUIDO, "", new { @class = "text-danger" })
+        </div>
+    </div>
+        <div class="row">
+            
+                <div class="col-sm-12 margin-top">
+                    <input type="submit" value="Gravar" id="btnGravar" class="btn btn-success" /> |
+                    <a href="#" id="btn_excluir" data-bb="btn_excluir" class="btn btn-danger"><i class="fa fa-trash-o"></i>&nbsp;Excluir</a> |
+                    @Html.RouteLink("Voltar", "PessoaContratos", new { codcli = ViewBag.CodCliente, banco = ViewBag.Banco })
+                </div>
+        </div>
+ }
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script>
+    jQuery(function() {
+
+        Calendario('DT_CONTRATO');
+        Calendario('DT_PRIM_VENCTO');
+        Calendario('DT_ULT_VENCTO');
+
+        $('#DT_CONTRATO').mask("99/99/9999");
+        $('#DT_PRIM_VENCTO').mask("99/99/9999");
+        $('#DT_ULT_VENCTO').mask("99/99/9999");
+
+        $("#VL_TOT_CONTRATO").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
+        $("#VL_SALDO_DEVEDOR").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
+
+        $("#btnGravar").click(function() {
+
+            $("#mostra").show();
+
+            if ($("#IN_TP_CONTRATO").val() == "Selecione") {
+                ExibirMsg('Selecione Tipo Contrato');
+                return false;
+            }
+            if ($("#AN_INFORMATIVO").val() == "Selecione") {
+                ExibirMsg('Selecione Informativo');
+                return false;
+            }
+            if ($("#IN_FAIXA").val() == "Selecione") {
+                ExibirMsg('Selecione  Faixa');
+                return false;
+            }
+            return true;
+        });
+
+        $("#btn_excluir").click(function(){
+
+            bootbox.dialog({
+                message: "Deseja realmente excluir este contrato ?",
+                title: "Exclusão",
+                buttons: {
+                    success: {
+                        label: "Sim",
+                        className: "btn-success",
+                        callback: function () {
+
+                            $.ajax({
+                                cache: false,
+                                async: false,
+                                type: "POST",
+                                url: "@(Url.Action("Excluir", "Contrato"))",
+                                data: { "id": @Model.ID_CONTRATO },
+                                success: function (data) {
+
+                                    var url = "@Url.RouteUrl("PessoaContratos", new { codcli = @Model.CD_CLIENTE, banco = ViewBag.Banco })";
+                                    window.location.href = url;
+
+                                    },
+                                    error: function (xhr, ajaxOptions, thrownError) {
+                                        alert("Erro, Não foi possível executar operação, tente novamente !!!");
+                                    }
+                                });
+
+                                }
+                            },
+                            danger: {
+                                label: "Não excluir",
+                                className: "btn-danger",
+                                callback: function () {
+                                    return true;
+                                }
+                            },
+                        }
+            });
+       });
+    });
+
+            function validarData(data){
+                var formatoValido = '/^d{2}/d{2}/d{4}$/'; 
+                var valido = false;
+                if(!formatoValido.test(data.value))
+                    alert("A data está no formato errado. Por favor corrija.");
+                else{
+                    var dia = data.value.split("/")[0];
+                    var mes = data.value.split("/")[1];
+                    var ano = data.value.split("/")[2];
+                    var MyData = new Date(ano, mes - 1, dia);
+                    if((MyData.getMonth() + 1 != mes)||
+                       (MyData.getDate() != dia)||
+                       (MyData.getFullYear() != ano))
+                        alert("Valores inválidos para o dia, mês ou ano. Por favor corrija.");
+                    else
+                        valido = true;
+                }
+                if(valido == false){
+                    data.focus();
+                    data.select();
+                }
+                return valido;
+            }
+        </script>
+    }

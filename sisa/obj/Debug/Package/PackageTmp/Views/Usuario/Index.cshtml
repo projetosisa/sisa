@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/geral")
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+        <div class="container">
+            
+            @*<img src="~/Content/img/logo.png" style="width: 350px; height: 200px; left: 20%; margin-left: 300px;" />*@
+            
+            @{Html.RenderPartial("_MsgErro");}
+            @using (Html.BeginForm("Login", "Usuario",FormMethod.Post))
+            {
+                <div class="divcentro">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="well well-lg">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1><i class="fa fa-calendar-check-o"></i>SISA Web</h1>
+                                        <img src="~/Content/img/login.png" style="margin-bottom: 10px; width: 150px; height: 150px; margin-left: 30px;"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @*<label>Operador</label>*@
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-usu"><i class="fa fa-user"></i></span>
+                                            <input type="text" id="usuario" name="usuario" class="form-control" placeholder="digite usuário aqui" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @*<label>Operador</label>*@
+                                        <div class="input-group margin-top">
+                                            <span class="input-group-addon" id="basic-senha"><i class="fa fa-key"></i></span>
+                                            <input type="password" id="senha" name="senha" class="form-control" placeholder="digite senha aqui" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="input-group-btn">
+                                            <button id="btn_enviar" type="submit" class="btn btn-success margin-top" >
+                                                <span class="fa fa-key" aria-hidden="true"></span>&nbsp;Entrar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <footer>
+                            <div class="row">
+                                <div class="col-sm-12" style="font-size: 10px; color:silver;">
+                                    <div class="col-sm-6">&copy; @DateTime.Now.Year - SISA Web</div>
+                                    
+                                    <div class="col-sm-6 right">Versão: 31072015-1400</div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+   
+            }
+            
+        </div>
+        
+    </body>
+</html>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryui")
+
+<script>
+    
+</script>
+

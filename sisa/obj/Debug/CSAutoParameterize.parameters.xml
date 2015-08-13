@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SisaModel-Web.config Connection String" description="SisaModel Connection String used in web.config by the application to access the database." defaultValue="data source=NBANDRE\SQLEXPRESS;initial catalog=SISABANCO;user id=sa;password=1234;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Projetos\\sisa\\sisa\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SisaModel']/@connectionString" />
+  </parameter>
+  <parameter name="SisaEntities-Web.config Connection String" description="SisaEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.SisaModel.csdl|res://*/Models.SisaModel.ssdl|res://*/Models.SisaModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=NBANDRE\SQLEXPRESS;initial catalog=SISABANCO;user id=sa;password=1234;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Projetos\\sisa\\sisa\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SisaEntities']/@connectionString" />
+  </parameter>
+</parameters>

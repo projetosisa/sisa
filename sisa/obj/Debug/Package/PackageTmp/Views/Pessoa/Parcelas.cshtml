@@ -1,0 +1,75 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Parcelas";
+    int codcli = ViewBag.CodCliente != null ? ViewBag.CodCliente : 0;
+    string contrato = ViewBag.Contrato != null ? ViewBag.Contrato : null;
+    var ExibirCliente = new sisa.DAO.Pessoa().Lista(codcli);
+    var dados = new sisa.DAO.Pessoa().Dados(codcli);
+}
+
+@if (ExibirCliente.Count() > 0)
+{
+    <div class="row">
+        <div class="col-lg-11">
+            <h2>Parcelas</h2>
+        </div>
+    </div>
+
+    @Html.Partial("~/Views/Pessoa/_Cliente.cshtml", ExibirCliente)
+    @*<div class="well well-sm">
+        <div class="row">
+            <div class="col-md-1 text-center">
+                    <a href="@Url.Action("Index", "Pessoa", new {codcli=codcli,banco=ViewBag.Banco,contrato=contrato })" class="btn btn-default"><i class="glyphicon glyphicon-repeat"></i>&nbsp;Voltar</a>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" type="button">
+                    <i class="glyphicon glyphicon-folder-open">&nbsp;</i>Contrato&nbsp;<span class="badge">@contrato</span>
+                </button>
+            </div>
+        </div>
+    </div>*@
+}
+
+@if (Model != null)
+{
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Parcelas</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Parcelas</th>
+                    <th>Dias Atraso</th>
+                    <th>Dt.Vencimento</th>
+                    <th>Valor Titulo</th>
+                    <th>Boleto</th>
+                    <th>Dt.Pagamento</th>
+                    <th>Honorários</th>
+                    <th>Juros</th>
+                    <th>Valor Total</th>
+                </tr>
+                @foreach (System.Data.DataRow itm in Model.Rows)
+                {
+                    <tr>
+                        <td>@itm["NR_PARCELA"]</td>
+                        <td>@itm["NR_DIAS_ATRASO"]</td>
+                        <td>@itm["DT_VCTO"]</td>
+                        <td>@String.Format("{0:C}",itm["VL_TITULO"])</td>
+                        <td>@itm["CD_BOLETO"]</td>
+                        <td>@itm["DT_PAGTO"]</td>
+                        <td>@String.Format("{0:C}", itm["VL_HONORARIOS"])</td>
+                        <td>@String.Format("{0:C}",itm["VL_JUROS"])</td>
+                        <td>@String.Format("{0:C}",itm["VL_TOTAL"])</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryui")
+
