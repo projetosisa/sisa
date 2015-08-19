@@ -139,8 +139,8 @@ namespace sisa.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
-                {
+                //if (ModelState.IsValid)
+                //{
                     CarregaListas();
                     ViewBag.CodCliente = tbl.CD_CLIENTE;
                     ViewBag.Banco = new Contrato().RetornaNomeBanco(tbl.ID_BANCO);
@@ -154,7 +154,7 @@ namespace sisa.Controllers
                     new Historico().Alteracao(tbl.CD_CLIENTE, tbl.ID_BANCO, "Contrato " + tbl.CD_CONTRATO + " alterado pelo usuário " + Session["CodUsuario"] + " em " + DateTime.Now, DateTime.Now, Session["NmUsuario"].ToString());
                     
                     return RedirectToRoute("PessoaContratos", new { codcli = tbl.CD_CLIENTE, banco = dsBanco });
-                }
+                //}
             }
             catch(Exception ex)
             {

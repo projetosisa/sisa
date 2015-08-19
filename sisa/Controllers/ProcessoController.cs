@@ -103,7 +103,7 @@ namespace sisa.Controllers
                     db.SaveChanges();
                     TempData["Msg"] = "Gravado com sucesso.";
                     string dsBanco = new Contrato().RetornaNomeBanco(tbl.ID_BANCO);
-                    return RedirectToRoute("PessoaContratos", new { codcli = tbl.CD_CLIENTE, banco = dsBanco });
+                    return RedirectToRoute("PessoaProcesso", new { codcli = tbl.CD_CLIENTE, banco = dsBanco });
                 //}
             }
             catch (Exception ex)

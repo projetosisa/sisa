@@ -41,7 +41,7 @@
             <label>Data Contrato</label>
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                @Html.EditorFor(model => model.DT_CONTRATO, new { Value = String.Format("{0:d}", Model.DT_CONTRATO.Value), htmlAttributes = new { @class = "form-control input-sm", maxlength = 10 } })
+                @Html.EditorFor(model => model.DT_CONTRATO, new { Value = String.Format("{0:d}", Model.DT_CONTRATO), htmlAttributes = new { @class = "form-control input-sm", maxlength = 10 } })
                 @*@Html.EditorFor(model => model.DT_CONTRATO, new { Value = String.Format("{0:dd/MM/yyyy}", Model.DT_CONTRATO.HasValue ? Model.DT_CONTRATO.Value.ToShortDateString() : string.Empty), htmlAttributes = new { @class = "form-control input-sm", onkeyup = "formataData(this,event)", maxlength = 10 } })*@
                 @*@Html.EditorFor(model => model.DT_CONTRATO, new { htmlAttributes = new { @class = "form-control input-sm", @Value = String.Format("{0:d}", Model.DT_CONTRATO.HasValue ? Model.DT_CONTRATO.Value.ToShortDateString() : string.Empty), @onkeyup = "formataData(this,event)", maxlength = 10 } })*@
             </div>
@@ -72,14 +72,14 @@
             <label>Data Primeiro Venc.</label>
             <div class="input-group">
                 <span class="input-group-addon" id="basic-dtprimvenc"><i class="fa fa-calendar"></i></span>
-                @Html.EditorFor(model => model.DT_PRIM_VENCTO, new { Value = String.Format("{0:d}", Model.DT_PRIM_VENCTO.Value), htmlAttributes = new { @class = "form-control input-sm", maxlength = 10 } })
+                @Html.EditorFor(model => model.DT_PRIM_VENCTO, new { Value = String.Format("{0:d}", Model.DT_PRIM_VENCTO), htmlAttributes = new { @class = "form-control input-sm", maxlength = 10 } })
             </div>
         </div>
         <div class="col-sm-2">
             <label>Data Ultimo Venc.</label>
             <div class="input-group">
                 <span class="input-group-addon" id="basic-dtultvenc"><i class="fa fa-calendar"></i></span>
-                @Html.EditorFor(model => model.DT_ULT_VENCTO, new { Value = String.Format("{0:d}", Model.DT_ULT_VENCTO.Value), htmlAttributes = new { @class = "form-control input-sm", maxlength = 10 } })
+                @Html.EditorFor(model => model.DT_ULT_VENCTO, new { Value = String.Format("{0:d}", Model.DT_ULT_VENCTO), htmlAttributes = new { @class = "form-control input-sm", maxlength = 10 } })
             </div>
         </div>
 

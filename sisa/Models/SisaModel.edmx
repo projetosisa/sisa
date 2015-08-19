@@ -2634,7 +2634,7 @@ warning 6002: The table/view 'SISABANCO.dbo.VW_TITULOS' does not have a primary 
           <Property Name="VL_TOT_CONTRATO" Type="Decimal" Precision="15" Scale="2" />
           <Property Name="NR_PARCELAS" Type="Int32" />
           <Property Name="VL_PARCELA" Type="Decimal" Precision="15" Scale="2" />
-          <Property Name="DT_PRIM_VENCTO" Type="DateTime" Precision="0" />
+          <Property Name="DT_PRIM_VENCTO" Type="DateTime" Precision="0" Nullable="true" />
           <Property Name="DT_ULT_VENCTO" Type="DateTime" Precision="0" />
           <Property Name="VL_SALDO_DEVEDOR" Type="Decimal" Precision="15" Scale="2" />
           <Property Name="VL_ACAO" Type="Decimal" Precision="15" Scale="2" />
