@@ -188,12 +188,13 @@
     @Scripts.Render("~/bundles/jqueryval")
 
     <script>
+        Calendario('DT_CADASTRO');
+        Calendario('DT_ENCERRAMENTO');
+
         jQuery(function () {
-            
-            VerificarData('DT_CADASTRO');
-            VerificarData('DT_ENCERRAMENTO');
-            Calendario('DT_CADASTRO');
-            Calendario('DT_ENCERRAMENTO');
+
+            DataObrigatoria('DT_CADASTRO', 'btnGravar');
+            DataObrigatoria('DT_ENCERRAMENTO', 'btnGravar');
 
             $("#AN_CNJ").mask("9999999-99.9999.9.99.9999");
 

@@ -65,6 +65,7 @@ function fIsDate(data) {
 }
 
 function VerificarData(campo) {
+    var v_flag = false;
     var cmp = $('#' + campo);
     cmp.css('border-color', 'silver');
     cmp.mask("99/99/9999", {
@@ -73,13 +74,69 @@ function VerificarData(campo) {
                 alert('Data Inválida');
                 cmp.focus();
                 cmp.css('border-color', 'red');
-                return false;
+                v_flag = false;
             } else {
+                v_flag = true;
                 cmp.css('border-color', 'silver');
             }
         }
     });
+    return v_flag;
 }
+
+function DataObrigatoria(campo, botao) {
+    var cmp = $('#' + campo);
+    var btn = $('#' + botao);
+    cmp.mask('99/99/9999');
+    cmp.focusout(function() {
+        if (fIsDate(cmp.val()) == false) {
+            //alert('Data Inválida');
+            ExibirMsg('Data Inválida, por favor preencher corretamente.',campo);
+            btn.attr('disabled', 'true');
+            cmp.focus();
+            cmp.css('border-color', 'red');
+            return false;
+        } else {
+            cmp.css('border-color', 'silver');
+            btn.removeAttr('disabled');
+            return true;
+        }
+    });
+}
+
+function VerificarDataDesHabBotao(campo, nmbotao) {
+    var v_flag = false;
+    var cmp = $('#' + campo);
+    var btn = $('#' + nmbotao);
+    cmp.css('border-color', 'silver');
+    cmp.mask("99/99/9999", {
+        completed: function () {
+            if (fIsDate(this.val()) == false) {
+                alert('Data Inválida');
+                btn.attr('disabled', 'true');
+                cmp.focus();
+                cmp.css('border-color', 'red');
+                v_flag = false;
+            } else {
+                alert('Data confirmada');
+                v_flag = true;
+                cmp.css('border-color', 'silver');
+                btn.removeAttr('disabled');
+            }
+        }
+    });
+
+    btn.mouseout(function() {
+        alert('saiu');
+    });
+    
+    if (v_flag) {
+        btn.removeAttr('disabled');
+    }
+
+    return v_flag;
+}
+
 
 
 function validar(campo, msg) {

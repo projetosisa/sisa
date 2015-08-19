@@ -25,7 +25,8 @@ namespace sisa.DAO
 
         public Dictionary<string, string> ListaAcao()
         {
-            return new Dados().RetornaSelectList("SELECT AN_TIPO_ACAO FROM TB_TIPO_ACAO");    
+            return new Dados().RetornaSelectList("SELECT AN_TIPO_ACAO FROM TB_TIPO_ACAO UNION SELECT IN_TP_ACAO FROM TB_PROCESSO");
+            //return new Dados().RetornaSelectList("SELECT AN_TIPO_ACAO FROM TB_TIPO_ACAO");    
         }
 
         public Dictionary<string, string> ListaChancePerda()
