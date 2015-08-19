@@ -126,17 +126,17 @@
            
             jQuery(function() {
             
-                VerificarData('DT_CONTRATO');
-                VerificarData('DT_PRIM_VENCTO');
-                VerificarData('DT_ULT_VENCTO');
+                //VerificarData('DT_CONTRATO');
+                //VerificarData('DT_PRIM_VENCTO');
+                //VerificarData('DT_ULT_VENCTO');
 
                 Calendario('DT_CONTRATO');
                 Calendario('DT_PRIM_VENCTO');
                 Calendario('DT_ULT_VENCTO');
-
-                //$('#DT_CONTRATO').mask("99/99/9999");
-                //$('#DT_PRIM_VENCTO').mask("99/99/9999");
-                //$('#DT_ULT_VENCTO').mask("99/99/9999");
+                
+                DataObrigatoria('DT_CONTRATO', 'btnGravar');
+                DataObrigatoria('DT_PRIM_VENCTO', 'btnGravar');
+                DataObrigatoria('DT_ULT_VENCTO', 'btnGravar');
 
                 $("#VL_TOT_CONTRATO").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
                 $("#VL_SALDO_DEVEDOR").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });

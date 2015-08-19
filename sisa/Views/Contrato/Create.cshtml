@@ -123,6 +123,10 @@
             Calendario('DT_CONTRATO');
             Calendario('DT_PRIM_VENCTO');
             Calendario('DT_ULT_VENCTO');
+
+            DataObrigatoria('DT_CONTRATO', 'btnGravar');
+            DataObrigatoria('DT_PRIM_VENCTO', 'btnGravar');
+            DataObrigatoria('DT_ULT_VENCTO', 'btnGravar');
             
             $("#VL_TOT_CONTRATO").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
             $("#VL_SALDO_DEVEDOR").maskMoney({ prefix: '', allowNegative: true, thousands: '', decimal: ',', affixesStay: false });
